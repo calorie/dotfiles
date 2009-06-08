@@ -1,0 +1,72 @@
+---------------------------------------------
+入れてるプラグインのリスト
+---------------------------------------------
+
+
+---------------------------------------------
+編集系
+---------------------------------------------
+Align : 高機能整形・桁揃えプラグイン
+  http://vim.sourceforge.net/scripts/script.php?script_id=294
+  http://vimwiki.net/?scripts%2F4
+
+surround.vim : テキストを括弧で囲む／削除する
+  http://www.vim.org/scripts/script.php?script_id=1697
+  http://vimwiki.net/?scripts%2F16
+
+SQLUtilities : SQL整形、生成ユーティリティ
+  http://www.vim.org/scripts/script.php?script_id=492
+  http://vimwiki.net/?scripts%2F20
+
+NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
+  http://www.vim.org/scripts/script.php?script_id=1218
+
+YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
+  http://www.vim.org/scripts/script.php?script_id=1234
+  http://nanasi.jp/articles/vim/yankring_vim.html
+
+quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
+  http://www.vim.org/scripts/script.php?script_id=2419
+  http://vim-users.jp/2009/05/hack7/
+  http://d.hatena.ne.jp/pcmaster/20090510/p2
+
+
+autocomplpop.vim : insertmodeで自動で補完をpopup
+http://sites.google.com/site/fudist/Home/vim-nihongo-ban
+  http://www.vim.org/scripts/script.php?script_id=1879
+  http://vim.g.hatena.ne.jp/keyword/autocomplpop.vim
+
+
+cecutil.vim : 他のpluginのためのutillity1
+  http://www.vim.org/scripts/script.php?script_id=1066
+
+---------------------------------------------
+バッファ管理系
+---------------------------------------------
+bufexplorer.vim : <Leader>beでバッファのリストを表示
+  http://www.vim.org/scripts/script.php?script_id=42
+
+minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
+  http://www.vim.org/script.php?script_id=159
+  http://nanasi.jp/articles/vim/minibufexpl_vim.html
+
+fuzzyfinder.vim : 超あいまいバッファ検索
+  http://www.vim.org/scripts/script.php?script_id=1984
+  http://d.hatena.ne.jp/ns9tks/20080104/1199432216
+
+---------------------------------------------
+ファイル系
+---------------------------------------------
+NERDTree : ツリー型エクスプローラ
+  http://www.vim.org/scripts/script.php?script_id=1658
+  http://vimwiki.net/?scripts%2F18
+  http://wagnad.blog9.fc2.com/blog-entry-504.html
+
+
+project.vim : IDE風のファイル管理
+  http://d.hatena.ne.jp/hidde/20080930/1222776171
+  http://hoshinanonikki.net/20070820.html
+
+vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
+  http://www.vim.org/scripts/script.php?script_id=184
+  http://d.hatena.ne.jp/obys/20061119/1163939621

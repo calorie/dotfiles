@@ -1,5 +1,5 @@
 Clone from github
-git clone git@github.com:suztomo/dotfiles.git
+git clone git@github.com:yuroyoro/dotfiles.git
 
 ln -s dotfiles/.zshrc ~/.zshrc
 
@@ -8,6 +8,4 @@ ln -s dotfiles/.zshrc ~/.zshrc
 .vim/
 .screenrc
 .zshrc
-
-machinesは今のところ放置...
 

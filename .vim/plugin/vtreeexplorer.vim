@@ -1,7 +1,7 @@
 "" File:        vtreeexplorer.vim
 "" Description: tree-like file system explorer for vim
-"" Version:     $Revision: 1.23 $ $Date: 2005/10/31 05:14:31 $
-"" Author:      TS Urban (thomas.scott.urban@HORMELgmail.net)
+"" Version:     $Revision: 1.24 $ $Date: 2005/11/17 16:24:33 $
+"" Author:      TS Urban (thomas.scott.urban@HORMELgmail.com)
 ""              (remove the source of SPAM from my email first)
 ""
 "" Instructions:
@@ -13,14 +13,16 @@
 ""         :helptags ~/.vim/doc
 ""
 "" Global Configuration Variables:
-""  treeExplVertical : split vertically when starting with VSTreeExplore
-""  treeExplWinSize  : window size (width or height) when doing VSTreeExplore
-""  treeExplHidden   : set to have explorer start with hidden files shown
-""  treeExplDirSort  : start explorer with desired directory sorting:
+""  treeExplVertical    : split vertically when starting with VSTreeExplore
+""  treeExplWinSize     : window size (width or height) when doing VSTreeExplore
+""  treeExplHidden      : set to have explorer start with hidden files shown
+""  treeExplHidePattern : set have matching files not shown
+""  treeExplDirSort     : start explorer with desired directory sorting:
 ""    0 : no directory sorting
 ""    1 : directories sorting first
 ""   -1 : directories sorting last
-""  treeExplIndent   : width of tree indentation in spaces (min 3, max 8)
+""  treeExplIndent      : width of tree indentation in spaces (min 3, max 8)
+""  treeExplNoList      : don't list the explorer in the buffer list
 ""
 "" Todo:
 ""   - global option for path separator
@@ -38,8 +40,8 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 "" create commands
-command! -n=? -complete=dir VTreeExplore :call s:TreeExplorer(0, '<a>')
-command! -n=? -complete=dir VSTreeExplore :call s:TreeExplorer(1, '<a>')
+command! -n=? -complete=dir VTreeExplore :call s:TreeExplorer(0, '<args>')
+command! -n=? -complete=dir VSTreeExplore :call s:TreeExplorer(1, '<args>')
 
 "" support sessions
 autocmd BufNewFile TreeExplorer VTreeExplore
@@ -55,25 +57,13 @@ function! s:MyRepeat(chr, cnt) " <<<
 	return sret
 endf " >>>
 
-"" TreeExplorer() - set up explorer window
-function! s:TreeExplorer(split, start) " <<<
-
-	" dir to start in from arg, buff dir, or pwd
-	let fname = (a:start != "") ? a:start : expand ("%:p:h")
-	let fname = (fname != "") ? fname : getcwd ()
-
-	" construct command to open window
-	if a:split || &modified
-		" if starting with split, get split parameters from globals
-		let splitMode = (exists("g:treeExplVertical")) ? "vertical " : ""
-		let splitSize = (exists("g:treeExplWinSize")) ? g:treeExplWinSize : 20
-		let cmd = splitMode . splitSize . "new TreeExplorer"
-	else
-		let cmd = "e TreeExplorer"
+function! s:InitWindowVars() " <<<
+	if exists("w:tree_vars_defined")
+		return
 	endif
-	silent execute cmd
 
-	"" chars to escape in file/dir names - TODO '+' ?
+	let w:tree_vars_defined = 1
+
 	let w:escape_chars =  " `|\"~'#"
 
 	" win specific vars from globals if they exist
@@ -81,7 +71,6 @@ function! s:TreeExplorer(split, start) " <<<
 	let w:dirsort = (exists("g:treeExplDirSort")) ? g:treeExplDirSort : 0
 	if w:dirsort < -1 || w:dirsort > 1
 		let w:dirsort = 0
-		" TODO - needed?
 		let w:escape_chars = w:escape_chars . '+'
 	endif
 
@@ -103,11 +92,42 @@ function! s:TreeExplorer(split, start) " <<<
 	" init help to short version
 	let w:helplines = 1
 
+endfunction " >>>
+
+"" TreeExplorer() - set up explorer window
+function! s:TreeExplorer(split, start) " <<<
+
+	" dir to start in from arg, buff dir, or pwd
+	let fname = (a:start != "") ? a:start : expand ("%:p:h")
+	let fname = (fname != "") ? fname : getcwd ()
+
+	" construct command to open window
+	if a:split || &modified
+		" if starting with split, get split parameters from globals
+		let splitMode = (exists("g:treeExplVertical")) ? "vertical " : ""
+		let splitSize = (exists("g:treeExplWinSize")) ? g:treeExplWinSize : 20
+		let cmd = splitMode . splitSize . "new TreeExplorer"
+	else
+		let cmd = "e TreeExplorer"
+	endif
+	silent execute cmd
+
+	call s:InitWindowVars()
+
+	"" chars to escape in file/dir names - TODO '+' ?
 	" throwaway buffer options
 	setlocal noswapfile
 	setlocal buftype=nowrite
 	setlocal bufhidden=delete " d
 	setlocal nowrap
+	setlocal foldcolumn=0
+
+	if exists("g:treeExplNoList")
+		setlocal nobuflisted
+	endif
+	if has('spell')
+		setlocal nospell
+	endif
 	iabc <buffer>
 
 	" setup folding for markers that will be inserted
@@ -144,8 +164,10 @@ function! s:TreeExplorer(split, start) " <<<
   set cpo&vim
 
 	" set up mappings and commands for this buffer
-  nnoremap <buffer> <cr> :call <SID>Activate()<cr>
-  nnoremap <buffer> o    :call <SID>Activate()<cr>
+  nnoremap <buffer> <cr> :call <SID>Activate("win")<cr>
+  nnoremap <buffer> o    :call <SID>Activate("win")<cr>
+  nnoremap <buffer> O    :call <SID>Activate("cur")<cr>
+	nnoremap <buffer> t    :call <SID>Activate("tab")<cr>
 	nnoremap <buffer> X    :call <SID>RecursiveExpand()<cr>
 	nnoremap <buffer> E    :call <SID>OpenExplorer()<cr>
   nnoremap <buffer> C    :call <SID>ChangeTop()<cr>
@@ -158,9 +180,9 @@ function! s:TreeExplorer(split, start) " <<<
 	nnoremap <buffer> D    :call <SID>ToggleDirSort()<cr>
 	nnoremap <buffer> a    :call <SID>ToggleHiddenFiles()<cr>
   nnoremap <buffer> ?    :call <SID>ToggleHelp()<cr>
-	nnoremap <buffer> <2-leftmouse> :call <SID>Activate()<cr>
+	nnoremap <buffer> <2-leftmouse> :call <SID>Activate("win")<cr>
 
-	command! -buffer -complete=dir -nargs=1 CD :call s:TreeCD('<a>')
+	command! -buffer -complete=dir -nargs=1 CD :call s:TreeCD('<args>')
 	command! -buffer -range -nargs=0 Yank :<line1>,<line2>y |
 				\ let @" = substitute (@", ' [{}]\{3\}', "", "g")
 
@@ -180,8 +202,15 @@ endfunction " >>>
 
 "" InitWithDir() - reload tree with dir
 function! s:InitWithDir(dir) " <<<
+	call s:InitWindowVars()
+
 	if a:dir != ""
-		execute "lcd " . escape (a:dir, w:escape_chars)
+		try
+			execute "lcd " . escape (a:dir, w:escape_chars)
+		catch
+			echo "ERROR: changing to directory: " . a:dir
+			return
+		endtry
 	endif
 	let cwd = getcwd ()
 
@@ -194,6 +223,9 @@ function! s:InitWithDir(dir) " <<<
 
 	let cwd = substitute (cwd, '/*$', '/', "")
 
+	let save_f = @f
+	let save_y = @"
+
 	" clear buffer
 	setlocal modifiable | silent! normal ggdG
 	setlocal nomodifiable
@@ -201,8 +233,6 @@ function! s:InitWithDir(dir) " <<<
 	"insert header
 	call s:AddHeader()
 	normal G
-
-	let save_f=@f
 
 	"insert parent link unless we're at / for unix or X:\ for dos
 	if is_root == 0
@@ -216,7 +246,8 @@ function! s:InitWithDir(dir) " <<<
 
 	call s:ReadDir (line("."), cwd) " read dir
 
-	let @f=save_f
+	let @f = save_f
+	let @" = save_y
 endfunction " >>>
 
 "" ReadDir() -  read dir after current line with tree pieces and foldmarkers
@@ -274,6 +305,7 @@ function! s:ReadDir(lpn,dir) " <<<
 	let save_l = @l | let @l = ""
 	let save_d = @d | let @d = ""
 	let save_f = @f | let @f = ""
+	let save_y = @"
 
 	let @l = treeprt . pdirprt . ' {{{'
 
@@ -283,11 +315,21 @@ function! s:ReadDir(lpn,dir) " <<<
 	" parse dir contents by '/'
 	let dirlines = substitute (dirlines, "\n", '/', "g")
 
+	if exists("g:treeExplHidePattern")
+		let do_hide_re = 1
+	else
+		let do_hide_re = 0
+	endif
+
 	while strlen (dirlines) > 0
 		let curdir = substitute (dirlines, '/.*', "", "")
 		let dirlines = substitute (dirlines, '[^/]*/\?', "", "")
 
 		if w:hidden_files == 1 && curdir =~ '^\.\.\?$'
+			continue
+		endif
+
+		if w:hidden_files == 0 && do_hide_re == 1 && curdir =~ g:treeExplHidePattern
 			continue
 		endif
 
@@ -354,6 +396,7 @@ function! s:ReadDir(lpn,dir) " <<<
 	let @l = save_l
 	let @d = save_d
 	let @f = save_f
+	let @" = save_y
 
 	exec (":" . a:lpn)
 
@@ -372,6 +415,8 @@ endfunction " >>>
 
 "" MoveParent() - move cursor to parent dir
 function! s:MoveParent() " <<<
+	call s:InitWindowVars()
+
 	let ln = line(".")
 	call s:GetAbsPath2 (ln, 1)
 	if w:firstdirline != 0
@@ -383,6 +428,8 @@ endfunction " >>>
 
 "" ChangeTop() - change top dir to cursor dir
 function! s:ChangeTop() " <<<
+	call s:InitWindowVars()
+
 	let ln = line(".")
   let l = getline(ln)
 
@@ -406,6 +453,8 @@ endfunction " >>>
 
 "" RecursiveExpand() - expand cursor dir recursively
 function! s:RecursiveExpand() " <<<
+	call s:InitWindowVars()
+
 	echo "recursively expanding, this might take a while (CTRL-C to stop)"
 
 	let curfile = s:GetAbsPath2(line("."), 0)
@@ -474,6 +523,8 @@ endfunction " >>>
 
 "" OpenExplorer() - open file explorer on cursor dir
 function! s:OpenExplorer() " <<<
+	call s:InitWindowVars()
+
 	let curfile = s:GetAbsPath2 (line ("."), 0)
 
 	if w:firstdirline == 0
@@ -497,7 +548,9 @@ function! s:OpenExplorer() " <<<
 endfunction " >>>
 
 "" Activate() - (un)fold read dirs, read unread dirs, open files, cd .. on ..
-function! s:Activate() " <<<
+function! s:Activate(how) " <<<
+	call s:InitWindowVars()
+
 	let ln = line(".")
   let l = getline(ln)
 
@@ -532,7 +585,11 @@ function! s:Activate() " <<<
 		let f = escape (curfile, w:escape_chars)
 		let oldwin = winnr()
 		wincmd p
-		if oldwin == winnr() || (&modified && s:BufInWindows(winbufnr(winnr())) < 2)
+		if a:how == "tab"
+			exec ("tabedit " . f)
+		elseif a:how == "cur"
+			exec ("tabedit " . f)
+		elseif oldwin == winnr() || (&modified && s:BufInWindows(winbufnr(winnr())) < 2)
 			wincmd p
 			exec ("new " . f)
 		else
@@ -543,6 +600,8 @@ endfunction " >>>
 
 "" RefreshDir() - refresh current dir
 function! s:RefreshDir() " <<<
+	call s:InitWindowVars()
+
 	let curfile = s:GetAbsPath2(line("."), 0)
 
 	let init_ln = w:firstdirline
@@ -590,9 +649,12 @@ endfunction " >>>
 
 "" ToggleHiddenFiles() - toggle hidden files
 function! s:ToggleHiddenFiles() " <<<
+	call s:InitWindowVars()
+
 	let w:hidden_files = w:hidden_files ? 0 : 1
 	let msg = w:hidden_files ? "on" : "off"
-	let msg = "hidden files now = " . msg
+	let hre = exists("g:treeExplHidePattern") ? g:treeExplHidePattern : ''
+	let msg = "hidden (dotfiles and regex = '" . hre . "') files now = " . msg
 	echo msg
 	call s:UpdateHeader ()
 	call s:RefreshDir()
@@ -600,6 +662,8 @@ endfunction " >>>
 
 "" ToggleDirSort() - toggle dir sorting
 function! s:ToggleDirSort() " <<<
+	call s:InitWindowVars()
+
 	if w:dirsort == 0
 		let w:dirsort = 1
 		let msg = "dirs first"
@@ -618,6 +682,8 @@ endfunction " >>>
 
 "" StartShell() - start shell in cursor dir
 function! s:StartShell() " <<<
+	call s:InitWindowVars()
+
 	let ln = line(".")
 
 	let curfile = s:GetAbsPath2 (ln, 1)
@@ -629,8 +695,13 @@ function! s:StartShell() " <<<
 		let dir = substitute (curfile, '[^/]*$', "", "")
 	endif
 
-	execute "lcd " . escape (dir, w:escape_chars)
-	shell
+	try
+		execute "lcd " . escape (dir, w:escape_chars)
+		shell
+	catch
+		echo "ERROR: changing to directory: " . dir
+		return
+	endtry
 	execute "lcd " . escape (prevdir, w:escape_chars)
 endfunction " >>>
 
@@ -703,6 +774,8 @@ endfunction " >>>
 
 "" ToggleHelp() - toggle between long and short help
 function! s:ToggleHelp() " <<<
+	call s:InitWindowVars()
+
 	let w:helplines = (w:helplines <= 4) ? 6 : 0
 	call s:UpdateHeader ()
 endfunction " >>>
@@ -757,13 +830,17 @@ function! s:AddHeader() " <<<
 		let dt = "dirs last)\n"
 	endif
 
+	let hre = exists("g:treeExplHidePattern") ? g:treeExplHidePattern : ""
+
 	let save_f=@f
 	1
 	let ln = 3
 	if w:helplines > 4
-		let ln=ln+1 | let @f=   "\" <ret> = same as 'o' below\n"
-		let ln=ln+1 | let @f=@f."\" o     = (file) open in another window\n"
+		let ln=ln+1 | let @f=   "\" o     = (file) open in another window\n"
 		let ln=ln+1 | let @f=@f."\" o     = (dir) toggle dir fold or load dir\n"
+		let ln=ln+1 | let @f=@f."\" <ret> = same as 'o'\n"
+		let ln=ln+1 | let @f=@f."\" O     = same as 'o' but use replace explorer\n"
+		let ln=ln+1 | let @f=@f."\" t     = same as 'o' but use new tab\n"
 		let ln=ln+1 | let @f=@f."\" X     = recursive expand cursor dir\n"
 		let ln=ln+1 | let @f=@f."\" E     = open Explorer on cursor dir\n"
 		let ln=ln+1 | let @f=@f."\" C     = chdir top of tree to cursor dir\n"
@@ -776,7 +853,8 @@ function! s:AddHeader() " <<<
 		let ln=ln+1 | let @f=@f."\" S     = start a shell in cursor dir\n"
 		let ln=ln+1 | let @f=@f."\" :Yank = yank <range> lines withoug fold marks\n"
 		let ln=ln+1 | let @f=@f."\" D     = toggle dir sort (now = " . dt
-		let ln=ln+1 | let @f=@f."\" a     = toggle hidden files (now = "
+		let ln=ln+1 | let @f=@f."\" a     = toggle hidden (dotfiles and regex = '"
+					\ . hre . "') files (now = "
 					\ . ((w:hidden_files) ? "on)\n" : "off)\n")
 		let ln=ln+1 | let @f=@f."\" ?     = toggle long help\n"
 	else

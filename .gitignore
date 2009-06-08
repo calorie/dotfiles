@@ -14,3 +14,7 @@ Session.vim
 *.log
 *.dvi
 *.aux
+*.elc
+.zshrc_local
+.zsh_alias
+

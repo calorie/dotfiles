@@ -35,15 +35,18 @@ DEFAULT=$'%{\e[1;0m%}'
 RESET="%{${reset_color}%}"
 #GREEN=$'%{\e[1;32m%}'
 GREEN="%{${fg[green]}%}"
-BLUE=$'%{\e[1;35m%}'
+#BLUE=$'%{\e[1;35m%}'
+BLUE="%{${fg[blue]}%}"
 RED="%{${fg[red]}%}"
 CYAN="%{${fg[cyan]}%}"
+WHITE="%{${fg[white]}%}"
 #
 # Prompt
 #
 setopt prompt_subst
-PROMPT='${RED}${USER}@${HOST} ${GREEN}%~${RESET}
-${GREEN}%(5~,%-2~/.../%2~,%~)% ${RED} $ ${RESET}'
+#PROMPT='${fg[white]}%(5~,%-2~/.../%2~,%~)% ${RED} $ ${RESET}'
+PROMPT='${BLUE}${USER}@%m ${WHITE}$ ${RESET}'
+RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
 
 
 # Show git branch when you are in git repository
@@ -56,8 +59,6 @@ _set_env_git_current_branch() {
 _update_rprompt () {
   if [ "`git ls-files 2>/dev/null`" ]; then
     RPROMPT='${CYAN}git[branch:$GIT_CURRENT_BRANCH]${RESET}'
-  else
-    RPROMPT=""
   fi
 }
 
@@ -181,12 +182,12 @@ alias 'ps?'='ps alx |grep '
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
-    alias ls="ls -G"
+    alias ls="ls -Gal"
     zle -N expand-to-home-or-insert
     bindkey "@"  expand-to-home-or-insert
     ;;
 linux*)
-    alias ls="ls --color"
+    alias ls="ls -al"
     ;;
 esac
 
@@ -258,9 +259,12 @@ kterm*|xterm*)
 #    precmd() {
 #        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
 #    }
-   # export LSCOLORS=exfxcxdxbxegedabagacad
-		export LSCOLORS=gxfxcxdxbxegedabagacad
-    export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+    # export LSCOLORS=exfxcxdxbxegedabagacad
+		# export LSCOLORS=gxfxcxdxbxegedabagacad
+    # export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+
+    export CLICOLOR=1
+    export LSCOLORS=ExFxCxDxBxegedabagacad
 
     zstyle ':completion:*' list-colors \
         'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
@@ -293,7 +297,7 @@ alias p='ping -c 4'
 
 export EDITOR=vim
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
-export PATH=$PATH:$HOME/dotfiles/bin:/work/tsuzuki/local/bin
+export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin:usr/local/bin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
 
@@ -307,7 +311,7 @@ expand-to-home-or-insert () {
 
 ##
 # ls color for black background.
-export LSCOLORS=gxfxcxdxbxegedabagacad
+# export LSCOLORS=gxfxcxdxbxegedabagacad
 
 
 function rmf(){
@@ -353,4 +357,9 @@ alias ssmake="cd ~/git/simple_server;make; popd"
 if [ -e ~/.zshrc_local ]
 then
   source ~/.zshrc_local
+fi
+
+if [ -e ~/.zsh_alias ]
+then
+  source ~/.zsh_alias
 fi
