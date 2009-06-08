@@ -318,6 +318,13 @@ set expandtab
 " コンマの後に自動的にスペースを挿入
 inoremap , ,<Space>
 
+" XMLの閉タグを自動挿入
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+
 " 括弧を自動補完
 "inoremap { {}<LEFT>
 "inoremap [ []<LEFT>
