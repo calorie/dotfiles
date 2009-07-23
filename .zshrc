@@ -81,6 +81,8 @@ _set_env_git_current_branch() {
 _update_rprompt () {
   if [ "`git ls-files 2>/dev/null`" ]; then
     RPROMPT='${CYAN}git[branch:$GIT_CURRENT_BRANCH]${RESET}'
+  else
+    RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
   fi
 }
 
