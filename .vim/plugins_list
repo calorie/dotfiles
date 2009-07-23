@@ -32,13 +32,25 @@ quickrun.vim : 編集中のファイルを簡単に実行できるプラグイ�
 
 
 autocomplpop.vim : insertmodeで自動で補完をpopup
-http://sites.google.com/site/fudist/Home/vim-nihongo-ban
+  http://sites.google.com/site/fudist/Home/vim-nihongo-ban
   http://www.vim.org/scripts/script.php?script_id=1879
   http://vim.g.hatena.ne.jp/keyword/autocomplpop.vim
 
 
 cecutil.vim : 他のpluginのためのutillity1
   http://www.vim.org/scripts/script.php?script_id=1066
+
+---------------------------------------------
+検索系
+---------------------------------------------
+eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
+  http://d.hatena.ne.jp/secondlife/20060203/1138978661
+  http://www.vector.co.jp/soft/dl/unix/writing/se265654.html
+
+
+grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
+  http://d.hatena.ne.jp/secondlife/20060203/1138978661
+  http://www.vim.org/scripts/script.php?script_id=311
 
 ---------------------------------------------
 バッファ管理系

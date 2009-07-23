@@ -42,6 +42,13 @@ else
   set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
 endif
 
+"入力モード時、ステータスラインのカラーを変更
+augroup InsertHook
+autocmd!
+autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+augroup END
+
 function! GetB()
   let c = matchstr(getline('.'), '.', col('.') - 1)
   let c = iconv(c, &enc, &fenc)
@@ -156,7 +163,24 @@ else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
 
+"tab pagesを使い易くする
+nnoremap <C-t>  <Nop>
+nnoremap <C-t>n  :<C-u>tabnew<CR>
+nnoremap <C-t>c  :<C-u>tabclose<CR>
+nnoremap <C-t>o  :<C-u>tabonly<CR>
+nnoremap <C-t>j  :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+nnoremap <C-t>k  gT
 
+"tags-and-searchesを使い易くする
+nnoremap t  <Nop>
+"「飛ぶ」
+nnoremap tt  <C-]>
+"「進む」
+nnoremap tj  :<C-u>tag<CR>
+"「戻る」
+nnoremap tk  :<C-u>pop<CR>
+"履歴一覧
+nnoremap tl  :<C-u>tags<CR>
 
 "-------------------------------------------------------------------------------
 " 検索設定
@@ -177,6 +201,7 @@ vnoremap /r "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 "-------------------------------------------------------------------------------
 " 移動設定
 "-------------------------------------------------------------------------------
+
 " カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
 nnoremap h <Left>
 nnoremap j gj
@@ -185,8 +210,9 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-" spaceで次のbufferへ
+" spaceで次のbufferへ。shift-spaceで前のbufferへ
 nmap <Space> :MBEbn<CR>
+nmap <C-SPACE> :MBEbp<CR>
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
@@ -194,6 +220,12 @@ map <kMinus> <C-W>-
 
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+"最後に変更されたテキストを選択する
+nnoremap gc  `[v`]
+
+"Ctrl-hでヘルプ
+nnoremap <C-h>  :<C-u>help<Space>
 
 
 "-------------------------------------------------------------------------------
@@ -324,7 +356,7 @@ augroup MyXML
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
-
+"
 " 括弧を自動補完
 "inoremap { {}<LEFT>
 "inoremap [ []<LEFT>
@@ -339,6 +371,8 @@ augroup END
 
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
+" 保存時にtabをスペースに変換する
+autocmd BufWritePre * :%s/\t/  /ge
 
 
 "-------------------------------------------------------------------------------
@@ -384,3 +418,11 @@ let g:treeExplVertical=1
 map <Leader>x , c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
+
+
+"------------------------------------
+" grep.vim
+"------------------------------------
+" 検索外のディレクトリ、ファイルパターン
+let Grep_Skip_Dirs = '.svn'
+let Grep_Skip_Files = '*.bak *~'

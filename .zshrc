@@ -24,7 +24,7 @@ case ${UID} in
     PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
 *)
@@ -45,8 +45,30 @@ WHITE="%{${fg[white]}%}"
 #
 setopt prompt_subst
 #PROMPT='${fg[white]}%(5~,%-2~/.../%2~,%~)% ${RED} $ ${RESET}'
-PROMPT='${BLUE}${USER}@%m ${WHITE}$ ${RESET}'
+PROMPT='${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}'
 RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
+
+#
+# Vi入力モードでPROMPTの色を変える
+# http://memo.officebrook.net/20090226.html
+function zle-line-init zle-keymap-select {
+  case $KEYMAP in
+    vicmd)
+    PROMPT="${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[cyan]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}"
+    ;;
+    main|viins)
+    PROMPT="${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}"
+    ;;
+  esac
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# 直前のコマンドの終了ステータスが0以外のときは赤くする。
+# ${MY_MY_PROMPT_COLOR}はprecmdで変化させている数値。
+local MY_COLOR="$ESCX"'%(0?.${MY_PROMPT_COLOR}.31)'m
+local NORMAL_COLOR="$ESCX"m
 
 
 # Show git branch when you are in git repository
@@ -80,7 +102,7 @@ chpwd()
 #    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
 #    PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
 #    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 #        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 
 
@@ -108,9 +130,18 @@ setopt auto_pushd
 #
 setopt correct
 
+# when redirect, error if already exist file
+# and when append redirect , error if not exist file.
+#
+setopt no_clobber
+
 # compacked complete list display
 #
 setopt list_packed
+
+# show list type as ls -F
+#
+setopt list_types
 
 # no remove postfix slash of command line
 #
@@ -127,10 +158,10 @@ setopt extended_glob
 
 ## Keybind configuration
 #
-# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes 
+# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
 #   to end of it)
 #
-bindkey -e
+bindkey -v
 
 # historical backward/forward search with linehead string binded to ^P/^N
 #
@@ -150,6 +181,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
+setopt hist_reduce_blanks   # ignore spaces
+setopt inc_append_history   # add history when command executed.
+setopt hist_no_store        # do not add history command to history
 
 
 ## Completion configuration
@@ -210,7 +244,7 @@ darwin*)
 freebsd*)
     case ${UID} in
     0)
-        updateports() 
+        updateports()
         {
             if [ -f /usr/ports/.portsnap.INDEX ]
             then
@@ -247,7 +281,7 @@ kterm)
 
 cons25)
     unset LANG
-	export LSCOLORS=ExFxCxdxBxegedabagacad
+  export LSCOLORS=ExFxCxdxBxegedabagacad
 
     export LS_COLORS='di=01;32:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
     zstyle ':completion:*' list-colors \
@@ -260,7 +294,7 @@ kterm*|xterm*)
 #        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
 #    }
     # export LSCOLORS=exfxcxdxbxegedabagacad
-		# export LSCOLORS=gxfxcxdxbxegedabagacad
+    # export LSCOLORS=gxfxcxdxbxegedabagacad
     # export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
 
     export CLICOLOR=1
@@ -282,15 +316,17 @@ esac
 
 
 ## Easy directory change and setup
-#  Suzuki Tomohiro
+#  Tomohito Ozaki
 
 alias 'vi'='vim'
-alias 'src'='exec zsh' 
+alias 'src'='exec zsh'
 alias 'm'='make'
 alias 'g'='grep'
 alias 'mn'='make native-code'
 alias 'mc'='make clean'
 alias s='screen -S main'
+alias sn='screen'
+alias sl='screen -ls'
 alias pon='predict-on'
 alias poff='predict-off'
 alias p='ping -c 4'
