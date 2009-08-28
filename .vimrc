@@ -213,9 +213,9 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-" spaceで次のbufferへ。shift-spaceで前のbufferへ
+" spaceで次のbufferへ。back-spaceで前のbufferへ
 nmap <Space> :MBEbn<CR>
-nmap <C-SPACE> :MBEbp<CR>
+nmap <BS> :MBEbp<CR>
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
