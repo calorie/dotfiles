@@ -2,6 +2,12 @@
 入れてるプラグインのリスト
 ---------------------------------------------
 
+---------------------------------------------
+表示系
+---------------------------------------------
+smooth_scroll.vim : スクロールを賢く
+  http://www.vim.org/scripts/script.php?script_id=1601
+  http://blog.blueblack.net/item_219
 
 ---------------------------------------------
 編集系
@@ -39,6 +45,11 @@ autocomplpop.vim : insertmodeで自動で補完をpopup
 
 cecutil.vim : 他のpluginのためのutillity1
   http://www.vim.org/scripts/script.php?script_id=1066
+
+smartchr.vim : ==などの前後を整形
+  http://www.vim.org/scripts/script.php?script_id=2290
+  http://project-p.jp/halt/anubis/blog_show/1068
+  http://d.hatena.ne.jp/ampmmn/20080928/1222590293
 
 ---------------------------------------------
 検索系

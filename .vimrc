@@ -1,8 +1,7 @@
 
 "-------------------------------------------------------------------------------
-" 基本設定
+" 基本設定 Basics
 "-------------------------------------------------------------------------------
-syntax on
 set nocompatible                 " Vimっす。vi互換なしっす。
 let mapleader = ","              " キーマップリーダー
 set scrolloff=5                  " スクロール時の余白確保
@@ -17,18 +16,36 @@ set vb t_vb=                     " ビープをならさない
 set browsedir=buffer             " Exploreの初期ディレクトリ
 set whichwrap=b,s,h,l,<,>,[,]    " カーソルを行頭、行末で止まらないようにする
 set showcmd                      " コマンドをステータス行に表示
+set showmode                     " 現在のモードを表示
 set viminfo='50,<1000,s100,\"50  " viminfoファイルの設定
 set helpfile=$VIMRUNTIME/doc/help.txt
 set modelines=0                  " モードラインは無効
+
+" OSのクリップボードを使用する
+set clipboard+=unnamed
+" ターミナルでマウスを使用できるようにする
+set mouse=a
+set guioptions+=a
+set ttymouse=xterm2
+
+
+" ファイルタイプ判定をon
+filetype plugin on
+" ハイライト on
+syntax enable
 
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
 " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
 imap <C-K>  <ESC>"*pa
 
+" Ev/Rvでvimrcの編集と反映
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
+
 
 "-------------------------------------------------------------------------------
-" ステータスライン
+" ステータスライン StatusLine
 "-------------------------------------------------------------------------------
 set laststatus=2 " 常にステータスラインを表示
 
@@ -54,7 +71,7 @@ function! GetB()
   let c = iconv(c, &enc, &fenc)
   return String2Hex(c)
 endfunction
-" :help eval-examples
+" help eval-examples
 " The function Nr2Hex() returns the Hex string of a number.
 func! Nr2Hex(nr)
   let n = a:nr
@@ -78,7 +95,7 @@ func! String2Hex(str)
 endfunc
 
 "-------------------------------------------------------------------------------
-" 表示
+" 表示 Apperance
 "-------------------------------------------------------------------------------
 set showmatch         " 括弧の対応をハイライト
 set number            " 行番号表示
@@ -90,8 +107,26 @@ set display=uhex      " 印字不可能文字を16進数で表示
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
+" カーソル行をハイライト
+set cursorline
+" カレントウィンドウにのみ罫線を引く
+augroup cch
+  autocmd! cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
+augroup END
+
+:hi clear CursorLine
+:hi CursorLine gui=underline
+highlight CursorLine ctermbg=black guibg=black
+
+" コマンド実行中は再描画しない
+:set lazyredraw
+" 高速ターミナル接続を行う
+:set ttyfast
+
 "-------------------------------------------------------------------------------
-" インデント
+" インデント Indent
 "-------------------------------------------------------------------------------
 set autoindent   " 自動でインデント
 "set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
@@ -115,7 +150,7 @@ endif
 
 
 "-------------------------------------------------------------------------------
-" 補完・履歴
+" 補完・履歴 Complete
 "-------------------------------------------------------------------------------
 set wildmenu               " コマンド補完を強化
 set wildchar=<tab>         " コマンド補完を開始するキー
@@ -135,7 +170,7 @@ set complete+=k            " 補完に辞書ファイル追加
 imap <c-space> <c-x><c-o>
 
 " -- tabでオムニ補完
-function InsertTabWrapper()
+function! InsertTabWrapper()
   if pumvisible()
     return "\<c-n>"
   endif
@@ -152,7 +187,7 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 
 "-------------------------------------------------------------------------------
-" タグ関連
+" タグ関連 Tags
 "-------------------------------------------------------------------------------
 " set tags
 if has("autochdir")
@@ -165,10 +200,10 @@ endif
 
 "tab pagesを使い易くする
 nnoremap <C-t>  <Nop>
-nnoremap <C-t>n  :<C-u>tabnew<CR>
-nnoremap <C-t>c  :<C-u>tabclose<CR>
-nnoremap <C-t>o  :<C-u>tabonly<CR>
-nnoremap <C-t>j  :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+nnoremap <C-t>n  ;<C-u>tabnew<CR>
+nnoremap <C-t>c  ;<C-u>tabclose<CR>
+nnoremap <C-t>o  ;<C-u>tabonly<CR>
+nnoremap <C-t>j  ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
 nnoremap <C-t>k  gT
 
 "tags-and-searchesを使い易くする
@@ -176,33 +211,38 @@ nnoremap t  <Nop>
 "「飛ぶ」
 nnoremap tt  <C-]>
 "「進む」
-nnoremap tj  :<C-u>tag<CR>
+nnoremap tj  ;<C-u>tag<CR>
 "「戻る」
-nnoremap tk  :<C-u>pop<CR>
+nnoremap tk  ;<C-u>pop<CR>
 "履歴一覧
-nnoremap tl  :<C-u>tags<CR>
+nnoremap tl  ;<C-u>tags<CR>
 
 "-------------------------------------------------------------------------------
-" 検索設定
+" 検索設定 Search
 "-------------------------------------------------------------------------------
 set wrapscan   " 最後まで検索したら先頭へ戻る
 set ignorecase " 大文字小文字無視
-set smartcase  "検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 "Escの2回押しでハイライト消去
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
+nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 "選択した文字列を検索
 vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "選択した文字列を置換
-vnoremap /r "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
+vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
 "s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
+" Ctrl-hでヘルプ
+nnoremap <C-h>  :<C-u>help<Space>
+" カーソル下のキーワードをヘルプでひく
+nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
+
 "-------------------------------------------------------------------------------
-" 移動設定
+" 移動設定 Move
 "-------------------------------------------------------------------------------
 
 " カーソルを表示行で移動する。論理行移動は<C-n>,<C-p>
@@ -214,8 +254,8 @@ nnoremap <Down> gj
 nnoremap <Up>   gk
 
 " spaceで次のbufferへ。back-spaceで前のbufferへ
-nmap <Space> :MBEbn<CR>
-nmap <BS> :MBEbp<CR>
+nmap <Space> ;MBEbn<CR>
+nmap <BS> ;MBEbp<CR>
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
@@ -226,13 +266,11 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 "最後に変更されたテキストを選択する
 nnoremap gc  `[v`]
-
-"Ctrl-hでヘルプ
-nnoremap <C-h>  :<C-u>help<Space>
-
+vnoremap gc ;<C-u>normal gc<Enter>
+onoremap gc ;<C-u>normal gc<Enter>
 
 "-------------------------------------------------------------------------------
-" エンコーディング関連
+" エンコーディング関連 Encoding
 "-------------------------------------------------------------------------------
 set ffs=unix,dos,mac  " 改行文字
 set encoding=utf-8    " デフォルトエンコーディング
@@ -308,13 +346,19 @@ autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
 autocmd FileType py :set fileencoding=utf-8
 
-
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
+" 指定文字コードで強制的にファイルを開く
+command! Cp932 edit ++enc=cp932
+command! Eucjp edit ++enc=euc-jp
+command! Iso2022jp edit ++enc=iso-2022-jp
+command! Utf8 edit ++enc=utf-8
+command! Jis Iso2022jp
+command! Sjis Cp932
 
 "-------------------------------------------------------------------------------
-" カラー関連
+" カラー関連 Colors
 "-------------------------------------------------------------------------------
 
 " ターミナルタイプによるカラー設定
@@ -339,20 +383,25 @@ hi PmenuSel ctermbg=blue ctermfg=white
 hi PmenuSbar ctermbg=0 ctermfg=9
 
 "-------------------------------------------------------------------------------
-" 編集関連
+" 編集関連 Edit
 "-------------------------------------------------------------------------------
 
+" insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
 " yeでそのカーソル位置にある単語をレジスタに追加
-nmap ye :let @"=expand("<cword>")<CR>
+nmap ye ;let @"=expand("<cword>")<CR>
 " Visualモードでのpで選択範囲をレジスタの内容に置き換える
-vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " Tabキーを空白に変換
 set expandtab
 
 " コンマの後に自動的にスペースを挿入
 inoremap , ,<Space>
-
 " XMLの閉タグを自動挿入
 augroup MyXML
   autocmd!
@@ -377,17 +426,28 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " 保存時にtabをスペースに変換する
 autocmd BufWritePre * :%s/\t/  /ge
 
+" 日時の自動入力
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+inoremap <expr> ,dd strftime('%Y/%m/%d')
+inoremap <expr> ,dt strftime('%H:%M:%S')
 
 "-------------------------------------------------------------------------------
-" プラグインごとの設定
+" その他 Misc
 "-------------------------------------------------------------------------------
 
+" ;でExコマンド入力( ;と:を入れ替)
+noremap ; :
+noremap : ;
+
+"-------------------------------------------------------------------------------
+" プラグインごとの設定 Plugins
+"-------------------------------------------------------------------------------
 
 "------------------------------------
 " YankRing.vim
 "------------------------------------
 " Yankの履歴参照
-nmap ,y :YRShow<CR>
+nmap ,y ;YRShow<CR>
 
 "------------------------------------
 " MiniBufExplorer
@@ -405,7 +465,7 @@ let g:miniBufExplMaxSize = 10
 " Align
 "------------------------------------
 " Alignを日本語環境で使用するための設定
-:let g:Align_xstrlen = 3
+let g:Align_xstrlen = 3
 
 
 "------------------------------------
@@ -417,11 +477,12 @@ let g:treeExplVertical=1
 "------------------------------------
 " NERD_commenter.vim
 "------------------------------------
+" コメントの間にスペースを空ける
+let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
 map <Leader>x , c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
-
 
 "------------------------------------
 " grep.vim
@@ -429,3 +490,44 @@ let NERDShutUp=1
 " 検索外のディレクトリ、ファイルパターン
 let Grep_Skip_Dirs = '.svn'
 let Grep_Skip_Files = '*.bak *~'
+
+"------------------------------------
+" surround.vim
+"------------------------------------
+" s, ssで選択範囲を指定文字でくくる
+nmap s <Plug>Ysurround
+nmap ss <Plug>Yssurround
+
+"------------------------------------
+" smartchr.vim
+"------------------------------------
+
+" 演算子の間に空白を入れる
+inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
+inoremap <buffer><expr> +=  smartchr#one_of(' += ')
+inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
+inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
+inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
+inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
+inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
+inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
+inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
+inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
+inoremap <buffer><expr> =>  smartchr#one_of(' => ')
+inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
+inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
+inoremap <buffer><expr> , smartchr#one_of(', ', ',')
+" 3項演算子の場合は、後ろのみ空白を入れる
+inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
+inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
+
+" =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
+" 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
+inoremap <buffer><expr> = search('¥(&¥<bar><bar>¥<bar>+¥<bar>-¥<bar>/¥<bar>>¥<bar><¥) ¥%#', 'bcn')? '<bs>= '  : search('¥(*¥<bar>!¥)¥%#', 'bcn') ? '= '  : smartchr#one_of(' = ', ' == ', '=')
+
+" 下記の文字は連続して現れることがまれなので、二回続けて入力したら改行する
+inoremap <buffer><expr> } smartchr#one_of('}', '}<cr>')
+inoremap <buffer><expr> ; smartchr#one_of(';', ';<cr>')
+
+" if文直後の(は自動で間に空白を入れる
+inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
