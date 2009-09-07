@@ -567,9 +567,9 @@ nmap ss <Plug>Yssurround
 " 演算子の間に空白を入れる
 inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
 inoremap <buffer><expr> +=  smartchr#one_of(' += ')
-inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
+" inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
 inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
-inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
+" inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
 inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
 inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
 inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
@@ -581,7 +581,7 @@ inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>'
 inoremap <buffer><expr> , smartchr#one_of(', ', ',')
 " 3項演算子の場合は、後ろのみ空白を入れる
 inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
-inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
+" inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
 
 " =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
 " 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
@@ -590,6 +590,26 @@ inoremap <buffer><expr> = search('¥(&¥<bar><bar>¥<bar>+¥<bar>-¥<bar>/¥<bar
 " 下記の文字は連続して現れることがまれなので、二回続けて入力したら改行する
 inoremap <buffer><expr> } smartchr#one_of('}', '}<cr>')
 inoremap <buffer><expr> ; smartchr#one_of(';', ';<cr>')
+"()は空白入れる
+inoremap <buffer><expr> ( smartchr#one_of('( ')
+inoremap <buffer><expr> ) smartchr#one_of(' )')
 
 " if文直後の(は自動で間に空白を入れる
 inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
+
+
+"------------------------------------
+" git.vim
+"------------------------------------
+let g:git_no_map_default = 1
+let g:git_command_edit = 'rightbelow vnew'
+nnoremap <Space>gd :<C-u>GitDiff --cached<Enter>
+nnoremap <Space>gD :<C-u>GitDiff<Enter>
+nnoremap <Space>gs :<C-u>GitStatus<Enter>
+nnoremap <Space>gl :<C-u>GitLog<Enter>
+nnoremap <Space>gL :<C-u>GitLog -u \| head -10000<Enter>
+nnoremap <Space>ga :<C-u>GitAdd<Enter>
+nnoremap <Space>gA :<C-u>GitAdd <cfile><Enter>
+nnoremap <Space>gc :<C-u>GitCommit<Enter>
+nnoremap <Space>gC :<C-u>GitCommit --amend<Enter>
+nnoremap <Space>gp :<C-u>Git push
