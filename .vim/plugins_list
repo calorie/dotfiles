@@ -42,6 +42,9 @@ autocomplpop.vim : insertmodeで自動で補完をpopup
   http://www.vim.org/scripts/script.php?script_id=1879
   http://vim.g.hatena.ne.jp/keyword/autocomplpop.vim
 
+neocomplcache.vim : 究極のVim的補完環境
+  http://vim-users.jp/2009/07/hack-49/
+  http://github.com/Shougo/neocomplcache/blob/998764e1072fa5b183c3da4705b8187658fa0b41/presen/neocomplcache.txt
 
 cecutil.vim : 他のpluginのためのutillity1
   http://www.vim.org/scripts/script.php?script_id=1066
@@ -85,7 +88,6 @@ NERDTree : ツリー型エクスプローラ
   http://vimwiki.net/?scripts%2F18
   http://wagnad.blog9.fc2.com/blog-entry-504.html
 
-
 project.vim : IDE風のファイル管理
   http://d.hatena.ne.jp/hidde/20080930/1222776171
   http://hoshinanonikki.net/20070820.html
@@ -93,3 +95,11 @@ project.vim : IDE風のファイル管理
 vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
   http://www.vim.org/scripts/script.php?script_id=184
   http://d.hatena.ne.jp/obys/20061119/1163939621
+
+
+---------------------------------------------
+その他
+---------------------------------------------
+git-vim : gitをvimでー
+  http://github.com/motemen/git-vim/tree/master
+  http://vim-users.jp/2009/09/hack67/

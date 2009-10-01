@@ -158,49 +158,50 @@ set wildmode=list:full     " リスト表示，最長マッチ
 set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
 
+
 " Enter で補完決定にする
-" inoremap <expr> <cr> pumvisible() ? "<c-y>" : "<c-g><cr>"
+"inoremap <expr> <cr> pumvisible() ? "<c-y>" : "<c-g><cr>"
 " escape で補完をキャンセルして元のテキストに戻す
-" inoremap <expr> <esc>      pumvisible() ? "<c-e>":"<esc>"
+"inoremap <expr> <esc>      pumvisible() ? "<c-e>":"<esc>"
 " c-n で補完を始めたとき、常にどれかの候補が選ばれているようにする。
 " これによって、続けて文字を入力して候補をしぼりこみ、enter で決定できるようになる。
-" ¥inoremap <expr> <c-n> pumvisible() ? "¥<lt><c-n>" : "¥<c-n>¥<c-r>=pumvisible() ? ¥"¥¥<lt><down>¥" : ¥"¥"¥<lt><cr>"
+"¥inoremap <expr> <c-n> pumvisible() ? "¥<lt><c-n>" : "¥<c-n>¥<c-r>=pumvisible() ? ¥"¥¥<lt><down>¥" : ¥"¥"¥<lt><cr>"
 
-" <c-space>でomni補完
-" imap <c-space> <c-x><c-o>
+"<c-space>でomni補完
+imap <c-space> <c-x><c-o>
 
 " -- tabでオムニ補完
-" function! InsertTabWrapper()
-  " if pumvisible()
-    " return "\<c-n>"
-  " endif
-  " let col = col('.') - 1
-  " if !col || getline('.')[col -1] !~ '\k\|<\|/'
-    " return "\<tab>"
-  " elseif exists('&omnifunc') && &omnifunc == ''
-    " return "\<c-n>"
-  " else
-    " return "\<c-x>\<c-o>"
-  " endif
-" endfunction
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+function! InsertTabWrapper()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col -1] !~ '\k\|<\|/'
+    return "\<tab>"
+  elseif exists('&omnifunc') && &omnifunc == ''
+    return "\<c-n>"
+  else
+    return "\<c-x>\<c-o>"
+  endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 
-" <TAB> completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" C-jでオムニ補完
-inoremap <expr> <C-j>  &filetype == 'vim' ? "\<C-x>\<C-v>\<C-p>" : "\<C-x>\<C-o>\<C-p>"
-" C-kを押すと行末まで削除
-inoremap <C-k>  <C-o>D
-" C-hで補完を続行しない
-inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
-" C-nでneocomplcache補完
-inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
-" C-pでkeyword補完
-inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
-" 途中でEnterしたとき、ポップアップを消して改行し、
-" 改行を連続して入力してもインデント部を保持する
-inoremap <expr><CR> pumvisible() ? "\<C-y>\<CR>X\<BS>" : "\<CR>X\<BS>"
+" " <TAB> completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" " C-jでオムニ補完
+" inoremap <expr> <C-j>  &filetype == 'vim' ? "\<C-x>\<C-v>\<C-p>" : "\<C-x>\<C-o>\<C-p>"
+" " C-kを押すと行末まで削除
+" inoremap <C-k>  <C-o>D
+" " C-hで補完を続行しない
+" inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
+" " C-nでneocomplcache補完
+" inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+" " C-pでkeyword補完
+" inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+" " 途中でEnterしたとき、ポップアップを消して改行し、
+" " 改行を連続して入力してもインデント部を保持する
+" inoremap <expr><CR> pumvisible() ? "\<C-y>\<CR>X\<BS>" : "\<CR>X\<BS>"
 
 
 "-------------------------------------------------------------------------------
@@ -460,50 +461,50 @@ noremap : ;
 " プラグインごとの設定 Plugins
 "-------------------------------------------------------------------------------
 
-"------------------------------------
-" neocomplecache.vim
-"------------------------------------
-" Don't use autocomplpop.
-let g:AutoComplPop_NotEnableAtStartup = 1
-" Use neocomplcache.
-let g:NeoComplCache_EnableAtStartup = 1
-" Use smartcase.
-let g:NeoComplCache_SmartCase = 1
-" Use previous keyword completion.
-let g:NeoComplCache_PreviousKeywordCompletion = 1
-" Use tags auto update.
-let g:NeoComplCache_TagsAutoUpdate = 1
-" Use preview window.
-let g:NeoComplCache_EnableInfo = 1
-" Use camel case completion.
-let g:NeoComplCache_EnableCamelCaseCompletion = 1
-" Use underbar completion.
-let g:NeoComplCache_EnableUnderbarCompletion = 1
-" Set minimum syntax keyword length.
-let g:NeoComplCache_MinSyntaxLength = 3
-" Set skip input time.
-let g:NeoComplCache_SkipInputTime = '0.2'
-" Set manual completion length.
-let g:NeoComplCache_ManualCompletionStartLength = 0
+" "------------------------------------
+" " neocomplecache.vim
+" "------------------------------------
+" " Don't use autocomplpop.
+" let g:AutoComplPop_NotEnableAtStartup = 1
+" " Use neocomplcache.
+" let g:NeoComplCache_EnableAtStartup = 1
+" " Use smartcase.
+" let g:NeoComplCache_SmartCase = 1
+" " Use previous keyword completion.
+" let g:NeoComplCache_PreviousKeywordCompletion = 1
+" " Use tags auto update.
+" let g:NeoComplCache_TagsAutoUpdate = 1
+" " Use preview window.
+" let g:NeoComplCache_EnableInfo = 1
+" " Use camel case completion.
+" let g:NeoComplCache_EnableCamelCaseCompletion = 1
+" " Use underbar completion.
+" let g:NeoComplCache_EnableUnderbarCompletion = 1
+" " Set minimum syntax keyword length.
+" let g:NeoComplCache_MinSyntaxLength = 3
+" " Set skip input time.
+" let g:NeoComplCache_SkipInputTime = '0.2'
+" " Set manual completion length.
+" let g:NeoComplCache_ManualCompletionStartLength = 0
 
-" Define dictionary.
-let g:NeoComplCache_DictionaryFileTypeLists = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme' : $HOME.'/.gosh_completions'
-            \ }
+" " Define dictionary.
+" let g:NeoComplCache_DictionaryFileTypeLists = {
+            " \ 'default' : '',
+            " \ 'vimshell' : $HOME.'/.vimshell_hist',
+            " \ 'scheme' : $HOME.'/.gosh_completions'
+            " \ }
 
-" Define keyword.
-if !exists('g:NeoComplCache_KeywordPatterns')
-    let g:NeoComplCache_KeywordPatterns = {}
-endif
-let g:NeoComplCache_KeywordPatterns['default'] = '\v\h\w*'
+" " Define keyword.
+" if !exists('g:NeoComplCache_KeywordPatterns')
+    " let g:NeoComplCache_KeywordPatterns = {}
+" endif
+" let g:NeoComplCache_KeywordPatterns['default'] = '\v\h\w*'
 
-" Plugin key-mappings.
-imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-nmap <silent><C-e>     <Plug>(neocomplcache_keyword_caching)
-imap <expr><silent><C-e>     pumvisible() ? "\<C-e>" : "\<Plug>(neocomplcache_keyword_caching)"
+" " Plugin key-mappings.
+" imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
+" smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
+" nmap <silent><C-e>     <Plug>(neocomplcache_keyword_caching)
+" imap <expr><silent><C-e>     pumvisible() ? "\<C-e>" : "\<Plug>(neocomplcache_keyword_caching)"
 
 "------------------------------------
 " YankRing.vim
@@ -528,7 +529,6 @@ let g:miniBufExplMaxSize = 10
 "------------------------------------
 " Alignを日本語環境で使用するための設定
 let g:Align_xstrlen = 3
-
 
 "------------------------------------
 " VTreeExplorer
@@ -560,42 +560,42 @@ let Grep_Skip_Files = '*.bak *~'
 nmap s <Plug>Ysurround
 nmap ss <Plug>Yssurround
 
-"------------------------------------
-" smartchr.vim
-"------------------------------------
+" "------------------------------------
+" " smartchr.vim
+" "------------------------------------
+"
+" " 演算子の間に空白を入れる
+" inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
+" inoremap <buffer><expr> +=  smartchr#one_of(' += ')
+" " inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
+" inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
+" " inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
+" inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
+" inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
+" inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
+" inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
+" inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
+" inoremap <buffer><expr> =>  smartchr#one_of(' => ')
+" inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
+" inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
+" inoremap <buffer><expr> , smartchr#one_of(', ', ',')
+" " 3項演算子の場合は、後ろのみ空白を入れる
+" inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
+" " inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
 
-" 演算子の間に空白を入れる
-inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
-inoremap <buffer><expr> +=  smartchr#one_of(' += ')
-" inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
-inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
-" inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
-inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
-inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
-inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
-inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
-inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
-inoremap <buffer><expr> =>  smartchr#one_of(' => ')
-inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
-inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
-inoremap <buffer><expr> , smartchr#one_of(', ', ',')
-" 3項演算子の場合は、後ろのみ空白を入れる
-inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
-" inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
+" " =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
+" " 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
+" inoremap <buffer><expr> = search('¥(&¥<bar><bar>¥<bar>+¥<bar>-¥<bar>/¥<bar>>¥<bar><¥) ¥%#', 'bcn')? '<bs>= '  : search('¥(*¥<bar>!¥)¥%#', 'bcn') ? '= '  : smartchr#one_of(' = ', ' == ', '=')
 
-" =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
-" 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
-inoremap <buffer><expr> = search('¥(&¥<bar><bar>¥<bar>+¥<bar>-¥<bar>/¥<bar>>¥<bar><¥) ¥%#', 'bcn')? '<bs>= '  : search('¥(*¥<bar>!¥)¥%#', 'bcn') ? '= '  : smartchr#one_of(' = ', ' == ', '=')
+" " 下記の文字は連続して現れることがまれなので、二回続けて入力したら改行する
+" inoremap <buffer><expr> } smartchr#one_of('}', '}<cr>')
+" inoremap <buffer><expr> ; smartchr#one_of(';', ';<cr>')
+" "()は空白入れる
+" inoremap <buffer><expr> ( smartchr#one_of('( ')
+" inoremap <buffer><expr> ) smartchr#one_of(' )')
 
-" 下記の文字は連続して現れることがまれなので、二回続けて入力したら改行する
-inoremap <buffer><expr> } smartchr#one_of('}', '}<cr>')
-inoremap <buffer><expr> ; smartchr#one_of(';', ';<cr>')
-"()は空白入れる
-inoremap <buffer><expr> ( smartchr#one_of('( ')
-inoremap <buffer><expr> ) smartchr#one_of(' )')
-
-" if文直後の(は自動で間に空白を入れる
-inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
+" " if文直後の(は自動で間に空白を入れる
+" inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
 
 
 "------------------------------------
