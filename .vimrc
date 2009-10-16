@@ -28,7 +28,6 @@ set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
 
-
 " ファイルタイプ判定をon
 filetype plugin on
 " ハイライト on
@@ -425,6 +424,11 @@ augroup MyXML
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
+
+"  Insert mode中で単語単位/行単位の削除をアンドゥ可能にする
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
+
 
 "
 " 括弧を自動補完
