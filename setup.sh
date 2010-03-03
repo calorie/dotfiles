@@ -6,6 +6,7 @@ ln -s $HOME/dotfiles/.gdbinit $HOME/.gdbinit
 ln -s $HOME/dotfiles/.vim $HOME/.vim
 ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/import.scala $HOME/import.scala
+ln -s $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 IFS=:
 GIT=false
 for d in $PATH
