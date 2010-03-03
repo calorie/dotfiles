@@ -270,6 +270,10 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
+"<space>j, <space>kで画面送り
+noremap <Space>j <C-f>
+noremap <Space>k <C-b>
+
 " spaceで次のbufferへ。back-spaceで前のbufferへ
 nmap <Space> ;MBEbn<CR>
 nmap <BS> ;MBEbp<CR>
@@ -281,10 +285,21 @@ map <kMinus> <C-W>-
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
+"最後に編集された位置に移動
+nnoremap gb '[
+nnoremap gp ']
+
+"対応する括弧に移動
+nnoremap [ %
+nnoremap ] %
+
 "最後に変更されたテキストを選択する
 nnoremap gc  `[v`]
 vnoremap gc ;<C-u>normal gc<Enter>
 onoremap gc ;<C-u>normal gc<Enter>
+
+"カーソル位置の単語をyankする
+nnoremap vv vawy
 
 "-------------------------------------------------------------------------------
 " エンコーディング関連 Encoding
@@ -361,7 +376,7 @@ autocmd FileType html :set fileencoding=utf-8
 autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
-autocmd FileType py :set fileencoding=utf-8
+autocmd FileType putocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'y :set fileencoding=utf-8
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -617,3 +632,9 @@ nnoremap <Space>gA :<C-u>GitAdd <cfile><Enter>
 nnoremap <Space>gc :<C-u>GitCommit<Enter>
 nnoremap <Space>gC :<C-u>GitCommit --amend<Enter>
 nnoremap <Space>gp :<C-u>Git push
+
+
+"------------------------------------
+" pydiction.vim
+"------------------------------------
+autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'

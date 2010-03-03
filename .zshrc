@@ -74,30 +74,40 @@ local NORMAL_COLOR="$ESCX"m
 # Show git branch when you are in git repository
 # http://blog.s21g.com/articles/1159
 
-_set_env_git_current_branch() {
-  GIT_CURRENT_BRANCH=$( git branch 2> /dev/null | grep '^\*' | cut -b 3- )
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '%s[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
+RPROMPT="%1(v|%F${CYAN}%1v%f|)${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}"
 
-_update_rprompt () {
-  if [ "`git ls-files 2>/dev/null`" ]; then
-    RPROMPT='${CYAN}git[branch:$GIT_CURRENT_BRANCH]${RESET} ${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
-  else
-    RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
-  fi
-}
+# _set_env_git_current_branch() {
+  # GIT_CURRENT_BRANCH=$( git branch 2> /dev/null | grep '^\*' | cut -b 3- )
+# }
 
-precmd()
-{
-  _set_env_git_current_branch
-  _update_rprompt
-}
+# _update_rprompt () {
+  # if [ "`git ls-files 2>/dev/null`" ]; then
+    # RPROMPT='${CYAN}git[branch:$GIT_CURRENT_BRANCH]${RESET} ${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
+  # else
+    # RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
+  # fi
+# }
+
+# precmd()
+# {
+  # _set_env_git_current_branch
+  # _update_rprompt
+# }
 
 
-chpwd()
-{
-  _set_env_git_current_branch
-  _update_rprompt
-}
+# chpwd()
+# {
+  # _set_env_git_current_branch
+  # _update_rprompt
+# }
 
 
 

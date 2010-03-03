@@ -5,6 +5,7 @@ ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
 ln -s $HOME/dotfiles/.gdbinit $HOME/.gdbinit
 ln -s $HOME/dotfiles/.vim $HOME/.vim
 ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/dotfiles/import.scala $HOME/import.scala
 IFS=:
 GIT=false
 for d in $PATH
