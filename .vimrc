@@ -285,21 +285,25 @@ map <kMinus> <C-W>-
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-"最後に編集された位置に移動
+" 最後に編集された位置に移動
 nnoremap gb '[
 nnoremap gp ']
 
-"対応する括弧に移動
+" 対応する括弧に移動
 nnoremap [ %
 nnoremap ] %
 
-"最後に変更されたテキストを選択する
+" 最後に変更されたテキストを選択する
 nnoremap gc  `[v`]
 vnoremap gc ;<C-u>normal gc<Enter>
 onoremap gc ;<C-u>normal gc<Enter>
 
-"カーソル位置の単語をyankする
+" カーソル位置の単語をyankする
 nnoremap vv vawy
+
+" 矩形選択で自由に移動する
+set virtualedit+=block
+
 
 "-------------------------------------------------------------------------------
 " エンコーディング関連 Encoding
@@ -444,6 +448,11 @@ augroup END
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 
+" :Ptでインデントモード切替
+command! Pt :set paste!
+
+" Yで行末までヤンク
+nnoremap Y y$
 
 "
 " 括弧を自動補完

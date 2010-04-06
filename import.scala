@@ -1,8 +1,15 @@
-// import scala.xml._
+import scala.xml._
 // import scala.xml.parsing.XhtmlParser
+
 import scala.io.Source
 import scala.util.matching.Regex
+import scala.collection.jcl.Conversions._
+import java.util.{List => JList, Map => JMap }
+import java.util.{Calendar,Date }
+
 // import _root_.com.yuroyoro.interactivehelp.Help._
+//
+type -->[A, B]  = PartialFunction[A, B]
 
 object FileOut{
   import java.io.{Writer, OutputStreamWriter, FileOutputStream }
