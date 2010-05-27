@@ -318,6 +318,9 @@ autoload zed
 autoload predict-on
 #predict-off
 
+## Command Line Stack [Esc]-[q]
+bindkey -a 'q' push-line
+
 
 ## Alias configuration
 #

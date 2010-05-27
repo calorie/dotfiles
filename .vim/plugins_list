@@ -80,6 +80,10 @@ fuzzyfinder.vim : 超あいまいバッファ検索
   http://www.vim.org/scripts/script.php?script_id=1984
   http://d.hatena.ne.jp/ns9tks/20080104/1199432216
 
+DumbBuf.vim : quickbufっぽくbufferを管理。とりあえず<F4>でバッファ一覧
+  http://vim.g.hatena.ne.jp/tyru/20091030
+  http://github.com/tyru/DumbBuf.vim/downloads
+
 ---------------------------------------------
 ファイル系
 ---------------------------------------------

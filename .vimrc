@@ -270,6 +270,19 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
+" gh, geで行頭、行末へ
+nmap gh ^
+nmap ge $
+
+" insert mode での移動
+imap  <C-e> <END>
+imap  <C-a> <HOME>
+" インサートモードでもhjklで移動（Ctrl押すけどね）
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
+
 "<space>j, <space>kで画面送り
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
@@ -304,6 +317,14 @@ nnoremap vv vawy
 " 矩形選択で自由に移動する
 set virtualedit+=block
 
+"ビジュアルモード時vで行末まで選択
+vnoremap v $h
+
+" CTRL-hjklでウィンドウ移動
+nnoremap <C-j> ;<C-w>j
+nnoremap <C-k> ;<C-k>j
+nnoremap <C-l> ;<C-l>j
+nnoremap <C-h> ;<C-h>j
 
 "-------------------------------------------------------------------------------
 " エンコーディング関連 Encoding
@@ -451,8 +472,15 @@ inoremap <C-w>  <C-g>u<C-w>
 " :Ptでインデントモード切替
 command! Pt :set paste!
 
-" Yで行末までヤンク
-nnoremap Y y$
+" ygeで行末までヤンク
+nmap ygh ly^
+" yghで行頭までヤンク
+nmap yge y$
+
+" ghpで行頭へペースト
+nmap ghp ^p
+" gepで行末からペースト
+nmap gep $p
 
 "
 " 括弧を自動補完
@@ -552,6 +580,9 @@ let g:miniBufExplModSelTarget=1
 let g:miniBufExplSplitToEdge=1
 let g:miniBufExplMaxSize = 10
 
+":TmでMiniBufExplorerの表示トグル
+command! Mt :TMiniBufExplorer
+
 "------------------------------------
 " Align
 "------------------------------------
@@ -570,7 +601,7 @@ let g:treeExplVertical=1
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
-map <Leader>x , c<space>
+map <Leader>x, c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
@@ -647,3 +678,32 @@ nnoremap <Space>gp :<C-u>Git push
 " pydiction.vim
 "------------------------------------
 autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+
+"------------------------------------
+" BufExplorer
+"------------------------------------
+"<C-l>でBufferList
+nnoremap <C-l> :BufExplorer<CR>
+
+"------------------------------------
+" VTreeExplorer
+"------------------------------------
+"<Leader>t<Space>でディレクトリツリー表示
+noremap <Leader>t<Space> :VTreeExplore<CR>
+
+"------------------------------------
+" DumbBuf.vim
+"------------------------------------
+"<Leader>b<Space>でBufferList
+let dumbbuf_hotkey = '<Leader>b<Space>'
+let dumbbuf_mappings = {
+    \ 'n': {
+        \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
+    \}
+\}
+let dumbbuf_single_key  = 1
+let dumbbuf_updatetime  = 1    " &updatetimeの最小値
+let dumbbuf_wrap_cursor = 0
+let dumbbuf_remove_marked_when_close = 1
+
+
