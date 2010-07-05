@@ -258,6 +258,9 @@ nnoremap <C-h>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
 nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
 
+" :Gb <args> でGrepBufferする
+command! -nargs=1 Gb :GrepBuffer <args>
+
 "-------------------------------------------------------------------------------
 " 移動設定 Move
 "-------------------------------------------------------------------------------
@@ -270,9 +273,10 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-" gh, geで行頭、行末へ
-nmap gh ^
-nmap ge $
+" 0, 9で行頭、行末へ
+nmap 1 0
+nmap 0 ^
+nmap 9 $
 
 " insert mode での移動
 imap  <C-e> <END>
@@ -472,15 +476,10 @@ inoremap <C-w>  <C-g>u<C-w>
 " :Ptでインデントモード切替
 command! Pt :set paste!
 
-" ygeで行末までヤンク
-nmap ygh ly^
-" yghで行頭までヤンク
-nmap yge y$
-
-" ghpで行頭へペースト
-nmap ghp ^p
-" gepで行末からペースト
-nmap gep $p
+" y9で行末までヤンク
+nmap y9 y$
+" y0で行頭までヤンク
+nmap y0 y^
 
 "
 " 括弧を自動補完

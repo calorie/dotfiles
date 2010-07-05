@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/WebSocketChirpUserStreams/chat'
+let g:netrw_dirhist_2='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/slim3-gen-scala/build'
+let g:netrw_dirhist_3='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/autokiseinize/build'
+let g:netrw_dirhist_4='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/autokiseinize/war/WEB-INF'
