@@ -300,6 +300,15 @@ setopt hist_no_store
 # コマンドラインがどのように展開され実行されたかを表示するようになる
 #setopt xtrace
 
+# Alt + 矢印キーで単語移動
+bindkey "^[[C" forward-word
+bindkey "^[[D" backward-word
+
+# back-wordでの単語境界の設定
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars " _-./;@"
+zstyle ':zle:*' word-style unspecified
 
 ## Completion configuration
 #
