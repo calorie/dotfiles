@@ -233,7 +233,6 @@ setopt inc_append_history
 
 # history (fc -l) コマンドをヒストリリストから取り除く。
 setopt hist_no_store
-
 # サスペンド中のプロセスと同じコマンド名を実行した場合はリジュームする
 #setopt auto_resume
 
@@ -301,14 +300,33 @@ setopt hist_no_store
 #setopt xtrace
 
 # Alt + 矢印キーで単語移動
-bindkey "^[[C" forward-word
-bindkey "^[[D" backward-word
+bindkey "\e[C" forward-word
+bindkey "\e[D" backward-word
 
 # back-wordでの単語境界の設定
 autoload -Uz select-word-style
 select-word-style default
 zstyle ':zle:*' word-chars " _-./;@"
 zstyle ':zle:*' word-style unspecified
+
+# URLをコピペしたときに自動でエスケープ
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
+# 勝手にpushd
+setopt autopushd
+
+# エラーメッセージ本文出力に色付け
+e_normal=`echo -e "¥033[0;30m"`
+e_RED=`echo -e "¥033[1;31m"`
+e_BLUE=`echo -e "¥033[1;36m"`
+
+function make() {
+    LANG=C command make "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
+}
+function cwaf() {
+    LANG=C command ./waf "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
+}
 
 ## Completion configuration
 #
