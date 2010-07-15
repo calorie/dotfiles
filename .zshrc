@@ -299,9 +299,18 @@ setopt hist_no_store
 # コマンドラインがどのように展開され実行されたかを表示するようになる
 #setopt xtrace
 
-# Alt + 矢印キーで単語移動
-bindkey "\e[C" forward-word
-bindkey "\e[D" backward-word
+# ^でcd ..する
+function cdup() {
+echo
+cd ..
+zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
+
+# ctrl-w, ctrl-bキーで単語移動
+bindkey "^W" forward-word
+bindkey "^B" backward-word
 
 # back-wordでの単語境界の設定
 autoload -Uz select-word-style
@@ -356,8 +365,6 @@ bindkey -a 'q' push-line
 setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias where="command -v"
-alias j="jobs -l"
-alias 'ps?'='ps alx |grep '
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
@@ -370,14 +377,6 @@ linux*)
     ;;
 esac
 
-alias la="ls -a"
-alias lf="ls -F"
-alias ll="ls -l"
-
-alias du="du -h"
-alias df="df -h"
-
-alias su="su -l"
 
 case "${OSTYPE}" in
 darwin*)
@@ -463,18 +462,6 @@ esac
 ## Easy directory change and setup
 #  Tomohito Ozaki
 
-alias 'vi'='vim'
-alias 'src'='exec zsh'
-alias 'm'='make'
-alias 'g'='grep'
-alias 'mn'='make native-code'
-alias 'mc'='make clean'
-alias s='screen -S main'
-alias sn='screen'
-alias sl='screen -ls'
-alias pon='predict-on'
-alias poff='predict-off'
-alias p='ping -c 4'
 
 export EDITOR=vim
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin

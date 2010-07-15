@@ -253,10 +253,10 @@ vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 "s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
-" Ctrl-hでヘルプ
-nnoremap <C-h>  :<C-u>help<Space>
+" Ctrl-mでヘルプ
+nnoremap <C-m>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
-nnoremap <C-h><C-h> :<C-u>help<Space><C-r><C-w><Enter>
+nnoremap <C-m><C-m> :<C-u>help<Space><C-r><C-w><Enter>
 
 " :Gb <args> でGrepBufferする
 command! -nargs=1 Gb :GrepBuffer <args>
@@ -681,14 +681,17 @@ autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-di
 "------------------------------------
 " BufExplorer
 "------------------------------------
-"<C-l>でBufferList
-nnoremap <C-l> :BufExplorer<CR>
+"<Leader>l<Space>でBufferList
+nnoremap <Leader>l<Space> :BufExplorer<CR>
 
 "------------------------------------
 " VTreeExplorer
 "------------------------------------
+let g:treeExplVertical=1
 "<Leader>t<Space>でディレクトリツリー表示
-noremap <Leader>t<Space> :VTreeExplore<CR>
+noremap <Leader>t<Space> :VSTreeExplore<CR>
+"分割したウィンドウのサイズ
+let g:treeExplWinSize=30
 
 "------------------------------------
 " DumbBuf.vim
