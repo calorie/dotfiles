@@ -215,13 +215,14 @@ else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
 
+"<C-t>はscreentとかぶるので削除
 "tab pagesを使い易くする
-nnoremap <C-t>  <Nop>
-nnoremap <C-t>n  ;<C-u>tabnew<CR>
-nnoremap <C-t>c  ;<C-u>tabclose<CR>
-nnoremap <C-t>o  ;<C-u>tabonly<CR>
-nnoremap <C-t>j  ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
-nnoremap <C-t>k  gT
+" nnoremap <C-t>  <Nop>
+" nnoremap <C-t>n  ;<C-u>tabnew<CR>
+" nnoremap <C-t>c  ;<C-u>tabclose<CR>
+" nnoremap <C-t>o  ;<C-u>tabonly<CR>
+" nnoremap <C-t>j  ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+" nnoremap <C-t>k  gT
 
 "tags-and-searchesを使い易くする
 nnoremap t  <Nop>
@@ -253,10 +254,10 @@ vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 "s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
-" Ctrl-mでヘルプ
-nnoremap <C-m>  :<C-u>help<Space>
+" Ctrl-Hでヘルプ
+nnoremap <C-H>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
-nnoremap <C-m><C-m> :<C-u>help<Space><C-r><C-w><Enter>
+nnoremap <C-H><C-H> :<C-u>help<Space><C-r><C-w><Enter>
 
 " :Gb <args> でGrepBufferする
 command! -nargs=1 Gb :GrepBuffer <args>
@@ -294,6 +295,13 @@ noremap <Space>k <C-b>
 " spaceで次のbufferへ。back-spaceで前のbufferへ
 nmap <Space> ;MBEbn<CR>
 nmap <BS> ;MBEbp<CR>
+
+" F2で前のバッファ
+map <F2> <ESC>;bp<CR>
+" F3で次のバッファ
+map <F3> <ESC>;bn<CR>
+" F4でバッファを削除する
+map <F4> <ESC>;bw<CR>
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+

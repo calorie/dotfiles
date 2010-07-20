@@ -18,5 +18,6 @@ then
   git config --global user.name "yuroyoro"
   git config --global user.email "ozaki@yuroyoro.com"
   git config --global core.excludesfile "$HOME/.gitignore"
+  ln -s /Users/ozaki/dotfiles/.gitconfig /Users/ozaki/.gitconfig
 else echo "no git"
 fi
