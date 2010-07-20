@@ -1,0 +1,13 @@
+[user]
+  name = ozaki
+  email = ozaki@yuroyoro.com
+[core]
+  excludesfile = /Users/ozaki/.gitignore
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  di = diff
+  oneline = log --pretty=oneline
+  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
