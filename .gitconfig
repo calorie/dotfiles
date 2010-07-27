@@ -11,3 +11,4 @@
   di = diff
   oneline = log --pretty=oneline
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
+  so = remote show origin

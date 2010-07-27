@@ -107,3 +107,7 @@ vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を
 git-vim : gitをvimでー
   http://github.com/motemen/git-vim/tree/master
   http://vim-users.jp/2009/09/hack67/
+
+rails.vim : rails的なアレ
+  http://www.vim.org/scripts/script.php?script_id=1567
+  http://d.hatena.ne.jp/secondlife/20061222/1166781841
