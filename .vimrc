@@ -255,9 +255,9 @@ vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
 " Ctrl-mでヘルプ
-nnoremap <C-m>  :<C-u>help<Space>
+nnoremap <C-i>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
-nnoremap <C-m><C-m> :<C-u>help<Space><C-r><C-w><Enter>
+nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
 
 " :Gb <args> でGrepBufferする
 command! -nargs=1 Gb :GrepBuffer <args>
@@ -716,4 +716,20 @@ let dumbbuf_updatetime  = 1    " &updatetimeの最小値
 let dumbbuf_wrap_cursor = 0
 let dumbbuf_remove_marked_when_close = 1
 
+
+"------------------------------------
+" fuf.vim
+"------------------------------------
+"<Leader>fb<Space>でFufBuffer
+noremap <Leader>fb<Space> :FufBuffer<CR>
+"<Leader>fd<Space>でFufDir
+noremap <Leader>fd<Space> :FufDir<CR>
+"<Leader>fdc<Space>でFufDirWithCurrentBufferDir
+noremap <Leader>fdc<Space> :FufDirWithCurrentBufferDir<CR>
+"<Leader>ff<Space>でFufFile
+noremap <Leader>ff<Space> :FufDir<CR>
+"<Leader>ffc<Space>でFufFileWithCurrentBufferDir
+noremap <Leader>ffc<Space> :FufFileWithCurrentBufferDir<CR>
+"<Leader>fc<Space>でFufChangeList
+noremap <Leader>fc<Space> :FufChangeList<CR>
 
