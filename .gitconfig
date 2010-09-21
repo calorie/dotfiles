@@ -2,13 +2,15 @@
   name = ozaki
   email = ozaki@yuroyoro.com
 [core]
-  excludesfile = /Users/ozaki/.gitignore
+  excludesfile = $HOME/.gitignore
 [alias]
   st = status
   ci = commit
   co = checkout
   br = branch
-  di = diff
+  di = diff --color
+  dw = diff --color-words
+  lo = log --color
   oneline = log --pretty=oneline
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
   so = remote show origin
