@@ -303,3 +303,6 @@ map  <S-F6> ;pc<CR>
 
 "<F7>でRubyスクリプトを保存後コマンドプロンプトから実行
 nmap <F7> ;w<CR>;!ruby %<CR>
+
+" 保存時にSyntaxのチェックを行う
+autocmd BufWritePost * :!ruby -c %
