@@ -11,7 +11,7 @@
 [push]
   default = tracking       # defaultのpush先はtrackingしているリポジトリ
 [core]
-  excludesfile = $HOME/.gitignore  # globalな.gitignoreの指定
+  excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   autocrlf = input                 # CRLFを自動変換
 [alias]
   st = status
@@ -22,6 +22,7 @@
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
   ad = add
   ci = commit -a           # modifiedなファイルを全てstageへ
+  cam = commit -a --amend  # 直前のcommitを修正
   co = checkout
   # branch関連
   br = branch
@@ -30,6 +31,7 @@
   bn = branch --no-merged  # mergeしてないbranchを表示
   # log関連
   wc = whatchanged         # logに変更されたファイルも一緒に出す
+  ls = log --stat          # logに変更されたファイルも一緒に出す
   lp = log -p              # diffも一緒に出す
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
   lr = log origin          # originのlog
@@ -43,15 +45,15 @@
   dw = diff --color-words    # 単語単位でいろつけてdiff
   dc = diff --cached         # addされているものとのdiff
   ds = diff --staged         # 同上(1.6.1移行)
-  d1 = diff HEAD^            # HEADから1つ前とdiff
-  d2 = diff HEAD^^           # HEADから2つ前とdiff
-  d3 = diff HEAD^^^          # HEADから3つ前とdiff
-  d4 = diff HEAD^^^^         # HEADから4つ前とdiff
-  d5 = diff HEAD^^^^^        # HEADから5つ前とdiff
-  d10 = diff HEAD^^^^^^^^^^  # HEADから10前とdiff
-  # mergeの際にconcliftが起きたファイルを編集
+  d1 = diff HEAD~            # HEADから1つ前とdiff
+  d2 = diff HEAD~~           # HEADから2つ前とdiff
+  d3 = diff HEAD~~~          # HEADから3つ前とdiff
+  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+  # mergeの際にconflictが起きたファイルを編集
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-  # mergeの際にconcliftが起きたファイルをadd
+  # mergeの際にconflictが起きたファイルをadd
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   # grep関連
   gr = grep
