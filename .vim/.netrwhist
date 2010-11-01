@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/ozaki/dev/Project/sandbox/mirah/mirah/lib/mirah'
+let g:netrw_dirhist_2='/Users/ozaki/dev/Project/sandbox/scala/products/ScalatraExample/project/build'
+let g:netrw_dirhist_3='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/fb-gyopaa/src/main'
+let g:netrw_dirhist_4='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/ScalatraExampleGAE/src/main'

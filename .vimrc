@@ -30,8 +30,6 @@ set ttymouse=xterm2
 
 " ファイルタイプ判定をon
 filetype plugin on
-" ハイライト on
-syntax enable
 
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
@@ -261,6 +259,8 @@ nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
 
 " :Gb <args> でGrepBufferする
 command! -nargs=1 Gb :GrepBuffer <args>
+" カーソル下の単語をGrepBufferする
+nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
 
 "-------------------------------------------------------------------------------
 " 移動設定 Move
@@ -431,20 +431,19 @@ command! Sjis Cp932
 "-------------------------------------------------------------------------------
 
 " ターミナルタイプによるカラー設定
-if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
+if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color" || &term =~ "xterm-color"
  set t_Co=16
  set t_Sf=[3%dm
  set t_Sb=[4%dm
-endif
-
-if &term =~ "xterm-256color"
-  colorscheme inkpot
 endif
 
 "ポップアップメニューのカラーを設定
 "hi Pmenu guibg=#666666
 "hi PmenuSel guibg=#8cd0d3 guifg=#666666
 "hi PmenuSbar guibg=#333333
+
+" ハイライト on
+syntax enable
 
 " 補完候補の色づけ for vim7
 hi Pmenu ctermbg=white ctermfg=darkgray
