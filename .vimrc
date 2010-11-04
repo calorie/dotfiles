@@ -497,7 +497,7 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 " その他 Misc
 "-------------------------------------------------------------------------------
 
-" ;でExコマンド入力( ;と:を入れ替)
+" ;でコマンド入力( ;と:を入れ替)
 noremap ; :
 noremap : ;
 
@@ -548,19 +548,19 @@ map <Leader>x, c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
-"------------------------------------
+" ------------------------------------
 " grep.vim
 "------------------------------------
 " 検索外のディレクトリ、ファイルパターン
-let Grep_Skip_Dirs = '.svn'
+let Grep_Skip_Dirs = '.svn .git .hg'
 let Grep_Skip_Files = '*.bak *~'
-
+-
 "------------------------------------
 " surround.vim
 "------------------------------------
 " s, ssで選択範囲を指定文字でくくる
-nmap s <Plug>Ysurround
-nmap ss <Plug>Yssurround
+" nmap s <Plug>Ysurround
+" nmap ss <Plug>Yssurround
 
 " "------------------------------------
 " " smartchr.vim
@@ -671,6 +671,11 @@ map <Leader>U <Plug>(operator-decamelize)
 map R <Plug>(operator-replace)
 
 "------------------------------------
+" unite.vim
+"------------------------------------
+let g:hatena_user='yuroyoro'
+
+"------------------------------------
 " vimshell
 "------------------------------------
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
@@ -761,10 +766,10 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+" if !exists('g:neocomplcache_keyword_patterns')
+    " let g:neocomplcache_keyword_patterns = {}
+" endif
+" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " ユーザー定義スニペット保存ディレクトリ
 let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'

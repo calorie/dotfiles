@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/vimproc"]
   path = .vim/bundle/vimproc
   url = http://github.com/Shougo/vimproc.git
+[submodule ".vim/bundle/hatena-vim"]
+	path = .vim/bundle/hatena-vim
+	url = https://github.com/motemen/hatena-vim.git
