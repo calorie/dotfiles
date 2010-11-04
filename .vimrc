@@ -18,7 +18,6 @@ set whichwrap=b,s,h,l,<,>,[,]    " カーソルを行頭、行末で止まらな
 set showcmd                      " コマンドをステータス行に表示
 set showmode                     " 現在のモードを表示
 set viminfo='50,<1000,s100,\"50  " viminfoファイルの設定
-set helpfile=$VIMRUNTIME/doc/help.txt
 set modelines=0                  " モードラインは無効
 
 " OSのクリップボードを使用する
@@ -27,9 +26,6 @@ set clipboard+=unnamed
 set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
-
-" ファイルタイプ判定をon
-filetype plugin on
 
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
@@ -40,6 +36,14 @@ imap <C-K>  <ESC>"*pa
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
+" pathogenでftdetectなどをloadさせるために一度ファイルタイプ判定をoff
+filetype off
+" pathogen.vimによってbundle配下のpluginをpathに加える
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+set helpfile=$VIMRUNTIME/doc/help.txt
+" ファイルタイプ判定をon
+filetype plugin on
 
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
@@ -156,16 +160,8 @@ set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
 
 
-" Enter で補完決定にする
-"inoremap <expr> <cr> pumvisible() ? "<c-y>" : "<c-g><cr>"
-" escape で補完をキャンセルして元のテキストに戻す
-"inoremap <expr> <esc>      pumvisible() ? "<c-e>":"<esc>"
-" c-n で補完を始めたとき、常にどれかの候補が選ばれているようにする。
-" これによって、続けて文字を入力して候補をしぼりこみ、enter で決定できるようになる。
-"¥inoremap <expr> <c-n> pumvisible() ? "¥<lt><c-n>" : "¥<c-n>¥<c-r>=pumvisible() ? ¥"¥¥<lt><down>¥" : ¥"¥"¥<lt><cr>"
-
 "<c-space>でomni補完
-imap <c-space> <c-x><c-o>
+" imap <c-space> <c-x><c-o>
 
 " -- tabでオムニ補完
 function! InsertTabWrapper()
@@ -182,23 +178,6 @@ function! InsertTabWrapper()
   endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-
-" " <TAB> completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" " C-jでオムニ補完
-" inoremap <expr> <C-j>  &filetype == 'vim' ? "\<C-x>\<C-v>\<C-p>" : "\<C-x>\<C-o>\<C-p>"
-" " C-kを押すと行末まで削除
-" inoremap <C-k>  <C-o>D
-" " C-hで補完を続行しない
-" inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
-" " C-nでneocomplcache補完
-" inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
-" " C-pでkeyword補完
-" inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
-" " 途中でEnterしたとき、ポップアップを消して改行し、
-" " 改行を連続して入力してもインデント部を保持する
-" inoremap <expr><CR> pumvisible() ? "\<C-y>\<CR>X\<BS>" : "\<CR>X\<BS>"
 
 
 "-------------------------------------------------------------------------------
@@ -252,7 +231,7 @@ vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 "s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
-" Ctrl-mでヘルプ
+" Ctrl-iでヘルプ
 nnoremap <C-i>  :<C-u>help<Space>
 " カーソル下のキーワードをヘルプでひく
 nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
@@ -324,7 +303,7 @@ vnoremap gc ;<C-u>normal gc<Enter>
 onoremap gc ;<C-u>normal gc<Enter>
 
 " カーソル位置の単語をyankする
-nnoremap vv vawy
+nnoremap vy vawy
 
 " 矩形選択で自由に移動する
 set virtualedit+=block
@@ -413,7 +392,6 @@ autocmd FileType html :set fileencoding=utf-8
 autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
-autocmd FileType putocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'y :set fileencoding=utf-8
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -431,8 +409,12 @@ command! Sjis Cp932
 "-------------------------------------------------------------------------------
 
 " ターミナルタイプによるカラー設定
-if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color" || &term =~ "xterm-color"
+if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
  set t_Co=16
+ set t_Sf=[3%dm
+ set t_Sb=[4%dm
+elseif &term =~ "xterm-color"
+ set t_Co=8
  set t_Sf=[3%dm
  set t_Sb=[4%dm
 endif
@@ -522,51 +504,6 @@ noremap : ;
 "-------------------------------------------------------------------------------
 " プラグインごとの設定 Plugins
 "-------------------------------------------------------------------------------
-
-" "------------------------------------
-" " neocomplecache.vim
-" "------------------------------------
-" " Don't use autocomplpop.
-" let g:AutoComplPop_NotEnableAtStartup = 1
-" " Use neocomplcache.
-" let g:NeoComplCache_EnableAtStartup = 1
-" " Use smartcase.
-" let g:NeoComplCache_SmartCase = 1
-" " Use previous keyword completion.
-" let g:NeoComplCache_PreviousKeywordCompletion = 1
-" " Use tags auto update.
-" let g:NeoComplCache_TagsAutoUpdate = 1
-" " Use preview window.
-" let g:NeoComplCache_EnableInfo = 1
-" " Use camel case completion.
-" let g:NeoComplCache_EnableCamelCaseCompletion = 1
-" " Use underbar completion.
-" let g:NeoComplCache_EnableUnderbarCompletion = 1
-" " Set minimum syntax keyword length.
-" let g:NeoComplCache_MinSyntaxLength = 3
-" " Set skip input time.
-" let g:NeoComplCache_SkipInputTime = '0.2'
-" " Set manual completion length.
-" let g:NeoComplCache_ManualCompletionStartLength = 0
-
-" " Define dictionary.
-" let g:NeoComplCache_DictionaryFileTypeLists = {
-            " \ 'default' : '',
-            " \ 'vimshell' : $HOME.'/.vimshell_hist',
-            " \ 'scheme' : $HOME.'/.gosh_completions'
-            " \ }
-
-" " Define keyword.
-" if !exists('g:NeoComplCache_KeywordPatterns')
-    " let g:NeoComplCache_KeywordPatterns = {}
-" endif
-" let g:NeoComplCache_KeywordPatterns['default'] = '\v\h\w*'
-
-" " Plugin key-mappings.
-" imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-" smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-" nmap <silent><C-e>     <Plug>(neocomplcache_keyword_caching)
-" imap <expr><silent><C-e>     pumvisible() ? "\<C-e>" : "\<Plug>(neocomplcache_keyword_caching)"
 
 "------------------------------------
 " YankRing.vim
@@ -681,11 +618,6 @@ nnoremap <Space>gp :<C-u>Git push
 
 
 "------------------------------------
-" pydiction.vim
-"------------------------------------
-autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-
-"------------------------------------
 " BufExplorer
 "------------------------------------
 "<Leader>l<Space>でBufferList
@@ -715,20 +647,200 @@ let dumbbuf_updatetime  = 1    " &updatetimeの最小値
 let dumbbuf_wrap_cursor = 0
 let dumbbuf_remove_marked_when_close = 1
 
+"------------------------------------
+" open-blowser.vim
+"------------------------------------
+
+" カーソル下のURLをブラウザで開く
+nmap fu <Plug>(openbrowser-open)
+vmap fu <Plug>(openbrowser-open)
+" カーソル下のキーワードをググる
+nnoremap fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
 "------------------------------------
-" fuf.vim
+" operator-camelize.vim
 "------------------------------------
-"<Leader>fb<Space>でFufBuffer
-noremap <Leader>fb<Space> :FufBuffer<CR>
-"<Leader>fd<Space>でFufDir
-noremap <Leader>fd<Space> :FufDir<CR>
-"<Leader>fdc<Space>でFufDirWithCurrentBufferDir
-noremap <Leader>fdc<Space> :FufDirWithCurrentBufferDir<CR>
-"<Leader>ff<Space>でFufFile
-noremap <Leader>ff<Space> :FufDir<CR>
-"<Leader>ffc<Space>でFufFileWithCurrentBufferDir
-noremap <Leader>ffc<Space> :FufFileWithCurrentBufferDir<CR>
-"<Leader>fc<Space>でFufChangeList
-noremap <Leader>fc<Space> :FufChangeList<CR>
+" camel-caseへの変換
+map <Leader>u <Plug>(operator-camelize)
+map <Leader>U <Plug>(operator-decamelize)
 
+"------------------------------------
+" operator-replace.vim
+"------------------------------------
+" RwなどでYankしてるもので置き換える
+map R <Plug>(operator-replace)
+
+"------------------------------------
+" vimshell
+"------------------------------------
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
+let g:vimshell_enable_smart_case = 1
+
+if has('win32') || has('win64')
+  " Display user name on Windows.
+  let g:vimshell_prompt = $USERNAME."% "
+else
+  " Display user name on Linux.
+  let g:vimshell_prompt = $USER."% "
+
+  call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
+  call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
+  let g:vimshell_execute_file_list['zip'] = 'zipinfo'
+  call vimshell#set_execute_file('tgz,gz', 'gzcat')
+  call vimshell#set_execute_file('tbz,bz2', 'bzcat')
+endif
+
+function! g:my_chpwd(args, context)
+  call vimshell#execute('echo "chpwd"')
+endfunction
+function! g:my_emptycmd(cmdline, context)
+  call vimshell#execute('echo "emptycmd"')
+  return a:cmdline
+endfunction
+function! g:my_preprompt(args, context)
+  call vimshell#execute('echo "preprompt"')
+endfunction
+function! g:my_preexec(cmdline, context)
+  call vimshell#execute('echo "preexec"')
+
+  if a:cmdline =~# '^\s*diff\>'
+    call vimshell#set_syntax('diff')
+  endif
+  return a:cmdline
+endfunction
+
+autocmd FileType vimshell
+\ call vimshell#altercmd#define('g', 'git')
+\| call vimshell#altercmd#define('i', 'iexe')
+\| call vimshell#altercmd#define('l', 'll')
+\| call vimshell#altercmd#define('ll', 'ls -l')
+\| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
+\| call vimshell#hook#set('emptycmd', ['g:my_emptycmd'])
+\| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
+\| call vimshell#hook#set('preexec', ['g:my_preexec'])
+
+command! Vs :VimShell
+
+"------------------------------------
+" neocomplecache.vim
+"------------------------------------
+" " AutoComplPopを無効にする
+" let g:acp_enableAtStartup = 0
+" NeoComplCacheを有効にする
+let g:neocomplcache_enable_at_startup = 1
+" smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplcache_enable_smart_case = 1
+" camle caseを有効化。大文字を区切りとしたワイルドカードのように振る舞う
+let g:neocomplcache_enable_camel_case_completion = 1
+" _(アンダーバー)区切りの補完を有効化
+let g:neocomplcache_enable_underbar_completion = 1
+" シンタックスをキャッシュするときの最小文字長を3に
+let g:neocomplcache_min_syntax_length = 3
+" neocomplcacheを自動的にロックするバッファ名のパターン
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" -入力による候補番号の表示
+let g:neocomplcache_enable_quick_match = 1
+" 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
+let g:neocomplcache_enable_auto_select = 1
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scala' : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
+    \ 'java' : $HOME.'/.vim/dict/java.dict',
+    \ 'c' : $HOME.'/.vim/dict/c.dict',
+    \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
+    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+    \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
+    \ 'perl' : $HOME.'/.vim/dict/perl.dict',
+    \ 'php' : $HOME.'/.vim/dict/php.dict',
+    \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
+    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" ユーザー定義スニペット保存ディレクトリ
+let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
+
+" スニペット
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+" 補完を選択しpopupを閉じる
+inoremap <expr><C-y> neocomplcache#close_popup()
+" 補完をキャンセルしpopupを閉じる
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+" TABで補完できるようにする
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" undo
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+" 補完候補の共通部分までを補完する
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+" SuperTab like snippets behavior.
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+" C-kを押すと行末まで削除
+inoremap <C-k> <C-o>D
+" C-nでneocomplcache補完
+inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+" C-pでkeyword補完
+inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+" 補完候補が出ていたら確定、なければ改行
+inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcache#manual_omni_complete()
+
+" FileType毎のOmni補完を設定
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+
+"------------------------------------
+" unite.vim
+"------------------------------------
+" The prefix key.
+nnoremap    [unite]   <Nop>
+nmap    f [unite]
+
+nnoremap [unite]u  :<C-u>Unite<Space>
+nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]f  :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]m  :<C-u>Unite file_mru<CR>
+
+" nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  " Overwrite settings.
+  imap <buffer> jj      <Plug>(unite_insert_leave)
+  nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
+  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  " Start insert.
+  let g:unite_enable_start_insert = 1
+endfunction"}}}
+
+let g:unite_source_file_mru_limit = 200

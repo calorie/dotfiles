@@ -293,7 +293,7 @@ setopt hist_no_store
 #setopt numeric_glob_sort
 
 # コマンド名に / が含まれているとき PATH 中のサブディレクトリを探す
-#setopt path_dirs
+setopt path_dirs
 
 # 戻り値が 0 以外の場合終了コードを表示する
 #setopt print_exit_value
@@ -475,11 +475,6 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-
-## Easy directory change and setup
-#  Tomohito Ozaki
-
-
 export EDITOR=vim
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
 export PATH=$PATH:$HOME/dotfiles/bin
@@ -535,9 +530,6 @@ function __rm_single_file(){
        fi
 }
 
-#alias rm='rmf'
-
-alias ssmake="cd ~/git/simple_server;make; popd"
 
 if [ -e ~/.zshrc_local ]
 then
