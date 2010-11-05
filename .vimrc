@@ -38,6 +38,8 @@ command! Rv source $MYVIMRC
 
 " pathogenでftdetectなどをloadさせるために一度ファイルタイプ判定をoff
 filetype off
+syntax off
+filetype indent off
 " pathogen.vimによってbundle配下のpluginをpathに加える
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
