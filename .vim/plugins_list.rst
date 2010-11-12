@@ -51,16 +51,16 @@ quickrun.vim : 編集中のファイルを簡単に実行できるプラグイ�
 - http://d.hatena.ne.jp/pcmaster/20090510/p2
 - http://tech.kayac.com/archive/vim-3-plugin.html
 
-  autocomplpop.vim : insertmodeで自動で補完をpopup
-    http://sites.google.com/site/fudist/Home/vim-nihongo-ban
-    http://www.vim.org/scripts/script.php?script_id=1879
-    http://vim.g.hatena.ne.jp/keyword/autocomplpop.vim
+autocomplpop.vim : insertmodeで自動で補完をpopup
+  http://sites.google.com/site/fudist/Home/vim-nihongo-ban
+  http://www.vim.org/scripts/script.php?script_id=1879
+  http://vim.g.hatena.ne.jp/keyword/autocomplpop.vim
 
-neocomplcache.vim : 究極のVim的補完環境
-- http://github.com/Shougo/neocomplcache/blob/998764e1072fa5b183c3da4705b8187658fa0b41/presen/neocomplcache.txt
-- http://vim-users.jp/2009/07/hack-49/
-- http://www.vim.org/scripts/script.php?script_id=2620
-- http://d.hatena.ne.jp/yuitowest/20100907/1283865197
+  neocomplcache.vim : 究極のVim的補完環境
+  - http://github.com/Shougo/neocomplcache/blob/998764e1072fa5b183c3da4705b8187658fa0b41/presen/neocomplcache.txt
+  - http://vim-users.jp/2009/07/hack-49/
+  - http://www.vim.org/scripts/script.php?script_id=2620
+  - http://d.hatena.ne.jp/yuitowest/20100907/1283865197
 
 cecutil.vim : 他のpluginのためのutillity1
 - http://www.vim.org/scripts/script.php?script_id=1066
@@ -110,6 +110,10 @@ vim-textobj-entire : buffer全体をtext-objectに
 vim-textobj-plugins : いろんなものをtext-objectにする
 - https://github.com/thinca/vim-textobj-plugins
 - http://d.hatena.ne.jp/thinca/20090426/1240675033
+
+vim-smartword : _とかで移動できる
+- http://www.vim.org/scripts/script.php?script_id=2470
+- https://github.com/kana/vim-smartword/
 
 ---------------------------------------------
 検索系
@@ -192,6 +196,9 @@ vimshell : vimのshell
 - https://github.com/Shougo/vimshell
 - http://d.hatena.ne.jp/pcmaster/20090505/p1
 - http://vim-users.jp/tag/vimshell/
+
+vim-altercmd : Ex command拡張
+- https://github.com/tyru/vim-altercmd
 
 ---------------------------------------------
 開発系
