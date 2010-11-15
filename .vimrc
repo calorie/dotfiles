@@ -690,6 +690,23 @@ map b  <Plug>(smartword-b)
 map e  <Plug>(smartword-e)
 map ge  <Plug>(smartword-ge)
 
+
+"------------------------------------
+" camelcasemotion.vim
+"------------------------------------
+
+" <Shift-wbe>でCameCaseやsnake_case単位での単語移動
+map <silent> W <Plug>CamelCaseMotion_w
+map <silent> B <Plug>CamelCaseMotion_b
+map <silent> E <Plug>CamelCaseMotion_e
+" text-objectで使用できるように
+omap <silent> iW <Plug>CamelCaseMotion_iw
+xmap <silent> iW <Plug>CamelCaseMotion_iw
+omap <silent> iB <Plug>CamelCaseMotion_ib
+xmap <silent> iB <Plug>CamelCaseMotion_ib
+omap <silent> iE <Plug>CamelCaseMotion_ie
+xmap <silent> iE <Plug>CamelCaseMotion_ie
+
 "------------------------------------
 " vimshell
 "------------------------------------

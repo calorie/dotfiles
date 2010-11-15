@@ -111,9 +111,13 @@ vim-textobj-plugins : いろんなものをtext-objectにする
 - https://github.com/thinca/vim-textobj-plugins
 - http://d.hatena.ne.jp/thinca/20090426/1240675033
 
-vim-smartword : _とかで移動できる
+vim-smartword : 単語移動がスマートな感じで
 - http://www.vim.org/scripts/script.php?script_id=2470
 - https://github.com/kana/vim-smartword/
+
+camelcasemotion : CamelCaseやsnake_case単位でのワード移動
+- http://www.vim.org/scripts/script.php?script_id=1905
+- http://nanasi.jp/articles/vim/camelcasemotion_vim.html
 
 ---------------------------------------------
 検索系
