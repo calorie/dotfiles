@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/ozaki/dotfiles/.vim/bundle/vim-scala/compiler'
 let g:netrw_dirhist_2='/Users/ozaki/dotfiles/.vim/bundle/vim-textobj-plugins/after'
 let g:netrw_dirhist_3='/Users/ozaki/dotfiles/samples/tyru/dotfiles/dotfiles/.vim/bundle/thinca-vim-textobj-plugins'
+let g:netrw_dirhist_4='/Users/ozaki/dev/Project/sandbox/mirah/LightningTweets/src/main'
+let g:netrw_dirhist_5='/Users/ozaki/dev/Project/sandbox/scala/yuroyoro/ehous/war/WEB-INF'
+let g:netrw_dirhist_6='/Users/ozaki/dotfiles/.vim/bundle/vim-scala/ftdetect'

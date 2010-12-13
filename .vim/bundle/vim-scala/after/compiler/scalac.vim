@@ -25,13 +25,13 @@ if filereadable( "pom.xml") == 0
 else
   let current_compiler = "ant"
   " CompilerSet makeprg=mvn\ -q\ -f\ pom.xml\ compile
-  CompilerSet makeprg=mvn\ -f\ pom.xml\ compile
+  CompilerSet makeprg=mvn\ -f\ pom.xml\ clean\ compile
   " CompilerSet errorformat=[ERROR]\ %f:%l:\ error:\ %m,%-Z%p^,%-C%.%#,%-G%.%#
   CompilerSet errorformat=%E%>[ERROR]\ %f:%l:\ error:\ %m,%%W%>[WARNING]\ %f:%l:\ warning:\ %m,-Z[INFO]\ %p^,%C[INFO]%m,%-Z,%-C%.%#,%-G%.%#
 
   "コンパイル
-  map <F5> <ESC>;wa<CR>;make <CR><CR>
-  map! <F5> <ESC>;wa<CR>;make <CR><CR>
+  map <F5> <ESC>;wa<CR>;make <CR><CR>;cw<CR><CR>
+  map! <F5> <ESC>;wa<CR>;make <CR><CR>;cw<CR><CR>
 
   "実行
   map <F6> <ESC>;wa<CR>;!mvn scala:console <CR><CR>
