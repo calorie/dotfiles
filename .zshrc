@@ -322,7 +322,7 @@ cd ..
 zle reset-prompt
 }
 zle -N cdup
-bindkey '\^' cdup
+# bindkey '\^' cdup
 
 # ctrl-w, ctrl-bキーで単語移動
 bindkey "^W" forward-word

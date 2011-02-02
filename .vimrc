@@ -606,7 +606,7 @@ let Grep_Skip_Files = '*.bak *~'
 " git.vim
 "------------------------------------
 let g:git_no_map_default = 1
-let g:git_command_edit = 'rightbelow vnew'
+let g:git_command_edit = 'rightbelow new'
 nnoremap <Space>gd :<C-u>GitDiff --cached<Enter>
 nnoremap <Space>gD :<C-u>GitDiff<Enter>
 nnoremap <Space>gs :<C-u>GitStatus<Enter>
@@ -685,9 +685,9 @@ noremap ,b  b
 noremap ,e  e
 noremap ,ge  ge
 
-map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
+map W  <Plug>(smartword-w)
+map B  <Plug>(smartword-b)
+map E  <Plug>(smartword-e)
 map ge  <Plug>(smartword-ge)
 
 
@@ -696,16 +696,16 @@ map ge  <Plug>(smartword-ge)
 "------------------------------------
 
 " <Shift-wbe>でCameCaseやsnake_case単位での単語移動
-map <silent> W <Plug>CamelCaseMotion_w
-map <silent> B <Plug>CamelCaseMotion_b
-map <silent> E <Plug>CamelCaseMotion_e
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
 " text-objectで使用できるように
-omap <silent> iW <Plug>CamelCaseMotion_iw
-xmap <silent> iW <Plug>CamelCaseMotion_iw
-omap <silent> iB <Plug>CamelCaseMotion_ib
-xmap <silent> iB <Plug>CamelCaseMotion_ib
-omap <silent> iE <Plug>CamelCaseMotion_ie
-xmap <silent> iE <Plug>CamelCaseMotion_ie
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
 
 "------------------------------------
 " vimshell
