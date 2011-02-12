@@ -474,7 +474,7 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export EDITOR=vim
+export EDITOR=vi
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin:usr/local/bin
