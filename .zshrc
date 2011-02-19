@@ -99,6 +99,23 @@ function _update_vcs_info_msg() {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 add-zsh-hook precmd _update_vcs_info_msg
+
+function _git_not_pushed()
+{
+  if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+    head="$(git rev-parse HEAD)"
+    for x in $(git rev-parse --remotes)
+    do
+      if [ "$head" = "$x" ]; then
+        return 0
+      fi
+    done
+    echo " NOT PUSHED"
+  fi
+  return 0
+}
+add-zsh-hook precmd _git_not_pushed
+
 RPROMPT="%1(v|%F${CYAN}%1v%f|)${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}"
 
 # _set_env_git_current_branch() {
