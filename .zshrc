@@ -247,6 +247,10 @@ bindkey "^n" history-beginning-search-forward-end
 bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
 
+# glob(*)によるインクリメンタルサーチ
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
+
 ## Command history configuration
 #
 HISTFILE=~/.zsh_history
