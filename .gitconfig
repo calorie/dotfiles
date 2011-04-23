@@ -19,12 +19,15 @@
   so = remote show origin
   ft = fetch
   up = pull --rebase       # pull rebase
+  po = push origin         # push origin
+  pu = push -u origin      # push origin and set upstream
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
   ad = add
   ci = commit -a           # modifiedなファイルを全てstageへ
   cam = commit -a --amend  # 直前のcommitを修正
   co = checkout
   cb = checkout -b         # branch切ってcheckoutする
+  ct = checkout --track    # remoteのbranchを追跡
   cm = checkout master
   # branch関連
   br = branch

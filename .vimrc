@@ -29,7 +29,7 @@ set ttymouse=xterm2
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
 " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
-imap <C-K>  <ESC>"*pa
+imap <C-p>  <ESC>"*pa
 
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
@@ -273,8 +273,8 @@ noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
 " spaceで次のbufferへ。back-spaceで前のbufferへ
-nmap <Space> ;MBEbn<CR>
-nmap <BS> ;MBEbp<CR>
+nmap <Space><Space> ;MBEbn<CR>
+nmap <BS><BS> ;MBEbp<CR>
 
 " F2で前のバッファ
 map <F2> <ESC>;bp<CR>
@@ -314,9 +314,9 @@ vnoremap v $h
 
 " CTRL-hjklでウィンドウ移動
 nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-k>j
-nnoremap <C-l> <C-l>j
-nnoremap <C-h> <C-h>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
 
 "-------------------------------------------------------------------------------
