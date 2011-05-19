@@ -509,6 +509,10 @@ expand-to-home-or-insert () {
         fi
 }
 
+# Incremental completion on zsh
+# http://mimosa-pudica.net/src/incr-0.2.zsh
+source ~/.zsh/incr*.zsh
+
 # auto-fuの設定。^PとかのHistory検索と相性が悪いのでひとまず無効に。
 # http://d.hatena.ne.jp/tarao/20100531/1275322620
 # incremental completion
@@ -586,6 +590,7 @@ expand-to-home-or-insert () {
     # afu-ad-delete-unambiguous-prefix afu+accept-line-and-down-history
     # afu-ad-delete-unambiguous-prefix afu+accept-and-hold
 # fi
+
 
 
 function rmf(){
