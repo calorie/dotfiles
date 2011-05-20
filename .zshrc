@@ -511,7 +511,8 @@ expand-to-home-or-insert () {
 
 # Incremental completion on zsh
 # http://mimosa-pudica.net/src/incr-0.2.zsh
-source ~/.zsh/incr*.zsh
+# やっぱりauto_menu使いたいのでoff
+# source ~/.zsh/incr*.zsh
 
 # auto-fuの設定。^PとかのHistory検索と相性が悪いのでひとまず無効に。
 # http://d.hatena.ne.jp/tarao/20100531/1275322620
