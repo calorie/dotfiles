@@ -88,12 +88,9 @@
 [submodule ".vim/bundle/vimproc"]
   path = .vim/bundle/vimproc
   url = http://github.com/Shougo/vimproc.git
-[submodule ".vim/bundle/hatena-vim"]
-  path = .vim/bundle/hatena-vim
-  url = https://github.com/motemen/hatena-vim.git
 [submodule ".vim/bundle/vim-altercmd"]
   path = .vim/bundle/vim-altercmd
   url = https://github.com/tyru/vim-altercmd.git
 [submodule ".vim/bundle/vim-textobj-rubyblock"]
-	path = .vim/bundle/vim-textobj-rubyblock
-	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+  path = .vim/bundle/vim-textobj-rubyblock
+  url = https://github.com/nelstrom/vim-textobj-rubyblock.git
