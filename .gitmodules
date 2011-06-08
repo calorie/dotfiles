@@ -94,3 +94,6 @@
 [submodule ".vim/bundle/vim-altercmd"]
   path = .vim/bundle/vim-altercmd
   url = https://github.com/tyru/vim-altercmd.git
+[submodule ".vim/bundle/vim-textobj-rubyblock"]
+	path = .vim/bundle/vim-textobj-rubyblock
+	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
