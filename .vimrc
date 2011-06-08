@@ -905,3 +905,16 @@ function! s:unite_my_settings()"{{{
 endfunction"}}}
 
 let g:unite_source_file_mru_limit = 200
+
+"------------------------------------
+" quickrun.vim
+"------------------------------------
+let g:quickrun_config = {}
+
+" Hack #172: RSpecをquickrunする (1/2):
+"   http://vim-users.jp/2010/09/hack172/
+augroup UjihisaRSpec
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+augroup END
+let g:quickrun_config['ruby.rspec'] = {'command': 'spec'}
