@@ -107,9 +107,9 @@ set ruler
 
 "ステータスラインに文字コードと改行文字を表示する
 if winwidth(0) >= 120
-  set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %l,%c%V%8P
+  set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %{fugitive#statusline()}\ %l,%c%V%8P
 else
-  set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
+  set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %{fugitive#statusline()}\ %l,%c%V%8P
 endif
 
 "入力モード時、ステータスラインのカラーを変更
@@ -580,7 +580,9 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
-noremap : ;
+" pluginとかでnmap :call hoge..とかやってるやつがあるので、
+" :でもexコマンドに入れるようにしておく
+" noremap : ;
 
 "-------------------------------------------------------------------------------
 " プラグインごとの設定 Plugins
@@ -682,20 +684,15 @@ let Grep_Skip_Files = '*.bak *~'
 
 
 "------------------------------------
-" git.vim
+" Fugitive.vim
 "------------------------------------
-let g:git_no_map_default = 1
-let g:git_command_edit = 'rightbelow new'
-nnoremap <Space>gd :<C-u>GitDiff --cached<Enter>
-nnoremap <Space>gD :<C-u>GitDiff<Enter>
-nnoremap <Space>gs :<C-u>GitStatus<Enter>
-nnoremap <Space>gl :<C-u>GitLog<Enter>
-nnoremap <Space>gL :<C-u>GitLog -u \| head -10000<Enter>
-nnoremap <Space>ga :<C-u>GitAdd<Enter>
-nnoremap <Space>gA :<C-u>GitAdd <cfile><Enter>
-nnoremap <Space>gc :<C-u>GitCommit<Enter>
-nnoremap <Space>gC :<C-u>GitCommit --amend<Enter>
-nnoremap <Space>gp :<C-u>Git push
+nnoremap <Space>gd :<C-u>Gdiff<Enter>
+nnoremap <Space>gs :<C-u>Gstatus<Enter>
+nnoremap <Space>gl :<C-u>Glog<Enter>
+nnoremap <Space>ga :<C-u>Gwrite<Enter>
+nnoremap <Space>gc :<C-u>Gcommit<Enter>
+nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
+nnoremap <Space>gb :<C-u>Gblame<Enter>
 
 
 "------------------------------------
