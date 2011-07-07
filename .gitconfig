@@ -1,6 +1,6 @@
 [user]
-  name = Tomohito Ozaki
-  email = ozaki@yuroyoro.com
+	name = Tomohito Ozaki
+	email = ozaki@yuroyoro.com
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto
@@ -63,6 +63,7 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   # mergeの際にconflictが起きたファイルをadd
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  delete-unmerged =  "!f() { git ls-files --deleted | cut -f2 | sort -u ; }; git rm `f`"
   # grep関連
   gr = grep
   gn = grep -n
