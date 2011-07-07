@@ -40,6 +40,7 @@ Bundle 'vtreeexplorer'
 Bundle 'haml.zip'
 Bundle 'EasyMotion'
 
+Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-textobj-plugins.git'
 Bundle 'kana/vim-textobj-syntax.git'
 Bundle 'kana/vim-textobj-lastpat.git'

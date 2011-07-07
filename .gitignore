@@ -65,3 +65,5 @@ samples
 .vim/bundle/vimproc/
 .vim/bundle/vimshell/
 .vim/bundle/vtreeexplorer/
+.vim/bundle/vim-fugitive/
+
