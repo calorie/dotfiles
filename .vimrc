@@ -217,23 +217,23 @@ set complete+=k            " 補完に辞書ファイル追加
 
 
 "<c-space>でomni補完
-imap <c-space> <c-x><c-o>
+" imap <c-space> <c-x><c-o>
 
-" -- tabでオムニ補完
-function! InsertTabWrapper()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col -1] !~ '\k\|<\|/'
-    return "\<tab>"
-  elseif exists('&omnifunc') && &omnifunc == ''
-    return "\<c-n>"
-  else
-    return "\<c-x>\<c-o>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" " -- tabでオムニ補完
+" function! InsertTabWrapper()
+  " if pumvisible()
+    " return "\<c-n>"
+  " endif
+  " let col = col('.') - 1
+  " if !col || getline('.')[col -1] !~ '\k\|<\|/'
+    " return "\<tab>"
+  " elseif exists('&omnifunc') && &omnifunc == ''
+    " return "\<c-n>"
+  " else
+    " return "\<c-x>\<c-o>"
+  " endif
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 
 "-------------------------------------------------------------------------------
