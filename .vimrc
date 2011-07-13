@@ -2,12 +2,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" TODO
-" - Alignの挙動改善
-" - Bundle管理されてないヤツを自分のgithubにあげる
-" - ref.vimでrefeの設定
-"
-
 Bundle 'Align'
 Bundle 'DumbBuf'
 Bundle 'SQLUtilities'
