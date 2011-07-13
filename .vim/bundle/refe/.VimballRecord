@@ -1,1 +1,0 @@
-refe.vba: call delete('/Users/ozaki/.vim/bundle/refe//plugin/refe.vim')|call delete('/Users/ozaki/.vim/bundle/refe//doc/refe.txt')

@@ -2,7 +2,13 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'Align.vim'
+" TODO
+" - Alignの挙動改善
+" - Bundle管理されてないヤツを自分のgithubにあげる
+" - ref.vimでrefeの設定
+"
+
+Bundle 'Align'
 Bundle 'DumbBuf'
 Bundle 'SQLUtilities'
 Bundle 'YankRing.vim'
@@ -26,6 +32,7 @@ Bundle 'operator-camelize'
 Bundle 'operator-replace'
 Bundle 'operator-user'
 Bundle 'quickrun.vim'
+Bundle 'rails.vim'
 Bundle 'ref.vim'
 Bundle 'ruby.vim'
 Bundle 'smartchr'
@@ -53,9 +60,14 @@ Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-help'
 Bundle 'h1mesuke/unite-outline'
 
+Bundle 'yuroyoro/monday'
+Bundle 'yuroyoro/vim-python'
+Bundle 'yuroyoro/vim-scala'
+Bundle 'yuroyoro/vimdoc_ja'
+
 Bundle 'gmarik/vundle'
 
-
+filetype plugin indent on
 "-------------------------------------------------------------------------------
 " 基本設定 Basics
 "-------------------------------------------------------------------------------
