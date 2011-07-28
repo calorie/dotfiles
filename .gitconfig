@@ -75,3 +75,5 @@
   ss = stash save
 
 
+[http]
+	sslVerify = false
