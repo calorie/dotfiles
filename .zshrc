@@ -509,6 +509,11 @@ expand-to-home-or-insert () {
         fi
 }
 
+# C-M-h でチートシートを表示する
+cheat-sheet () { zle -M "`cat ~/dotfiles/.zsh/cheat-sheet`" }
+zle -N cheat-sheet
+bindkey "^[^h" cheat-sheet
+
 # Incremental completion on zsh
 # http://mimosa-pudica.net/src/incr-0.2.zsh
 # やっぱりauto_menu使いたいのでoff
