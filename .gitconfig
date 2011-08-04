@@ -1,6 +1,6 @@
 [user]
-	name = Tomohito Ozaki
-	email = ozaki@yuroyoro.com
+  name = Tomohito Ozaki
+  email = ozaki@yuroyoro.com
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto
@@ -74,6 +74,8 @@
   sp = stash pop
   ss = stash save
 
+  chpk = cherry-pick # チンピク
+
 
 [http]
-	sslVerify = false
+  sslVerify = false
