@@ -55,6 +55,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-help'
 Bundle 'tsukkee/lingr-vim'
 Bundle 'h1mesuke/unite-outline'
+Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'yuroyoro/monday'
 Bundle 'yuroyoro/vim-python'
