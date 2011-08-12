@@ -47,6 +47,19 @@
   # logをtree表示
   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  # reset
+  rhs  = reset --soft HEAD
+  rhs1 = reset --soft HEAD~
+  rhs2 = reset --soft HEAD~~
+  rhs3 = reset --soft HEAD~~~
+  rhs4 = reset --soft HEAD~~~~
+  rhs5 = reset --soft HEAD~~~~~
+  rhh  = reset --hard HEAD       # 取り返しのつかないことをしてしまった……!
+  rhh1 = reset --hard HEAD~
+  rhh2 = reset --hard HEAD~~
+  rhh3 = reset --hard HEAD~~~
+  rhh4 = reset --hard HEAD~~~~
+  rhh5 = reset --hard HEAD~~~~~
   # diff関連
   di = diff
   dm = diff master           # masterとのdiff
