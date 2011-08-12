@@ -9,7 +9,7 @@ CNT=1
 
 if [ $# -ne 0 ]; then
   if [ $1 = "--list" ]; then
-    git reflog | grep checkout | head -10 | cut -d' ' -f6
+    git reflog | grep checkout | head -10 | cut -d' ' -f6 | awk '{print FNR,  $0}'
     exit
   else
     CNT=$1
