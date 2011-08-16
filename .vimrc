@@ -41,6 +41,8 @@ Bundle 'TwitVim'
 
 Bundle 'haml.zip'
 Bundle 'EasyMotion'
+Bundle 'matchit.zip'
+Bundle 'ruby-matchit'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-textobj-plugins.git'
@@ -359,8 +361,8 @@ nnoremap gb '[
 nnoremap gp ']
 
 " 対応する括弧に移動
-nnoremap [ %
-nnoremap ] %
+nnoremap ( %
+nnoremap ) %
 
 " 最後に変更されたテキストを選択する
 nnoremap gc  `[v`]
