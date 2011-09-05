@@ -967,7 +967,10 @@ function! s:unite_my_settings()"{{{
   let g:unite_enable_start_insert = 1
 endfunction"}}}
 
+autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :<C-q>q<CR>
+
 let g:unite_source_file_mru_limit = 200
+
 
 "------------------------------------
 " quickrun.vim
