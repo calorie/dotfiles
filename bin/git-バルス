@@ -58,7 +58,7 @@ yes_no() {
 }
 
 yes_no "本当にバルスしますか?"
-if [ $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
   return 0;
 fi
 
