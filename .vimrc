@@ -226,6 +226,22 @@ set wildmode=list:full     " リスト表示，最長マッチ
 set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
 
+" Ex-modeでの<C-p><C-n>をzshのヒストリ補完っぽくする
+cnoremap <C-p> <Up>
+cnoremap <Up>  <C-p>
+cnoremap <C-n> <Down>
+cnoremap <Down>  <C-n>
+
+" TODO そろそろvimrc分割する
+" TODO Vim Hacks #81
+" TODO submode.vim でC-w +とかのウィンドウサイズ変更を簡単にする
+" TODO smartchar.vim のloopは使えそう
+" TODO Arpeggio.vimでキーの同時押しでマッピングできる!
+" TODO monday.vimをtoggle.vimに入れ替える
+" TODO
+
+
+
 
 "<c-space>でomni補完
 " imap <c-space> <c-x><c-o>
