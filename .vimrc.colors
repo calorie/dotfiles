@@ -1,0 +1,27 @@
+"-------------------------------------------------------------------------------
+" カラー関連 Colors
+"-------------------------------------------------------------------------------
+
+" ターミナルタイプによるカラー設定
+if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
+ set t_Co=16
+ set t_Sf=[3%dm
+ set t_Sb=[4%dm
+elseif &term =~ "xterm-color"
+ set t_Co=8
+ set t_Sf=[3%dm
+ set t_Sb=[4%dm
+endif
+
+"ポップアップメニューのカラーを設定
+"hi Pmenu guibg=#666666
+"hi PmenuSel guibg=#8cd0d3 guifg=#666666
+"hi PmenuSbar guibg=#333333
+
+" ハイライト on
+syntax enable
+
+" 補完候補の色づけ for vim7
+hi Pmenu ctermbg=white ctermfg=darkgray
+hi PmenuSel ctermbg=blue ctermfg=white
+hi PmenuSbar ctermbg=0 ctermfg=9

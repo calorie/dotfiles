@@ -1,0 +1,34 @@
+"-------------------------------------------------------------------------------
+" 補完・履歴 Complete
+"-------------------------------------------------------------------------------
+set wildmenu               " コマンド補完を強化
+set wildchar=<tab>         " コマンド補完を開始するキー
+set wildmode=list:full     " リスト表示，最長マッチ
+set history=1000           " コマンド・検索パターンの履歴数
+set complete+=k            " 補完に辞書ファイル追加
+
+" Ex-modeでの<C-p><C-n>をzshのヒストリ補完っぽくする
+cnoremap <C-p> <Up>
+cnoremap <Up>  <C-p>
+cnoremap <C-n> <Down>
+cnoremap <Down>  <C-n>
+
+"<c-space>でomni補完
+" imap <c-space> <c-x><c-o>
+
+" " -- tabでオムニ補完
+" function! InsertTabWrapper()
+  " if pumvisible()
+    " return "\<c-n>"
+  " endif
+  " let col = col('.') - 1
+  " if !col || getline('.')[col -1] !~ '\k\|<\|/'
+    " return "\<tab>"
+  " elseif exists('&omnifunc') && &omnifunc == ''
+    " return "\<c-n>"
+  " else
+    " return "\<c-x>\<c-o>"
+  " endif
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
