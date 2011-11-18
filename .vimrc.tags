@@ -10,6 +10,8 @@ else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
 
+set notagbsearch
+
 "<C-t>はscreentとかぶるので削除
 "tab pagesを使い易くする
 " nnoremap <C-t>  <Nop>

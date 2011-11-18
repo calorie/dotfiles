@@ -20,7 +20,7 @@ let g:miniBufExplModSelTarget=1
 let g:miniBufExplSplitToEdge=1
 let g:miniBufExplMaxSize = 10
 
-":TmでMiniBufExplorerの表示トグル
+":MtでMiniBufExplorerの表示トグル
 command! Mt :TMiniBufExplorer
 
 "------------------------------------
@@ -59,9 +59,13 @@ let Grep_Skip_Files = '*.bak *~'
 " nmap s <Plug>Ysurround
 " nmap ss <Plug>Yssurround
 
-" "------------------------------------
-" " smartchr.vim
-" "------------------------------------
+"------------------------------------
+" smartchr.vim
+"------------------------------------
+inoremap <expr> = smartchr#loop('=',  ' = ',  ' == ', ' => ')
+inoremap <expr> . smartchr#loop('.',  '->', '=>')
+
+
 "
 " " 演算子の間に空白を入れる
 " inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')

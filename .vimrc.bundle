@@ -48,6 +48,7 @@ Bundle 'ruby-matchit'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-textobj-plugins.git'
+Bundle 'thinca/vim-openbuf'
 Bundle 'kana/vim-textobj-syntax.git'
 Bundle 'kana/vim-textobj-lastpat.git'
 Bundle 'kana/vim-textobj-indent.git'
@@ -60,6 +61,9 @@ Bundle 'tsukkee/unite-help'
 Bundle 'tsukkee/lingr-vim'
 Bundle 'h1mesuke/unite-outline'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mattn/webapi-vim'
+Bundle 'choplin/unite-vim_hacks'
+
 
 Bundle 'yuroyoro/monday'
 Bundle 'yuroyoro/vim-python'
