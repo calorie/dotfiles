@@ -14,6 +14,7 @@
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   autocrlf = input                 # CRLFを自動変換
   editor = vim
+  quotepath = false
 [merge]
   tool = vimdiff
 [alias]
@@ -21,6 +22,7 @@
   sh = show
   so = remote show origin
   ft = fetch
+  ftp = fetch --prune
   up = pull --rebase       # pull rebase
   po = push origin         # push origin
   pof = push -f origin     # force
