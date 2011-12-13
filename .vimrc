@@ -21,12 +21,10 @@ source ~/dotfiles/.vimrc.moving
 source ~/dotfiles/.vimrc.colors
 "編集関連
 source ~/dotfiles/.vimrc.editing
-
-" エンコーディング関連
+"エンコーディング関連
 source ~/dotfiles/.vimrc.encoding
+"その他
 source ~/dotfiles/.vimrc.misc
+"プラグインに依存するアレ
 source ~/dotfiles/.vimrc.plugins_setting
-
-
-" TODO monday.vimをtoggle.vimに入れ替える
 
