@@ -352,6 +352,24 @@ endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
+"インクルードパスの指定
+let g:neocomplcache_include_paths = {
+  \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
+  \ 'c'    : '.,/usr/include',
+  \ 'ruby' : '.,/opt/local/lib/ruby1.9/1.9.1,/Users/rhayasd/programs',
+  \ 'perl' : '.,/System/Library/Perl,/Users/rhayasd/programs',
+  \ }
+"インクルード文のパターンを指定
+let g:neocomplcache_include_patterns = {
+  \ 'cpp' : '^\s*#\s*include',
+  \ 'ruby' : '^\s*require',
+  \ 'perl' : '^\s*use',
+  \ }
+"インクルード先のファイル名の解析パターン
+let g:neocomplcache_include_exprs = {
+  \ 'ruby' : substitute(substitute(v:fname,'::','/','g'),'$','.rb','')
+  \ }
+
 "------------------------------------
 " unite.vim
 "------------------------------------
