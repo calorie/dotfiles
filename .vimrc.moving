@@ -37,7 +37,8 @@ map <F2> <ESC>;bp<CR>
 " F3で次のバッファ
 map <F3> <ESC>;bn<CR>
 " F4でバッファを削除する
-map <F4> <ESC>;bw<CR>
+map <F4> <ESC>:bnext \| bdelete #<CR>
+command! Bw :bnext \| bdelete #
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
