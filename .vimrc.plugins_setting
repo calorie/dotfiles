@@ -65,8 +65,8 @@ let g:surround_{char2nr("-")} = ":\r"
 "------------------------------------
 " smartchr.vim
 "------------------------------------
-inoremap <expr> = smartchr#loop('=',  ' = ',  ' == ', ' => ')
-inoremap <expr> . smartchr#loop('.',  '->', '=>')
+" inoremap <expr> = smartchr#loop('=', '==', '=>')
+" inoremap <expr> . smartchr#loop('.',  '->', '=>')
 
 
 "
@@ -356,8 +356,7 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_include_paths = {
   \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
   \ 'c'    : '.,/usr/include',
-  \ 'ruby' : '.,/opt/local/lib/ruby1.9/1.9.1,/Users/rhayasd/programs',
-  \ 'perl' : '.,/System/Library/Perl,/Users/rhayasd/programs',
+  \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
   \ }
 "インクルード文のパターンを指定
 let g:neocomplcache_include_patterns = {
@@ -366,9 +365,9 @@ let g:neocomplcache_include_patterns = {
   \ 'perl' : '^\s*use',
   \ }
 "インクルード先のファイル名の解析パターン
-let g:neocomplcache_include_exprs = {
-  \ 'ruby' : substitute(substitute(v:fname,'::','/','g'),'$','.rb','')
-  \ }
+" let g:neocomplcache_include_exprs = {
+  " \ 'ruby' : substitute(substitute(v:fname,'::','/','g'),'$','\.rb','')
+  " \ }
 
 "------------------------------------
 " unite.vim
