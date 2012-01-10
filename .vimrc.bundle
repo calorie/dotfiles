@@ -65,7 +65,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/hahhah-vim'
 Bundle 'choplin/unite-vim_hacks'
-
+Bundle 'scrooloose/syntastic'
 
 Bundle 'yuroyoro/monday'
 Bundle 'yuroyoro/vim-python'
