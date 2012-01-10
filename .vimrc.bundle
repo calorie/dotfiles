@@ -39,6 +39,7 @@ Bundle 'textobj-user'
 Bundle 'textobj-jabraces'
 Bundle 'vtreeexplorer'
 Bundle 'TwitVim'
+Bundle 'AutoClose'
 
 Bundle 'haml.zip'
 Bundle 'EasyMotion'
