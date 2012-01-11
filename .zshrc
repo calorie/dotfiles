@@ -685,6 +685,8 @@ then
   source ~/.zshrc_local
 fi
 
+alias oppai='git'
+
 if [ -e ~/.zsh_alias ]
 then
   source ~/.zsh_alias
