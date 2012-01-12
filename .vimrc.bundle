@@ -66,6 +66,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/hahhah-vim'
 Bundle 'choplin/unite-vim_hacks'
 Bundle 'scrooloose/syntastic'
+Bundle 'ujihisa/neco-ruby'
 
 Bundle 'yuroyoro/monday'
 Bundle 'yuroyoro/vim-python'
