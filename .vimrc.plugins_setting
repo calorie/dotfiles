@@ -177,12 +177,14 @@ set tags=tags
 "let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
 let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
+" let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
 let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 let Tlist_Auto_Open = 1                   " 自動表示
 let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 30
 "map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
+nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " Srcexp
@@ -193,7 +195,8 @@ let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:of
 let g:SrcExpl_WinHeight     = 9         " プレビューウインドウの高さ
 let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
 let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
-nmap <F8> :SrcExplToggle<CR>            " Source Explorerの機能ON/OFF
+" Source Explorerの機能ON/OFF
+nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " open-blowser.vim
@@ -425,24 +428,26 @@ let g:neocomplcache_include_patterns = {
 nnoremap    [unite]   <Nop>
 nmap    f [unite]
 
-nnoremap [unite]u  :<C-u>Unite<Space>
+nnoremap [unite]u  :<C-u>Unite -no-split<Space>
 
 " 全部乗せ
-nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f  :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files file<CR>
 " バッファ一覧
-nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b  :<C-u>Unite -no-split buffer<CR>
 " 常用セット
-nnoremap <silent> [unite]u  :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]u  :<C-u>Unite -no-split buffer file_mru<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m  :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]m  :<C-u>Unite -no-split file_mru<CR>
 
 " nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
+
+  nmap <buffer> <ESC>      <Plug>(unite_exit)
   imap <buffer> jj      <Plug>(unite_insert_leave)
   nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
   imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
@@ -451,14 +456,14 @@ function! s:unite_my_settings()"{{{
 endfunction"}}}
 
 " ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
 " ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する(uniteのwindowが残るので、二回;qする...)
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>:q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>:q<CR>
 
 let g:unite_source_file_mru_limit = 200
 
