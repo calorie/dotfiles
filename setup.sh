@@ -1,14 +1,8 @@
-ln -s $HOME/dotfiles/.emacs.el $HOME/.emacs.el
-ln -s $HOME/dotfiles/.screenrc $HOME/.screenrc
-ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/.zsh $HOME/.zsh
-ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-ln -s $HOME/dotfiles/.gdbinit $HOME/.gdbinit
-ln -s $HOME/dotfiles/.vim $HOME/.vim
-ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
-ln -s $HOME/dotfiles/import.scala $HOME/import.scala
-ln -s $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
-ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
-ln -s $HOME/dotfiles/.ctags $HOME/.ctags
-ln -s $HOME/dotfiles/.gemrc $HOME/.gemrc
-ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
+#!/bin/bash
+
+DOT_FILES=( .zsh .zshrc .zshrc.alias .zshrc.linux .zshrc.osx .ctags .emacs.el .gdbinit .gemrc .gitconfig .gitignore .inputrc .irbrc .sbtconfig .screenrc .vimrc .vrapperrc import.scala)
+
+for file in ${DOT_FILES[@]}
+do
+    ln -s $HOME/dotfiles/$file $HOME/$file
+done

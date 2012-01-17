@@ -118,40 +118,6 @@ function _git_not_pushed()
 
 RPROMPT="%1(v|%F${CYAN}%1v%2v%f|)${vcs_info_git_pushed}${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}"
 
-# _set_env_git_current_branch() {
-  # GIT_CURRENT_BRANCH=$( git branch 2> /dev/null | grep '^\*' | cut -b 3- )
-# }
-
-# _update_rprompt () {
-  # if [ "`git ls-files 2>/dev/null`" ]; then
-    # RPROMPT='${CYAN}git[branch:$GIT_CURRENT_BRANCH]${RESET} ${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
-  # else
-    # RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
-  # fi
-# }
-
-# precmd()
-# {
-  # _set_env_git_current_branch
-  # _update_rprompt
-# }
-
-
-# chpwd()
-# {
-  # _set_env_git_current_branch
-  # _update_rprompt
-# }
-
-
-
-#    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-#    PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-#    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-#        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-
-
     ;;
 esac
 
@@ -252,10 +218,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
 ## Command history configuration
-#
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
 # 登録済コマンド行は古い方を削除
 setopt hist_ignore_all_dups
 
@@ -316,7 +282,7 @@ setopt hist_no_store
 setopt path_dirs
 
 # 戻り値が 0 以外の場合終了コードを表示する
-#setopt print_exit_value
+setopt print_exit_value
 
 # pushd を引数なしで実行した場合 pushd $HOME と見なされる
 #setopt pushd_to_home
@@ -416,9 +382,8 @@ esac
 
 
 case "${OSTYPE}" in
+# MacOSX
 darwin*)
-    alias updateports="sudo port selfupdate; sudo port outdated"
-    alias portupgrade="sudo port upgrade installed"
     export PATH=$PATH:/opt/local/bin:/opt/local/sbin/
     export PATH=$PATH:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/
     ;;
@@ -491,9 +456,6 @@ dumb)
 esac
 
 
-## load user .zshrc configuration file
-#
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
 export EDITOR=vi
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
@@ -642,7 +604,6 @@ bindkey "^x " no-magic-abbrev-expand
 # fi
 
 
-
 function rmf(){
    for file in $*
    do
@@ -679,15 +640,24 @@ function __rm_single_file(){
        fi
 }
 
+## alias設定
+#
+[ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 
-if [ -e ~/.zshrc_local ]
-then
-  source ~/.zshrc_local
-fi
+case "${OSTYPE}" in
+# Mac(Unix)
+darwin*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
+# Linux
+linux*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    ;;
+esac
 
-alias oppai='git'
 
-if [ -e ~/.zsh_alias ]
-then
-  source ~/.zsh_alias
-fi
+## local固有設定
+#
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
