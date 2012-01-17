@@ -10,3 +10,5 @@ ln -s $HOME/dotfiles/import.scala $HOME/import.scala
 ln -s $HOME/dotfiles/.vrapperrc $HOME/.vrapperrc
 ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/.ctags $HOME/.ctags
+ln -s $HOME/dotfiles/.gemrc $HOME/.gemrc
+ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
