@@ -68,7 +68,6 @@ let g:surround_{char2nr("-")} = ":\r"
 " inoremap <expr> = smartchr#loop('=', '==', '=>')
 " inoremap <expr> . smartchr#loop('.',  '->', '=>')
 
-
 "
 " " 演算子の間に空白を入れる
 " inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
@@ -351,19 +350,19 @@ let g:neocomplcache_dictionary_filetype_lists = {
 let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 
 " スニペット
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
+imap <C-y> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
 " 補完を選択しpopupを閉じる
-inoremap <expr><C-y> neocomplcache#close_popup()
+" inoremap <expr><C-y> neocomplcache#close_popup()
 " 補完をキャンセルしpopupを閉じる
-inoremap <expr><C-e> neocomplcache#cancel_popup()
+" inoremap <expr><C-e> neocomplcache#cancel_popup()
 " TABで補完できるようにする
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " undo
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 " 補完候補の共通部分までを補完する
-inoremap <expr><C-l> neocomplcache#complete_common_string()
+inoremap <expr><C-s> neocomplcache#complete_common_string()
 " SuperTab like snippets behavior.
 imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 " C-kを押すと行末まで削除
@@ -378,7 +377,7 @@ inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcache#manual_omni_complete()
 
@@ -442,23 +441,23 @@ autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
 
+  " ESCキーを2回押すと終了する
   nmap <buffer> <ESC>      <Plug>(unite_exit)
+  nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
   imap <buffer> jj      <Plug>(unite_insert_leave)
   nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
   imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
   " Start insert.
   let g:unite_enable_start_insert = 1
-endfunction"}}}
 
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する(uniteのwindowが残るので、二回;qする...)
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+  " ウィンドウを分割して開く
+  nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
+  inoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
+
+  " ウィンドウを縦に分割して開く
+  nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+endfunction"}}}
 
 let g:unite_source_file_mru_limit = 200
 
@@ -470,7 +469,6 @@ cnoremap UO Unite outline<Enter>
 " quickrun.vim
 "------------------------------------
 let g:quickrun_config = {}
-
 "------------------------------------
 " Pydiction
 "------------------------------------

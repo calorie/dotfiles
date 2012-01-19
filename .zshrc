@@ -282,7 +282,7 @@ setopt hist_no_store
 setopt path_dirs
 
 # 戻り値が 0 以外の場合終了コードを表示する
-setopt print_exit_value
+# setopt print_exit_value
 
 # pushd を引数なしで実行した場合 pushd $HOME と見なされる
 #setopt pushd_to_home
