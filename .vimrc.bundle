@@ -251,7 +251,7 @@ call vundle#rc()
   Bundle 'Shougo/unite.vim'
   Bundle 'tsukkee/unite-help'
   Bundle 'h1mesuke/unite-outline'
-  Bundle 'Sixeight/unite-grep'
+  " Bundle 'Sixeight/unite-grep'
   Bundle 'basyura/unite-rails'
   Bundle 'thinca/vim-unite-history'
   Bundle 'tsukkee/unite-tag'
