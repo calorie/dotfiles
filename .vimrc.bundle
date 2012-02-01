@@ -9,7 +9,7 @@ call vundle#rc()
   Bundle 'scrooloose/nerdcommenter.git'
 
   " 自動閉じタグ
-  Bundle 'yuroyoro/vim-autoclose'
+  " Bundle 'yuroyoro/vim-autoclose'
 
   " -- でメソッドチェーン整形
   Bundle 'c9s/cascading.vim'
@@ -90,10 +90,10 @@ call vundle#rc()
   Bundle 'Shougo/neocomplcache'
 
   " rubyでrequire先を補完する
-  Bundle 'ujihisa/neco-ruby'
+  " Bundle 'ujihisa/neco-ruby'
 
   " A neocomplcache plugin for English, using look command
-  Bundle 'ujihisa/neco-look'
+  " Bundle 'ujihisa/neco-look'
 " }}}
 
 " Searching/Moving{{{
