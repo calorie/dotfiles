@@ -13,22 +13,10 @@ cnoremap <Up>  <C-p>
 cnoremap <C-n> <Down>
 cnoremap <Down>  <C-n>
 
-"<c-space>でomni補完
-" imap <c-space> <c-x><c-o>
+" 補完にneocomplcacheを使う
+" source ~/dotfiles/.vimrc.completion.neocomplcache
 
-" " -- tabでオムニ補完
-" function! InsertTabWrapper()
-  " if pumvisible()
-    " return "\<c-n>"
-  " endif
-  " let col = col('.') - 1
-  " if !col || getline('.')[col -1] !~ '\k\|<\|/'
-    " return "\<tab>"
-  " elseif exists('&omnifunc') && &omnifunc == ''
-    " return "\<c-n>"
-  " else
-    " return "\<c-x>\<c-o>"
-  " endif
-" endfunction
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" 補完にAutoComplPopを使う
+source ~/dotfiles/.vimrc.completion.autocomplpop
+
 
