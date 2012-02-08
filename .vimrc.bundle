@@ -79,7 +79,11 @@ call vundle#rc()
   Bundle 'textobj-jabraces'
 
   " 改造したmonday.vim(git rebase -i とかtrue/falseとか)
-  Bundle 'yuroyoro/monday'
+  " Bundle 'yuroyoro/monday'
+
+  " <C-a>でtrue/false切替。他色々
+  Bundle 'taku-o/vim-toggle'
+
 " }}}
 
 " Completion {{{
