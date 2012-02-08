@@ -69,4 +69,6 @@ set foldlevelstart=99
 " .vimはmarker
 autocmd FileType vim :set foldmethod=marker
 
-
+" <leader>j でJSONをformat
+" http://wozozo.hatenablog.com/entry/2012/02/08/121504
+map <Leader>j !python -m json.tool<CR>
