@@ -37,6 +37,11 @@ alias sl='screen -ls'
 alias sr='screen -r main'
 alias srr='screen -U -D -RR'
 
+# tmux
+alias tm='tmux'
+alias tma='tmux attach'
+alias tml='tmux list-window'
+
 alias pon='predict-on'
 alias poff='predict-off'
 alias p='ping -c 4'

@@ -228,7 +228,7 @@ call vundle#rc()
   Bundle 'tyru/urilib'
 
   " ステータスラインに顔文字を表示
-  Bundle 'mattn/hahhah-vim'
+  " Bundle 'mattn/hahhah-vim'
 
   " utillity
   Bundle 'L9'
@@ -248,9 +248,20 @@ call vundle#rc()
   " vimからGit操作する
   Bundle 'tpope/vim-fugitive'
 
+  " ステータスラインをカッコよくする
+  Bundle 'Lokaltog/vim-powerline'
+
+
 " }}}
 
-" Unite {
+" ColorSchema{{{{
+  " color schema 256
+  Bundle 'desert256.vim'
+  Bundle 'mrkn256.vim'
+  Bundle 'tomasr/molokai'
+" }}}
+
+" Unite {{{{
   " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
   Bundle 'Shougo/unite.vim'
   Bundle 'tsukkee/unite-help'

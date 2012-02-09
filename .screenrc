@@ -6,7 +6,7 @@ caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk}[%0`] [%l] %{=b wk}%
 backtick 0 0 0 echo ${ttyname}
 escape ^Tt
 termcapinfo xterm* ti@:te@
-term xterm-color
+term xterm-256color
 
 
 
