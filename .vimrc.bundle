@@ -259,6 +259,7 @@ call vundle#rc()
   Bundle 'desert256.vim'
   Bundle 'mrkn256.vim'
   Bundle 'tomasr/molokai'
+  Bundle 'yuroyoro/yuroyoro256.vim'
 " }}}
 
 " Unite {{{{
