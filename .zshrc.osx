@@ -135,8 +135,8 @@ export PATH=$PATH:$MIRAH_HOME/bin
 # export PATH=$PATH:/$ORACLE_HOME/bin
 
 
-# AWS
-export EC2_HOME=$HOME/sandbox/ec2/ec2-api-tools-1.4.3.0
-export PATH=$PATH:$EC2_HOME/bin
-export EC2_PRIVATE_KEY=$HOME/sandbox/ec2/pk-25S3L377A4T22STTOL423IO6SSXXJGRZ.pem
-export EC2_CERT=$HOME/sandbox/ec2/cert-25S3L377A4T22STTOL423IO6SSXXJGRZ.pem
+# tmux
+alias tmux='tmuxx'
+alias tm='tmuxx'
+alias tma='tmux attach'
+alias tml='tmux list-window'
