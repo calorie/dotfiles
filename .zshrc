@@ -474,7 +474,7 @@ expand-to-home-or-insert () {
 # C-M-h でチートシートを表示する
 cheat-sheet () { zle -M "`cat ~/dotfiles/.zsh/cheat-sheet`" }
 zle -N cheat-sheet
-bindkey "^[^h" cheat-sheet
+# bindkey "^[^h" cheat-sheet
 
 # zsh の exntended_glob と HEAD^^^ を共存させる。
 # http://subtech.g.hatena.ne.jp/cho45/20080617/1213629154
