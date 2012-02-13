@@ -78,7 +78,7 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcache#manual_omni_complete()
 
 " buffer開いたらneoconでcache
-autocmd BufRead :NeoComplCacheCachingBuffer <buffer>
+autocmd BufReadPost,BufEnter,BufWritePost :NeoComplCacheCachingBuffer <buffer>
 
 " FileType毎のOmni補完を設定
 autocmd FileType python set omnifunc=pythoncomplete#Complete
