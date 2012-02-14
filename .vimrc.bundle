@@ -93,6 +93,9 @@ call vundle#rc()
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   Bundle 'Shougo/neocomplcache'
 
+  " neocomplcacheのsinpet補完
+  Bundle 'Shougo/neocomplcache-snippets-complete'
+
   " rubyでrequire先を補完する
   " Bundle 'ujihisa/neco-ruby'
 
