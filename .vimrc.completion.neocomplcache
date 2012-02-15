@@ -5,6 +5,8 @@
 let g:acp_enableAtStartup = 0
 " NeoComplCacheを有効にする
 let g:neocomplcache_enable_at_startup = 1
+" 補完が自動で開始される文字数
+let g:neocomplcache_auto_completion_start_length = 3
 " smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
 " camle caseを有効化。大文字を区切りとしたワイルドカードのように振る舞う
@@ -19,6 +21,8 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_enable_quick_match = 1
 " 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
 let g:neocomplcache_enable_auto_select = 1
+"ポップアップメニューで表示される候補の数。初期値は100
+let g:neocomplcache_max_list = 20
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
@@ -81,47 +85,50 @@ inoremap <expr><C-x><C-o> &filetype == 'vim' ? "\<C-x><C-v><C-p>" : neocomplcach
 autocmd BufReadPost,BufEnter,BufWritePost :NeoComplCacheCachingBuffer <buffer>
 
 " FileType毎のOmni補完を設定
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType c          setlocal omnifunc=ccomplete#Complete
+autocmd FileType ruby       setlocal omnifunc=rubycomplete#Complete
 
 " Enable heavy omni completion.
-" if !exists('g:neocomplcache_omni_patterns')
-  " let g:neocomplcache_omni_patterns = {}
-" endif
-" let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-" let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
-let g:neocomplcache_plugin_disable = {
-  \ 'include_complete' : 1
-\ }
+" autocmd FileType ruby let g:neocomplcache_source_disable = {
+  " \ 'include_complete' : 1,
+  " \ 'omni_complete' : 1
+" \ }
+" autocmd FileType ruby let g:neocomplcache_source_disable = {
+  " \ 'include_complete' : 1
+" \ }
 
 "インクルードパスの指定
-" let g:neocomplcache_include_paths = {
-  " \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
-  " \ 'c'    : '.,/usr/include',
-  " \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
-  " \ }
-" let g:neocomplcache_include_paths = {
-  " \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
-  " \ 'c'    : '.,/usr/include',
-  " \ }
+let g:neocomplcache_include_paths = {
+  \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
+  \ 'c'    : '.,/usr/include',
+  \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
+  \ }
 "インクルード文のパターンを指定
-" let g:neocomplcache_include_patterns = {
-  " \ 'cpp' : '^\s*#\s*include',
-  " \ 'ruby' : '^\s*require',
-  " \ 'perl' : '^\s*use',
-  " \ }
-" let g:neocomplcache_include_patterns = {
-  " \ 'cpp' : '^\s*#\s*include',
-  " \ 'perl' : '^\s*use',
-  " \ }
+let g:neocomplcache_include_patterns = {
+  \ 'cpp' : '^\s*#\s*include',
+  \ 'ruby' : '^\s*require',
+  \ 'perl' : '^\s*use',
+  \ }
 "インクルード先のファイル名の解析パターン
-" let g:neocomplcache_include_exprs = {
-  " \ 'ruby' : substitute(substitute(v:fname,'::','/','g'),'$','\.rb','')
-  " \ }
+let g:neocomplcache_include_exprs = {
+  \ 'ruby' : substitute(v:fname,'::','/','g')
+  \ }
+" ファイルを探す際に、この値を末尾に追加したファイルも探す。
+let g:neocomplcache_include_suffixes = {
+  \ 'ruby' : '.rb',
+  \ 'haskell' : '.hs'
+  \ }

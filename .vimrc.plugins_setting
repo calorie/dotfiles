@@ -195,7 +195,7 @@ let g:SrcExpl_WinHeight     = 9         " プレビューウインドウの高�
 let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
 let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
 " Source Explorerの機能ON/OFF
-nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
+" nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " open-blowser.vim

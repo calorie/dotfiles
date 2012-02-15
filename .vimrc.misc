@@ -8,5 +8,3 @@ noremap ; :
 " :でもexコマンドに入れるようにしておく
 " noremap : ;
 
-" QuickFix Windowを下いっぱいで表示する
-botright cwindow
