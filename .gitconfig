@@ -93,6 +93,7 @@
   ss = stash save
 
   chpk = cherry-pick # チンピク
+  iss = issue # my extended command
 
 
 [http]
