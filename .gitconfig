@@ -20,6 +20,7 @@
 [alias]
   s   = status
   st  = status
+  ss  = status -s
   sh  = show
   so  = remote show origin
   # pull/push/fetch
@@ -92,6 +93,9 @@
   d4 = diff HEAD~~~~         # HEADから4つ前とdiff
   d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
   d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+  # edit関連
+  # modified or untrackedなファイルを編集する
+  edit = "!f() { git status -s | cut -b 4- | grep -v '\\/$' | uniq ; }; vim `f`"
   # mergeの際にconflictが起きたファイルを編集
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   # mergeの際にconflictが起きたファイルをadd
@@ -102,10 +106,10 @@
   gn = grep -n
   sm = submodule
   smupdate = submodule foreach "git checkout master; git pull origin master"
-  # stash関連
-  sl = stash list
-  sp = stash pop
-  ss = stash save
+  # stash関連(stashもう使わないのでコメントあうと)
+  # sl = stash list
+  # sp = stash pop
+  # ss = stash save
 
   chpk = cherry-pick # チンピク
   iss = issue # my extended command
