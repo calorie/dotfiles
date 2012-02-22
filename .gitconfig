@@ -63,6 +63,7 @@
   lp  = log -p              # diffも一緒に出す
   la  = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
   lr  = log origin          # originのlog
+  ll = log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' # onelineでlogを出す
   oneline = log --pretty=oneline
   ranking = shortlog -s -n --no-merges
   # logをtree表示
