@@ -457,7 +457,7 @@ esac
 
 
 
-export EDITOR=vi
+export EDITOR=vim
 export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin:usr/local/bin
