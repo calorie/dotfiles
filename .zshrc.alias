@@ -57,6 +57,7 @@ alias oppai='git'
 alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
+alias '偽ｔ'=git
 
 alias java='nocorrect java'
 alias cp='nocorrect cp -irp'
