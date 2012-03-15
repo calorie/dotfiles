@@ -5,7 +5,7 @@ alias lf="ls -F"
 alias ll="ls -l"
 
 # process
-alias j="jobs -l"
+# alias j="jobs -l"
 alias 'ps?'='pgrep -l -f'
 alias pk='pkill -f'
 
