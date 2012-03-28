@@ -116,6 +116,12 @@
   chpk = cherry-pick # チンピク
   iss = issue # my extended command
 
+  # git-風呂関連
+  ff = flow feature
+  fr = flow release
+  fh = flow hotfix
+  fs = flow support
+
 [http]
   sslVerify = false
 
