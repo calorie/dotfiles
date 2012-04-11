@@ -32,6 +32,7 @@
   pu  = push -u origin      # push origin and set upstream
   # rebase
   rbm = rebase master       # masterへのrebaseはよく使うのでalias
+  rbd = rebase develop
   rbc = rebase --continue
   rba = rebase --abort
   rbi = rebase -i
@@ -51,6 +52,7 @@
   cb  = checkout -b         # branch切ってcheckoutする
   ct  = checkout --track    # remoteのbranchを追跡
   cm  = checkout master
+  cd  = checkout develop
   # branch関連
   br  = branch
   ba  = branch -a           # originも含めた全てのbranchを表示
@@ -117,10 +119,17 @@
   iss = issue # my extended command
 
   # git-風呂関連
-  ff = flow feature
+  ff  = flow feature
+  ffl = flow feature list
+  ffs = flow feature start
+  fff = flow feature finish
+  ffc = flow feature checkout
   fr = flow release
-  fh = flow hotfix
-  fs = flow support
+  fh  = flow hotfix
+  fhl = flow hotfix list
+  fhs = flow hotfix start
+  fhf = flow hotfix finish
+  fs  = flow support
 
 [http]
   sslVerify = false
