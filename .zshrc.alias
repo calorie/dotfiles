@@ -22,7 +22,7 @@ alias 'src'='exec zsh'
 alias -g V="| vim -"
 
 # grep
-alias 'gr'='grep --color=auto -RUIn'
+alias 'gr'='grep --color=auto -ERUIn'
 
 #make
 alias 'm'='make'
