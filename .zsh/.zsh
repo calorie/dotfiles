@@ -1,0 +1,1 @@
+/home/Yuu_Shigetani/dotfiles/.zsh

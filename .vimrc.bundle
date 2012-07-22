@@ -280,4 +280,6 @@ call vundle#rc()
 "
 Bundle 'gmarik/vundle'
 
+Bundle 'Gist.vim'
+
 filetype plugin indent on
