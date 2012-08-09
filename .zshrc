@@ -661,3 +661,5 @@ esac
 ## local固有設定
 #
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
