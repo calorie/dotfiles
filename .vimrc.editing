@@ -92,3 +92,4 @@ nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 command TL Tlist
 command NT NERDTree
 command VS VimShell
+command Gi Gist
