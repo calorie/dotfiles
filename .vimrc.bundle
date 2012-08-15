@@ -283,4 +283,11 @@ Bundle 'gmarik/vundle'
 "Bundle 'Gist.vim'
   Bundle 'mattn/gist-vim'
 
+Bundle 'vim-ruby/vim-ruby'
+
+Bundle 'mattn/zencoding-vim'
+
+"Java 補完
+Bundle 'vim-scripts/javacomplete'
+
 filetype plugin indent on
