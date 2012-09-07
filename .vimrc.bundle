@@ -243,7 +243,7 @@ call vundle#rc()
   Bundle 'yuroyoro/vimdoc_ja'
 
   " vim上のtwitter client
-  Bundle 'TwitVim'
+  "Bundle 'TwitVim'
 
   " Lingrのclient
   Bundle 'tsukkee/lingr-vim'
@@ -289,5 +289,19 @@ Bundle 'mattn/zencoding-vim'
 
 "Java 補完
 Bundle 'vim-scripts/javacomplete'
+
+"Vim上でSQL実行
+Bundle 'dbext.vim'
+
+"コメント
+Bundle 'sakuraiyuta/commentout.vim'
+
+Bundle 'romanvbabenko/rails.vim'
+Bundle 'taichouchou2/neco-rubymf'
+Bundle 'taichouchou2/vim-ref-ri'
+"Bundle 'taichouchou2/vim-rsense'
+Bundle 'taq/vim-rspec'
+"Bundle 'tpope/vim-endwise.git'
+Bundle 'ujihisa/unite-rake'
 
 filetype plugin indent on
