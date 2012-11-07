@@ -1,16 +1,21 @@
-"vunlde.vimで管理してるpluginを読み込む
+" vunlde.vimで管理してるpluginを読み込む
 
 filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
+" set rtp+=~/.vim/bundle/vundle/
+" call vundle#rc()
 
 " Edit {{{
+
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   NeoBundle 'scrooloose/nerdcommenter.git'
+
+  "コメント
+  " NeoBundle 'sakuraiyuta/commentout.vim'
+  NeoBundle 'tomtom/tcomment_vim'
 
   " 自動閉じタグ
   " NeoBundle 'yuroyoro/vim-autoclose'
@@ -91,6 +96,7 @@ endif
 " }}}
 
 " Completion {{{
+
   " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
   " NeoBundle 'AutoComplPop'
 
@@ -105,9 +111,14 @@ endif
 
   " A neocomplcache plugin for English, using look command
   " NeoBundle 'ujihisa/neco-look'
+
+  " Java 補完
+  NeoBundle 'vim-scripts/javacomplete'
+
 " }}}
 
 " Searching/Moving{{{
+
   " smooth_scroll.vim : スクロールを賢く
   NeoBundle 'Smooth-Scroll'
 
@@ -149,9 +160,16 @@ endif
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   NeoBundle 'ruby.vim'
+  NeoBundle 'vim-ruby/vim-ruby'
 
   " rails.vim : rails的なアレ
   NeoBundle 'tpope/vim-rails'
+  NeoBundle 'romanvbabenko/rails.vim'
+  NeoBundle 'taichouchou2/neco-rubymf'
+  NeoBundle 'taichouchou2/vim-ref-ri'
+  " NeoBundle 'taichouchou2/vim-rsense'
+  NeoBundle 'taq/vim-rspec'
+  " NeoBundle 'tpope/vim-endwise.git'
 
   " Pydiction : Python用の入力補完
   NeoBundle 'Pydiction'
@@ -160,13 +178,18 @@ endif
   NeoBundle 'taglist.vim'
 
   " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
-  "NeoBundle 'Source-Explorer-srcexpl.vim'
+  " NeoBundle 'Source-Explorer-srcexpl.vim'
 
   " NERD_tree, taglist, srcexpl の統合
   " NeoBundle 'trinity.vim'
+
+  " html zencoding
+  NeoBundle 'mattn/zencoding-vim'
+
 " }}}
-"
+
 " Syntax {{{
+
   " haml
   NeoBundle 'haml.zip'
 
@@ -193,9 +216,11 @@ endif
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundle 'scrooloose/syntastic'
+
 " }}}
 
 " Buffer {{{
+
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
   NeoBundle 'DumbBuf'
 
@@ -207,11 +232,14 @@ endif
 
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
   NeoBundle 'vtreeexplorer'
+
 " }}}
 
 
 " Encording {{{
+
   NeoBundle 'banyan/recognize_charcode.vim'
+
 " }}}
 
 " Utility {{{
@@ -247,10 +275,10 @@ endif
   NeoBundle 'yuroyoro/vimdoc_ja'
 
   " vim上のtwitter client
-  "NeoBundle 'TwitVim'
+  " NeoBundle 'TwitVim'
 
   " Lingrのclient
-  "NeoBundle 'tsukkee/lingr-vim'
+  " NeoBundle 'tsukkee/lingr-vim'
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
@@ -258,19 +286,28 @@ endif
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
 
+  " Gist
+  " NeoBundle 'Gist.vim'
+  NeoBundle 'mattn/gist-vim'
+
+  " Vim上でSQL実行
+  NeoBundle 'dbext.vim'
 
 " }}}
 
 " ColorSchema{{{{
+
   " color schema 256
   NeoBundle 'desert256.vim'
   NeoBundle 'mrkn256.vim'
   NeoBundle 'tomasr/molokai'
   NeoBundle 'yuroyoro/yuroyoro256.vim'
   NeoBundle 'YuuShigetani/colorschemes'
+
 " }}}
 
 " Unite {{{{
+
   " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'tsukkee/unite-help'
@@ -280,34 +317,8 @@ endif
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
+  NeoBundle 'ujihisa/unite-rake'
 
 " }}}
-"
-NeoBundle 'gmarik/vundle'
-
-"NeoBundle 'Gist.vim'
-  NeoBundle 'mattn/gist-vim'
-
-NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundle 'mattn/zencoding-vim'
-
-"Java 補完
-NeoBundle 'vim-scripts/javacomplete'
-
-"Vim上でSQL実行
-NeoBundle 'dbext.vim'
-
-"コメント
-" NeoBundle 'sakuraiyuta/commentout.vim'
-NeoBundle 'tomtom/tcomment_vim'
-
-NeoBundle 'romanvbabenko/rails.vim'
-NeoBundle 'taichouchou2/neco-rubymf'
-NeoBundle 'taichouchou2/vim-ref-ri'
-"NeoBundle 'taichouchou2/vim-rsense'
-NeoBundle 'taq/vim-rspec'
-"NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'ujihisa/unite-rake'
 
 filetype plugin indent on

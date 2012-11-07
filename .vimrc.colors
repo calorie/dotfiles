@@ -4,9 +4,9 @@
 
 " colorscheme mrkn256
 " colorscheme yuroyoro256
-colorscheme wombat
 " colorscheme desert256
 " colorscheme jellybeans
+colorscheme wombat
 
 set t_Co=256
 set t_Sf=[3%dm

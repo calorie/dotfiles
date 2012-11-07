@@ -28,5 +28,3 @@ source ~/dotfiles/.vimrc.misc
 "プラグインに依存するアレ
 source ~/dotfiles/.vimrc.plugins_setting
 
-autocmd FileType php set tags=~/.vim/tags/campus.tags
-
