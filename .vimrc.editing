@@ -104,3 +104,4 @@ let g:user_zen_settings = {
 
 "ruby-refe
 let g:ref_refe_cmd = "~/ruby-refe/refe-1_9_2"
+

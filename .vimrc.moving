@@ -102,3 +102,4 @@ endfunction
 
 " insert mode でjjでesc
 inoremap jj <Esc>
+
