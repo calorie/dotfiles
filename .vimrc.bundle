@@ -263,6 +263,7 @@ call vundle#rc()
   Bundle 'mrkn256.vim'
   Bundle 'tomasr/molokai'
   Bundle 'yuroyoro/yuroyoro256.vim'
+  Bundle 'YuuShigetani/colorschemes'
 " }}}
 
 " Unite {{{{
@@ -281,7 +282,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "Bundle 'Gist.vim'
-  Bundle 'mattn/gist-vim'
+Bundle 'mattn/gist-vim'
 
 Bundle 'vim-ruby/vim-ruby'
 
