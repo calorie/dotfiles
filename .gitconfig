@@ -134,3 +134,5 @@
   generic = ^B move-page-up
 [github]
 	user = YuuShigetani
+[rebase]
+	autosquash = true
