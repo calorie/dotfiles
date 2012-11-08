@@ -304,4 +304,6 @@ Bundle 'taq/vim-rspec'
 "Bundle 'tpope/vim-endwise.git'
 Bundle 'ujihisa/unite-rake'
 
+Bundle 'YuuShigetani/colorschemes'
+
 filetype plugin indent on
