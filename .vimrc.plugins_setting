@@ -173,7 +173,7 @@ endif
 " 関数一覧
 set tags=tags
 "set tags+=~/.tags
-"let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
 " let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
@@ -181,9 +181,9 @@ let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 let Tlist_Auto_Open = 1                   " 自動表示
 let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 30
-"map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
-nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
-nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
+" nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+" nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " Srcexp
@@ -402,3 +402,29 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:NERDTreeShowHidden = 1
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
+
+"------------------------------------
+" zen-cording
+"------------------------------------
+let g:user_zen_settings = {
+\   'lang' : 'ja',
+\}
+
+"------------------------------------
+" vim-ref
+"------------------------------------
+let g:ref_refe_cmd = expand('~/.vim/ref/ruby-refe/refe-1_9_2')
+let g:ref_ri_cmd = expand('~/.rbenv/versions/1.9.3-p194/bin/ri')
+autocmd FileType ruby,eruby,ruby.rspec nmap <buffer>K :<C-U>Ref refe <Space><C-R><C-W><CR>
+autocmd User Rails nmap <buffer>KK :<C-U>Ref ri <Space><C-R><C-W><CR>
+
+"------------------------------------
+" Gist
+"------------------------------------
+let g:gist_show_privates = 1
+nnoremap <Leader>g :Gist<CR>
+nnoremap <Leader>gp :Gist -p<CR>
+nnoremap <Leader>ge :Gist -e<CR>
+nnoremap <Leader>gs :Gist -s <Space><C-R><C-W><CR>
+nnoremap <Leader>gd :Gist -d<CR>
+nnoremap <Leader>gl :Gist -l<CR>
