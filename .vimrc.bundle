@@ -113,7 +113,7 @@ endif
   " NeoBundle 'ujihisa/neco-look'
 
   " Java 補完
-  NeoBundle 'vim-scripts/javacomplete'
+  " NeoBundle 'vim-scripts/javacomplete'
 
 " }}}
 
@@ -287,11 +287,13 @@ endif
   NeoBundle 'Lokaltog/vim-powerline'
 
   " Gist
-  " NeoBundle 'Gist.vim'
   NeoBundle 'mattn/gist-vim'
 
   " Vim上でSQL実行
   NeoBundle 'dbext.vim'
+
+  " java jde
+  " NeoBundle 'Vim-JDE'
 
 " }}}
 
