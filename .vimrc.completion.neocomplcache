@@ -93,7 +93,7 @@ autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType c          setlocal omnifunc=ccomplete#Complete
 ""autocmd FileType ruby       setlocal omnifunc=rubycomplete#Complete
-autocmd FileType java      setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java      setlocal omnifunc=javacomplete#Complete
 ""autocmd FileType java      setlocal completefunc=javacomplete#CompleteParamsInfo
 
 " Enable heavy omni completion.

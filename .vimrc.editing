@@ -56,7 +56,7 @@ inoremap ' ''<LEFT>
 "vnoremap ' "zdi'<C-R>z'<ESC>
 
 " 保存時に行末の空白を除去する
-"autocmd BufWritePre * :%s/\s\+$//ge
+autocmd BufWritePre * :%s/\s\+$//ge
 " 保存時にtabをスペースに変換する
 autocmd BufWritePre * :%s/\t/  /ge
 
@@ -92,15 +92,3 @@ function! s:toggle_qf_window()
 endfunction
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
-command TL Tlist
-command NT NERDTree
-command VS VimShell
-command Gi Gist
-
-"zen-cording
-let g:user_zen_settings = {
-\   'lang' : 'ja',
-\}
-
-"ruby-refe
-let g:ref_refe_cmd = "~/ruby-refe/refe-1_9_2"
