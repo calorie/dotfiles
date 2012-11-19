@@ -94,7 +94,7 @@ call vundle#rc()
   Bundle 'Shougo/neocomplcache'
 
   " neocomplcacheのsinpet補完
-  Bundle 'Shougo/neocomplcache-snippets-complete'
+  Bundle 'Shougo/neosnippets'
 
   " rubyでrequire先を補完する
   " Bundle 'ujihisa/neco-ruby'
@@ -303,5 +303,7 @@ Bundle 'taichouchou2/vim-ref-ri'
 Bundle 'taq/vim-rspec'
 "Bundle 'tpope/vim-endwise.git'
 Bundle 'ujihisa/unite-rake'
+
+Bundle 'YuuShigetani/colorschemes'
 
 filetype plugin indent on
