@@ -326,3 +326,4 @@ endif
 Bundle 'YuuShigetani/colorschemes'
 
 filetype plugin indent on
+
