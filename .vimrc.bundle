@@ -282,6 +282,7 @@ endif
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'gregsexton/gitv'
 
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
