@@ -101,3 +101,4 @@ alias ex='extract'
 
 alias ev='vi ~/dotfiles/.vimrc*'
 
+alias chrome='google-chrome'
