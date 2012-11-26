@@ -136,3 +136,5 @@
 	user = YuuShigetani
 [rebase]
 	autosquash = true
+[rerere]
+	enabled = true

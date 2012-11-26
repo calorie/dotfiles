@@ -100,4 +100,7 @@ extract () {
 alias ex='extract'
 
 alias ev='vi ~/dotfiles/.vimrc*'
+alias cw='cd ~/work'
+alias cdf='cd ~/dotfiles'
 
+alias chrome='google-chrome'

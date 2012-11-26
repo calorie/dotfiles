@@ -146,6 +146,9 @@ endif
   " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
   NeoBundle 'tyru/open-browser.vim'
 
+  " ブラウザリロード
+  NeoBundle 'lordm/vim-browser-reload-linux'
+
 " }}}
 
 " Programming {{{
@@ -282,6 +285,7 @@ endif
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'gregsexton/gitv'
 
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'

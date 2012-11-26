@@ -56,3 +56,12 @@ func! String2Hex(str)
   endwhile
   return out
 endfunc
+
+" vim起動中はtmuxを隠す
+if !has('gui_running') && $TMUX !=# ''
+  augroup Tmux
+    autocmd!
+    au VimEnter,FocusGained * silent !tmux set status off
+    au VimLeave,FocusLost * silent !tmux set status on
+  augroup END
+endif
