@@ -184,7 +184,7 @@ endif
   " NeoBundle 'trinity.vim'
 
   " html zencoding
-  NeoBundle 'mattn/zencoding-vim'
+  " NeoBundle 'mattn/zencoding-vim'
 
 " }}}
 
@@ -322,8 +322,6 @@ endif
   NeoBundle 'ujihisa/unite-rake'
 
 " }}}
-
-Bundle 'YuuShigetani/colorschemes'
 
 filetype plugin indent on
 
