@@ -138,3 +138,5 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[mergetool]
+	keepBackup = false
