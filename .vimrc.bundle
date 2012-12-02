@@ -45,7 +45,7 @@ endif
   NeoBundle 'Gundo'
 
   " surround.vim : テキストを括弧で囲む／削除する
-  NeoBundle 'tpope/surround.vim'
+  NeoBundle 'tpope/vim-surround'
 
   " smartchr.vim : ==などの前後を整形
   NeoBundle 'smartchr'
