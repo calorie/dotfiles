@@ -249,6 +249,7 @@ endif
 
   " vimshell : vimのshell
   NeoBundle 'Shougo/vimshell.git'
+  NeoBundle 'ujihisa/vimshell-ssh'
 
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc.git'
