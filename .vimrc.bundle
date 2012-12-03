@@ -11,7 +11,7 @@ endif
 " Edit {{{
 
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
-  NeoBundle 'scrooloose/nerdcommenter.git'
+  " NeoBundle 'scrooloose/nerdcommenter.git'
 
   "コメント
   NeoBundle 'tomtom/tcomment_vim'
@@ -233,7 +233,7 @@ endif
   NeoBundle 'The-NERD-tree'
 
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-  NeoBundle 'vtreeexplorer'
+  " NeoBundle 'vtreeexplorer'
 
 " }}}
 
@@ -248,6 +248,7 @@ endif
 
   " vimshell : vimのshell
   NeoBundle 'Shougo/vimshell.git'
+  NeoBundle 'ujihisa/vimshell-ssh'
 
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc.git'
@@ -303,10 +304,10 @@ endif
 " ColorSchema{{{{
 
   " color schema 256
-  NeoBundle 'desert256.vim'
-  NeoBundle 'mrkn256.vim'
-  NeoBundle 'tomasr/molokai'
-  NeoBundle 'yuroyoro/yuroyoro256.vim'
+  " NeoBundle 'desert256.vim'
+  " NeoBundle 'mrkn256.vim'
+  " NeoBundle 'tomasr/molokai'
+  " NeoBundle 'yuroyoro/yuroyoro256.vim'
   NeoBundle 'YuuShigetani/colorschemes'
 
 " }}}
