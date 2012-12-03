@@ -14,7 +14,6 @@ endif
   NeoBundle 'scrooloose/nerdcommenter.git'
 
   "コメント
-  " NeoBundle 'sakuraiyuta/commentout.vim'
   NeoBundle 'tomtom/tcomment_vim'
 
   " 自動閉じタグ
@@ -45,7 +44,7 @@ endif
   NeoBundle 'Gundo'
 
   " surround.vim : テキストを括弧で囲む／削除する
-  NeoBundle 'tpope/surround.vim'
+  NeoBundle 'tpope/vim-surround'
 
   " smartchr.vim : ==などの前後を整形
   NeoBundle 'smartchr'
@@ -104,7 +103,7 @@ endif
   NeoBundle 'Shougo/neocomplcache'
 
   " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neosnippets'
+  NeoBundle 'Shougo/neosnippet.git'
 
   " rubyでrequire先を補完する
   " NeoBundle 'ujihisa/neco-ruby'
