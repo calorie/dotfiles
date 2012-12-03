@@ -375,6 +375,15 @@ cnoremap UO Unite outline<Enter>
 "------------------------------------
 let g:quickrun_config = {}
 let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
+let g:quickrun_config['c'] = {
+      \   'type': 'c/gcc',
+      \   'command': 'gcc',
+      \   'exec': ['%c %o %s -o %s:p:r -lm', '%s:p:r %a'],
+      \   'tempfile': '%{tempname()}.c',
+      \   'hook/sweep/files': '%S:p:r',
+      \   'cmdopt': '-std=c99 -Wall',
+      \   'args': '%{input("argv> ")}',
+      \ }
 
 "------------------------------------
 " Pydiction

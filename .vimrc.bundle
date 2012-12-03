@@ -14,7 +14,6 @@ endif
   " NeoBundle 'scrooloose/nerdcommenter.git'
 
   "コメント
-  " NeoBundle 'sakuraiyuta/commentout.vim'
   NeoBundle 'tomtom/tcomment_vim'
 
   " 自動閉じタグ
@@ -104,7 +103,7 @@ endif
   NeoBundle 'Shougo/neocomplcache'
 
   " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neosnippets'
+  NeoBundle 'Shougo/neosnippet.git'
 
   " rubyでrequire先を補完する
   " NeoBundle 'ujihisa/neco-ruby'
@@ -187,7 +186,7 @@ endif
   " NeoBundle 'trinity.vim'
 
   " html zencoding
-  NeoBundle 'mattn/zencoding-vim'
+  " NeoBundle 'mattn/zencoding-vim'
 
 " }}}
 
