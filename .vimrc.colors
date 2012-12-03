@@ -29,9 +29,9 @@ set t_Sb=[4%dm
 " endif
 
 "ポップアップメニューのカラーを設定
-"hi Pmenu guibg=#666666
-"hi PmenuSel guibg=#8cd0d3 guifg=#666666
-"hi PmenuSbar guibg=#333333
+" hi Pmenu guibg=#666666
+" hi PmenuSel guibg=#8cd0d3 guifg=#666666
+" hi PmenuSbar guibg=#333333
 
 " ハイライト on
 syntax enable

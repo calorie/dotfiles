@@ -18,6 +18,7 @@ nmap 9 $
 " insert mode での移動
 inoremap  <C-e> <END>
 inoremap  <C-a> <HOME>
+inoremap  <C-0> <HOME>
 " インサートモードでもhjklで移動（Ctrl押すけどね）
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -125,3 +126,4 @@ endfunction
 " ,mwでマーク ,pwでswap
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
+

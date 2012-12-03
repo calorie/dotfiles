@@ -65,3 +65,4 @@ if !has('gui_running') && $TMUX !=# ''
     au VimLeave,FocusLost * silent !tmux set status on
   augroup END
 endif
+
