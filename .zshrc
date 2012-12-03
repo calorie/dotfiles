@@ -671,3 +671,4 @@ export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init - zsh)"
 # mpi
 export PATH=$PATH:/usr/local/mpich/bin
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/mpich/include
