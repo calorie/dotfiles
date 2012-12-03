@@ -664,7 +664,10 @@ esac
 
 
 ## local固有設定
-#
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-export PATH="$HOME/.rbenv/bin:$PATH"
+
+# rbenv
+export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init - zsh)"
+# mpi
+export PATH=$PATH:/usr/local/mpich/bin
