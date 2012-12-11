@@ -384,6 +384,10 @@ let g:quickrun_config['c'] = {
       \   'cmdopt': '-std=c99 -Wall',
       \   'args': '%{input("argv> ")}',
       \ }
+let g:quickrun_config['tex'] = {
+      \   'command' : 'platex',
+      \   'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi']
+      \}
 
 "------------------------------------
 " Pydiction
@@ -444,3 +448,17 @@ nnoremap <Leader>gs :Gist -s <Space><C-R><C-W><CR>
 nnoremap <Leader>gd :Gist -d<CR>
 nnoremap <Leader>gl :Gist -l<CR>
 
+"------------------------------------
+" Vim-LaTeX
+"------------------------------------
+" let g:tex_flavor = 'latex'
+" au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtk,*.ltx,*.bbl setf tex
+" filetype plugin on
+" set grepprg=grep\ -nH\ $*
+" let g:Tex_DefaultTargetFormat = 'pdf'
+" let g:Tex_CompileRule_dvi = 'platex --interaction=nonstopmode $*'
+" let g:Tex_BibtexFlavor = 'jbibtex'
+" let g:Tex_ViewRule_dvi = 'xdvi'
+" let g:Tex_FormatDependency_pdf = 'dvi,pdf'
+" let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
+" let g:Tex_ViewRule_pdf = 'apvlv'
