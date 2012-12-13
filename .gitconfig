@@ -149,4 +149,4 @@
 [mergetool]
   keepBackup = false
 [pull]
-  rebase = true
+	rebase = false
