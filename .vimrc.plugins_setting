@@ -30,20 +30,14 @@ command! Mt :TMiniBufExplorer
 let g:Align_xstrlen = 3
 
 "------------------------------------
-" VTreeExplorer
-"------------------------------------
-" 縦に表示する
-let g:treeExplVertical=1
-
-"------------------------------------
 " NERD_commenter.vim
 "------------------------------------
 " コメントの間にスペースを空ける
-let NERDSpaceDelims = 1
+" let NERDSpaceDelims = 1
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
-map <Leader>x, c<space>
+" map <Leader>x, c<space>
 ""未対応ファイルタイプのエラーメッセージを表示しない
-let NERDShutUp=1
+" let NERDShutUp=1
 
 " ------------------------------------
 " grep.vim
@@ -124,11 +118,11 @@ nnoremap <Leader>l<Space> :BufExplorer<CR>
 "------------------------------------
 " VTreeExplorer
 "------------------------------------
-let g:treeExplVertical=1
+" let g:treeExplVertical=1
 "<Leader>t<Space>でディレクトリツリー表示
-noremap <Leader>t<Space> :VSTreeExplore<CR>
+" noremap <Leader>t<Space> :VSTreeExplore<CR>
 "分割したウィンドウのサイズ
-let g:treeExplWinSize=30
+" let g:treeExplWinSize=30
 
 "------------------------------------
 " DumbBuf.vim
@@ -189,11 +183,11 @@ map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカッ�
 " Srcexp
 "------------------------------------
 " [Srcexpl] tagsを利用したソースコード閲覧・移動補助機能
-let g:SrcExpl_UpdateTags    = 1         " tagsをsrcexpl起動時に自動で作成（更新）
-let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:off)
-let g:SrcExpl_WinHeight     = 9         " プレビューウインドウの高さ
-let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
-let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
+" let g:SrcExpl_UpdateTags    = 1         " tagsをsrcexpl起動時に自動で作成（更新）
+" let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:off)
+" let g:SrcExpl_WinHeight     = 9         " プレビューウインドウの高さ
+" let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
+" let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
 " Source Explorerの機能ON/OFF
 " nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
 
@@ -226,7 +220,7 @@ map <Leader>U <Plug>(operator-decamelize)
 map R <Plug>(operator-replace)
 
 "------------------------------------
-" sumartword.vim
+" smartword.vim
 "------------------------------------
 noremap ,w  w
 noremap ,b  b
@@ -448,17 +442,3 @@ nnoremap <Leader>gs :Gist -s <Space><C-R><C-W><CR>
 nnoremap <Leader>gd :Gist -d<CR>
 nnoremap <Leader>gl :Gist -l<CR>
 
-"------------------------------------
-" Vim-LaTeX
-"------------------------------------
-" let g:tex_flavor = 'latex'
-" au BufNewFile,BufRead *.tex,*.latex,*.sty,*.dtk,*.ltx,*.bbl setf tex
-" filetype plugin on
-" set grepprg=grep\ -nH\ $*
-" let g:Tex_DefaultTargetFormat = 'pdf'
-" let g:Tex_CompileRule_dvi = 'platex --interaction=nonstopmode $*'
-" let g:Tex_BibtexFlavor = 'jbibtex'
-" let g:Tex_ViewRule_dvi = 'xdvi'
-" let g:Tex_FormatDependency_pdf = 'dvi,pdf'
-" let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
-" let g:Tex_ViewRule_pdf = 'apvlv'
