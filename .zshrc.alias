@@ -104,6 +104,7 @@ alias ev='vi ~/dotfiles/.vimrc*'
 # cd
 alias cw='cd ~/work'
 alias cdf='cd ~/dotfiles'
+alias edf='cd ~/dotfiles ; vim'
 
 # chrome
 alias chrome='google-chrome'
