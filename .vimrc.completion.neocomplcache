@@ -6,7 +6,7 @@ let g:acp_enableAtStartup = 0
 " NeoComplCacheを有効にする
 let g:neocomplcache_enable_at_startup = 1
 " 補完が自動で開始される文字数
-let g:neocomplcache_auto_completion_start_length = 3
+let g:neocomplcache_auto_completion_start_length = 2
 " smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
 " camle caseを有効化。大文字を区切りとしたワイルドカードのように振る舞う
@@ -92,7 +92,7 @@ autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType c          setlocal omnifunc=ccomplete#Complete
-" autocmd FileType ruby       setlocal omnifunc=rubycomplete#Complete
+autocmd FileType ruby       setlocal omnifunc=rubycomplete#Complete
 autocmd FileType java      setlocal omnifunc=javacomplete#Complete
 " autocmd FileType java      setlocal completefunc=javacomplete#CompleteParamsInfo
 
@@ -105,13 +105,13 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
-" autocmd FileType ruby let g:neocomplcache_source_disable = {
-  " \ 'include_complete' : 1,
-  " \ 'omni_complete' : 1
-" \ }
-" autocmd FileType ruby let g:neocomplcache_source_disable = {
-  " \ 'include_complete' : 1
-" \ }
+autocmd FileType ruby let g:neocomplcache_source_disable = {
+  \ 'include_complete' : 1,
+  \ 'omni_complete' : 1
+\ }
+autocmd FileType ruby let g:neocomplcache_source_disable = {
+  \ 'include_complete' : 1
+\ }
 
 "インクルードパスの指定
 let g:neocomplcache_include_paths = {

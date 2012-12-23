@@ -189,7 +189,7 @@ endif
   " NeoBundle 'trinity.vim'
 
   " html zencoding
-  " NeoBundle 'mattn/zencoding-vim'
+  NeoBundle 'mattn/zencoding-vim'
 
 " }}}
 
