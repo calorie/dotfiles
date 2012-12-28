@@ -18,6 +18,7 @@ export INFOPATH
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
 export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=~/work/CellMLonGPU/bin
 
 # Maven2
 export MAVEN_HOME=/usr/local/apache-maven-2.2.1
