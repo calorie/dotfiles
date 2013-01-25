@@ -33,4 +33,4 @@ do
 done
 
 cd ${ORIGIN}
-vim -c "NeoBundleInstall"
+vim -c "NeoBundleInstall" -c q
