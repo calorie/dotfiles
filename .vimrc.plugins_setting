@@ -458,3 +458,13 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets,~/
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+"------------------------------------
+" im_control
+"------------------------------------
+" PythonによるIBus制御指定
+" let IM_CtrlIBusPython = 1
+" 「日本語入力固定モード」を無効化
+" let IM_CtrlMode = 0
+" <ESC>押下後のIM切替開始までの反応
+" set timeout timeoutlen=3000 ttimeoutlen=100

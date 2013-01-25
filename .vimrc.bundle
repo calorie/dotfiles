@@ -5,8 +5,6 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-" set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
 
 " Edit {{{
 
@@ -94,6 +92,10 @@ endif
 
   " tex
   " NeoBundle 'jcf/vim-latex'
+
+  " IME制御
+  " NeoBundle 'fuenor/im_control.vim'
+
 
 " }}}
 
