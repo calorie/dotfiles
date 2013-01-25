@@ -1,4 +1,9 @@
 dotfiles
 ========
 
-dotfiles
+setup
+
+```
+./setup.sh
+```
+

@@ -380,7 +380,7 @@ let g:quickrun_config['c'] = {
       \ }
 let g:quickrun_config['tex'] = {
       \   'command' : 'platex',
-      \   'exec': ['%c %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi']
+      \   'exec': ['%c -kanji=euc %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi']
       \ }
 let g:quickrun_config['java'] = {
       \   'command' : 'ant',
