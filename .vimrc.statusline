@@ -7,9 +7,9 @@ set laststatus=2 " 常にステータスラインを表示
 set ruler
 
 " vim-powerlineでフォントにパッチを当てないなら以下をコメントアウト
-" set guifont=Inconsolata_for_Powerline:h11:cANSI
-" let g:Powerline_symbols = 'fancy'
-let g:Powerline_symbols = 'compatible'
+set guifont=Inconsolata_for_Powerline:h11:cANSI
+let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'compatible'
 
 "ステータスラインに文字コードと改行文字を表示する
 "if winwidth(0) >= 120
@@ -58,11 +58,10 @@ func! String2Hex(str)
 endfunc
 
 " vim起動中はtmuxを隠す
-if !has('gui_running') && $TMUX !=# ''
-  augroup Tmux
-    autocmd!
-    au VimEnter,FocusGained * silent !tmux set status off
-    au VimLeave,FocusLost * silent !tmux set status on
-  augroup END
-endif
-
+" if !has('gui_running') && $TMUX !=# ''
+"   augroup Tmux
+"     autocmd!
+"     au VimEnter,FocusGained * silent !tmux set status off
+"     au VimLeave,FocusLost * silent !tmux set status on
+"   augroup END
+" endif
