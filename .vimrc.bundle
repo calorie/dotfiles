@@ -94,8 +94,7 @@ endif
   " NeoBundle 'jcf/vim-latex'
 
   " IME制御
-  " NeoBundle 'fuenor/im_control.vim'
-
+  NeoBundle 'bouzuya/vim-ibus'
 
 " }}}
 

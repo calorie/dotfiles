@@ -460,11 +460,20 @@ if has('conceal')
 endif
 
 "------------------------------------
-" im_control
+" vim-ibus
 "------------------------------------
-" PythonによるIBus制御指定
-" let IM_CtrlIBusPython = 1
-" 「日本語入力固定モード」を無効化
-" let IM_CtrlMode = 0
-" <ESC>押下後のIM切替開始までの反応
-" set timeout timeoutlen=3000 ttimeoutlen=100
+inoremap <silent> <Esc> <Esc>:<C-u>call ibus#disable()<CR>
+inoremap <silent> <C-c> <Esc>:<C-u>call ibus#disable()<CR>
+
+"------------------------------------
+" easy-mosion
+"------------------------------------
+" ホームポジションに近いキーを使う
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+" 「,」 + 何かにマッピング
+let g:EasyMotion_leader_key="<Leader>"
+" 1 ストローク選択を優先する
+let g:EasyMotion_grouping=1
+" カラー設定変更
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
