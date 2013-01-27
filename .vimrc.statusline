@@ -6,10 +6,8 @@ set laststatus=2 " 常にステータスラインを表示
 "カーソルが何行目の何列目に置かれているかを表示する
 set ruler
 
-" vim-powerlineでフォントにパッチを当てないなら以下をコメントアウト
-set guifont=Inconsolata_for_Powerline:h11:cANSI
-let g:Powerline_symbols = 'fancy'
-" let g:Powerline_symbols = 'compatible'
+" vim-powerlineの設定
+source ~/dotfiles/.vimrc.statusline.powerline
 
 "ステータスラインに文字コードと改行文字を表示する
 "if winwidth(0) >= 120
