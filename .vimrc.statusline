@@ -63,3 +63,5 @@ endfunc
 "     au VimLeave,FocusLost * silent !tmux set status on
 "   augroup END
 " endif
+" nmap <silent> <C-z> :!tmux set status on<CR>:suspend<CR>
+command! Tu silent :!tmux set status
