@@ -34,6 +34,9 @@ command! Rv source $MYVIMRC
 
 set helpfile=$VIMRUNTIME/doc/help.txt
 
+" 開いているバッファの位置をカレントディレクトリに
+" autocmd BufEnter * lcd %:p:h
+
 " ファイルタイプ判定をon
 filetype plugin on
 
