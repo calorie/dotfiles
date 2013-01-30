@@ -65,3 +65,4 @@ endfunc
 " endif
 " nmap <silent> <C-z> :!tmux set status on<CR>:suspend<CR>
 command! Tu silent :!tmux set status
+
