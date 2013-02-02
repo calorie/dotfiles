@@ -171,8 +171,8 @@ endif
   " rails.vim : rails的なアレ
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'romanvbabenko/rails.vim'
-  NeoBundle 'taichouchou2/neco-rubymf'
-  NeoBundle 'taichouchou2/vim-ref-ri'
+  " NeoBundle 'taichouchou2/neco-rubymf'
+  " NeoBundle 'taichouchou2/vim-ref-ri'
   " NeoBundle 'taichouchou2/vim-rsense'
   NeoBundle 'taq/vim-rspec'
   " NeoBundle 'tpope/vim-endwise.git'
@@ -252,7 +252,7 @@ endif
 
   " vimshell : vimのshell
   NeoBundle 'Shougo/vimshell.git'
-  NeoBundle 'ujihisa/vimshell-ssh'
+  " NeoBundle 'ujihisa/vimshell-ssh'
 
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc.git'
@@ -320,7 +320,7 @@ endif
 
   " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
   NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'tsukkee/unite-help'
+  " NeoBundle 'tsukkee/unite-help'
   NeoBundle 'h1mesuke/unite-outline'
   " NeoBundle 'Sixeight/unite-grep'
   NeoBundle 'basyura/unite-rails'
