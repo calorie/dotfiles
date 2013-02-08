@@ -251,7 +251,9 @@ endif
 " Utility {{{
 
   " vimshell : vimのshell
-  NeoBundle 'Shougo/vimshell.git'
+  NeoBundleLazy 'Shougo/vimshell', {
+        \   'autoload' : { 'commands' : [ 'VimShell' ] }
+        \}
   " NeoBundle 'ujihisa/vimshell-ssh'
 
   " vimproc : vimから非同期実行。vimshelleで必要
@@ -319,7 +321,10 @@ endif
 " Unite {{{{
 
   " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
-  NeoBundle 'Shougo/unite.vim'
+  " NeoBundle 'Shougo/unite.vim'
+  NeoBundleLazy "Shougo/unite.vim", {
+        \   'autoload' : { 'commands' : [ 'Unite', 'UniteWithCurrentDir', 'UniteWithBufferDir', 'UniteBookmarkAdd' ] }
+        \}
   " NeoBundle 'tsukkee/unite-help'
   NeoBundle 'h1mesuke/unite-outline'
   " NeoBundle 'Sixeight/unite-grep'
