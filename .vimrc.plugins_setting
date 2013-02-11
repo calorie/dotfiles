@@ -512,3 +512,4 @@ function! bundle.hooks.on_source(bundle) "{{{
         \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
 endfunction"}}}
 unlet bundle
+

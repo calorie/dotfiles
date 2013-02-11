@@ -14,8 +14,10 @@ nmap ye ;let @"=expand("<cword>")<CR>
 vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " xselでクリップボードにコピー&ペースト
-vmap <silent> <C-\> :w !xsel -ib<CR><CR>
-nmap <silent> <C-\> :r !xsel -ob<CR>
+if executable('xsel')
+  vmap <silent> <C-\> :w !xsel -ib<CR><CR>
+  nmap <silent> <C-\> :r !xsel -ob<CR>
+endif
 
 " Tabキーを空白に変換
 set expandtab
@@ -96,3 +98,10 @@ function! s:toggle_qf_window()
 endfunction
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
+" 無駄に音を出す
+if executable('aplay')
+  function! PlaySound()
+    silent! exec '!aplay -q ~/dotfiles/.vim/sound/seq2_key1.wav &'
+  endfunction
+  autocmd CursorMovedI * call PlaySound()
+endif
