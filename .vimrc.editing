@@ -2,6 +2,11 @@
 " 編集関連 Edit
 "-------------------------------------------------------------------------------
 
+" 無駄に音を出す
+if executable('aplay')
+  autocmd CursorMovedI * call vimproc#system('aplay -q ~/dotfiles/.vim/sound/seq2_key1.wav')
+endif
+
 " insertモードを抜けるとIMEオフ
 set noimdisable
 set iminsert=0 imsearch=0
@@ -98,10 +103,3 @@ function! s:toggle_qf_window()
 endfunction
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
-" 無駄に音を出す
-if executable('aplay')
-  function! PlaySound()
-    silent! exec '!aplay -q ~/dotfiles/.vim/sound/seq2_key1.wav &'
-  endfunction
-  autocmd CursorMovedI * call PlaySound()
-endif

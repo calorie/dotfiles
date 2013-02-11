@@ -134,4 +134,3 @@ let g:neocomplcache_include_suffixes = {
   \ 'ruby' : '.rb',
   \ 'haskell' : '.hs'
   \ }
-

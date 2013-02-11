@@ -513,3 +513,7 @@ function! bundle.hooks.on_source(bundle) "{{{
 endfunction"}}}
 unlet bundle
 
+
+" ポップアップメニューの色指定
+" hi Pmenu ctermbg=4
+" hi PmenuSel ctermbg=8
