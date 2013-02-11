@@ -4,7 +4,7 @@
 
 " 無駄に音を出す
 if executable('aplay')
-  autocmd CursorMovedI * call vimproc#system('aplay -q ~/dotfiles/.vim/sound/seq2_key1.wav')
+  autocmd CursorMovedI * call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')
 endif
 
 " insertモードを抜けるとIMEオフ
