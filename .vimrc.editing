@@ -102,4 +102,3 @@ function! s:toggle_qf_window()
   execute 'botright cw'
 endfunction
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
-
