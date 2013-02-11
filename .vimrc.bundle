@@ -239,6 +239,10 @@ endif
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
   " NeoBundle 'vtreeexplorer'
 
+  " ctrl+pでファイル検索
+  NeoBundleLazy 'ctrlp.vim', {
+      \ 'autoload' : { 'commands' : ['CtrlP'] }}
+
 " }}}
 
 
