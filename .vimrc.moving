@@ -102,7 +102,7 @@ function! s:do_git_diff_aware_gf(command)
 endfunction
 
 " insert mode でjjでesc
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 " window の swap
 function! MarkWindowSwap()
