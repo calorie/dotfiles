@@ -30,8 +30,8 @@ noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
 " spaceで次のbufferへ。back-spaceで前のbufferへ
-nmap <Space><Space> ;MBEbn<CR>
-nmap <BS><BS> ;MBEbp<CR>
+nmap <silent> <Space><Space> :bn<CR>
+nmap <silent> <BS><BS> :bp<CR>
 
 " F2で前のバッファ
 map <F2> <ESC>;bp<CR>

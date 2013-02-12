@@ -231,7 +231,7 @@ endif
   NeoBundle 'DumbBuf'
 
   " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
-  NeoBundle 'minibufexpl.vim'
+  " NeoBundle 'minibufexpl.vim'
 
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'

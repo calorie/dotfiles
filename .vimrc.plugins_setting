@@ -11,17 +11,17 @@ nmap ,y ;YRShow<CR>
 "------------------------------------
 " MiniBufExplorer
 "------------------------------------
-let g:miniBufExplMapWindowNavVim=1 "hjklで移動
-let g:miniBufExplSplitBelow=0  " Put new window above
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
-let g:miniBufExplMaxSize = 10
+" let g:miniBufExplMapWindowNavVim=1 "hjklで移動
+" let g:miniBufExplSplitBelow=0  " Put new window above
+" let g:miniBufExplMapWindowNavArrows=1
+" let g:miniBufExplMapCTabSwitchBufs=1
+" let g:miniBufExplModSelTarget=1
+" let g:miniBufExplSplitToEdge=1
+" let g:miniBufExplMaxSize = 10
 " let g:miniBufExplorerMoreThanOne = 10
 
 ":MtでMiniBufExplorerの表示トグル
-nnoremap <Leader>mt :<C-u>:TMiniBufExplorer<CR>
+" nnoremap <Leader>mt :<C-u>:TMiniBufExplorer<CR>
 
 "------------------------------------
 " Align
@@ -301,7 +301,7 @@ function! bundle.hooks.on_source(bundle)
         \ call vimshell#altercmd#define('g', 'git')
         \| call vimshell#altercmd#define('i', 'iexe')
         \| call vimshell#altercmd#define('l', 'll')
-        \| call vimshell#altercmd#define('ll', 'ls -l')
+        \| call vimshell#altercmd#define('ll', 'ls -la')
         \| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
         \| call vimshell#hook#set('emptycmd', ['g:my_emptycmd'])
         \| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
@@ -433,6 +433,7 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 20
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
