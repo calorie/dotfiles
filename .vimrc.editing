@@ -3,9 +3,11 @@
 "-------------------------------------------------------------------------------
 
 " 無駄に音を出す
-if executable('aplay')
-  autocmd CursorMovedI * call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')
-endif
+" if executable('aplay')
+"   autocmd CursorMovedI * if ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
+"   autocmd InsertCharPre * if !ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
+"   autocmd InsertCharPre * call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')
+" endif
 
 " insertモードを抜けるとIMEオフ
 set noimdisable
@@ -92,13 +94,13 @@ autocmd FileType qf nnoremap <buffer> q :ccl<CR>
 autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 
 " cwでquickfixウィンドウの表示をtoggleするようにした
-function! s:toggle_qf_window()
-  for bufnr in range(1,  winnr('$'))
-    if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
-      execute 'ccl'
-      return
-    endif
-  endfor
-  execute 'botright cw'
-endfunction
-nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
+" function! s:toggle_qf_window()
+"   for bufnr in range(1,  winnr('$'))
+"     if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
+"       execute 'ccl'
+"       return
+"     endif
+"   endfor
+"   execute 'botright cw'
+" endfunction
+" nnoremap <silent> cw :<C-u>call <SID>toggle_qf_window()<CR>

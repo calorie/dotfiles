@@ -113,13 +113,6 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
-
-"------------------------------------
-" BufExplorer
-"------------------------------------
-"<Leader>l<Space>でBufferList
-nnoremap <Leader>l<Space> :BufExplorer<CR>
-
 "------------------------------------
 " VTreeExplorer
 "------------------------------------
@@ -133,16 +126,16 @@ nnoremap <Leader>l<Space> :BufExplorer<CR>
 " DumbBuf.vim
 "------------------------------------
 "<Leader>b<Space>でBufferList
-let dumbbuf_hotkey = '<Leader>b<Space>'
-let dumbbuf_mappings = {
-    \ 'n': {
-        \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
-    \}
-\}
-let dumbbuf_single_key  = 1
-let dumbbuf_updatetime  = 1    " &updatetimeの最小値
-let dumbbuf_wrap_cursor = 0
-let dumbbuf_remove_marked_when_close = 1
+" let dumbbuf_hotkey = '<Leader>b<Space>'
+" let dumbbuf_mappings = {
+"     \ 'n': {
+"         \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
+"     \}
+" \}
+" let dumbbuf_single_key  = 1
+" let dumbbuf_updatetime  = 1    " &updatetimeの最小値
+" let dumbbuf_wrap_cursor = 0
+" let dumbbuf_remove_marked_when_close = 1
 
 "------------------------------------
 " vim-indent-guides
@@ -501,7 +494,7 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 nnoremap <Leader>p :<C-U>CtrlP<CR>
 
 let bundle = neobundle#get('ctrlp.vim')
-function! bundle.hooks.on_source(bundle) "{{{
+function! bundle.hooks.on_source(bundle)
   let g:ctrlp_clear_cache_on_exit = 1
   let g:ctrlp_lazy_update = 1
   let g:ctrlp_regexp = 1
@@ -510,5 +503,5 @@ function! bundle.hooks.on_source(bundle) "{{{
   let g:ctrlp_custom_ignore = {
         \ 'dir':  '\.\(hg\|git\|sass-cache\|svn|\~\)$',
         \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
-endfunction"}}}
+endfunction
 unlet bundle

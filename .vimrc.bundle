@@ -75,8 +75,8 @@ endif
   NeoBundle 'kana/vim-textobj-function.git'
 
   " vim-textobj-fold : 折りたたまれたアレをtext-objectに
-  " NeoBundle 'kana/vim-textobj-fold.git'
   NeoBundle 'textobj-rubyblock'
+  " NeoBundle 'kana/vim-textobj-fold.git'
 
   " vim-textobj-entire : buffer全体をtext-objectに
   NeoBundle 'textobj-entire'
@@ -84,30 +84,30 @@ endif
   " 「foo」 or 【bar】などをtext-objectに
   NeoBundle 'textobj-jabraces'
 
-  " 改造したmonday.vim(git rebase -i とかtrue/falseとか)
-  " NeoBundle 'yuroyoro/monday'
-
   " <C-a>でtrue/false切替。他色々
   NeoBundle 'taku-o/vim-toggle'
-
-  " tex
-  " NeoBundle 'jcf/vim-latex'
 
   " IME制御
   NeoBundle 'bouzuya/vim-ibus'
 
+  " 改造したmonday.vim(git rebase -i とかtrue/falseとか)
+  " NeoBundle 'yuroyoro/monday'
+
+  " tex
+  " NeoBundle 'jcf/vim-latex'
+
 " }}}
 
 " Completion {{{
-
-  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
-  " NeoBundle 'AutoComplPop'
 
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
 
   " neocomplcacheのsinpet補完
   NeoBundle 'Shougo/neosnippet.git'
+
+  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
+  " NeoBundle 'AutoComplPop'
 
   " rubyでrequire先を補完する
   " NeoBundle 'ujihisa/neco-ruby'
@@ -171,10 +171,10 @@ endif
   " rails.vim : rails的なアレ
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'romanvbabenko/rails.vim'
+  NeoBundle 'taq/vim-rspec'
   " NeoBundle 'taichouchou2/neco-rubymf'
   " NeoBundle 'taichouchou2/vim-ref-ri'
   " NeoBundle 'taichouchou2/vim-rsense'
-  NeoBundle 'taq/vim-rspec'
   " NeoBundle 'tpope/vim-endwise.git'
 
   " Pydiction : Python用の入力補完
@@ -183,14 +183,14 @@ endif
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   NeoBundle 'taglist.vim'
 
+  " html zencoding
+  NeoBundle 'mattn/zencoding-vim'
+
   " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
   " NeoBundle 'Source-Explorer-srcexpl.vim'
 
   " NERD_tree, taglist, srcexpl の統合
   " NeoBundle 'trinity.vim'
-
-  " html zencoding
-  NeoBundle 'mattn/zencoding-vim'
 
 " }}}
 
@@ -227,21 +227,26 @@ endif
 
 " Buffer {{{
 
-  " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
-  NeoBundle 'DumbBuf'
-
-  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
-  " NeoBundle 'minibufexpl.vim'
-
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
-  " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-  " NeoBundle 'vtreeexplorer'
+  " NeoBundle 'Shougo/vimfiler'
+  " call neobundle#config('vimfiler', {
+  "       \ 'depends' : 'Shougo/unite.vim',
+  "       \ })
 
   " ctrl+pでファイル検索
   NeoBundleLazy 'ctrlp.vim', {
       \ 'autoload' : { 'commands' : ['CtrlP'] }}
+
+  " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
+  " NeoBundle 'DumbBuf'
+
+  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
+  " NeoBundle 'minibufexpl.vim'
+
+  " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
+  " NeoBundle 'vtreeexplorer'
 
 " }}}
 
@@ -275,9 +280,6 @@ endif
   " urilib.vim : vim scriptからURLを扱うライブラリ
   NeoBundle 'tyru/urilib.vim'
 
-  " ステータスラインに顔文字を表示
-  " NeoBundle 'mattn/hahhah-vim'
-
   " utillity
   NeoBundle 'L9'
 
@@ -286,12 +288,6 @@ endif
 
   " vimdoc 日本語
   NeoBundle 'yuroyoro/vimdoc_ja'
-
-  " vim上のtwitter client
-  " NeoBundle 'TwitVim'
-
-  " Lingrのclient
-  " NeoBundle 'tsukkee/lingr-vim'
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
@@ -306,6 +302,15 @@ endif
   " Vim上でSQL実行
   NeoBundle 'dbext.vim'
 
+  " vim上のtwitter client
+  " NeoBundle 'TwitVim'
+
+  " Lingrのclient
+  " NeoBundle 'tsukkee/lingr-vim'
+
+  " ステータスラインに顔文字を表示
+  " NeoBundle 'mattn/hahhah-vim'
+
   " java jde
   " NeoBundle 'Vim-JDE'
 
@@ -313,30 +318,30 @@ endif
 
 " ColorSchema{{{{
 
+  NeoBundle 'YuuShigetani/colorschemes'
+
   " color schema 256
   " NeoBundle 'desert256.vim'
   " NeoBundle 'mrkn256.vim'
   " NeoBundle 'tomasr/molokai'
   " NeoBundle 'yuroyoro/yuroyoro256.vim'
-  NeoBundle 'YuuShigetani/colorschemes'
 
 " }}}
 
 " Unite {{{{
 
   " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
-  " NeoBundle 'Shougo/unite.vim'
   NeoBundleLazy "Shougo/unite.vim", {
         \   'autoload' : { 'commands' : [ 'Unite', 'UniteWithCurrentDir', 'UniteWithBufferDir', 'UniteBookmarkAdd' ] }
         \}
-  " NeoBundle 'tsukkee/unite-help'
   NeoBundle 'h1mesuke/unite-outline'
-  " NeoBundle 'Sixeight/unite-grep'
   NeoBundle 'basyura/unite-rails'
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
   NeoBundle 'ujihisa/unite-rake'
+  " NeoBundle 'Sixeight/unite-grep'
+  " NeoBundle 'tsukkee/unite-help'
 
 " }}}
 
