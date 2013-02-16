@@ -9,6 +9,9 @@ if has("autochdir")
 else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
+if filereadable(expand('~/.tags/rtags'))
+  au FileType ruby,eruby setl tags+=~/.tags/rtags,~/.tags/gtags
+endif
 
 set notagbsearch
 

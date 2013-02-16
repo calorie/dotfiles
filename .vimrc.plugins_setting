@@ -66,7 +66,6 @@ let g:surround_{char2nr("-")} = ":\r"
 "------------------------------------
 " inoremap <expr> = smartchr#loop('=', '==', '=>')
 " inoremap <expr> . smartchr#loop('.',  '->', '=>')
-
 "
 " " 演算子の間に空白を入れる
 " inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
@@ -100,7 +99,6 @@ let g:surround_{char2nr("-")} = ":\r"
 
 " " if文直後の(は自動で間に空白を入れる
 " inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
-
 
 "------------------------------------
 " Fugitive.vim
@@ -505,3 +503,22 @@ function! bundle.hooks.on_source(bundle)
         \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
 endfunction
 unlet bundle
+
+"------------------------------------
+" Syntastic
+"------------------------------------
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=0
+let g:syntastic_echo_current_error=1
+let g:syntastic_enable_balloons=1
+let g:syntastic_enable_highlighting=1
+let g:syntastic_enable_signs=1
+let g:syntastic_loc_list_height=3
+let g:syntastic_quiet_warnings=0
+
+let g:syntastic_mode_map = {
+      \ 'mode'              : 'active',
+      \ 'active_filetypes'  : [],
+      \ 'passive_filetypes' : ["html"],
+      \}
