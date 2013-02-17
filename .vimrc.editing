@@ -4,8 +4,8 @@
 
 " 無駄に音を出す
 " if executable('aplay')
-"   autocmd CursorMovedI * if ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
-"   autocmd InsertCharPre * if !ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
+  " autocmd CursorMovedI * if ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
+  " autocmd InsertCharPre * if !ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
 "   autocmd InsertCharPre * call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')
 " endif
 

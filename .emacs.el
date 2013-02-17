@@ -1,3 +1,8 @@
+;; emacs evil
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+
 ;; (setq load-path (cons "~/dotfiles/.elisp/tuareg" load-path))
 ;; (setq load-path (cons "~/dotfiles/.elisp/" load-path))
 
@@ -6,6 +11,25 @@
 (add-to-list 'load-path "~/dotfiles/.elisp/conf")
 (add-to-list 'load-path "~/dotfiles/.elisp/tuareg")
 
+;; 起動画面非表示
+(setq inhibit-splash-screen t)
+;;; 起動時の画面はいらない
+(setq inhibit-startup-message t)
+;;; Scroll bar を消す
+(toggle-scroll-bar nil)
+;; menu bar delete
+(menu-bar-mode nil)
+;; 行番号表示
+(global-linum-mode t)
+; (set-face-attribute 'linum nil
+;                     :foreground "#800"
+;                     :height 0.9)
+
+; font
+(set-face-attribute 'default nil
+            :family "Ricty"
+            :height 130)
+
 ;; C-h to backspace
 ;;(global-set-key "\C-h" 'delete-backward-char)
 
@@ -13,20 +37,14 @@
 (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
 (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
 
-
-(line-number-mode t)
-;(column-number-mode nil)
-
-
 ;; Riece
-(setq riece-server-alist 
+(setq riece-server-alist
       '(("is2007" :host   "irc.freenode.net" :coding utf-8 :nickname "suzemacs")))
 
 ;; Tabはspace x 4
 (setq-default tab-width 4 indent-tabs-mode nil)
 
-
-;;smart-compile 
+;;smart-compile
 (require 'smart-compile)
 
 ;; utf-8
@@ -44,8 +62,8 @@
  (set-buffer-file-coding-system 'utf-8-unix)
 )
 
-
-
+;; スクリーンの最大化
+; (set-frame-parameter nil 'fullscreen 'maximized)
 ;; (when (eq window-system 'mac)
 ;;   (add-hook 'window-setup-hook
 ;;             (lambda ()
@@ -53,7 +71,6 @@
 ;;               (set-frame-parameter nil 'fullscreen 'fullboth)
 ;;               )))
 ;; CarbonEmacsやgtkのemacsで最大化
-
 
 (defun toggle-max-window ()
   (interactive)
@@ -69,8 +86,6 @@
 (custom-set-faces
  )
 
-
-
 ;;Color
 (if window-system (progn
    (set-background-color "Black")
@@ -78,8 +93,6 @@
    (set-cursor-color "Gray")
    (set-frame-parameter nil 'alpha 80)
    ))
-
-
 
 ;; Highlight Parens
 (load "mic-paren.el")
@@ -89,13 +102,9 @@
 ;; Visible marked area
 (transient-mark-mode t)
 
-
-
-
 ;; Yatex Mode
 (setq auto-mode-alist (cons '("\\.tex$" . yatex-mode) auto-mode-alist))
 (add-hook 'yatex-mode-hook' (lambda () (setq auto-fill-function nil)))
-
 
 ;; Smooth down key
 (progn
@@ -119,15 +128,12 @@
   (setq display-time-interval 30)
   (display-time))
 
-
-
 ;; Ack
 ;; http://d.hatena.ne.jp/antipop/20080311/1205252552
 (defun ack ()
   (interactive)
   (let ((grep-find-command "ack --nocolor --nogroup --ignore-dir=HTML"))
     (call-interactively 'grep-find)))
-
 
 ;; C-o to move window
 ;; But it conflicts "Open directory" in Dired-mode....
@@ -136,12 +142,9 @@
 ;; Orikaeshi
 (setq truncate-partial-width-windows nil)
 
-
-
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-
 
 ; install-elisp
 ; http://d.hatena.ne.jp/tomoya/20090121/1232536106
@@ -154,13 +157,12 @@
 (setq key-chord-two-keys-delay 0.04)
 (key-chord-mode 1)
 
-
 (load "init-physical-move")
 (load "init-shell")
 (load "init-flymake")
 ;(load "init-js2")
 (load "init-jaspace")
-(when (eq window-system 'mac) 
+(when (eq window-system 'mac)
   (load "init-skk"))
 ;(load "init-perl")
 ;(load "init-cpp")
@@ -178,20 +180,18 @@
 ;(load "less")
 (load "init-spell")
 (load "init-view")
-(load "init-yasnippet")
+; (load "init-yasnippet")
 
 ;(add-to-list 'load-path "/directory/containing/nav/")
 ;; Project home http://code.google.com/p/emacs-nav/
 ;; Instructions are seen in the source file nav.el
 (require 'nav)
 
-
 ;; Physical line
 ; http://hal.e-fpage.com/t/20080901.html#p01
 (require 'physical-line)
 (define-key global-map "\C-a" 'physical-line-beginning-of-line)
 (define-key global-map "\C-e" 'physical-line-end-of-line)
-
 
 ;; 変態キーバインド
 ;; http://d.hatena.ne.jp/k12u/20081118/p1
@@ -203,7 +203,7 @@
 ;(global-set-key [right] 'windmove-right)
 ;(global-set-key [left] 'windmove-left)
 ;(define-key global-map [up] 'windmove-up)
-;(define-key global-map [down] 'windmove-down) 
+;(define-key global-map [down] 'windmove-down)
 
 ;(global-set-key [C-backspace] 'switch-to-buffer)
 ;(global-set-key [C-delete] '(lambda() (interactive)(kill-buffer (buffer-name))))
@@ -227,15 +227,10 @@
 (global-set-key "\C-z" 'scroll-n-lines-ahead)
 (global-set-key "\C-q" 'scroll-n-lines-behind)
 
-
-
-
-
 ;; デフォルトで分割
-(split-window-horizontally)
+;; (split-window-horizontally)
 
 (if window-system (set-frame-parameter nil 'fullscreen 'fullboth))
-
 
 ; adjust Jis_table
 ; define whizzy-command-name
