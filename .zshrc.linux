@@ -30,3 +30,6 @@ if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 export PATH=/opt/firefox:$PATH
+
+# rsense
+export RSENSE_HOME=/opt/rsense

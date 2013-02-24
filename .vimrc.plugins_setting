@@ -212,8 +212,8 @@ map <Leader>U <Plug>(operator-decamelize)
 "------------------------------------
 " operator-replace.vim
 "------------------------------------
-" RwなどでYankしてるもので置き換える
-map R <Plug>(operator-replace)
+" _wなどでYankしてるもので置き換える
+map _ <Plug>(operator-replace)
 
 "------------------------------------
 " smartword.vim
