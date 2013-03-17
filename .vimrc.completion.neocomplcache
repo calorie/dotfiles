@@ -23,6 +23,7 @@ let g:neocomplcache_enable_quick_match = 1
 let g:neocomplcache_enable_auto_select = 0
 "ポップアップメニューで表示される候補の数。初期値は100
 let g:neocomplcache_max_list = 20
+let g:neocomplcache_skip_auto_completion_time = '0.6'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
@@ -107,9 +108,6 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 " autocmd FileType ruby let g:neocomplcache_source_disable = {
 "   \ 'include_complete' : 1,
 "   \ 'omni_complete' : 1
-" \ }
-" autocmd FileType ruby let g:neocomplcache_source_disable = {
-"   \ 'include_complete' : 1
 " \ }
 
 "インクルードパスの指定
