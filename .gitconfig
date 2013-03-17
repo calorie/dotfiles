@@ -150,3 +150,5 @@
   keepBackup = false
 [pull]
 	rebase = false
+[heroku]
+	account = yuu

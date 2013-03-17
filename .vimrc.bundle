@@ -90,6 +90,9 @@ endif
   " IME制御
   NeoBundle 'bouzuya/vim-ibus'
 
+  " sudo vim
+  NeoBundle 'sudo.vim'
+
   " 改造したmonday.vim(git rebase -i とかtrue/falseとか)
   " NeoBundle 'yuroyoro/monday'
 
@@ -110,6 +113,12 @@ endif
   NeoBundle 'Shougo/neocomplcache-rsense', {
         \ 'depends': 'Shougo/neocomplcache',
         \ 'autoload': { 'filetypes': 'ruby' }}
+
+  NeoBundleLazy 'taichouchou2/rsense-0.3', {
+        \ 'build' : {
+        \    'mac': 'ruby etc/config.rb > ~/.rsense',
+        \    'unix': 'ruby etc/config.rb > ~/.rsense',
+        \ } }
 
   " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
   " NeoBundle 'AutoComplPop'
