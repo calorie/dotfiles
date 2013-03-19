@@ -447,7 +447,7 @@ autocmd User Rails nmap <buffer>KK :<C-U>Ref ri <Space><C-R><C-W><CR>
 " Gist
 "------------------------------------
 let g:gist_show_privates = 1
-nnoremap <Leader>g :Gist<CR>
+nnoremap <Leader>gi :Gist<CR>
 nnoremap <Leader>gp :Gist -p<CR>
 nnoremap <Leader>ge :Gist -e<CR>
 nnoremap <Leader>gs :Gist -s <Space><C-R><C-W><CR>
@@ -522,3 +522,11 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes'  : [],
       \ 'passive_filetypes' : ["html"],
       \}
+
+"------------------------------------
+" vim-gitgutter
+"------------------------------------
+let g:gitgutter_enabled = 0
+nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
+nnoremap <Leader>ggn :<C-u>GitGutterNextHunk<CR>
+nnoremap <Leader>ggp :<C-u>GitGutterPrevHunk<CR>

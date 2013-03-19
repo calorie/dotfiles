@@ -118,4 +118,4 @@ alias rtags='ctags -R -f ~/.tags/rtags -a --sort=yes --exclude="*.js" --exclude=
 alias gtags='ctags -R -f ~/.tags/gtags -a --sort=yes --exclude="*.js" --exclude="*.exp"  --exclude="*.am" --exclude="*.in" --exclude="*.m4" --exclude="*.o" --exclude="*.h" --exclude="log" --exclude="*.yml" --langmap=RUBY:.rb ~/.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems'
 
 # cassandra
-alias cas='~/cassandra/bin/cassandra -f'
+alias cas='sudo ~/cassandra/bin/cassandra -f'

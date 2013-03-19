@@ -303,7 +303,12 @@ endif
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
+
+  " vimからgitk
   NeoBundle 'gregsexton/gitv'
+
+  " vim上でgit diff表示
+  NeoBundle 'airblade/vim-gitgutter'
 
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
