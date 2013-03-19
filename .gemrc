@@ -9,4 +9,4 @@ gem: --no-rdoc --no-ri
 :bulk_threshold: 1000
 :backtrace: false
 :update_sources: true
-custom_shebang: $env ruby_bundler_wrapper
+custom_shebang: $env ruby_noexec_wrapper
