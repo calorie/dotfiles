@@ -37,7 +37,8 @@ export PATH=/opt/firefox:$PATH
 # export PATH=$PATH:$HOME/.vim/bundle/rsense-0.3/bin
 
 # gem
-export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/
+# export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/
+# export GEM_HOME=~/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/
 
 # android
 export PATH=$PATH:$HOME/android/sdk/platform-tools:$HOME/android/sdk/tools
