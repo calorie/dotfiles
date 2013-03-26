@@ -242,14 +242,14 @@ endif
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
+  " ctrl+pでファイル検索
+  " NeoBundleLazy 'ctrlp.vim', {
+  "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
+
   " NeoBundle 'Shougo/vimfiler'
   " call neobundle#config('vimfiler', {
   "       \ 'depends' : 'Shougo/unite.vim',
   "       \ })
-
-  " ctrl+pでファイル検索
-  NeoBundleLazy 'ctrlp.vim', {
-      \ 'autoload' : { 'commands' : ['CtrlP'] }}
 
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
   " NeoBundle 'DumbBuf'
@@ -337,12 +337,6 @@ endif
 
   NeoBundle 'YuuShigetani/colorschemes'
 
-  " color schema 256
-  " NeoBundle 'desert256.vim'
-  " NeoBundle 'mrkn256.vim'
-  " NeoBundle 'tomasr/molokai'
-  " NeoBundle 'yuroyoro/yuroyoro256.vim'
-
 " }}}
 
 " Unite {{{{
@@ -357,8 +351,7 @@ endif
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
   NeoBundle 'ujihisa/unite-rake'
-  " NeoBundle 'Sixeight/unite-grep'
-  " NeoBundle 'tsukkee/unite-help'
+  NeoBundle 'tsukkee/unite-help'
 
 " }}}
 
