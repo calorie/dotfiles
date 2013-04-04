@@ -542,3 +542,33 @@ let g:gitgutter_enabled = 0
 nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
 nnoremap <Leader>ggn :<C-u>GitGutterNextHunk<CR>
 nnoremap <Leader>ggp :<C-u>GitGutterPrevHunk<CR>
+
+"------------------------------------
+" vim-rails.vim
+"------------------------------------
+let g:rails_some_option = 1
+let g:rails_level = 4
+let g:rails_syntax = 1
+let g:rails_statusline = 1
+let g:rails_url = 'http://localhost:3000'
+let g:rails_subversion = 0
+" let g:dbext_default_SQLITE_bin = 'mysql2'
+let g:rails_default_file = 'config/database.yml'
+" let g:rails_ctags_arguments = ''
+function! SetUpRailsSetting()
+  nmap <buffer><Space>r :R<CR>
+  nmap <buffer><Space>a :A<CR>
+  nmap <buffer><Space>m :Rmodel<CR>
+  nmap <buffer><Space>c :Rcontroller<CR>
+  nmap <buffer><Space>v :Rview<CR>
+  nmap <buffer><Space>s :Rspec<CR>
+  nmap <buffer><Space>p :Rpreview<CR>
+  nmap <buffer><Space>t :Runittest<CR>
+  au FileType ruby,eruby,ruby.rspec let g:neocomplcache_dictionary_filetype_lists = {
+        \'ruby' : $HOME.'/.vim/dict/ruby.rails.dict',
+        \'eruby' : $HOME.'/.vim/dict/ruby.rails.dict'
+        \}
+  setl dict+=~/.vim/dict/ruby.rails.dict
+  setl dict+=~/.vim/dict/ruby.dict
+endfunction
+autocmd User Rails call SetUpRailsSetting()
