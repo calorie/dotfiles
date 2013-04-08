@@ -11,6 +11,11 @@ do
     ln -sb $HOME/dotfiles/$file $HOME/$file
 done
 
+mkdir $HOME/.tmux
+cd $HOME/.tmux
+git clone git://github.com/erikw/tmux-powerline.git
+ln -sb $HOME/dotfiles/.tmux/tmux-powerline/themes/mytheme.sh $HOME/.tmux/tmux-powerline/themes/mytheme.sh
+
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim.git
@@ -33,4 +38,4 @@ do
 done
 
 cd ${ORIGIN}
-vim -c "NeoBundleInstall" -c q
+vim -c "NeoBundleInstall" -c qa
