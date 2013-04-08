@@ -187,7 +187,7 @@ endif
   NeoBundle 'romanvbabenko/rails.vim'
   NeoBundle 'taq/vim-rspec'
   NeoBundle 'taka84u9/vim-ref-ri'
-  " NeoBundle 'tpope/vim-endwise.git'
+  NeoBundle 'tpope/vim-endwise.git'
 
   " Pydiction : Python用の入力補完
   NeoBundle 'Pydiction'
@@ -341,7 +341,7 @@ endif
 
 " Unite {{{{
 
-  " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
+  " unite.vim
   NeoBundleLazy "Shougo/unite.vim", {
         \   'autoload' : { 'commands' : [ 'Unite', 'UniteWithCurrentDir', 'UniteWithBufferDir', 'UniteBookmarkAdd' ] }
         \}

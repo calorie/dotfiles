@@ -572,3 +572,8 @@ function! SetUpRailsSetting()
   setl dict+=~/.vim/dict/ruby.dict
 endfunction
 autocmd User Rails call SetUpRailsSetting()
+
+"------------------------------------
+" vim-endwise
+"------------------------------------
+let g:endwise_no_mappings = 1
