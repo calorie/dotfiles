@@ -110,15 +110,15 @@ endif
   NeoBundle 'Shougo/neosnippet.git'
 
   " neocomplcacheのrsense
-  " NeoBundle 'Shougo/neocomplcache-rsense', {
-  "       \ 'depends': 'Shougo/neocomplcache',
-  "       \ 'autoload': { 'filetypes': 'ruby' }}
+  NeoBundle 'Shougo/neocomplcache-rsense', {
+        \ 'depends': 'Shougo/neocomplcache',
+        \ 'autoload': { 'filetypes': 'ruby' }}
 
-  " NeoBundle 'taichouchou2/rsense-0.3', {
-  "       \ 'build' : {
-  "       \    'mac': 'ruby etc/config.rb > ~/.rsense',
-  "       \    'unix': 'ruby etc/config.rb > ~/.rsense',
-  "       \ } }
+  NeoBundle 'taichouchou2/rsense-0.3', {
+        \ 'build' : {
+        \    'mac': 'ruby etc/config.rb > ~/.rsense',
+        \    'unix': 'ruby etc/config.rb > ~/.rsense',
+        \ } }
 
   " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
   " NeoBundle 'AutoComplPop'
