@@ -34,7 +34,7 @@ export PATH=/opt/firefox:$PATH
 # rsense
 # export RSENSE_HOME=/opt/rsense-0.3
 export RSENSE_HOME=$HOME/.vim/bundle/rsense-0.3
-# export PATH=$PATH:$HOME/.vim/bundle/rsense-0.3/bin
+export PATH=$PATH:$RSENSE_HOME/bin
 
 # gem
 # export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/

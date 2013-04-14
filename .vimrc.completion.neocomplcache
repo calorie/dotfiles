@@ -22,7 +22,7 @@ let g:neocomplcache_enable_quick_match = 1
 " 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
 let g:neocomplcache_enable_auto_select = 0
 "ポップアップメニューで表示される候補の数。初期値は100
-" let g:neocomplcache_max_list = 20
+let g:neocomplcache_max_list = 20
 let g:neocomplcache_skip_auto_completion_time = '0.6'
 " let g:neocomplcache_source_look_dictionary_path = $HOME . '/words'
 let g:neocomplcache_source_look_dictionary_path = ''
@@ -103,7 +103,7 @@ if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 " let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+" let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
@@ -138,5 +138,4 @@ let g:neocomplcache_include_suffixes = {
 "----------------------------------------------------
 " neocomplcache-rsense
 "----------------------------------------------------
-let g:rsenseUseOmniFunc = 1
 let g:neocomplcache#sources#rsense#home_directory = neobundle#get_neobundle_dir() . 'rsense-0.3'

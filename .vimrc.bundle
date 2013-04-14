@@ -6,55 +6,130 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+" Unite {{{{
+
+  " unite.vim
+  NeoBundleLazy "Shougo/unite.vim", {
+        \ 'autoload' : {
+        \   'commands' : [
+        \     'Unite', 'UniteWithCurrentDir',
+        \     'UniteWithBufferDir', 'UniteBookmarkAdd' ],
+        \ }}
+  NeoBundleLazy 'Shougo/unite-outline', {
+        \ 'depends' : 'Shougo/unite.vim',
+        \ 'autoload' : {
+        \   'unite_sources' : 'outline',
+        \   'commands' : 'Unite',
+        \ }}
+  NeoBundleLazy 'basyura/unite-rails', {
+        \ 'depends' : 'Shougo/unite.vim',
+        \ 'autoload' : {
+        \   'unite_sources' : [
+        \     'rails/bundle', 'rails/bundled_gem', 'rails/config',
+        \     'rails/controller', 'rails/db', 'rails/destroy',
+        \     'rails/features', 'rails/gem', 'rails/gemfile',
+        \     'rails/generate', 'rails/git', 'rails/helper',
+        \     'rails/heroku', 'rails/initializer', 'rails/javascript',
+        \     'rails/lib', 'rails/log', 'rails/mailer',
+        \     'rails/model', 'rails/rake', 'rails/route',
+        \     'rails/schema', 'rails/spec', 'rails/stylesheet', 'rails/view']
+        \ }}
+  NeoBundleLazy 'thinca/vim-unite-history', {
+        \ 'autoload' : {
+        \   'unite_sources' : ['history/command', 'history/search']
+        \ }}
+  NeoBundleLazy 'tsukkee/unite-tag', {
+        \ 'depends' : ['Shougo/unite.vim'],
+        \ 'autoload' : {
+        \   'unite_sources' : 'tag'
+        \ }}
+  NeoBundleLazy 'ujihisa/unite-rake', {
+        \ 'depends' : 'Shougo/unite.vim',
+        \ 'autoload': {
+        \   'filetypes' : 'ruby',
+        \   'unite_sources': 'rake'
+        \ }}
+  NeoBundleLazy 'Shougo/unite-help', {
+        \ 'autoload' : {
+        \   'unite_sources' : 'help'
+        \ }}
+  " NeoBundle 'choplin/unite-vim_hacks'
+
+" }}}
+
 " Edit {{{
 
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   " NeoBundle 'scrooloose/nerdcommenter.git'
 
   "コメント
-  NeoBundle 'tomtom/tcomment_vim'
+  NeoBundleLazy 'tomtom/tcomment_vim', {
+        \ 'autoload' : {
+        \   'commands' : ['TComment', 'TCommentAs', 'TCommentMaybeInline']
+        \ }}
 
   " 自動閉じタグ
   " NeoBundle 'yuroyoro/vim-autoclose'
 
   " -- でメソッドチェーン整形
-  NeoBundle 'c9s/cascading.vim'
+  NeoBundleLazy 'c9s/cascading.vim', {
+        \ 'autoload' : { 'commands' : 'Cascading' }}
 
   " visually indent guide
-  NeoBundle 'nathanaelkane/vim-indent-guides'
+  NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
+        \ 'autoload' : {
+        \   'commands' : ['IndentGuidesEnable', 'IndentGuidesDisable', 'IndentGuidesToggle'],
+        \ }}
 
   " XMLとかHTMLとかの編集機能を強化する
-  NeoBundle 'xmledit'
+  NeoBundleLazy 'xmledit', {
+        \ 'autoload' : {
+        \   'filetypes' : ['xml', 'html', 'ant'],
+        \ }}
 
   " Align : 高機能整形・桁揃えプラグイン
-  NeoBundle 'Align'
-
-  " フィルタリングと整形
-  NeoBundle 'godlygeek/tabular'
+  NeoBundleLazy 'Align', {
+        \ 'autoload' : { 'commands' : 'Align' }}
 
   " マルチバイト対応の整形
-  NeoBundle 'h1mesuke/vim-alignta'
+  NeoBundleLazy 'h1mesuke/vim-alignta', {
+        \ 'autoload' : { 'commands' : 'Alignta' }}
+
+  " フィルタリングと整形
+  NeoBundleLazy 'godlygeek/tabular', {
+        \ 'autoload' : { 'commands' : 'Tab' }}
 
   " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
   NeoBundle 'YankRing.vim'
 
   " undo履歴を追える (need python support)
-  NeoBundle 'Gundo'
+  NeoBundleLazy 'Gundo', {
+        \ 'autoload' : { 'commands' : 'GundoToggle' }}
 
   " surround.vim : テキストを括弧で囲む／削除する
   NeoBundle 'tpope/vim-surround'
 
   " smartchr.vim : ==などの前後を整形
-  NeoBundle 'smartchr'
+  NeoBundleLazy 'smartchr', {
+        \ 'autoload' : { 'insert' : 1 }}
 
   " vim-operator-user : 簡単にoperatorを定義できるようにする
-  NeoBundle 'operator-user'
+  NeoBundleLazy 'operator-user'
 
   " operator-camelize : camel-caseへの変換
-  NeoBundle 'operator-camelize'
+  NeoBundleLazy 'operator-camelize', {
+        \ 'depends' : 'operator-user',
+        \ 'autoload' : {
+        \   'mappings' : [['nx', '<Plug>(operator-camelize)'], ['nx', '<Plug>(operator-decamelize)']]
+        \ }}
 
   " operator-replace : yankしたものでreplaceする
-  NeoBundle 'operator-replace'
+  " NeoBundle 'operator-replace'
+  NeoBundleLazy 'operator-replace', {
+        \ 'depends' : 'operator-user',
+        \ 'autoload' : {
+        \   'mappings' : [['nx', '<Plug>(operator-replace)']]
+        \ }}
 
   " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
   NeoBundle 'textobj-user'
@@ -85,10 +160,12 @@ endif
   NeoBundle 'textobj-jabraces'
 
   " <C-a>でtrue/false切替。他色々
-  NeoBundle 'taku-o/vim-toggle'
+  NeoBundleLazy 'taku-o/vim-toggle', {
+        \ 'autoload' : { 'mappings' : [['n', '<Plug>ToggleN']] }}
 
   " IME制御
-  NeoBundle 'bouzuya/vim-ibus'
+  NeoBundleLazy 'bouzuya/vim-ibus', {
+        \ 'autoload' : { 'insert' : 1 }}
 
   " sudo vim
   NeoBundle 'sudo.vim'
@@ -104,17 +181,24 @@ endif
 " Completion {{{
 
   " 補完 neocomplcache.vim : 究極のVim的補完環境
-  NeoBundle 'Shougo/neocomplcache'
+  NeoBundleLazy 'Shougo/neocomplcache', {
+        \ 'autoload' : { 'insert' : 1 }}
 
   " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neosnippet.git'
+  NeoBundleLazy 'Shougo/neosnippet', {
+        \ 'autoload' : {
+        \   'commands' : ['NeoSnippetEdit'],
+        \   'filetypes' : 'snippet',
+        \   'insert' : 1,
+        \   'unite_sources' : ['snippet', 'neosnippet/user', 'neosnippet/runtime'],
+        \ }}
 
   " neocomplcacheのrsense
-  NeoBundle 'Shougo/neocomplcache-rsense', {
+  NeoBundleLazy 'Shougo/neocomplcache-rsense', {
         \ 'depends': 'Shougo/neocomplcache',
         \ 'autoload': { 'filetypes': 'ruby' }}
 
-  NeoBundle 'taichouchou2/rsense-0.3', {
+  NeoBundleLazy 'taichouchou2/rsense-0.3', {
         \ 'build' : {
         \    'mac': 'ruby etc/config.rb > ~/.rsense',
         \    'unix': 'ruby etc/config.rb > ~/.rsense',
@@ -137,13 +221,24 @@ endif
 " Searching/Moving{{{
 
   " smooth_scroll.vim : スクロールを賢く
-  NeoBundle 'Smooth-Scroll'
+  " NeoBundle 'Smooth-Scroll'
 
   " vim-smartword : 単語移動がスマートな感じで
-  NeoBundle 'smartword'
+  NeoBundleLazy 'smartword', {
+        \ 'autoload' : {
+        \   'mappings' : [
+        \     '<Plug>(smartword-w)', '<Plug>(smartword-b)',
+        \     '<Plug>(smartword-e)', '<Plug>(smartword-ge)']
+        \ }}
 
   " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
-  NeoBundle 'camelcasemotion'
+  NeoBundleLazy 'camelcasemotion', {
+        \ 'autoload' : {
+        \   'mappings' : [
+        \     '<Plug>CamelCaseMotion_w', '<Plug>CamelCaseMotion_b',
+        \     '<Plug>CamelCaseMotion_e', '<Plug>CamelCaseMotion_iw',
+        \     '<Plug>CamelCaseMotion_ib', '<Plug>CamelCaseMotion_ie'],
+        \ }}
 
   " <Leader><Leader>w/fなどで、motion先をhilightする
   NeoBundle 'EasyMotion'
@@ -152,51 +247,84 @@ endif
   NeoBundle 'matchit.zip'
 
   " ruby用のmatchit拡張
-  NeoBundle 'ruby-matchit'
+  NeoBundleLazy 'ruby-matchit', {
+        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
   " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
-  NeoBundle 'grep.vim'
+  " NeoBundle 'grep.vim'
 
   " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
-  NeoBundle 'eregex.vim'
+  " NeoBundle 'eregex.vim'
 
   " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
-  NeoBundle 'tyru/open-browser.vim'
+  NeoBundleLazy 'tyru/open-browser.vim', {
+        \ 'autoload' : {
+        \   'mappings' : ['<Plug>(open-browser-wwwsearch)', '<Plug>(openbrowser-open)'],
+        \   'commands' : ['OpenBrowserSearch'],
+        \ }}
 
   " ブラウザリロード
-  NeoBundle 'lordm/vim-browser-reload-linux'
+  NeoBundleLazy 'lordm/vim-browser-reload-'.(has('mac') ? 'mac' : 'linux'), {
+        \ 'autoload' : {
+        \   'build' : { 'unix' : ['sudo apt-get install xdotool'] },
+        \   'commands' : ['ChromeReload', 'ChromeReloadStart', 'ChromeReloadStop'],
+        \ }}
 
 " }}}
 
 " Programming {{{
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
-  NeoBundle 'thinca/vim-quickrun'
+  NeoBundleLazy 'thinca/vim-quickrun', {
+        \ 'autoload' : {
+        \   'mappings' : [['nxo', '<Plug>(quickrun)']],
+        \   'commands' : 'QuickRun',
+        \ }}
 
   " perldocやphpmanual等のリファレンスをvim上で見る
-  NeoBundle 'thinca/vim-ref'
-
-  " SQLUtilities : SQL整形、生成ユーティリティ
-  NeoBundle 'SQLUtilities'
+  NeoBundleLazy 'thinca/vim-ref', {
+        \ 'autoload' : { 'commands' : 'Ref' }}
+  NeoBundleLazy 'taka84u9/vim-ref-ri', {
+        \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
+        \ 'autoload': { 'commands': ['Unite', 'Ref'] }}
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-  NeoBundle 'ruby.vim'
-  NeoBundle 'vim-ruby/vim-ruby'
+  NeoBundleLazy 'ruby.vim', {
+        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
+  NeoBundleLazy 'vim-ruby/vim-ruby', {
+        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
 
-  " rails.vim : rails的なアレ
-  NeoBundle 'tpope/vim-rails'
-  NeoBundle 'romanvbabenko/rails.vim'
-  NeoBundle 'taq/vim-rspec'
-  NeoBundle 'taka84u9/vim-ref-ri'
-  NeoBundle 'tpope/vim-endwise.git'
+  " rails.vim : railsの基本的な拡張機能
+  NeoBundleLazy 'tpope/vim-rails', {
+        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
+  NeoBundleLazy 'romanvbabenko/rails.vim', {
+        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
+
+  " vim-rspec : rspecの実行
+  NeoBundleLazy 'skwp/vim-rspec', {
+        \ 'build': {
+        \   'mac': 'gem install hpricot',
+        \   'unix': 'gem install hpricot'
+        \ },
+        \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml']}}
+
+  " vim-endwise : endなどの補完
+  NeoBundleLazy 'tpope/vim-endwise.git', {
+        \ 'autoload' : { 'insert' : 1 }}
 
   " Pydiction : Python用の入力補完
-  NeoBundle 'Pydiction'
+  NeoBundleLazy 'Pydiction', {
+        \ 'autoload': { 'filetypes': 'python' }}
 
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-  NeoBundle 'taglist.vim'
+  NeoBundleLazy 'taglist.vim', {
+        \ 'autoload': { 'commands': 'Tlist' }}
 
   " html zencoding
-  NeoBundle 'mattn/zencoding-vim'
+  NeoBundleLazy 'mattn/zencoding-vim', {
+        \ 'autoload': {
+        \   'functions': ['zencoding#expandAbbr'],
+        \   'filetypes': ['html', 'eruby', 'php', 'haml', 'css', 'scss', 'sass'],
+        \ }}
 
   " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
   " NeoBundle 'Source-Explorer-srcexpl.vim'
@@ -204,36 +332,53 @@ endif
   " NERD_tree, taglist, srcexpl の統合
   " NeoBundle 'trinity.vim'
 
+  " SQLUtilities : SQL整形、生成ユーティリティ
+  " NeoBundle 'SQLUtilities'
+
 " }}}
 
 " Syntax {{{
 
   " haml
-  NeoBundle 'haml.zip'
+  NeoBundleLazy 'haml.zip', {
+        \ 'autoload': { 'filetypes': ['haml'] }}
 
   " JavaScript
-  NeoBundle 'JavaScript-syntax'
+  NeoBundleLazy 'JavaScript-syntax', {
+        \ 'autoload': { 'filetypes': ['javascript'] }}
 
   " jQuery
-  NeoBundle 'jQuery'
+  NeoBundleLazy 'jQuery', {
+        \ 'autoload': { 'filetypes': ['javascript', 'coffeescript'] }}
 
   " nginx conf
-  NeoBundle 'nginx.vim'
+  NeoBundleLazy 'nginx.vim', {
+        \ 'autoload' : { 'filetype': ['nginx'] }}
 
   " markdown
-  NeoBundle 'tpope/vim-markdown'
+  NeoBundleLazy 'tpope/vim-markdown', {
+        \ 'autoload' : { 'filetypes' : ['markdown'] }}
 
   " coffee script
-  NeoBundle 'kchmck/vim-coffee-script'
+  NeoBundleLazy 'kchmck/vim-coffee-script', {
+        \ 'autoload': { 'filetypes': ['coffeescript'] }}
 
   " python
-  NeoBundle 'yuroyoro/vim-python'
+  NeoBundleLazy 'yuroyoro/vim-python', {
+        \ 'autoload': { 'filetypes': ['python'] }}
 
   " scala
-  NeoBundle 'yuroyoro/vim-scala'
+  NeoBundleLazy 'yuroyoro/vim-scala', {
+        \ 'autoload': { 'filetypes': ['scala'] }}
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-  NeoBundle 'scrooloose/syntastic'
+  NeoBundleLazy 'scrooloose/syntastic', {
+        \ 'autoload': {
+        \   'build' : {
+        \     'mac' : ['brew install tidy', 'brew install csslint',
+        \              'gem install sass', 'brew install jslint'] },
+        \   'insert' : 1,
+        \ }}
 
 " }}}
 
@@ -275,49 +420,85 @@ endif
   NeoBundleLazy 'Shougo/vimshell', {
         \   'autoload' : { 'commands' : [ 'VimShell' ] }
         \}
-  " NeoBundle 'ujihisa/vimshell-ssh'
+  NeoBundleLazy 'ujihisa/vimshell-ssh', {
+        \ 'autoload' : { 'filetypes' : 'vimshell' }}
 
   " vimproc : vimから非同期実行。vimshelleで必要
-  NeoBundle 'Shougo/vimproc.git'
+  NeoBundle 'Shougo/vimproc', {
+        \ 'build' : {
+        \   'mac' : 'make -f make_mac.mak',
+        \   'unix' : 'make -f make_unix.mak',
+        \   'cygwin' : 'make -f make_cygwin.mak',
+        \ }}
 
   " vim-altercmd : Ex command拡張
-  NeoBundle 'tyru/vim-altercmd'
+  NeoBundleLazy 'tyru/vim-altercmd'
 
   " vim Interface to Web API
-  NeoBundle 'mattn/webapi-vim'
+  NeoBundleLazy 'mattn/webapi-vim'
 
   " cecutil.vim : 他のpluginのためのutillity1
-  NeoBundle 'cecutil'
+  NeoBundleLazy 'cecutil'
 
   " urilib.vim : vim scriptからURLを扱うライブラリ
-  NeoBundle 'tyru/urilib.vim'
+  NeoBundleLazy 'tyru/urilib.vim'
 
   " utillity
-  NeoBundle 'L9'
+  NeoBundleLazy 'L9'
 
   " Buffer管理のLibrary
-  NeoBundle 'thinca/vim-openbuf'
+  NeoBundleLazy 'thinca/vim-openbuf'
 
   " vimdoc 日本語
   NeoBundle 'yuroyoro/vimdoc_ja'
 
   " vimからGit操作する
-  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'tpope/vim-fugitive', {
+        \ 'autoload' : {
+        \   'commands': [
+        \     'Git', 'Gstatus', 'Gwrite', 'Glog',
+        \     'Gcommit', 'Gblame', 'Ggrep', 'Gdiff'],
+        \ }}
 
   " vimからgitk
-  NeoBundle 'gregsexton/gitv'
+  NeoBundleLazy 'gregsexton/gitv', {
+        \ 'autoload' : { 'commands': ['Gitv'] }}
 
   " vim上でgit diff表示
-  NeoBundle 'airblade/vim-gitgutter'
+  NeoBundleLazy 'airblade/vim-gitgutter', {
+        \ 'autoload' : {
+        \   'commands': ['GitGutterToggle',
+        \               'GitGutterNextHunk',
+        \               'GitGutterPrevHunk'],
+        \ }}
 
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
 
   " Gist
-  NeoBundle 'mattn/gist-vim'
+  NeoBundleLazy 'mattn/gist-vim', {
+        \ 'depends': ['mattn/webapi-vim' ],
+        \ 'autoload' : {
+        \   'commands' : 'Gist' }}
 
   " Vim上でSQL実行
-  NeoBundle 'dbext.vim'
+  NeoBundleLazy 'dbext.vim', {
+        \ 'autoload' : {
+        \   'commands': [
+        \     "Alter", "Call", "Create", "DBCheckModeline", "DBCommit",
+        \     "DBCompleteProcedure", "DBCompleteTable", "DBCompleteView",
+        \     "DBDescribeProcedure", "DBDescribeProcedureAskName",
+        \     "DBDescribeTable", "DBDescribeTableAskName", "DBExecRangeSQL",
+        \     "DBExecSQL", "DBExecSQLTopX", "DBExecSQLUnderCursor",
+        \     "DBExecVisualSQL", "DBGetOption", "DBHistory", "DBListColumn",
+        \     "DBListConnections", "DBListProcedure", "DBListTable", "DBListVar",
+        \     "DBListView", "DBOrientation", "DBPromptForBufferParameters",
+        \     "DBResultsClose", "DBResultsOpen", "DBResultsRefresh",
+        \     "DBResultsToggleResize", "DBRollback", "DBSelectFromTable",
+        \     "DBSelectFromTableAskName", "DBSelectFromTableTopX",
+        \     "DBSelectFromTableWithWhere", "DBSetOption", "DBVarRangeAssign",
+        \     "Delete", "Drop", "Insert", "Select", "Update"]
+        \ }}
 
   " vim上のtwitter client
   " NeoBundle 'TwitVim'
@@ -336,22 +517,6 @@ endif
 " ColorSchema{{{{
 
   NeoBundle 'YuuShigetani/colorschemes'
-
-" }}}
-
-" Unite {{{{
-
-  " unite.vim
-  NeoBundleLazy "Shougo/unite.vim", {
-        \   'autoload' : { 'commands' : [ 'Unite', 'UniteWithCurrentDir', 'UniteWithBufferDir', 'UniteBookmarkAdd' ] }
-        \}
-  NeoBundle 'h1mesuke/unite-outline'
-  NeoBundle 'basyura/unite-rails'
-  NeoBundle 'thinca/vim-unite-history'
-  NeoBundle 'tsukkee/unite-tag'
-  NeoBundle 'choplin/unite-vim_hacks'
-  NeoBundle 'ujihisa/unite-rake'
-  NeoBundle 'tsukkee/unite-help'
 
 " }}}
 
