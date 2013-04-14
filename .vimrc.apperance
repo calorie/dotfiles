@@ -29,4 +29,3 @@ highlight CursorLine ctermbg=black guibg=black
 set lazyredraw
 " 高速ターミナル接続を行う
 set ttyfast
-

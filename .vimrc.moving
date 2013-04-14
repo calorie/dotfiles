@@ -126,4 +126,3 @@ endfunction
 " ,mwでマーク ,pwでswap
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
-

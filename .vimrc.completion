@@ -19,4 +19,3 @@ source ~/dotfiles/.vimrc.completion.neocomplcache
 
 " 補完にAutoComplPopを使う
 " source ~/dotfiles/.vimrc.completion.autocomplpop
-

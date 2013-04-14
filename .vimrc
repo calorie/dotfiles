@@ -26,4 +26,3 @@ source ~/dotfiles/.vimrc.encoding
 source ~/dotfiles/.vimrc.misc
 " プラグインに依存するアレ
 source ~/dotfiles/.vimrc.plugins_setting
-

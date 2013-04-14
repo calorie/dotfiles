@@ -7,4 +7,3 @@ noremap ; :
 " pluginとかでnmap :call hoge..とかやってるやつがあるので、
 " :でもexコマンドに入れるようにしておく
 " noremap : ;
-
