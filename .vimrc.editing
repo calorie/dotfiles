@@ -4,8 +4,8 @@
 
 " 無駄に音を出す
 " if executable('aplay')
-  " autocmd CursorMovedI * if ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
-  " autocmd InsertCharPre * if !ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
+"   autocmd CursorMovedI * if ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
+"   autocmd InsertCharPre * if !ibus#is_enabled()|call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')|endif
 "   autocmd InsertCharPre * call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')
 " endif
 
@@ -16,9 +16,9 @@ set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " yeでそのカーソル位置にある単語をレジスタに追加
-nmap ye ;let @"=expand("<cword>")<CR>
+nmap ye :let @"=expand("<cword>")<CR>
 " Visualモードでのpで選択範囲をレジスタの内容に置き換える
-vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " xselでクリップボードにコピー&ペースト
 if executable('xsel')
@@ -38,11 +38,11 @@ augroup MyXML
 augroup END
 
 "  Insert mode中で単語単位/行単位の削除をアンドゥ可能にする
-inoremap <C-u>  <C-g>u<C-u>
-inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
 
 "backspace & delete
-inoremap <C-b>  <BS>
+inoremap <C-b> <BS>
 
 " :Ptでインデントモード切替
 command! Pt :set paste!

@@ -6,7 +6,7 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" Unite {{{{
+" Unite {{{
 
   " unite本体
   NeoBundleLazy "Shougo/unite.vim", {
@@ -231,7 +231,7 @@ endif
 
 " }}}
 
-" Searching/Moving{{{
+" Searching/Moving {{{
 
   " vim-smartword : 単語移動がスマートな感じで
   NeoBundleLazy 'smartword', {
@@ -534,7 +534,7 @@ endif
 
 " }}}
 
-" ColorSchema{{{{
+" ColorSchema {{{
 
   NeoBundle 'YuuShigetani/colorschemes'
 

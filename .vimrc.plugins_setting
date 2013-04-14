@@ -21,7 +21,7 @@ let g:yankring_zap_keys = ""
 " let g:miniBufExplMaxSize = 10
 " let g:miniBufExplorerMoreThanOne = 10
 
-":MtでMiniBufExplorerの表示トグル
+" :MtでMiniBufExplorerの表示トグル
 " nnoremap <Leader>mt :<C-u>:TMiniBufExplorer<CR>
 
 "------------------------------------
@@ -47,9 +47,9 @@ vnoremap <silent>gc :TComment<CR>
 "------------------------------------
 " コメントの間にスペースを空ける
 " let NERDSpaceDelims = 1
-"<Leader>xでコメントをトグル(NERD_commenter.vim)
+" <Leader>xでコメントをトグル(NERD_commenter.vim)
 " map <Leader>x, c<space>
-""未対応ファイルタイプのエラーメッセージを表示しない
+" 未対応ファイルタイプのエラーメッセージを表示しない
 " let NERDShutUp=1
 
 " ------------------------------------
@@ -61,9 +61,9 @@ nnoremap <silent>-- :Cascading<CR>
 " grep.vim
 "------------------------------------
 " 検索外のディレクトリ、ファイルパターン
-let Grep_Skip_Dirs = '.svn .git .hg'
-let Grep_Skip_Files = '*.bak *~'
--
+" let Grep_Skip_Dirs = '.svn .git .hg'
+" let Grep_Skip_Files = '*.bak *~'
+
 "------------------------------------
 " surround.vim
 "------------------------------------
@@ -132,15 +132,15 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " VTreeExplorer
 "------------------------------------
 " let g:treeExplVertical=1
-"<Leader>t<Space>でディレクトリツリー表示
+" <Leader>t<Space>でディレクトリツリー表示
 " noremap <Leader>t<Space> :VSTreeExplore<CR>
-"分割したウィンドウのサイズ
+" 分割したウィンドウのサイズ
 " let g:treeExplWinSize=30
 
 "------------------------------------
 " DumbBuf.vim
 "------------------------------------
-"<Leader>b<Space>でBufferList
+" <Leader>b<Space>でBufferList
 " let dumbbuf_hotkey = '<Leader>b<Space>'
 " let dumbbuf_mappings = {
 "     \ 'n': {
@@ -156,12 +156,14 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " vim-indent-guides
 "------------------------------------
 nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<CR>
+
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 20
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_space_guides = 1
+
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 if 'dark' == &background
@@ -183,6 +185,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
 " nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 " nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
+
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
@@ -250,7 +253,6 @@ map ge  <Plug>(smartword-ge)
 "------------------------------------
 " camelcasemotion.vim
 "------------------------------------
-
 " <Shift-wbe>でCameCaseやsnake_case単位での単語移動
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -374,9 +376,9 @@ function! bundle.hooks.on_source(bundle)
     " ESCキーを2回押すと終了する
     nmap <buffer> <ESC>      <Plug>(unite_exit)
     nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
-    imap <buffer> jj      <Plug>(unite_insert_leave)
+    imap <buffer> jj <Plug>(unite_insert_leave)
     nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
-    imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 
     " ウィンドウを分割して開く
     nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
@@ -408,6 +410,7 @@ endfunction
 " quickrun.vim
 "------------------------------------
 nnoremap <silent><Leader>r :QuickRun<CR>
+
 let bundle = neobundle#get('vim-quickrun')
 function! bundle.hooks.on_source(bundle)
   let g:quickrun_config = {}
@@ -448,7 +451,13 @@ nmap <silent> + <Plug>ToggleN
 " imap <C-A> <Plug>ToggleI
 " vmap <C-A> <Plug>ToggleV
 
-let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
+let g:toggle_pairs = {
+      \ 'and':'or', 'or':'and', 'if':'unless',
+      \ 'unless':'if', 'yes':'no', 'no':'yes',
+      \ 'enable':'disable', 'disable':'enable',
+      \ 'pick':'reword', 'reword':'fixup',
+      \ 'fixup':'squash', 'squash':'edit',
+      \ 'edit':'exec', 'exec':'pick' }
 
 "------------------------------------
 " NERDTree.vim
@@ -457,23 +466,19 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 " 最後にnerdtreeだけ残っていたら自動終了
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
+
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 20
-
-"------------------------------------
-" zen-cording
-"------------------------------------
-let g:user_zen_settings = {
-\   'lang' : 'ja',
-\}
 
 "------------------------------------
 " vim-ref
 "------------------------------------
 autocmd FileType ruby,eruby,ruby.rspec nmap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
 autocmd User Rails nmap <buffer>KK :<C-U>Ref ri <C-R><C-W><CR>
+
 let bundle = neobundle#get('vim-ref')
 function! bundle.hooks.on_source(bundle)
   let g:ref_refe_cmd = expand('~/.vim/ref/ruby-refe/refe-1_9_2')
@@ -499,7 +504,9 @@ imap <C-f>     <Plug>(neosnippet_expand_or_jump)
 smap <C-f>     <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets,~/.vim/snippets'
+
+let g:neosnippet#snippets_directory = '~/.vim/bundle/snipmate-snippets/snippets,~/.vim/snippets'
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -520,11 +527,12 @@ unlet bundle
 " easy-mosion
 "------------------------------------
 " ホームポジションに近いキーを使う
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 " 「,」 + 何かにマッピング
-let g:EasyMotion_leader_key="<Leader>"
+let g:EasyMotion_leader_key = "<Leader>"
 " 1 ストローク選択を優先する
-let g:EasyMotion_grouping=1
+let g:EasyMotion_grouping = 1
+
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
@@ -621,12 +629,12 @@ let g:endwise_no_mappings = 1
 "------------------------------------
 let g:zencoding_debug = 0
 let g:user_zen_settings = {
-      \  'lang' : 'ja',
-      \  'html' : {
-      \    'filters' : 'html',
-      \    'indentation' : ' '
-      \  },
-      \  'css' : {
-      \    'filters' : 'fc',
-      \  },
-      \}
+      \ 'lang' : 'ja',
+      \   'html' : {
+      \     'filters' : 'html',
+      \     'indentation' : ' '
+      \   },
+      \   'css' : {
+      \     'filters' : 'fc',
+      \   },
+      \ }
