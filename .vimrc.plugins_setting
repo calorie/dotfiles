@@ -321,7 +321,7 @@ function! bundle.hooks.on_source(bundle)
 endfunction
 unlet bundle
 
-command! Vs :VimShell
+command! Vs :VimShell -split
 
 "------------------------------------
 " unite.vim
@@ -343,8 +343,8 @@ nnoremap <silent> [unite]m     :<C-u>Unite -auto-preview -buffer-name=mru file_m
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d     :<C-u>UniteWithBufferDir -auto-preview -buffer-name=dir file<CR>
 " bookmark
-nnoremap <silent> <Space>b     :<C-u>UniteBookmarkAdd<CR>
-nnoremap <silent> [unite]<C-b> :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
+nnoremap <silent> [unite]ba    :<C-u>UniteBookmarkAdd<CR><CR><CR>
+nnoremap <silent> [unite]bm    :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
 " grep
 nnoremap <silent> [unite]gr    :<C-u>Unite -auto-preview -buffer-name=grep grep:<CR>
 " from basyura/unite-rails
@@ -354,17 +354,17 @@ nnoremap <silent> [unite]rv    :<C-u>Unite -auto-preview -buffer-name=r_view rai
 nnoremap <silent> [unite]rl    :<C-u>Unite -auto-preview -buffer-name=r_lib rails/lib<CR>
 nnoremap <silent> [unite]rj    :<C-u>Unite -auto-preview -buffer-name=r_js rails/javascript<CR>
 nnoremap <silent> [unite]rs    :<C-u>Unite -auto-preview -buffer-name=r_spec rails/spec<CR>
-nnoremap <silent> [unite]ra     :<C-U>Unite -auto-preview -buffer-name=rake rake<CR>
+nnoremap <silent> [unite]ra    :<C-U>Unite -auto-preview -buffer-name=rake rake<CR>
 " help
 nnoremap <silent> [unite]h     :<C-U>Unite -auto-preview -buffer-name=help help<CR>
 " outline
 nnoremap <silent> [unite]o     :<C-U>Unite -auto-preview -no-start-insert -buffer-name=outline -hide-source-names outline<CR>
 " history
-nnoremap <silent> [unite]:      :<C-U>Unite -buffer-name=h_command -no-empty history/command<CR>
-nnoremap <silent> [unite]/      :<C-U>Unite -buffer-name=h_search -no-empty history/search<CR>
-nnoremap <silent> [unite]y      :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
+nnoremap <silent> [unite]:     :<C-U>Unite -buffer-name=h_command -no-empty history/command<CR>
+nnoremap <silent> [unite]/     :<C-U>Unite -buffer-name=h_search -no-empty history/search<CR>
+nnoremap <silent> [unite]y     :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " tag
-nnoremap <silent> [unite]t      :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
+nnoremap <silent> [unite]t     :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
@@ -638,3 +638,88 @@ let g:user_zen_settings = {
       \     'filters' : 'fc',
       \   },
       \ }
+
+"------------------------------------
+" vimfiler
+"------------------------------------
+" nnoremap <silent> <Space>v :<C-u>VimFiler<CR>
+nnoremap <Leader>vf :<C-u>VimFilerExplorer -winwidth=20 -toggle<CR>
+
+let bundle = neobundle#get('vimfiler')
+function! bundle.hooks.on_source(bundle)
+  let g:vimfiler_enable_clipboard = 0
+  let g:vimfiler_safe_mode_by_default = 0
+
+  let g:vimfiler_as_default_explorer = 1
+  let g:vimfiler_detect_drives =
+        \ split(glob('/mnt/*'), '\n') + split(glob('/media/*'), '\n') +
+        \ split(glob('/Users/*'), '\n')
+
+  " %p : full path
+  " %d : current directory
+  " %f : filename
+  " %F : filename removed extensions
+  " %* : filenames
+  " %# : filenames fullpath
+  let g:vimfiler_sendto = {
+        \ 'unzip' : 'unzip %f',
+        \ 'zip' : 'zip -r %F.zip %*',
+        \ 'Inkscape' : 'inkspace',
+        \ 'GIMP' : 'gimp %*',
+        \ 'gedit' : 'gedit',
+        \ }
+
+  " Like Textmate icons.
+  let g:vimfiler_tree_leaf_icon = ' '
+  let g:vimfiler_tree_opened_icon = '▾'
+  let g:vimfiler_tree_closed_icon = '▸'
+  let g:vimfiler_file_icon = '-'
+  let g:vimfiler_readonly_file_icon = '✗'
+  let g:vimfiler_marked_file_icon = '✓'
+  " let g:vimfiler_readonly_file_icon = '[O]'
+
+  " let g:vimfiler_quick_look_command =
+  "       \ s:is_windows ? 'maComfort.exe -ql' :
+  "       \ s:is_mac ? 'qlmanage -p' : 'gloobus-preview'
+
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
+  function! s:vimfiler_my_settings()
+    call vimfiler#set_execute_file('vim', ['vim', 'notepad'])
+    call vimfiler#set_execute_file('txt', 'vim')
+
+    nmap <buffer><CR> <Plug>(vimfiler_edit_file)
+    nmap <buffer>o <Plug>(vimfiler_edit_file)
+    nmap <buffer>s <Plug>(vimfiler_split_edit_file)
+    nnoremap <buffer>i :call vimfiler#mappings#do_action('my_split')<Cr>
+
+    let s:my_action = { 'is_selectable' : 1 }
+    function! s:my_action.func(candidates)
+      wincmd p
+      exec 'split '. a:candidates[0].action__path
+    endfunction
+    call unite#custom_action('file', 'my_split', s:my_action)
+
+    " Overwrite settings.
+    nnoremap <silent><buffer> J
+          \ <C-u>:Unite -buffer-name=files -default-action=lcd directory_mru<CR>
+    " Call sendto.
+    " nnoremap <buffer> - <C-u>:Unite sendto<CR>
+    " setlocal cursorline
+
+    nmap <buffer> O <Plug>(vimfiler_sync_with_another_vimfiler)
+    nnoremap <silent><buffer><expr> gy vimfiler#do_action('tabopen')
+    nmap <buffer> p <Plug>(vimfiler_quick_look)
+
+    " Migemo search.
+    if !empty(unite#get_filters('matcher_migemo'))
+      nnoremap <silent><buffer><expr> /  line('$') > 10000 ?  'g/' :
+            \ ":\<C-u>Unite -buffer-name=search -start-insert line_migemo\<CR>"
+    endif
+
+    " One key file operation.
+    " nmap <buffer> c <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
+    " nmap <buffer> m <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_move_file)
+    " nmap <buffer> d <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_delete_file)
+  endfunction
+endfunction
+unlet bundle

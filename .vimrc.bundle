@@ -1,6 +1,6 @@
 " vunlde.vimで管理してるpluginを読み込む
 
-filetype off
+filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
@@ -308,7 +308,7 @@ endif
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
 
   " rails.vim : railsの基本的な拡張機能
-  NeoBundleLazy 'tpope/vim-rails', {
+  NeoBundle 'tpope/vim-rails', {
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
   NeoBundleLazy 'romanvbabenko/rails.vim', {
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
@@ -363,7 +363,7 @@ endif
 
   " jQuery
   NeoBundleLazy 'jQuery', {
-        \ 'autoload': { 'filetypes': ['javascript', 'coffeescript'] }}
+        \ 'autoload': { 'filetypes': ['javascript', 'coffee'] }}
 
   " nginx conf
   NeoBundleLazy 'nginx.vim', {
@@ -375,7 +375,7 @@ endif
 
   " coffee script
   NeoBundleLazy 'kchmck/vim-coffee-script', {
-        \ 'autoload': { 'filetypes': ['coffeescript'] }}
+        \ 'autoload': { 'filetypes': ['coffee'] }}
 
   " python
   NeoBundleLazy 'yuroyoro/vim-python', {
@@ -401,12 +401,29 @@ endif
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
+  " filer
+  NeoBundleLazy 'Shougo/vimfiler', {
+        \ 'depends' : 'Shougo/unite.vim',
+        \ 'autoload' : {
+        \   'commands' : [
+        \     { 'name' : 'VimFiler',
+        \       'complete' : 'customlist,vimfiler#complete' },
+        \     { 'name' : 'VimFilerBufferDir',
+        \       'complete' : 'customlist,vimfiler#complete' },
+        \     { 'name' : 'VimFilerExplorer',
+        \       'complete' : 'customlist,vimfiler#complete' },
+        \     { 'name' : 'Edit',
+        \       'complete' : 'customlist,vimfiler#complete' },
+        \     { 'name' : 'Write',
+        \       'complete' : 'customlist,vimfiler#complete' },
+        \       'Read', 'Source'],
+        \   'mappings' : ['<Plug>(vimfiler_switch)'],
+        \   'explorer' : 1,
+        \ }}
+
   " ctrl+pでファイル検索
   " NeoBundleLazy 'ctrlp.vim', {
   "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
-
-  " filer
-  " NeoBundle 'Shougo/vimfiler'
 
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
   " NeoBundle 'DumbBuf'

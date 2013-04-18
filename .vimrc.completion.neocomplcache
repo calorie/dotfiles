@@ -26,6 +26,19 @@ let g:neocomplcache_max_list = 20
 let g:neocomplcache_skip_auto_completion_time = '0.6'
 " let g:neocomplcache_source_look_dictionary_path = $HOME . '/words'
 let g:neocomplcache_source_look_dictionary_path = ''
+let g:neocomplcache_vim_completefuncs = {
+      \ 'Ref' : 'ref#complete',
+      \ 'Unite' : 'unite#complete_source',
+      \ 'VimShellExecute' :
+      \      'vimshell#vimshell_execute_complete',
+      \ 'VimShellInteractive' :
+      \      'vimshell#vimshell_execute_complete',
+      \ 'VimShellTerminal' :
+      \      'vimshell#vimshell_execute_complete',
+      \ 'VimShell' : 'vimshell#complete',
+      \ 'VimFiler' : 'vimfiler#complete',
+      \ 'Vinarise' : 'vinarise#complete',
+      \ }
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
