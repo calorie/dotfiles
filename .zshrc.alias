@@ -119,3 +119,6 @@ alias gtags='ctags -R -f ~/.tags/gtags -a --sort=yes --exclude="*.js" --exclude=
 
 # cassandra
 alias cas='sudo ~/cassandra/bin/cassandra -f'
+
+# memo
+alias memo='vi ~/tmp/memo.txt'

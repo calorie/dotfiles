@@ -380,6 +380,9 @@ function! bundle.hooks.on_source(bundle)
     nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
     imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 
+    " ウィンドウを開く
+    nnoremap <silent> <buffer> <expr> o unite#do_action('open')
+
     " ウィンドウを分割して開く
     nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
     inoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')

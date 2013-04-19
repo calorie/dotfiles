@@ -264,7 +264,7 @@ setopt hist_no_store
 #setopt hist_ignore_space
 
 # ヒストリを呼び出してから実行する間に一旦編集できる状態になる
-#setopt hist_verify
+setopt hist_verify
 
 # シェルが終了しても裏ジョブに HUP シグナルを送らないようにする
 #setopt NO_hup
