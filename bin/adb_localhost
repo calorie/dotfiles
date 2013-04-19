@@ -1,0 +1,5 @@
+#!/bin/sh
+adb shell
+mount -o remount,rw -t yaffs2 /dev/block/mtdblock3 /system
+echo '10.0.2.2 localhost' >> /etc/hosts
+exit

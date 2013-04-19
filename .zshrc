@@ -646,34 +646,6 @@ function __rm_single_file(){
        fi
 }
 
-## alias設定
-#
-[ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
-
-case "${OSTYPE}" in
-# Mac(Unix)
-darwin*)
-    # ここに設定
-    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
-    ;;
-# Linux
-linux*)
-    # ここに設定
-    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
-    ;;
-esac
-
-
-## local固有設定
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-# rbenv
-export PATH=$PATH:$HOME/.rbenv/bin
-eval "$(rbenv init - zsh)"
-# mpi
-export PATH=$PATH:/usr/local/mpich/bin
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/mpich/include
-
 # sudo.vim
 sudo() {
   local args
@@ -695,3 +667,24 @@ sudo() {
       ;;
   esac
 }
+
+## alias設定
+#
+[ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
+
+case "${OSTYPE}" in
+# Mac(Unix)
+darwin*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
+# Linux
+linux*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    ;;
+esac
+
+
+## local固有設定
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
