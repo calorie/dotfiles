@@ -20,12 +20,23 @@ done
 
 mkdir $HOME/.tmux
 cd $HOME/.tmux
-git clone git://github.com/erikw/tmux-powerline.git
+git clone git@github.com:erikw/tmux-powerline.git
 ln -sb $HOME/dotfiles/.tmux/tmux-powerline/themes/mytheme.sh $HOME/.tmux/tmux-powerline/themes/mytheme.sh
+type cmake >/dev/null 2>&1
+if [ "$?" -eq 0 ]; then
+    git clone git@github.com:thewtex/tmux-mem-cpu-load.git
+    ln -sb $HOME/dotfiles/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
+    cd $HOME/.tmux/tmux-mem-cpu-load
+    cmake .
+    make
+    sudo make install
+else
+    echo "plz install cmake to display used-mem on tmux"
+fi
 
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim.git
+git clone git@github.com:Shougo/neobundle.vim.git
 
 cd ${ORIGIN}
 vim -c "NeoBundleInstall" -c qa
