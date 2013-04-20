@@ -80,7 +80,7 @@ endif
 
   " -- でメソッドチェーン整形
   NeoBundleLazy 'c9s/cascading.vim', {
-        \ 'autoload' : { 'commands' : 'Cascading' }}
+        \ 'autoload' : { 'commands' : 'Cascading', 'insert' : 1 }}
 
   " visually indent guide
   NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
@@ -353,6 +353,15 @@ endif
 
 " Syntax {{{
 
+  " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+  NeoBundleLazy 'scrooloose/syntastic', {
+        \ 'autoload': {
+        \   'build' : {
+        \     'mac' : ['brew install tidy', 'brew install csslint',
+        \              'gem install sass', 'brew install jslint'] },
+        \   'insert' : 1,
+        \ }}
+
   " haml
   NeoBundleLazy 'haml.zip', {
         \ 'autoload': { 'filetypes': ['haml'] }}
@@ -384,15 +393,6 @@ endif
   " scala
   NeoBundleLazy 'yuroyoro/vim-scala', {
         \ 'autoload': { 'filetypes': ['scala'] }}
-
-  " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-  NeoBundleLazy 'scrooloose/syntastic', {
-        \ 'autoload': {
-        \   'build' : {
-        \     'mac' : ['brew install tidy', 'brew install csslint',
-        \              'gem install sass', 'brew install jslint'] },
-        \   'insert' : 1,
-        \ }}
 
 " }}}
 
