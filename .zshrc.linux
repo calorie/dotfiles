@@ -1,4 +1,7 @@
 
+# vvm
+test -f ~/.vvm/etc/login && source ~/.vvm/etc/login
+
 # Terminal Colorの設定
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad

@@ -2,13 +2,10 @@
 " ステータスライン StatusLine
 "-------------------------------------------------------------------------------
 set laststatus=2 " 常にステータスラインを表示
+" set showtabline=2
 
 "カーソルが何行目の何列目に置かれているかを表示する
 set ruler
-
-" vim-powerlineの設定
-let g:Powerline_symbols = 'fancy'
-" source ~/dotfiles/.vimrc.statusline.powerline
 
 "自動的に QuickFix リストを表示する
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin

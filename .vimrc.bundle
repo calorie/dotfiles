@@ -421,15 +421,18 @@ endif
         \   'explorer' : 1,
         \ }}
 
+  " NeoBundle 'zefei/buftabs'
+
+  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
+  " NeoBundleLazy 'fholgado/minibufexpl.vim', {
+  "       \ 'autoload' : { 'commands' : ['MBEToggle'] }}
+
   " ctrl+pでファイル検索
   " NeoBundleLazy 'ctrlp.vim', {
   "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
 
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
   " NeoBundle 'DumbBuf'
-
-  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
-  " NeoBundle 'minibufexpl.vim'
 
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
   " NeoBundle 'vtreeexplorer'

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  exit 1
+fi
+
+vvm rebuild $1 \
+    --enable-multibyte \
+    --with-features=huge \
+    --enable-fontset \
+    --disable-selinux \
+    --enable-perlinterp \
+    --enable-pythoninterp \
+    --enable-rubyinterp \
+    --enable-xim \
+    --enable-python3interp \
+    --enable-luainterp
+
+exit 0
