@@ -49,7 +49,8 @@ endif
   NeoBundleLazy 'tsukkee/unite-tag', {
         \ 'depends' : ['Shougo/unite.vim'],
         \ 'autoload' : {
-        \   'unite_sources' : 'tag'
+        \   'unite_sources' : 'tag',
+        \   'commands' : 'UniteWithCursorWord',
         \ }}
 
   " rake
@@ -339,6 +340,9 @@ endif
         \   'functions': ['zencoding#expandAbbr'],
         \   'filetypes': ['html', 'eruby', 'php', 'haml', 'css', 'scss', 'sass'],
         \ }}
+
+  " tagsの自動生成
+  NeoBundle 'szw/vim-tags'
 
   " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
   " NeoBundle 'Source-Explorer-srcexpl.vim'

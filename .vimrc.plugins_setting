@@ -366,6 +366,7 @@ nnoremap <silent> [unite]/     :<C-U>Unite -buffer-name=h_search -no-empty histo
 nnoremap <silent> [unite]y     :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " tag
 nnoremap <silent> [unite]t     :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
+nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -immediately tag<CR>
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
@@ -736,3 +737,8 @@ unlet bundle
 " source ~/dotfiles/.vimrc.statusline.powerline
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = 'filename'
+
+"------------------------------------
+" vim-tags
+"------------------------------------
+let g:vim_tags_auto_generate = 1
