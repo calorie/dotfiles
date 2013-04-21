@@ -1,4 +1,4 @@
-" vunlde.vimで管理してるpluginを読み込む
+" neobunlde.vimで管理してるpluginを読み込む
 
 filetype plugin indent off
 if has('vim_starting')
@@ -121,6 +121,14 @@ endif
   NeoBundleLazy 'smartchr', {
         \ 'autoload' : { 'insert' : 1 }}
 
+  " <C-a>でtrue/false切替。他色々
+  NeoBundleLazy 'taku-o/vim-toggle', {
+        \ 'autoload' : { 'mappings' : [['n', '<Plug>ToggleN']] }}
+
+  " IME制御
+  NeoBundleLazy 'bouzuya/vim-ibus', {
+        \ 'autoload' : { 'insert' : 1 }}
+
   " vim-operator-user : 簡単にoperatorを定義できるようにする
   NeoBundleLazy 'operator-user'
 
@@ -138,44 +146,55 @@ endif
         \   'mappings' : [['nx', '<Plug>(operator-replace)']]
         \ }}
 
-  " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-  NeoBundle 'textobj-user'
+  " textobj {{{
 
-  " vim-textobj-syntax : syntax hilightされたものをtext-objectに
-  NeoBundle 'kana/vim-textobj-syntax.git'
+    " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
+    NeoBundle 'textobj-user'
 
-  " vim-textobj-plugins : いろんなものをtext-objectにする
-  NeoBundle 'thinca/vim-textobj-plugins.git'
+    " vim-textobj-syntax : syntax hilightされたものをtext-objectに
+    NeoBundle 'kana/vim-textobj-syntax.git'
 
-  " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
-  NeoBundle 'kana/vim-textobj-lastpat.git'
+    " vim-textobj-function : 関数の中身をtext-objectに
+    NeoBundle 'kana/vim-textobj-function.git'
 
-  " vim-textobj-indent : インデントされたものをtext-objectに
-  NeoBundle 'kana/vim-textobj-indent.git'
+    " vim-textobj-indent : インデントされたものをtext-objectに
+    NeoBundle 'kana/vim-textobj-indent.git'
 
-  " vim-textobj-function : 関数の中身をtext-objectに
-  NeoBundle 'kana/vim-textobj-function.git'
+    " vim-textobj-comment : コメントをtext-objectに
+    NeoBundle 'thinca/vim-textobj-comment.git'
 
-  " vim-textobj-fold : 折りたたまれたアレをtext-objectに
-  NeoBundle 'textobj-rubyblock'
-  " NeoBundle 'kana/vim-textobj-fold.git'
+    " vim-textobj-function-javascript : 関数の中身をtext-objectに
+    NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
+          \ 'autoload': { 'filetypes': ['javascript'] }}
 
-  " vim-textobj-entire : buffer全体をtext-objectに
-  NeoBundle 'textobj-entire'
+    " vim-textobj-function-perl : 関数の中身をtext-objectに
+    NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
+          \ 'autoload': { 'filetypes': ['perl'] }}
 
-  " 「foo」 or 【bar】などをtext-objectに
-  NeoBundle 'textobj-jabraces'
+    " vim-textobj-rubyblock : rubyのブロックをtext-objectに
+    NeoBundleLazy 'textobj-rubyblock', {
+        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
-  " <C-a>でtrue/false切替。他色々
-  NeoBundleLazy 'taku-o/vim-toggle', {
-        \ 'autoload' : { 'mappings' : [['n', '<Plug>ToggleN']] }}
+    " vim-textobj-entire : buffer全体をtext-objectに
+    NeoBundle 'textobj-entire'
 
-  " IME制御
-  NeoBundleLazy 'bouzuya/vim-ibus', {
-        \ 'autoload' : { 'insert' : 1 }}
+    " vim-textobj-plugins : いろんなものをtext-objectにする。
+    " vim-textobj-between, commnet, function-javascript, function-perl
+    " NeoBundle 'thinca/vim-textobj-plugins.git'
 
-  " sudo vim
-  NeoBundle 'sudo.vim'
+    " vim-textobj-between : 同じ文字間をtext-objectに
+    " NeoBundle 'thinca/vim-textobj-between.git'
+
+    " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
+    " NeoBundle 'kana/vim-textobj-lastpat.git'
+
+    " vim-textobj-fold : フォールディングされた範囲をtext-objectに
+    " NeoBundle 'kana/vim-textobj-fold.git'
+
+    " 「foo」 or 【bar】などをtext-objectに
+    " NeoBundle 'textobj-jabraces'
+
+  " }}}
 
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   " NeoBundle 'scrooloose/nerdcommenter.git'
@@ -330,16 +349,16 @@ endif
   NeoBundleLazy 'Pydiction', {
         \ 'autoload': { 'filetypes': 'python' }}
 
-  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-  NeoBundleLazy 'taglist.vim', {
-        \ 'autoload': { 'commands': 'Tlist' }}
-
   " html zencoding
   NeoBundleLazy 'mattn/zencoding-vim', {
         \ 'autoload': {
         \   'functions': ['zencoding#expandAbbr'],
         \   'filetypes': ['html', 'eruby', 'php', 'haml', 'css', 'scss', 'sass'],
         \ }}
+
+  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
+  NeoBundleLazy 'taglist.vim', {
+        \ 'autoload': { 'commands': 'Tlist' }}
 
   " tagsの自動生成
   NeoBundle 'szw/vim-tags'
@@ -425,15 +444,16 @@ endif
         \   'explorer' : 1,
         \ }}
 
+  " ctrl+pでファイル検索
+  NeoBundleLazy 'ctrlp.vim', {
+        \ 'autoload' : { 'commands' : ['CtrlP'] }}
+
+  " ステータスラインにバッファ表示
   " NeoBundle 'zefei/buftabs'
 
   " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
   " NeoBundleLazy 'fholgado/minibufexpl.vim', {
   "       \ 'autoload' : { 'commands' : ['MBEToggle'] }}
-
-  " ctrl+pでファイル検索
-  " NeoBundleLazy 'ctrlp.vim', {
-  "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
 
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
   " NeoBundle 'DumbBuf'
@@ -536,6 +556,9 @@ endif
         \     "Delete", "Drop", "Insert", "Select", "Update"]
         \ }}
 
+  " sudo vim
+  NeoBundle 'sudo.vim'
+
   " vim上にブラウザを開く
   " NeoBundleLazy 'yuratomo/w3m.vim', {
   "       \ 'build' : {
@@ -558,7 +581,7 @@ endif
 
 " }}}
 
-" ColorSchema {{{
+" ColorScheme {{{
 
   NeoBundle 'YuuShigetani/colorschemes'
 

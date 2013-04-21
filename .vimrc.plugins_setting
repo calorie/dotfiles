@@ -549,20 +549,16 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 "------------------------------------
 " ctrlp
 "------------------------------------
-" nnoremap <Leader>p :<C-U>CtrlP<CR>
-"
-" let bundle = neobundle#get('ctrlp.vim')
-" function! bundle.hooks.on_source(bundle)
-"   let g:ctrlp_clear_cache_on_exit = 1
-"   let g:ctrlp_lazy_update = 1
-"   let g:ctrlp_regexp = 1
-"   let g:ctrlp_show_hidden = 1
-"   let g:ctrlp_use_caching = 1
-"   let g:ctrlp_custom_ignore = {
-"         \ 'dir':  '\.\(hg\|git\|sass-cache\|svn|\~\)$',
-"         \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
-" endfunction
-" unlet bundle
+nnoremap <Space>p :<C-U>CtrlP ~/<CR>
+
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_regexp = 1
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 1
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.\(hg\|git\|sass-cache\|svn|\~\)$',
+      \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
 
 "------------------------------------
 " Syntastic
