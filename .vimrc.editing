@@ -103,4 +103,4 @@ function! s:toggle_qf_window()
   endfor
   execute 'lop'
 endfunction
-nnoremap <silent> cw :<C-u>call <SID>toggle_qf_window()<CR>
+nnoremap <silent> tq :<C-u>call <SID>toggle_qf_window()<CR>

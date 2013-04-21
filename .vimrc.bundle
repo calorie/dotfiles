@@ -482,8 +482,8 @@ endif
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc', {
         \ 'build' : {
-        \   'mac' : 'make -f make_mac.mak',
-        \   'unix' : 'make -f make_unix.mak',
+        \   'mac'    : 'make -f make_mac.mak',
+        \   'unix'   : 'make -f make_unix.mak',
         \   'cygwin' : 'make -f make_cygwin.mak',
         \ }}
 
@@ -583,6 +583,7 @@ endif
 
 " ColorScheme {{{
 
+  " jellybeans, wombat
   NeoBundle 'YuuShigetani/colorschemes'
 
 " }}}

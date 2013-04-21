@@ -2,8 +2,10 @@
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
 
+colorscheme calorie
+" colorscheme wombat
+" colorscheme railscasts
 " colorscheme jellybeans
-colorscheme wombat
 
 set t_Co=256
 set t_Sf=[3%dm
