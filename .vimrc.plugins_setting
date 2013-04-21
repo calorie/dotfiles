@@ -367,6 +367,8 @@ nnoremap <silent> [unite]y     :<C-U>Unite -buffer-name=h_yank -no-empty history
 " tag
 nnoremap <silent> [unite]t     :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
 nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -immediately tag<CR>
+" search
+" nnoremap <silent> /            :<C-u>Unite -auto-preview -buffer-name=search line/fast -start-insert -no-quit<CR>
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)

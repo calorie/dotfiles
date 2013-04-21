@@ -97,10 +97,10 @@ autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 function! s:toggle_qf_window()
   for bufnr in range(1,  winnr('$'))
     if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
-      execute 'ccl'
+      execute 'lcl'
       return
     endif
   endfor
-  execute 'botright cw'
+  execute 'lop'
 endfunction
 nnoremap <silent> cw :<C-u>call <SID>toggle_qf_window()<CR>
