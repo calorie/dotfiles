@@ -487,6 +487,9 @@ endif
         \   'cygwin' : 'make -f make_cygwin.mak',
         \ }}
 
+  " vim-dispatch : vimから非同期実行。
+  NeoBundle 'tpope/vim-dispatch'
+
   " vim-altercmd : Ex command拡張
   NeoBundleLazy 'tyru/vim-altercmd'
 
