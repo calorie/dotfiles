@@ -398,6 +398,7 @@ function! bundle.hooks.on_source(bundle)
     inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
   endfunction
 
+  let g:unite_split_rule = "rightbelow"
   let g:unite_enable_start_insert = 0
   let g:unite_source_file_mru_limit = 200
   let g:unite_enable_split_vertically = 1
