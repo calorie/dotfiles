@@ -1,4 +1,3 @@
-
 # ls
 alias la="ls -a"
 alias lf="ls -F"
@@ -58,6 +57,7 @@ alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
 alias '偽ｔ'=git
+compdef g=git
 
 alias java='nocorrect java'
 alias cp='nocorrect cp -irp'

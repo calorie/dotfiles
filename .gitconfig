@@ -25,7 +25,6 @@
   # pull/push/fetch
   ft  = fetch
   ftp = fetch --prune
-  up  = pull --rebase
   po  = push origin
   pof = push -f origin
   pu  = push -u origin
@@ -131,6 +130,7 @@
   fhs = flow hotfix start
   fhf = flow hotfix finish
   fs  = flow support
+  pl = pull --rebase
 
 [http]
   sslVerify = false
@@ -149,6 +149,6 @@
 [mergetool]
   keepBackup = false
 [pull]
-	rebase = false
+  rebase = false
 [heroku]
-	account = yuu
+  account = yuu
