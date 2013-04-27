@@ -32,6 +32,7 @@ imap <C-p> <ESC>"*pa
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+command! Path echo expand("%:p")
 
 set helpfile=$VIMRUNTIME/doc/help.txt
 
