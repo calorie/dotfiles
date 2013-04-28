@@ -47,4 +47,4 @@ endfunc
 "   augroup END
 " endif
 " nmap <silent> <C-z> :!tmux set status on<CR>:suspend<CR>
-command! Tu silent :!tmux set status
+command! Tm silent :!tmux set status
