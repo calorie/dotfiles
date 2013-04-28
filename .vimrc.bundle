@@ -536,6 +536,9 @@ endif
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
 
+  " タブラインをカッコよくする
+  NeoBundle 'YuuShigetani/alpaca_powertabline'
+
   " Gist
   NeoBundleLazy 'mattn/gist-vim', {
         \ 'depends': ['mattn/webapi-vim' ],
@@ -563,6 +566,20 @@ endif
 
   " sudo vim
   NeoBundle 'sudo.vim'
+
+  " vim上のtwitter client
+  NeoBundleLazy 'basyura/TweetVim', { 'depends' :
+        \ ['basyura/twibill.vim', 'tyru/open-browser.vim', 'Shougo/unite.vim'],
+        \ 'autoload' : {
+        \   'commands' : [ 'TweetVimAccessToken', 'TweetVimAddAccount',
+        \                 'TweetVimBitly', 'TweetVimCommandSay',
+        \                 'TweetVimCurrentLineSay', 'TweetVimHomeTimeline',
+        \                 'TweetVimListStatuses', 'TweetVimMentions',
+        \                 'TweetVimSay', 'TweetVimSearch',
+        \                 'TweetVimSwitchAccount', 'TweetVimUserTimeline',
+        \                 'TweetVimVersion' ],
+        \   'unite_sources' : ['tweetvim', 'tweetvim/account']
+        \ }}
 
   " vim上にブラウザを開く
   " NeoBundleLazy 'yuratomo/w3m.vim', {

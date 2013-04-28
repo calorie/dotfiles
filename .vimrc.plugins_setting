@@ -366,9 +366,11 @@ nnoremap <silent> [unite]/     :<C-U>Unite -buffer-name=h_search -no-empty histo
 nnoremap <silent> [unite]y     :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " tag
 nnoremap <silent> [unite]t     :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
-nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -immediately tag<CR>
+nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -auto-preview tag<CR>
 " search
 " nnoremap <silent> /            :<C-u>Unite -auto-preview -buffer-name=search line/fast -start-insert -no-quit<CR>
+" tweetvim
+nnoremap <silent>[unite]tw     :<C-U>Unite tweetvim -buffer-name=tweetvim -no-start-insert<CR>
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
@@ -742,3 +744,21 @@ let g:Powerline_stl_path_style = 'filename'
 "------------------------------------
 let g:vim_tags_auto_generate = 1
 let g:vim_tags_use_vim_dispatch = 1
+
+"------------------------------------
+" tweetvim
+"------------------------------------
+let g:tweetvim_async_post = 1
+let g:tweetvim_display_source = 1
+let g:tweetvim_display_time = 1
+let g:tweetvim_open_buffer_cmd = 'tabnew'
+nnoremap <silent>tw :<C-U>TweetVimSay<CR>
+
+"------------------------------------
+" powertabline
+"------------------------------------
+set showtabline=1
+let g:alpaca_powertabline_enable = 1
+let g:alpaca_powertabline_sep1 = "⮀"
+let g:alpaca_powertabline_sep2 = "⮁"
+let g:alpaca_powertabline_default_place = 1
