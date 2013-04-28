@@ -16,7 +16,7 @@ endif
 set notagbsearch
 
 " tab pagesを使い易くする
-nnoremap tn :<C-u>tabnew<CR>
+nnoremap tn :<C-u>tabnew \| :NERDTree<CR>
 nnoremap tc :<C-u>tabclose<CR>
 nnoremap to :<C-u>tabonly<CR>
 " nnoremap <C-t>j :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
