@@ -417,6 +417,7 @@ function! bundle.hooks.on_source(bundle)
         \ . " --exclude-dir='.git'"
 
 endfunction
+unlet bundle
 
 "------------------------------------
 " quickrun.vim
