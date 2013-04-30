@@ -11,10 +11,6 @@ do
     fi
 done
 
-if [ $(pwd) = $HOME/dotfiles ]; then
-    cd $HOME
-fi
-
 DOT_FILES=(
     .zsh .zshrc .zshrc.alias
     .zshrc.linux .zshrc.osx .ctags
