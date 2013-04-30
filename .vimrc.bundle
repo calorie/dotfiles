@@ -8,6 +8,8 @@ endif
 
 " let g:neobundle#types#git#default_protocol = 'https'
 
+NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
+
 " Unite {{{
 
   " unite本体
