@@ -5,13 +5,16 @@
 "------------------------------------
 " YankRing.vim
 "------------------------------------
+"{{{
 " Yankの履歴参照
 nmap ,y :YRShow<CR>
 let g:yankring_zap_keys = ""
+"}}}
 
 "------------------------------------
 " MiniBufExplorer
 "------------------------------------
+"{{{
 " let g:miniBufExplMapWindowNavVim=1 "hjklで移動
 " let g:miniBufExplSplitBelow=0  " Put new window above
 " let g:miniBufExplMapWindowNavArrows=1
@@ -24,60 +27,76 @@ let g:yankring_zap_keys = ""
 "
 " " :MtでMiniBufExplorerの表示トグル
 " nnoremap <Leader>mt :<C-u>:MBEToggle<CR>
+"}}}
 
 "------------------------------------
 " Align
 "------------------------------------
+"{{{
 " Alignを日本語環境で使用するための設定
 let g:Align_xstrlen = 3
+"}}}
 
 "------------------------------------
 " tabular
 "------------------------------------
+"{{{
 vmap t :Tab /
+"}}}
 
 "------------------------------------
 " tcomment_vim
 "------------------------------------
+"{{{
 let g:tcommentmaps = 0
 nnoremap <silent>gcc :TComment<CR>
 vnoremap <silent>gc :TComment<CR>
+"}}}
 
 "------------------------------------
 " NERD_commenter.vim
 "------------------------------------
+"{{{
 " コメントの間にスペースを空ける
 " let NERDSpaceDelims = 1
 " <Leader>xでコメントをトグル(NERD_commenter.vim)
 " map <Leader>x, c<space>
 " 未対応ファイルタイプのエラーメッセージを表示しない
 " let NERDShutUp=1
+"}}}
 
 " ------------------------------------
 " cascading.vim
 "------------------------------------
+"{{{
 nnoremap <silent>-- :Cascading<CR>
+"}}}
 
 " ------------------------------------
 " grep.vim
 "------------------------------------
+"{{{
 " 検索外のディレクトリ、ファイルパターン
 " let Grep_Skip_Dirs = '.svn .git .hg'
 " let Grep_Skip_Files = '*.bak *~'
+"}}}
 
 "------------------------------------
 " surround.vim
 "------------------------------------
+"{{{
 " s, ssで選択範囲を指定文字でくくる
 nmap s <Plug>Ysurround
 nmap ss <Plug>Yssurround
 let g:surround_{char2nr('e')} = "begin \r end"
 let g:surround_{char2nr('d')} = "do \r end"
 let g:surround_{char2nr("-")} = ":\r"
+"}}}
 
 "------------------------------------
 " smartchr.vim
 "------------------------------------
+"{{{
 let bundle = neobundle#get('smartchr')
 function! bundle.hooks.on_source(bundle)
   " inoremap <expr> = smartchr#loop('=', '==', '=>')
@@ -117,10 +136,12 @@ function! bundle.hooks.on_source(bundle)
   " inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " Fugitive.vim
 "------------------------------------
+"{{{
 nnoremap <Space>gd :<C-u>Gdiff<Enter>
 nnoremap <Space>gs :<C-u>Gstatus<Enter>
 nnoremap <Space>gl :<C-u>Glog<Enter>
@@ -128,19 +149,23 @@ nnoremap <Space>ga :<C-u>Gwrite<Enter>
 nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
+"}}}
 
 "------------------------------------
 " VTreeExplorer
 "------------------------------------
+"{{{
 " let g:treeExplVertical=1
 " <Leader>t<Space>でディレクトリツリー表示
 " noremap <Leader>t<Space> :VSTreeExplore<CR>
 " 分割したウィンドウのサイズ
 " let g:treeExplWinSize=30
+"}}}
 
 "------------------------------------
 " DumbBuf.vim
 "------------------------------------
+"{{{
 " <Leader>b<Space>でBufferList
 " let dumbbuf_hotkey = '<Leader>b<Space>'
 " let dumbbuf_mappings = {
@@ -152,10 +177,12 @@ nnoremap <Space>gb :<C-u>Gblame<Enter>
 " let dumbbuf_updatetime  = 1    " &updatetimeの最小値
 " let dumbbuf_wrap_cursor = 0
 " let dumbbuf_remove_marked_when_close = 1
+"}}}
 
 "------------------------------------
 " vim-indent-guides
 "------------------------------------
+"{{{
 nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<CR>
 
 let g:indent_guides_auto_colors = 0
@@ -174,15 +201,19 @@ else
   hi IndentGuidesOdd  ctermbg=white
   hi IndentGuidesEven ctermbg=lightgrey
 endif
+"}}}
 
 "------------------------------------
 " gundo.Vim
 "------------------------------------
+"{{{
 nnoremap U :<C-u>GundoToggle<CR>
+"}}}
 
 "------------------------------------
 " taglist.Vim
 "------------------------------------
+"{{{
 map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
 " nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 " nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
@@ -195,10 +226,12 @@ let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 let Tlist_Auto_Open = 0                   " 自動表示
 let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 30
+"}}}
 
 "------------------------------------
 " Srcexp
 "------------------------------------
+"{{{
 " [Srcexpl] tagsを利用したソースコード閲覧・移動補助機能
 " let g:SrcExpl_UpdateTags    = 1         " tagsをsrcexpl起動時に自動で作成（更新）
 " let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:off)
@@ -207,39 +240,49 @@ let Tlist_WinWidth = 30
 " let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
 " Source Explorerの機能ON/OFF
 " nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
+"}}}
 
 "------------------------------------
 " open-blowser.vim
 "------------------------------------
+"{{{
 " カーソル下のURLをブラウザで開く
 nmap <Leader>o <Plug>(openbrowser-open)
 vmap <Leader>o <Plug>(openbrowser-open)
 " カーソル下のキーワードをググる
 nnoremap <Leader>os :<C-u>OpenBrowserSearch<Space>
 nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+"}}}
 
 "------------------------------------
 " vim-browser-reload-linux, mac
 "------------------------------------
+"{{{
 nnoremap <Leader>rl :ChromeReloadStart<CR>
 nnoremap <Leader>Rl :ChromeReloadStop<CR>
+"}}}
 
 "------------------------------------
 " operator-camelize.vim
 "------------------------------------
+"{{{
 " camel-caseへの変換
 map <Leader>u <Plug>(operator-camelize)
 map <Leader>U <Plug>(operator-decamelize)
+"}}}
 
 "------------------------------------
 " operator-replace.vim
 "------------------------------------
+"{{{
 " _wなどでYankしてるもので置き換える
 map _ <Plug>(operator-replace)
+"}}}
 
 "------------------------------------
 " smartword.vim
 "------------------------------------
+"{{{
 noremap ,w  w
 noremap ,b  b
 noremap ,e  e
@@ -249,11 +292,12 @@ map W  <Plug>(smartword-w)
 map B  <Plug>(smartword-b)
 map E  <Plug>(smartword-e)
 map ge  <Plug>(smartword-ge)
-
+"}}}
 
 "------------------------------------
 " camelcasemotion.vim
 "------------------------------------
+"{{{
 " <Shift-wbe>でCameCaseやsnake_case単位での単語移動
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -265,10 +309,12 @@ omap <silent> ib <Plug>CamelCaseMotion_ib
 xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
+"}}}
 
 "------------------------------------
 " vimshell
 "------------------------------------
+"{{{
 let bundle = neobundle#get('vimshell')
 function! bundle.hooks.on_source(bundle)
 
@@ -323,10 +369,12 @@ endfunction
 unlet bundle
 
 command! Vs :VimShell -split
+"}}}
 
 "------------------------------------
 " unite.vim
 "------------------------------------
+"{{{
 " The prefix key.
 nnoremap [unite] <Nop>
 nmap f [unite]
@@ -418,10 +466,12 @@ function! bundle.hooks.on_source(bundle)
 
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " quickrun.vim
 "------------------------------------
+"{{{
 nnoremap <silent><Leader>r :QuickRun<CR>
 
 let bundle = neobundle#get('vim-quickrun')
@@ -451,15 +501,19 @@ function! bundle.hooks.on_source(bundle)
         \ 'cmdopt': '-s' }
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " Pydiction
 "------------------------------------
+"{{{
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+"}}}
 
 "------------------------------------
 " toggle.vim
 "------------------------------------
+"{{{
 nmap <silent> + <Plug>ToggleN
 " imap <C-A> <Plug>ToggleI
 " vmap <C-A> <Plug>ToggleV
@@ -471,10 +525,12 @@ let g:toggle_pairs = {
       \ 'pick':'reword', 'reword':'fixup',
       \ 'fixup':'squash', 'squash':'edit',
       \ 'edit':'exec', 'exec':'pick' }
+"}}}
 
 "------------------------------------
 " NERDTree.vim
 "------------------------------------
+"{{{
 " 引数なしでvimを開いたらNERDTreeを起動、引数ありならNERDTreeは起動しない
 " 最後にnerdtreeだけ残っていたら自動終了
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -485,10 +541,12 @@ nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 20
+"}}}
 
 "------------------------------------
 " vim-ref
 "------------------------------------
+"{{{
 autocmd FileType ruby,eruby,ruby.rspec nmap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
 autocmd User Rails nmap <buffer>KK :<C-U>Ref ri <C-R><C-W><CR>
 
@@ -498,10 +556,12 @@ function! bundle.hooks.on_source(bundle)
   let g:ref_ri_cmd = expand('~/.rbenv/versions/1.9.3-p194/bin/ri')
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " Gist
 "------------------------------------
+"{{{
 let g:gist_show_privates = 1
 nnoremap <Leader>gi :Gist<CR>
 nnoremap <Leader>gp :Gist -p<CR>
@@ -509,10 +569,12 @@ nnoremap <Leader>ge :Gist -e<CR>
 nnoremap <Leader>gs :Gist -s <Space><C-R><C-W><CR>
 nnoremap <Leader>gd :Gist -d<CR>
 nnoremap <Leader>gl :Gist -l<CR>
+"}}}
 
 "------------------------------------
 " neosnippets
 "------------------------------------
+"{{{
 imap <C-f>     <Plug>(neosnippet_expand_or_jump)
 smap <C-f>     <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -524,10 +586,12 @@ let g:neosnippet#snippets_directory = '~/.vim/bundle/snipmate-snippets/snippets,
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+"}}}
 
 "------------------------------------
 " vim-ibus
 "------------------------------------
+"{{{
 let bundle = neobundle#get('vim-ibus')
 function! bundle.hooks.on_source(bundle)
   if has('python')
@@ -535,10 +599,12 @@ function! bundle.hooks.on_source(bundle)
   endif
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " easy-mosion
 "------------------------------------
+"{{{
 " ホームポジションに近いキーを使う
 let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 " 「,」 + 何かにマッピング
@@ -549,10 +615,12 @@ let g:EasyMotion_grouping = 1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
+"}}}
 
 "------------------------------------
 " ctrlp
 "------------------------------------
+"{{{
 nnoremap <Space>p :<C-U>CtrlP ~/<CR>
 
 let g:ctrlp_clear_cache_on_exit = 1
@@ -563,10 +631,12 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.\(hg\|git\|sass-cache\|svn|\~\)$',
       \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
+"}}}
 
 "------------------------------------
 " Syntastic
 "------------------------------------
+"{{{
 " エラー行をsignで表示する
 let g:syntastic_enable_signs = 1
 " 可能ならhighligt表示する
@@ -584,18 +654,22 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes'  : [],
       \ 'passive_filetypes' : ["html"],
       \}
+"}}}
 
 "------------------------------------
 " vim-gitgutter
 "------------------------------------
+"{{{
 let g:gitgutter_enabled = 0
 nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
 nnoremap <Leader>ggn :<C-u>GitGutterNextHunk<CR>
 nnoremap <Leader>ggp :<C-u>GitGutterPrevHunk<CR>
+"}}}
 
 "------------------------------------
 " vim-rails.vim
 "------------------------------------
+"{{{
 let bundle = neobundle#get('vim-rails')
 function! bundle.hooks.on_source(bundle)
   let g:rails_some_option = 1
@@ -627,15 +701,19 @@ function! bundle.hooks.on_source(bundle)
   autocmd User Rails call SetUpRailsSetting()
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " vim-endwise
 "------------------------------------
+"{{{
 let g:endwise_no_mappings = 1
+"}}}
 
 "------------------------------------
 " zencoding-vim
 "------------------------------------
+"{{{
 let g:zencoding_debug = 0
 let g:user_zen_settings = {
       \ 'lang' : 'ja',
@@ -647,10 +725,12 @@ let g:user_zen_settings = {
       \     'filters' : 'fc',
       \   },
       \ }
+"}}}
 
 "------------------------------------
 " vimfiler
 "------------------------------------
+"{{{
 " nnoremap <silent> <Space>v :<C-u>VimFiler<CR>
 nnoremap <Leader>vf :<C-u>VimFilerExplorer -winwidth=20 -toggle<CR>
 
@@ -732,34 +812,43 @@ function! bundle.hooks.on_source(bundle)
   endfunction
 endfunction
 unlet bundle
+"}}}
 
 "------------------------------------
 " vim-powerline
 "------------------------------------
+"{{{
 " source ~/dotfiles/.vimrc.statusline.powerline
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = 'filename'
+"}}}
 
 "------------------------------------
 " vim-tags
 "------------------------------------
+"{{{
 let g:vim_tags_auto_generate = 1
 let g:vim_tags_use_vim_dispatch = 1
+"}}}
 
 "------------------------------------
 " tweetvim
 "------------------------------------
+"{{{
 let g:tweetvim_async_post = 1
 let g:tweetvim_display_source = 1
 let g:tweetvim_display_time = 1
 let g:tweetvim_open_buffer_cmd = 'tabnew'
 nnoremap <silent>tw :<C-U>TweetVimSay<CR>
+"}}}
 
 "------------------------------------
 " powertabline
 "------------------------------------
+"{{{
 set showtabline=1
 let g:alpaca_powertabline_enable = 1
 let g:alpaca_powertabline_sep1 = "⮀"
 let g:alpaca_powertabline_sep2 = "⮁"
 let g:alpaca_powertabline_default_place = 1
+"}}}

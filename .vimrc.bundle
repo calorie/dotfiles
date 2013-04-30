@@ -182,6 +182,10 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
     " vim-textobj-entire : buffer全体をtext-objectに
     NeoBundle 'textobj-entire'
 
+    " vim-textobj-fold : フォールディングされた範囲をtext-objectに
+    NeoBundleLazy 'kana/vim-textobj-fold.git', {
+        \ 'autoload' : { 'filetypes' : ['vim'] }}
+
     " vim-textobj-plugins : いろんなものをtext-objectにする。
     " vim-textobj-between, commnet, function-javascript, function-perl
     " NeoBundle 'thinca/vim-textobj-plugins.git'
@@ -191,9 +195,6 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
 
     " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
     " NeoBundle 'kana/vim-textobj-lastpat.git'
-
-    " vim-textobj-fold : フォールディングされた範囲をtext-objectに
-    " NeoBundle 'kana/vim-textobj-fold.git'
 
     " 「foo」 or 【bar】などをtext-objectに
     " NeoBundle 'textobj-jabraces'
@@ -466,7 +467,6 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
   " NeoBundle 'vtreeexplorer'
 
 " }}}
-
 
 " Encording {{{
 
