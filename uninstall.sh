@@ -19,7 +19,7 @@ DOT_FILES=(
     .screenrc .vimrc .vrapperrc
     import.scala .tmux.conf .tmux-powerlinerc
     .dir_colors .rdebugrc .tmux
-    .vim/bundle dotfiles )
+    .vim/bundle .vim/dict dotfiles )
 
 for file in ${DOT_FILES[@]}
 do
