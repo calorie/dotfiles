@@ -71,6 +71,16 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
         \   'unite_sources' : 'help'
         \ }}
 
+  " tig
+  NeoBundleLazy 'Kocha/vim-unite-tig', {
+        \ 'build' : {
+        \    'mac': 'brew install tig',
+        \    'unix': 'apt-get install tig',
+        \ },
+        \ 'autoload' : {
+        \   'unite_sources' : 'tig'
+        \ }}
+
   " NeoBundle 'choplin/unite-vim_hacks'
 
 " }}}
@@ -516,7 +526,7 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
   NeoBundle 'yuroyoro/vimdoc_ja'
 
   " vimからGit操作する
-  NeoBundle 'tpope/vim-fugitive', {
+  NeoBundleLazy 'tpope/vim-fugitive', {
         \ 'autoload' : {
         \   'commands': [
         \     'Git', 'Gstatus', 'Gwrite', 'Glog',
@@ -543,7 +553,7 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
 
   " Gist
   NeoBundleLazy 'mattn/gist-vim', {
-        \ 'depends': ['mattn/webapi-vim' ],
+        \ 'depends': ['mattn/webapi-vim'],
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
 

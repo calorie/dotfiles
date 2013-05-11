@@ -413,12 +413,14 @@ nnoremap <silent> [unite]:     :<C-U>Unite -buffer-name=h_command -no-empty hist
 nnoremap <silent> [unite]/     :<C-U>Unite -buffer-name=h_search -no-empty history/search<CR>
 nnoremap <silent> [unite]y     :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " tag
-nnoremap <silent> [unite]t     :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
+nnoremap <silent> [unite]ta    :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
 nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -auto-preview tag<CR>
 " search
 " nnoremap <silent> /            :<C-u>Unite -auto-preview -buffer-name=search line/fast -start-insert -no-quit<CR>
 " tweetvim
 nnoremap <silent>[unite]tw     :<C-U>Unite tweetvim -buffer-name=tweetvim -no-start-insert<CR>
+" tig
+nnoremap <silent>[unite]ti     :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
