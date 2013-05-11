@@ -526,7 +526,7 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
   NeoBundle 'yuroyoro/vimdoc_ja'
 
   " vimからGit操作する
-  NeoBundleLazy 'tpope/vim-fugitive', {
+  NeoBundle 'tpope/vim-fugitive', {
         \ 'autoload' : {
         \   'commands': [
         \     'Git', 'Gstatus', 'Gwrite', 'Glog',
