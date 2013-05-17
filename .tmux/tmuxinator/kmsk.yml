@@ -1,0 +1,20 @@
+# ~/.tmuxinator/kmsk.yml
+
+project_name: kmsk
+project_root: ~/work/hekk/kimisaki
+pre:
+  - sudo dhclient -r
+  - sudo dhclient eth0
+tabs:
+  - editor: vim
+  - database:
+      layout: main-vertical
+      panes:
+        - rails db
+        - rails c
+  - shell: git pull --rebase origin master
+  - server:
+      layout: main-vertical
+      panes:
+        - thin start -p 3000
+        - cassandra -f

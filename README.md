@@ -10,19 +10,22 @@ dotfiles
 - cmake
 - tmux >= 0.7
 - rbenv
+- ruby
 
 ## setup
 
 ```
-$ git clone git://github.com/YuuShigetani/dotfiles.git ~/dotfiles
-$ chmod +x ~/dotfiles/setup.sh
-$ ~/dotfiles/setup.sh
+$ git clone git://github.com/YuuShigetani/dotfiles.git
+$ cd dotfiles
+$ chmod +x setup.sh
+$ ./setup.sh
 ```
 
 ## uninstall
 
 ```
-$ chmod +x ~/dotfiles/uninstall.sh
-$ ~/dotfiles/uninstall.sh
+$ cd /path/to/dotfiles
+$ chmod +x uninstall.sh
+$ ./uninstall.sh
 ```
 

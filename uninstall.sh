@@ -18,7 +18,7 @@ DOT_FILES=(
     .gitignore .inputrc .irbrc .sbtconfig
     .screenrc .vimrc .vrapperrc
     import.scala .tmux.conf .tmux-powerlinerc
-    .dir_colors .rdebugrc .tmux
+    .dir_colors .rdebugrc .tmux .tmuxinator
     .vim/bundle .vim/dict dotfiles )
 
 for file in ${DOT_FILES[@]}
