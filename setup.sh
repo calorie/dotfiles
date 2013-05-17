@@ -16,6 +16,8 @@ else
     echo "plz install cmake to display used-mem on tmux"
 fi
 
+gem i tmuxinator
+
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
 git clone git@github.com:Shougo/neobundle.vim.git

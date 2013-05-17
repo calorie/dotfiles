@@ -7,6 +7,9 @@ if which tmux 2>&1 >/dev/null; then
 fi
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
 ## Environment variable configuration
 #
 # LANG
