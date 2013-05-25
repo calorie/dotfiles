@@ -10,11 +10,11 @@ tabs:
   - database:
       layout: main-vertical
       panes:
-        - rails db
         - rails c
+        - rails db
   - shell: git pull --rebase origin master
   - server:
       layout: main-vertical
       panes:
-        - thin start -p 3000
         - cassandra -f
+        - thin start -p 3000
