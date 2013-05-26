@@ -1,14 +1,15 @@
 " neobunlde.vimで管理してるpluginを読み込む
 
+set nocompatible
 filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 " let g:neobundle#types#git#default_protocol = 'https'
 
-NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Unite {{{
 
@@ -462,6 +463,9 @@ NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
   " ctrl+pでファイル検索
   NeoBundleLazy 'ctrlp.vim', {
         \ 'autoload' : { 'commands' : ['CtrlP'] }}
+
+  " コマンドラインにバッファ表示
+  " NeoBundle 'bling/vim-bufferline'
 
   " ステータスラインにバッファ表示
   " NeoBundle 'zefei/buftabs'
