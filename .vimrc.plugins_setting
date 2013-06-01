@@ -214,18 +214,18 @@ nnoremap U :<C-u>GundoToggle<CR>
 " taglist.Vim
 "------------------------------------
 "{{{
-map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
+" map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
 " nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 " nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
-let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
-let Tlist_Enable_Fold_Column = 1          " 折りたたみ
-let Tlist_Auto_Open = 0                   " 自動表示
-let Tlist_Auto_Update = 1
-let Tlist_WinWidth = 30
+" let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+" let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
+" let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
+" let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
+" let Tlist_Enable_Fold_Column = 1          " 折りたたみ
+" let Tlist_Auto_Open = 0                   " 自動表示
+" let Tlist_Auto_Update = 1
+" let Tlist_WinWidth = 30
 "}}}
 
 "------------------------------------
@@ -862,4 +862,36 @@ let g:alpaca_powertabline_enable = 1
 let g:alpaca_powertabline_sep1 = "⮀"
 let g:alpaca_powertabline_sep2 = "⮁"
 let g:alpaca_powertabline_default_place = 1
+"}}}
+
+"------------------------------------
+" tagbar.vim
+"------------------------------------
+"{{{
+nnoremap <Space>tb :<C-U>TagbarToggle<CR>
+
+au FileType tagbar
+      \ nnoremap <buffer><Space> <Space>
+      \|nnoremap <buffer><space>tb :<C-U>TagbarToggle<CR>
+
+if exists('/usr/bin/ctags')
+  let g:tagbar_ctags_bin  = '/usr/bin/ctags'
+endif
+let g:tagbar_compact    = 1
+let g:tagbar_autofocus  = 1
+let g:tagbar_autoshowtag= 1
+let g:tagbar_iconchars  =  ['▸', '▾']
+let g:tagbar_width = 30
+let g:tagbar_autoclose = 1
+" let g:tagbar_sort = 0
+"}}}
+
+"------------------------------------
+" text-manipvim
+"------------------------------------
+"{{{
+xmap <C-h> <Plug>(textmanip-move-left)
+xmap <C-j> <Plug>(textmanip-move-down)
+xmap <C-k> <Plug>(textmanip-move-up)
+xmap <C-l> <Plug>(textmanip-move-right)
 "}}}

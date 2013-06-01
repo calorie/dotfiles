@@ -310,6 +310,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : ['ChromeReload', 'ChromeReloadStart', 'ChromeReloadStop'],
         \ }}
 
+  NeoBundleLazy 't9md/vim-textmanip', { 'autoload' : {
+        \ 'mappings' : [
+        \   '<Plug>(textmanip-move-down)', '<Plug>(textmanip-move-up)',
+        \   '<Plug>(textmanip-move-left)', '<Plug>(textmanip-move-right)'],
+        \ }}
+
   " smooth_scroll.vim : スクロールを賢く
   " NeoBundle 'Smooth-Scroll'
 
@@ -372,12 +378,22 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'filetypes': ['html', 'eruby', 'php', 'haml', 'css', 'scss', 'sass'],
         \ }}
 
-  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-  NeoBundleLazy 'taglist.vim', {
-        \ 'autoload': { 'commands': 'Tlist' }}
-
   " tagsの自動生成
   NeoBundle 'szw/vim-tags'
+
+  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
+  NeoBundleLazy 'majutsushi/tagbar', {
+        \ 'build' : {
+        \   'mac' : ['sudo npm install -g jsctags', 'gem i CoffeeTags'],
+        \   'unix' : 'sudo npm install -g jsctags',
+        \ },
+        \ 'autoload' : {
+        \   'commands': ["TagbarToggle", "TagbarTogglePause", "TagbarOpen"],
+        \   'fuctions': ['tagbar#currenttag'] }}
+
+  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
+  " NeoBundleLazy 'taglist.vim', {
+  "       \ 'autoload': { 'commands': 'Tlist' }}
 
   " tagsを利用したソースコード閲覧・移動補助機能 tagsファイルの自動生成
   " NeoBundle 'Source-Explorer-srcexpl.vim'

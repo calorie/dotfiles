@@ -30,8 +30,8 @@ noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
 " spaceで次のbufferへ。back-spaceで前のbufferへ
-nmap <silent> <Space><Space> :bn<CR>
-nmap <silent> <BS><BS> :bp<CR>
+" nmap <silent> <Space><Space> :bn<CR>
+" nmap <silent> <BS><BS> :bp<CR>
 
 " F2で前のバッファ
 map <F2> <ESC>;bp<CR>
@@ -75,6 +75,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+
+" tab pagesを使い易くする
+nnoremap tc :<C-u>tabnew \| :NERDTree<CR>
+nnoremap tx :<C-u>tabclose<CR>
+nnoremap to :<C-u>tabonly<CR>
+nnoremap <Space><Space> :<C-u>tabnext<CR>
+nnoremap <BS><BS> :<C-u>tabprevious<CR>
+" nnoremap <C-t>j :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+" nnoremap <C-t>k gT
 
 " git-diff-aware version of gf commands.
 " http://labs.timedia.co.jp/2011/04/git-diff-aware-gf-commands-for-vim.html
