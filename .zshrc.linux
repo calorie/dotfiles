@@ -15,6 +15,9 @@ export PATH
 # rbenv
 export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init - zsh)"
+# phpenv
+# export PATH=$PATH:$HOME/.phpenv/bin
+# eval "$(phpenv init - zsh)"
 
 # mpi
 # export PATH=$PATH:/usr/local/mpich/bin

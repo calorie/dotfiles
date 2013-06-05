@@ -5,6 +5,8 @@ project_root: ~/work/hekk/kimisaki
 pre:
   - sudo dhclient -r
   - sudo dhclient eth0
+  - sudo ifdown eth0
+  - sudo ifup eth0
 tabs:
   - editor: vim
   - database:
