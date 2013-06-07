@@ -397,13 +397,13 @@ nnoremap <silent> [unite]bm    :<C-u>Unite -auto-preview -buffer-name=bookmark b
 " grep
 nnoremap <silent> [unite]gr    :<C-u>Unite -auto-preview -buffer-name=grep grep:<CR>
 " from basyura/unite-rails
-nnoremap <silent> [unite]rm    :<C-u>Unite -auto-preview -buffer-name=r_model rails/model<CR>
-nnoremap <silent> [unite]rc    :<C-u>Unite -auto-preview -buffer-name=r_controller rails/controller<CR>
-nnoremap <silent> [unite]rv    :<C-u>Unite -auto-preview -buffer-name=r_view rails/view<CR>
-nnoremap <silent> [unite]rl    :<C-u>Unite -auto-preview -buffer-name=r_lib rails/lib<CR>
-nnoremap <silent> [unite]rj    :<C-u>Unite -auto-preview -buffer-name=r_js rails/javascript<CR>
-nnoremap <silent> [unite]rs    :<C-u>Unite -auto-preview -buffer-name=r_spec rails/spec<CR>
-nnoremap <silent> [unite]ra    :<C-U>Unite -auto-preview -buffer-name=rake rake<CR>
+nnoremap <silent> [unite]rm    :<C-u>Unite -buffer-name=r_model rails/model<CR>
+nnoremap <silent> [unite]rc    :<C-u>Unite -buffer-name=r_controller rails/controller<CR>
+nnoremap <silent> [unite]rv    :<C-u>Unite -buffer-name=r_view rails/view<CR>
+nnoremap <silent> [unite]rl    :<C-u>Unite -buffer-name=r_lib rails/lib<CR>
+nnoremap <silent> [unite]rj    :<C-u>Unite -buffer-name=r_js rails/javascript<CR>
+nnoremap <silent> [unite]rs    :<C-u>Unite -buffer-name=r_spec rails/spec<CR>
+nnoremap <silent> [unite]ra    :<C-U>Unite -buffer-name=rake rake<CR>
 " help
 nnoremap <silent> [unite]h     :<C-U>Unite -auto-preview -buffer-name=help help<CR>
 " outline
@@ -875,7 +875,7 @@ au FileType tagbar
       \|nnoremap <buffer><space>tb :<C-U>TagbarToggle<CR>
 
 if exists('/usr/bin/ctags')
-  let g:tagbar_ctags_bin  = '/usr/bin/ctags'
+  let g:tagbar_ctags_bin = '/usr/bin/ctags'
 endif
 let g:tagbar_compact    = 1
 let g:tagbar_autofocus  = 1
