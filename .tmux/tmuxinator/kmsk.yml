@@ -9,12 +9,13 @@ pre:
   - sudo ifup eth0
 tabs:
   - editor: vim
-  - database:
+  - debug:
       layout: main-vertical
       panes:
+        - guard
         - rails c
         - rails db
-  - shell: git pull --rebase origin master
+  - shell: git pull --rebase origin master && rake db:migrate
   - server:
       layout: main-vertical
       panes:

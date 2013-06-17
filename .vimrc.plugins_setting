@@ -376,6 +376,7 @@ command! Vs :VimShell -split
 "------------------------------------
 "{{{
 " The prefix key.
+nnoremap s f
 nnoremap [unite] <Nop>
 nmap f [unite]
 
