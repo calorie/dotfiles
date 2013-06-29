@@ -17,7 +17,6 @@ dotfiles
 ```
 $ git clone git://github.com/YuuShigetani/dotfiles.git
 $ cd dotfiles
-$ chmod +x setup.sh
 $ ./setup.sh
 ```
 
@@ -25,7 +24,6 @@ $ ./setup.sh
 
 ```
 $ cd /path/to/dotfiles
-$ chmod +x uninstall.sh
 $ ./uninstall.sh
 ```
 
