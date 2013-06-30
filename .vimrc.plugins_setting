@@ -624,7 +624,7 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 " ctrlp
 "------------------------------------
 "{{{
-nnoremap <Space>p :<C-U>CtrlP ~/<CR>
+nnoremap <Space>p :CtrlP ~/<CR>
 
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_lazy_update = 1
@@ -687,7 +687,7 @@ function! bundle.hooks.on_source(bundle)
 
   function! SetUpRailsSetting()
     nmap <buffer><Space>r :R<CR>
-    nmap <buffer><Space>a :A<CR>
+    " nmap <buffer><Space>a :A<CR>
     nmap <buffer><Space>m :Rmodel<CR>
     nmap <buffer><Space>c :Rcontroller<CR>
     nmap <buffer><Space>v :Rview<CR>
@@ -896,4 +896,32 @@ xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-l> <Plug>(textmanip-move-right)
+"}}}
+
+"------------------------------------
+" vim-ruby-refactoring
+"------------------------------------
+"{{{
+let bundle = neobundle#get('vim-ruby-refactoring')
+function! bundle.hooks.on_source(bundle)
+  " メソッドに引数を追加する
+  nnoremap <Space>ap  :RAddParameter<CR>
+  " 一行で書かれた条件文を伝統的な複数行の形式に変換する
+  " nnoremap <Space>rcpc :RConvertPostConditional<CR>
+  " 選択部分を RSpec の "let(:hoge) { fuga }" の形式に切り出す
+  " nnoremap <Space>el  :RExtractLet<CR>
+  " 選択部分を定数として切り出す
+  vnoremap <Space>ec  :RExtractConstant<CR>
+  " 選択部分を変数として切り出す
+  vnoremap <Space>el :RExtractLocalVariable<CR>
+  " 一時変数を取り除く
+  nnoremap <Space>et  :RInlineTemp<CR>
+  " 選択部分をメソッドに切り出す
+  vnoremap <Space>em  :RExtractMethod<CR>
+  " ローカル変数をリネームする
+  vnoremap <Space>rl :RRenameLocalVariable<CR>
+  " インスタンス変数をリネームする
+  vnoremap <Space>ri :RRenameInstanceVariable<CR>
+endfunction
+unlet bundle
 "}}}

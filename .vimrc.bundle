@@ -301,6 +301,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'ruby-matchit', {
         \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
+  " rubyのrefactoring
+  NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
+        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+
   " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
   NeoBundleLazy 'tyru/open-browser.vim', {
         \ 'autoload' : {
