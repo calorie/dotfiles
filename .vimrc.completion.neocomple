@@ -92,8 +92,8 @@ function! bundle.hooks.on_source(bundle)
   call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
   " <C-f>, <C-b>: page move.
-  inoremap <expr><C-f>  pumvisible() ? "\<PageDown>" : "\<Right>"
-  " inoremap <expr><C-b>  pumvisible() ? "\<PageUp>"   : "\<Left>"
+  inoremap <expr><C-l>  pumvisible() ? "\<PageDown>" : "\<Right>"
+  inoremap <expr><C-h>  pumvisible() ? "\<PageUp>"   : "\<Left>"
   " <C-y>: paste.
   " inoremap <expr><C-y>  pumvisible() ? neocomplete#close_popup() :  "\<C-r>\""
   " <C-e>: close popup.
