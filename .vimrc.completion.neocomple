@@ -99,7 +99,7 @@ function! bundle.hooks.on_source(bundle)
   " <C-e>: close popup.
   " inoremap <expr><C-e>  pumvisible() ? neocomplete#cancel_popup() : "\<End>"
   " <C-k>: unite completion.
-  imap <C-k>  <Plug>(neocomplete_start_unite_complete)
+  " imap <C-k> pumvisible() ? "\<Plug>(neocomplete_start_unite_complete)" : "\<C-k>"
   inoremap <expr> O  &filetype == 'vim' ? "\<C-x>\<C-v>" : "\<C-x>\<C-o>"
   " <C-h>, <BS>: close popup and delete backword char.
   " inoremap <expr><C-b> neocomplete#smart_close_popup()."\<C-b>"

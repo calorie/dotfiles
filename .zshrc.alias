@@ -123,3 +123,6 @@ alias cas='sudo ~/cassandra/bin/cassandra -f'
 
 # memo
 alias memo='vi ~/tmp/memo.txt'
+
+# dhclient
+alias dc='sudo dhclient -r && sudo dhclient eth0'
