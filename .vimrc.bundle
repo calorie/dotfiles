@@ -82,6 +82,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'unite_sources' : 'tig'
         \ }}
 
+  " git
+  NeoBundleLazy 'kmnk/vim-unite-giti', {
+        \ 'autoload': {
+        \   'unite_sources': [
+        \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
+        \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
+        \   ]
+        \ }}
+
   " NeoBundle 'choplin/unite-vim_hacks'
 
 " }}}
@@ -130,11 +139,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : { 'commands' : 'GundoToggle' }}
 
   " surround.vim : テキストを括弧で囲む／削除する
-  NeoBundle 'tpope/vim-surround'
-
-  " smartchr.vim : ==などの前後を整形
-  NeoBundleLazy 'smartchr', {
-        \ 'autoload' : { 'insert' : 1 }}
+  NeoBundleLazy 'tpope/vim-surround', {
+        \ 'autoload' : {
+        \   'mappings' : [
+        \     ['nx', '<Plug>Dsurround'], ['nx', '<Plug>Csurround' ],
+        \     ['nx', '<Plug>Ysurround' ], ['nx', '<Plug>YSurround' ],
+        \     ['nx', '<Plug>Yssurround'], ['nx', '<Plug>YSsurround'],
+        \     ['nx', '<Plug>YSsurround'], ['nx', '<Plug>VgSurround'],
+        \     ['nx', '<Plug>VSurround']
+        \ ] }}
 
   " <C-a>でtrue/false切替。他色々
   NeoBundleLazy 'taku-o/vim-toggle', {
@@ -166,6 +179,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
     NeoBundle 'textobj-user'
 
+    " vim-textobj-entire : buffer全体をtext-objectに
+    NeoBundle 'textobj-entire'
+
     " vim-textobj-syntax : syntax hilightされたものをtext-objectに
     NeoBundle 'kana/vim-textobj-syntax.git'
 
@@ -190,9 +206,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundleLazy 'textobj-rubyblock', {
         \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
-    " vim-textobj-entire : buffer全体をtext-objectに
-    NeoBundle 'textobj-entire'
-
     " vim-textobj-fold : フォールディングされた範囲をtext-objectに
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
         \ 'autoload' : { 'filetypes' : ['vim'] }}
@@ -214,6 +227,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   " NeoBundle 'scrooloose/nerdcommenter.git'
+
+  " smartchr.vim : ==などの前後を整形
+  " NeoBundleLazy 'smartchr', {
+  "       \ 'autoload' : { 'insert' : 1 }}
 
   " 自動閉じタグ
   " NeoBundle 'yuroyoro/vim-autoclose'
@@ -252,7 +269,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload': { 'filetypes': 'ruby' }}
 
   " rsense本体
-  NeoBundleLazy 'taichouchou2/rsense-0.3', {
+  NeoBundleFetch 'taichouchou2/rsense-0.3', {
         \ 'build' : {
         \    'mac': 'ruby etc/config.rb > ~/.rsense',
         \    'unix': 'ruby etc/config.rb > ~/.rsense',
@@ -295,7 +312,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'EasyMotion'
 
   " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-  NeoBundle 'matchit.zip'
+  NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
+        \ 'mappings' : ['nx', '%'] }}
 
   " ruby用のmatchit拡張
   NeoBundleLazy 'ruby-matchit', {
