@@ -17,6 +17,7 @@ alias duh="du -h ./ --max-depth=1"
 alias su="su -l"
 
 # vim
+alias vi="vim"
 alias 'src'='exec zsh'
 alias -g V="| vim -"
 

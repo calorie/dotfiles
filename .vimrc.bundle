@@ -228,9 +228,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Completion {{{
 
-  " 補完 neocomplcache.vim : 究極のVim的補完環境
-  NeoBundleLazy 'Shougo/neocomplcache', {
-        \ 'autoload' : { 'insert' : 1 }}
+  " 補完
+  if has("lua")
+    NeoBundle 'Shougo/neocomplete.vim', {
+          \ 'autoload' : { 'insert' : 1 }}
+  else
+    NeoBundleLazy 'Shougo/neocomplcache', {
+          \ 'autoload' : { 'insert' : 1 }}
+  endif
 
   " neocomplcacheのsinpet補完
   NeoBundleLazy 'Shougo/neosnippet', {

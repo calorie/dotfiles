@@ -1,0 +1,153 @@
+"------------------------------------
+" neocomple.vim
+"------------------------------------
+let g:acp_enableAtStartup = 0
+let g:neocomplcache_enable_at_startup = 0
+let g:neocomplete#enable_at_startup = 1
+
+let bundle = neobundle#get('neocomplete.vim')
+function! bundle.hooks.on_source(bundle)
+  " Use smartcase.
+  let g:neocomplete#enable_smart_case = 1
+  " Use fuzzy completion.
+  let g:neocomplete#enable_fuzzy_completion = 1
+
+  " Set minimum syntax keyword length.
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  " Set auto completion length.
+  let g:neocomplete#auto_completion_start_length = 2
+  " Set manual completion length.
+  let g:neocomplete#manual_completion_start_length = 0
+  " Set minimum keyword length.
+  let g:neocomplete#min_keyword_length = 3
+  " skip time
+  let g:neocomple_skip_auto_completion_time = '0.6'
+  " max list num
+  let g:neocomplete#max_list = 20
+
+  " For auto select.
+  let g:neocomplete#enable_complete_select = 0
+  let g:neocomplete#enable_auto_select = 0
+  let g:neocomplete#enable_refresh_always = 0
+  " if g:neocomplete#enable_complete_select
+  "   set completeopt-=noselect
+  "   set completeopt+=noinsert
+  " endif
+
+  let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default'    : '',
+        \ 'vimshell'   : $HOME.'/.vimshell/command_history',
+        \ 'scala'      : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
+        \ 'java'       : $HOME.'/.vim/dict/java.dict',
+        \ 'c'          : $HOME.'/.vim/dict/c.dict',
+        \ 'cpp'        : $HOME.'/.vim/dict/cpp.dict',
+        \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+        \ 'ocaml'      : $HOME.'/.vim/dict/ocaml.dict',
+        \ 'perl'       : $HOME.'/.vim/dict/perl.dict',
+        \ 'php'        : $HOME.'/.vim/dict/php.dict',
+        \ 'scheme'     : $HOME.'/.vim/dict/scheme.dict',
+        \ 'vm'         : $HOME.'/.vim/dict/vim.dict',
+        \ 'ruby'       : $HOME.'/.vim/dict/ruby.dict'
+        \ }
+
+  let g:neocomplete#enable_auto_delimiter = 1
+  let g:neocomplete#disable_auto_select_buffer_name_pattern =
+        \ '\[Command Line\]'
+  let g:neocomplete#max_list = 100
+  let g:neocomplete#force_overwrite_completefunc = 1
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  if !exists('g:neocomplete#sources#omni#functions')
+    let g:neocomplete#sources#omni#functions = {}
+  endif
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#enable_auto_close_preview = 1
+
+  " let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+  " Define keyword pattern.
+  if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '[0-9a-zA-Z:#_]\+'
+  let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+  let g:neocomplete#sources#vim#complete_functions = {
+        \ 'Ref' : 'ref#complete',
+        \ 'Unite' : 'unite#complete_source',
+        \ 'VimShellExecute' :
+        \      'vimshell#vimshell_execute_complete',
+        \ 'VimShellInteractive' :
+        \      'vimshell#vimshell_execute_complete',
+        \ 'VimShellTerminal' :
+        \      'vimshell#vimshell_execute_complete',
+        \ 'VimShell' : 'vimshell#complete',
+        \ 'VimFiler' : 'vimfiler#complete',
+        \ 'Vinarise' : 'vinarise#complete',
+        \}
+  call neocomplete#custom#source('look', 'min_pattern_length', 4)
+
+  " <C-f>, <C-b>: page move.
+  inoremap <expr><C-f>  pumvisible() ? "\<PageDown>" : "\<Right>"
+  " inoremap <expr><C-b>  pumvisible() ? "\<PageUp>"   : "\<Left>"
+  " <C-y>: paste.
+  " inoremap <expr><C-y>  pumvisible() ? neocomplete#close_popup() :  "\<C-r>\""
+  " <C-e>: close popup.
+  " inoremap <expr><C-e>  pumvisible() ? neocomplete#cancel_popup() : "\<End>"
+  " <C-k>: unite completion.
+  imap <C-k>  <Plug>(neocomplete_start_unite_complete)
+  inoremap <expr> O  &filetype == 'vim' ? "\<C-x>\<C-v>" : "\<C-x>\<C-o>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  " inoremap <expr><C-b> neocomplete#smart_close_popup()."\<C-b>"
+  " inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-b>"
+  " <C-n>: neocomplete.
+  inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
+  " <C-p>: keyword completion.
+  inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+  " inoremap <expr>'  pumvisible() ? neocomplete#close_popup() : "'"
+
+  " imap <expr> `  pumvisible() ?
+  "       \ "\<Plug>(neocomplete_start_unite_quick_match)" : '`'
+
+  inoremap <expr><C-x><C-f>
+        \ neocomplete#start_manual_complete('file')
+
+  inoremap <expr><C-g>     neocomplete#undo_completion()
+  inoremap <expr><C-s>     neocomplete#complete_common_string()
+
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#smart_close_popup() . "\<CR>"
+  endfunction
+
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ neocomplete#start_manual_complete()
+  function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction"}}}
+  " <S-TAB>: completion back.
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-b>"
+
+  " buffer開いたらneoconでcache
+  " autocmd BufReadPost,BufEnter,BufWritePost :NeoCompleteBufferMakeCache <buffer>
+
+  " Enable omni completion.
+  autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+
+  " neocomplcache-rsense
+  let g:neocomple#sources#rsense#home_directory = neobundle#get_neobundle_dir() . 'rsense-0.3'
+
+endfunction
+unlet bundle

@@ -18,7 +18,7 @@
   tool = vimdiff
 [alias]
   s   = status
-  st  = status
+  # st  = status
   ss  = status -s
   sh  = show
   so  = remote show origin
@@ -111,8 +111,9 @@
   sm = submodule
   smupdate = submodule foreach "git checkout master; git pull origin master"
   # stash
-  # sl = stash list
-  # sp = stash pop
+  st = stash
+  sl = stash list
+  sp = stash pop
   # ss = stash save
 
   chpk = cherry-pick

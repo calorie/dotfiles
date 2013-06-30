@@ -14,6 +14,7 @@ vvm rebuild $1 \
     --enable-rubyinterp \
     --enable-xim \
     --enable-python3interp \
-    --enable-luainterp
+    --enable-luainterp \
+    --with-lua-prefix=/usr
 
 exit 0

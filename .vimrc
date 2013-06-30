@@ -1,3 +1,12 @@
+" 起動時間表示
+if has('vim_starting') && has('reltime')
+  let g:startuptime = reltime()
+  augroup vimrc-startuptime
+    autocmd! VimEnter * let g:startuptime = reltime(g:startuptime) | redraw
+    \ | echomsg 'startuptime: ' . reltimestr(g:startuptime)
+  augroup END
+endif
+
 " vunlde.vimで管理してるpluginを読み込む
 source ~/dotfiles/.vimrc.bundle
 " 基本設定
