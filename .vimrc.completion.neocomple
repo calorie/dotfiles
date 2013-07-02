@@ -92,15 +92,15 @@ function! bundle.hooks.on_source(bundle)
   call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
   " <C-f>, <C-b>: page move.
-  inoremap <expr><C-l>  pumvisible() ? "\<PageDown>" : "\<Right>"
-  inoremap <expr><C-h>  pumvisible() ? "\<PageUp>"   : "\<Left>"
+  " inoremap <expr><C-l>  pumvisible() ? "\<PageDown>" : "\<Right>"
+  " inoremap <expr><C-h>  pumvisible() ? "\<PageUp>"   : "\<Left>"
   " <C-y>: paste.
   " inoremap <expr><C-y>  pumvisible() ? neocomplete#close_popup() :  "\<C-r>\""
   " <C-e>: close popup.
   " inoremap <expr><C-e>  pumvisible() ? neocomplete#cancel_popup() : "\<End>"
   " <C-k>: unite completion.
   " imap <C-k> pumvisible() ? "\<Plug>(neocomplete_start_unite_complete)" : "\<C-k>"
-  inoremap <expr> O  &filetype == 'vim' ? "\<C-x>\<C-v>" : "\<C-x>\<C-o>"
+  " inoremap <expr> O  &filetype == 'vim' ? "\<C-x>\<C-v>" : "\<C-x>\<C-o>"
   " <C-h>, <BS>: close popup and delete backword char.
   " inoremap <expr><C-b> neocomplete#smart_close_popup()."\<C-b>"
   " inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-b>"
