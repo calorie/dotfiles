@@ -126,3 +126,6 @@ alias memo='vi ~/tmp/memo.txt'
 
 # dhclient
 alias dc='sudo dhclient -r && sudo dhclient eth0'
+
+# vvm
+alias 'vvm install '='vvm install vimorg--v7-3-'
