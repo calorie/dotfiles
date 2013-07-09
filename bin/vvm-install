@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  exit 1
+fi
+
+vvm install $1
+~/dotfiles/bin/vvm-rebuild $1
+vvm use $1
+exec $SHELL
+
+exit 0
