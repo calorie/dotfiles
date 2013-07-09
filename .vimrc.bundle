@@ -247,7 +247,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " 補完
   if has("lua")
-    NeoBundle 'Shougo/neocomplete.vim', {
+    NeoBundleLazy 'Shougo/neocomplete.vim', {
           \ 'autoload' : { 'insert' : 1 }}
   else
     NeoBundleLazy 'Shougo/neocomplcache', {
