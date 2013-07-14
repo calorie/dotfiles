@@ -2,6 +2,10 @@
 ORIGIN=$(pwd)
 DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
+mkdir -p $HOME/.zsh
+cd $HOME/.zsh
+git clone git@github.com:hchbaw/auto-fu.zsh.git
+
 mkdir $HOME/.tmux
 cd $HOME/.tmux
 git clone git@github.com:erikw/tmux-powerline.git
@@ -27,7 +31,7 @@ cd $HOME/.vim/bundle
 git clone git@github.com:Shougo/neobundle.vim.git
 
 DOTFILES=(
-    .zsh .zshrc .zshrc.alias
+    .zshrc .zshrc.alias
     .zshrc.linux .zshrc.osx .ctags
     .emacs.el .gdbinit .gemrc .gitconfig
     .gitignore .inputrc .irbrc .sbtconfig
@@ -46,3 +50,5 @@ done
 
 cd ${ORIGIN}
 vim +NeoBundleInstall +qa
+
+exec $SHELL
