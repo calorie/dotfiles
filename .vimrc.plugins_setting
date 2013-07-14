@@ -932,3 +932,16 @@ function! bundle.hooks.on_source(bundle)
 endfunction
 unlet bundle
 "}}}
+
+"------------------------------------
+" sudo.vim
+"------------------------------------
+"{{{
+augroup Sudo
+  autocmd!
+  au BufReadCmd   sudo:*,sudo:*/* SudoRead <afile>
+  au FileReadCmd  sudo:*,sudo:*/* SudoRead <afile>
+  au BufWriteCmd  sudo:*,sudo:*/* SudoWrite <afile>
+  au FileWriteCmd sudo:*,sudo:*/* SudoWrite <afile>
+augroup END
+"}}}

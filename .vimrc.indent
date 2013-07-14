@@ -10,12 +10,7 @@ set cindent      " Cプログラムファイルの自動インデントを始め
 set tabstop=2 shiftwidth=2 softtabstop=0
 
 if has("autocmd")
-  " ファイルタイプの検索を有効にする
-  filetype plugin on
-  " そのファイルタイプにあわせたインデントを利用する
-  filetype indent on
-  " これらのftではインデントを無効に
-  " autocmd FileType php filetype indent off
+  " filetype plugin indent on
 
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et

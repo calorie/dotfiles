@@ -7,7 +7,7 @@ if has('vim_starting') && has('reltime')
   augroup END
 endif
 
-" vunlde.vimで管理してるpluginを読み込む
+" pluginを読み込む
 source ~/dotfiles/.vimrc.bundle
 " 基本設定
 source ~/dotfiles/.vimrc.basic

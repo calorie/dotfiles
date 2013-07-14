@@ -554,7 +554,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'YuuShigetani/alpaca_powertabline'
 
   " sudo vim
-  NeoBundle 'sudo.vim'
+  NeoBundleLazy 'vim-scripts/sudo.vim', {
+        \ 'autoload': { 'commands': ['SudoRead', 'SudoWrite'] }
+        \ }
 
   " vimshell : vim上にshellを開く
   NeoBundleLazy 'Shougo/vimshell', {
@@ -608,37 +610,40 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : 'Gist' }}
 
   " Vim上でSQL実行
-  NeoBundleLazy 'dbext.vim', {
-        \ 'autoload' : {
-        \   'commands': [
-        \     "Alter", "Call", "Create", "DBCheckModeline", "DBCommit",
-        \     "DBCompleteProcedure", "DBCompleteTable", "DBCompleteView",
-        \     "DBDescribeProcedure", "DBDescribeProcedureAskName",
-        \     "DBDescribeTable", "DBDescribeTableAskName", "DBExecRangeSQL",
-        \     "DBExecSQL", "DBExecSQLTopX", "DBExecSQLUnderCursor",
-        \     "DBExecVisualSQL", "DBGetOption", "DBHistory", "DBListColumn",
-        \     "DBListConnections", "DBListProcedure", "DBListTable", "DBListVar",
-        \     "DBListView", "DBOrientation", "DBPromptForBufferParameters",
-        \     "DBResultsClose", "DBResultsOpen", "DBResultsRefresh",
-        \     "DBResultsToggleResize", "DBRollback", "DBSelectFromTable",
-        \     "DBSelectFromTableAskName", "DBSelectFromTableTopX",
-        \     "DBSelectFromTableWithWhere", "DBSetOption", "DBVarRangeAssign",
-        \     "Delete", "Drop", "Insert", "Select", "Update"]
-        \ }}
+  " NeoBundleLazy 'dbext.vim', {
+  "       \ 'autoload' : {
+  "       \   'commands': [
+  "       \     "Alter", "Call", "Create", "DBCheckModeline", "DBCommit",
+  "       \     "DBCompleteProcedure", "DBCompleteTable", "DBCompleteView",
+  "       \     "DBDescribeProcedure", "DBDescribeProcedureAskName",
+  "       \     "DBDescribeTable", "DBDescribeTableAskName", "DBExecRangeSQL",
+  "       \     "DBExecSQL", "DBExecSQLTopX", "DBExecSQLUnderCursor",
+  "       \     "DBExecVisualSQL", "DBGetOption", "DBHistory", "DBListColumn",
+  "       \     "DBListConnections", "DBListProcedure", "DBListTable", "DBListVar",
+  "       \     "DBListView", "DBOrientation", "DBPromptForBufferParameters",
+  "       \     "DBResultsClose", "DBResultsOpen", "DBResultsRefresh",
+  "       \     "DBResultsToggleResize", "DBRollback", "DBSelectFromTable",
+  "       \     "DBSelectFromTableAskName", "DBSelectFromTableTopX",
+  "       \     "DBSelectFromTableWithWhere", "DBSetOption", "DBVarRangeAssign",
+  "       \     "Delete", "Drop", "Insert", "Select", "Update"]
+  "       \ }}
 
   " vim上のtwitter client
-  NeoBundleLazy 'basyura/TweetVim', { 'depends' :
-        \ ['basyura/twibill.vim', 'tyru/open-browser.vim', 'Shougo/unite.vim'],
-        \ 'autoload' : {
-        \   'commands' : [ 'TweetVimAccessToken', 'TweetVimAddAccount',
-        \                 'TweetVimBitly', 'TweetVimCommandSay',
-        \                 'TweetVimCurrentLineSay', 'TweetVimHomeTimeline',
-        \                 'TweetVimListStatuses', 'TweetVimMentions',
-        \                 'TweetVimSay', 'TweetVimSearch',
-        \                 'TweetVimSwitchAccount', 'TweetVimUserTimeline',
-        \                 'TweetVimVersion' ],
-        \   'unite_sources' : ['tweetvim', 'tweetvim/account']
-        \ }}
+  " NeoBundleLazy 'basyura/TweetVim', { 'depends' :
+  "       \ ['basyura/twibill.vim', 'tyru/open-browser.vim', 'Shougo/unite.vim'],
+  "       \ 'autoload' : {
+  "       \   'commands' : [ 'TweetVimAccessToken', 'TweetVimAddAccount',
+  "       \                 'TweetVimBitly', 'TweetVimCommandSay',
+  "       \                 'TweetVimCurrentLineSay', 'TweetVimHomeTimeline',
+  "       \                 'TweetVimListStatuses', 'TweetVimMentions',
+  "       \                 'TweetVimSay', 'TweetVimSearch',
+  "       \                 'TweetVimSwitchAccount', 'TweetVimUserTimeline',
+  "       \                 'TweetVimVersion' ],
+  "       \   'unite_sources' : ['tweetvim', 'tweetvim/account']
+  "       \ }}
+
+  " NeoBundleLazy 'mattn/benchvimrc-vim', {
+  "       \ 'autoload' : { 'commands' : 'BenchVimrc' }}
 
   " vim上にブラウザを開く
   " NeoBundleLazy 'yuratomo/w3m.vim', {
