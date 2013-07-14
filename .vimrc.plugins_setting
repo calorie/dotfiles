@@ -196,15 +196,19 @@ let g:indent_guides_color_change_percent = 20
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_space_guides = 1
 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-if 'dark' == &background
-  hi IndentGuidesOdd  ctermbg=black
-  hi IndentGuidesEven ctermbg=darkgrey
-else
-  hi IndentGuidesOdd  ctermbg=white
-  hi IndentGuidesEven ctermbg=lightgrey
-endif
+let bundle = neobundle#get('vim-indent-guides')
+function! bundle.hooks.on_source(bundle)
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+  if 'dark' == &background
+    hi IndentGuidesOdd  ctermbg=black
+    hi IndentGuidesEven ctermbg=darkgrey
+  else
+    hi IndentGuidesOdd  ctermbg=white
+    hi IndentGuidesEven ctermbg=lightgrey
+  endif
+endfunction
+unlet bundle
 "}}}
 
 "------------------------------------
