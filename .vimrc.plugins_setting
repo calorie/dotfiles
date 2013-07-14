@@ -384,9 +384,8 @@ command! Vs :VimShell -split
 "------------------------------------
 "{{{
 " The prefix key.
-nnoremap s f
 nnoremap [unite] <Nop>
-nmap f [unite]
+nmap <Space> [unite]
 
 " 全部乗せ
 nnoremap <silent> [unite]a     :<C-u>UniteWithCurrentDir -auto-preview -buffer-name=all buffer file_mru bookmark file<CR>
@@ -427,7 +426,7 @@ nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -auto-preview tag<CR>
 " search
 " nnoremap <silent> /            :<C-u>Unite -auto-preview -buffer-name=search line/fast -start-insert -no-quit<CR>
 " tweetvim
-nnoremap <silent>[unite]tw     :<C-U>Unite tweetvim -buffer-name=tweetvim -no-start-insert<CR>
+" nnoremap <silent>[unite]tw     :<C-U>Unite tweetvim -buffer-name=tweetvim -no-start-insert<CR>
 " tig
 nnoremap <silent>[unite]ti     :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
 " giti
@@ -696,12 +695,12 @@ function! bundle.hooks.on_source(bundle)
   let g:rails_default_file = 'config/database.yml'
   " let g:rails_ctags_arguments = ''
 
-  nmap <Space>r :R<CR>
-  " nmap <buffer><Space>a :A<CR>
-  nmap <Space>m :Emodel<CR>
-  nmap <Space>c :Econtroller<CR>
-  nmap <Space>v :Eview<CR>
-  nmap <Space>s :Espec<CR>
+  " nmap <Space>r :R<CR>
+  " nmap <Space>a :A<CR>
+  nmap rm :Emodel<CR>
+  nmap rc :Econtroller<CR>
+  nmap rv :Eview<CR>
+  nmap rs :Espec<CR>
   au FileType ruby,eruby,ruby.rspec let g:neocomplete#sources#dictionary#dictionaries = {
         \'ruby' : $HOME.'/.vim/dict/ruby.rails.dict',
         \'eruby' : $HOME.'/.vim/dict/ruby.rails.dict'
@@ -943,4 +942,12 @@ augroup Sudo
   au BufWriteCmd  sudo:*,sudo:*/* SudoWrite <afile>
   au FileWriteCmd sudo:*,sudo:*/* SudoWrite <afile>
 augroup END
+"}}}
+
+"------------------------------------
+" clever-f
+"------------------------------------
+"{{{
+map f <Plug>(clever-f-f)
+map F <Plug>(clever-f-F)
 "}}}

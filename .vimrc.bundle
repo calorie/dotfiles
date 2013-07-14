@@ -337,10 +337,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : ['ChromeReload', 'ChromeReloadStart', 'ChromeReloadStop'],
         \ }}
 
+  " visual modeでテキスト移動
   NeoBundleLazy 't9md/vim-textmanip', { 'autoload' : {
         \ 'mappings' : [
         \   '<Plug>(textmanip-move-down)', '<Plug>(textmanip-move-up)',
         \   '<Plug>(textmanip-move-left)', '<Plug>(textmanip-move-right)'],
+        \ }}
+
+  " fで連続移動
+  NeoBundleLazy 'rhysd/clever-f.vim', { 'autoload' : {
+        \ 'mappings' : [
+        \   '<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
         \ }}
 
   " smooth_scroll.vim : スクロールを賢く
