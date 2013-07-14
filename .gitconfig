@@ -142,7 +142,7 @@
   generic = ^F move-page-down
   generic = ^B move-page-up
 [github]
-  user = YuuShigetani
+  user = calorie
 [rebase]
   autosquash = true
 [rerere]
