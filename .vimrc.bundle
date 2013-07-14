@@ -97,6 +97,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Edit {{{
 
+  " YankRing.vim : ヤンクの履歴を管理
+  NeoBundle 'YankRing.vim'
+
   "コメント
   NeoBundleLazy 'tomtom/tcomment_vim', {
         \ 'autoload' : {
@@ -130,9 +133,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " フィルタリングと整形
   NeoBundleLazy 'godlygeek/tabular', {
         \ 'autoload' : { 'commands' : 'Tab' }}
-
-  " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  NeoBundle 'YankRing.vim'
 
   " undo履歴を追える (need python support)
   NeoBundleLazy 'Gundo', {
@@ -182,9 +182,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " vim-textobj-entire : buffer全体をtext-objectに
     NeoBundle 'textobj-entire'
 
-    " vim-textobj-syntax : syntax hilightされたものをtext-objectに
-    NeoBundle 'kana/vim-textobj-syntax.git'
-
     " vim-textobj-function : 関数の中身をtext-objectに
     NeoBundle 'kana/vim-textobj-function.git'
 
@@ -209,6 +206,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " vim-textobj-fold : フォールディングされた範囲をtext-objectに
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
         \ 'autoload' : { 'filetypes' : ['vim'] }}
+
+    " vim-textobj-syntax : syntax hilightされたものをtext-objectに
+    " NeoBundle 'kana/vim-textobj-syntax.git'
 
     " vim-textobj-plugins : いろんなものをtext-objectにする。
     " vim-textobj-between, commnet, function-javascript, function-perl
@@ -291,6 +291,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Searching/Moving {{{
 
+  " <Leader>w/fなどで、motion先をhilightする
+  NeoBundle 'EasyMotion'
+
   " vim-smartword : 単語移動がスマートな感じで
   NeoBundleLazy 'smartword', {
         \ 'autoload' : {
@@ -307,9 +310,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     '<Plug>CamelCaseMotion_e', '<Plug>CamelCaseMotion_iw',
         \     '<Plug>CamelCaseMotion_ib', '<Plug>CamelCaseMotion_ie'],
         \ }}
-
-  " <Leader>w/fなどで、motion先をhilightする
-  NeoBundle 'EasyMotion'
 
   " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
   NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
@@ -355,6 +355,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
 " Programming {{{
+
+  " tagsの自動生成
+  NeoBundle 'szw/vim-tags'
 
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundleLazy 'thinca/vim-quickrun', {
@@ -404,9 +407,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'functions': ['zencoding#expandAbbr'],
         \   'filetypes': ['html', 'eruby', 'php', 'haml', 'css', 'scss', 'sass'],
         \ }}
-
-  " tagsの自動生成
-  NeoBundle 'szw/vim-tags'
 
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   NeoBundleLazy 'majutsushi/tagbar', {
@@ -533,13 +533,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Utility {{{
 
-  " vimshell : vim上にshellを開く
-  NeoBundleLazy 'Shougo/vimshell', {
-        \   'autoload' : { 'commands' : [ 'VimShell' ] }
-        \}
-  NeoBundleLazy 'ujihisa/vimshell-ssh', {
-        \ 'autoload' : { 'filetypes' : 'vimshell' }}
-
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc', {
         \ 'build' : {
@@ -550,6 +543,25 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " vim-dispatch : vimから非同期実行。
   NeoBundle 'tpope/vim-dispatch'
+
+  " vimdoc 日本語
+  NeoBundle 'yuroyoro/vimdoc_ja'
+
+  " ステータスラインをカッコよくする
+  NeoBundle 'Lokaltog/vim-powerline'
+
+  " タブラインをカッコよくする
+  NeoBundle 'YuuShigetani/alpaca_powertabline'
+
+  " sudo vim
+  NeoBundle 'sudo.vim'
+
+  " vimshell : vim上にshellを開く
+  NeoBundleLazy 'Shougo/vimshell', {
+        \   'autoload' : { 'commands' : [ 'VimShell' ] }
+        \}
+  NeoBundleLazy 'ujihisa/vimshell-ssh', {
+        \ 'autoload' : { 'filetypes' : 'vimshell' }}
 
   " vim-altercmd : Ex command拡張
   NeoBundleLazy 'tyru/vim-altercmd'
@@ -568,9 +580,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Buffer管理のLibrary
   NeoBundleLazy 'thinca/vim-openbuf'
-
-  " vimdoc 日本語
-  NeoBundle 'yuroyoro/vimdoc_ja'
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive', {
@@ -591,12 +600,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \               'GitGutterNextHunk',
         \               'GitGutterPrevHunk'],
         \ }}
-
-  " ステータスラインをカッコよくする
-  NeoBundle 'Lokaltog/vim-powerline'
-
-  " タブラインをカッコよくする
-  NeoBundle 'YuuShigetani/alpaca_powertabline'
 
   " Gist
   NeoBundleLazy 'mattn/gist-vim', {
@@ -622,9 +625,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     "DBSelectFromTableWithWhere", "DBSetOption", "DBVarRangeAssign",
         \     "Delete", "Drop", "Insert", "Select", "Update"]
         \ }}
-
-  " sudo vim
-  NeoBundle 'sudo.vim'
 
   " vim上のtwitter client
   NeoBundleLazy 'basyura/TweetVim', { 'depends' :
