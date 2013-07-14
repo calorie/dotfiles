@@ -382,8 +382,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " rails.vim : railsの基本的な拡張機能
   NeoBundle 'tpope/vim-rails', {
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
-  NeoBundleLazy 'romanvbabenko/rails.vim', {
-        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
 
   " vim-rspec : rspecの実行
   NeoBundleLazy 'skwp/vim-rspec', {
