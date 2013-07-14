@@ -1,6 +1,7 @@
 "-------------------------------------------------------------------------------
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
+syntax enable
 
 colorscheme calorie
 " colorscheme wombat
@@ -23,7 +24,6 @@ elseif &term =~ "xterm-color"
   set t_Sb=[4%dm
 endif
 
-syntax enable
 " 補完候補の色づけ for vim7
 hi Pmenu ctermbg=255 ctermfg=0 guifg=#000000 guibg=#999999
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
