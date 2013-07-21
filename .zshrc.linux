@@ -52,7 +52,7 @@ export RSENSE_HOME=$HOME/.vim/bundle/rsense-0.3
 export PATH=$PATH:$RSENSE_HOME/bin
 
 # gem
-# export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/
+export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/
 # export GEM_HOME=~/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/
 
 # android
@@ -60,3 +60,8 @@ export PATH=$PATH:$HOME/android/sdk/platform-tools:$HOME/android/sdk/tools
 
 # cassandra
 export PATH=$PATH:$HOME/cassandra/bin
+
+# go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+export PATH=/usr/local/go/bin:$PATH

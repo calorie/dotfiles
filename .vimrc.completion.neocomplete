@@ -21,7 +21,7 @@ function! bundle.hooks.on_source(bundle)
   " Set minimum keyword length.
   let g:neocomplete#min_keyword_length = 3
   " skip time
-  let g:neocomple_skip_auto_completion_time = '0.6'
+  " let g:neocomple_skip_auto_completion_time = '0.6'
   " max list num
   let g:neocomplete#max_list = 20
 
@@ -66,7 +66,6 @@ function! bundle.hooks.on_source(bundle)
   endif
   let g:neocomplete#enable_auto_close_preview = 1
 
-  " let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
   let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
   " Define keyword pattern.
@@ -140,14 +139,14 @@ function! bundle.hooks.on_source(bundle)
   " autocmd BufReadPost,BufEnter,BufWritePost :NeoCompleteBufferMakeCache <buffer>
 
   " Enable omni completion.
-  autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+  " autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
+  " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  " autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
+  " autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
+  " autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
 
-  " neocomplcache-rsense
-  let g:neocomple#sources#rsense#home_directory = neobundle#get_neobundle_dir() . 'rsense-0.3'
+  " " neocomplcache-rsense
+  " let g:neocomple#sources#rsense#home_directory = neobundle#get_neobundle_dir() . 'rsense-0.3'
 
 endfunction
 unlet bundle

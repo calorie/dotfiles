@@ -264,16 +264,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " neocomplcacheのrsense
-  NeoBundleLazy 'Shougo/neocomplcache-rsense', {
-        \ 'depends': 'Shougo/neocomplcache',
-        \ 'autoload': { 'filetypes': 'ruby' }}
+  " NeoBundleLazy 'Shougo/neocomplcache-rsense', {
+  "       \ 'depends': 'Shougo/neocomplcache',
+  "       \ 'autoload': { 'filetypes': 'ruby' }}
 
   " rsense本体
-  NeoBundleFetch 'taichouchou2/rsense-0.3', {
-        \ 'build' : {
-        \    'mac': 'ruby etc/config.rb > ~/.rsense',
-        \    'unix': 'ruby etc/config.rb > ~/.rsense',
-        \ } }
+  " NeoBundleFetch 'taichouchou2/rsense-0.3', {
+  "       \ 'build' : {
+  "       \    'mac': 'ruby etc/config.rb > ~/.rsense',
+  "       \    'unix': 'ruby etc/config.rb > ~/.rsense',
+  "       \ } }
 
   " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
   " NeoBundle 'AutoComplPop'
