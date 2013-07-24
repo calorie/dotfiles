@@ -364,7 +364,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Programming {{{
 
   " tagsの自動生成
-  NeoBundle 'szw/vim-tags'
+  NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+        \ 'rev' : 'development',
+        \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+        \ 'autoload' : {
+        \   'commands': ['AlpacaTagsUpdate', 'AlpacaTagsSet', 'AlpacaTagsBundle'],
+        \   'unite_sources' : ['tags']
+        \ }}
 
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundleLazy 'thinca/vim-quickrun', {
@@ -422,6 +428,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : {
         \   'commands': ["TagbarToggle", "TagbarTogglePause", "TagbarOpen"],
         \   'fuctions': ['tagbar#currenttag'] }}
+
+  " tagsの自動生成
+  " NeoBundle 'szw/vim-tags'
 
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   " NeoBundleLazy 'taglist.vim', {

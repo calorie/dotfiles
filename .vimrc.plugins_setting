@@ -951,3 +951,32 @@ augroup END
 map f <Plug>(clever-f-f)
 map F <Plug>(clever-f-F)
 "}}}
+
+"------------------------------------
+" alpaca-tags
+"------------------------------------
+"{{{
+let g:alpaca_update_tags_config = {
+      \ '_' : '-R --sort=yes',
+      \ 'js' : '--languages=+js',
+      \ '-js' : '--languages=-js,JavaScript',
+      \ 'vim' : '--languages=+Vim,vim',
+      \ '-vim' : '--languages=-Vim,vim',
+      \ '-style': '--languages=-css,sass,scss,js,JavaScript,html',
+      \ 'scss' : '--languages=+scss --languages=-css,sass',
+      \ 'sass' : '--languages=+sass --languages=-css,scss',
+      \ 'css' : '--languages=+css',
+      \ 'java' : '--languages=+java $JAVA_HOME/src',
+      \ 'ruby': '--languages=+Ruby',
+      \ 'coffee': '--languages=+coffee',
+      \ '-coffee': '--languages=-coffee',
+      \ 'bundle': '--languages=+Ruby --languages=-css,sass,scss,js,JavaScript,coffee',
+      \ }
+
+aug AlpacaUpdateTags
+  au!
+  au FileWritePost,BufWritePost * AlpacaTagsUpdate -style
+  au FileWritePost,BufWritePost Gemfile AlpacaTagsUpdateBundle
+  au FileReadPost,BufEnter * AlpacaTagsSet
+aug END
+"}}}
