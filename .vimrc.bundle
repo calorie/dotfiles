@@ -565,7 +565,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'Lokaltog/vim-powerline'
 
   " タブラインをカッコよくする
-  NeoBundle 'YuuShigetani/alpaca_powertabline'
+  NeoBundle 'calorie/alpaca_powertabline'
 
   " sudo vim
   NeoBundleLazy 'vim-scripts/sudo.vim', {
@@ -684,7 +684,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ColorScheme {{{
 
   " jellybeans, wombat
-  NeoBundle 'YuuShigetani/colorschemes'
+  NeoBundle 'calorie/colorschemes'
 
 " }}}
 
