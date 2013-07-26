@@ -177,19 +177,38 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " textobj {{{
 
     " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-    NeoBundle 'textobj-user'
+    NeoBundleLazy 'textobj-user'
 
     " vim-textobj-entire : buffer全体をtext-objectに
-    NeoBundle 'textobj-entire'
+    NeoBundleLazy 'textobj-entire', {
+        \ 'depends' : 'textobj-user',
+        \ 'autoload' : {
+        \   'mappings' : [['nx', '<Plug>(textobj-entire-a)'], ['nx', '<Plug>(textobj-entire-i)']]
+        \ }}
 
     " vim-textobj-function : 関数の中身をtext-objectに
-    NeoBundle 'kana/vim-textobj-function.git'
+    NeoBundleLazy 'kana/vim-textobj-function.git', {
+        \ 'depends' : 'textobj-user',
+        \ 'autoload' : {
+        \   'mappings' : [['nx', '<Plug>(textobj-function-a)'], ['nx', '<Plug>(textobj-function-i)']]
+        \ }}
 
     " vim-textobj-indent : インデントされたものをtext-objectに
-    NeoBundle 'kana/vim-textobj-indent.git'
+    NeoBundleLazy 'kana/vim-textobj-indent.git', {
+        \ 'depends' : 'textobj-user',
+        \ 'autoload' : {
+        \   'mappings' : [
+        \     ['nx', '<Plug>(textobj-indent-a)'], ['nx', '<Plug>(textobj-indent-i)'],
+        \     ['nx', '<Plug>(textobj-indent-same-a)'], ['nx', '<Plug>(textobj-indent-same-i)']]
+        \ }}
 
     " vim-textobj-comment : コメントをtext-objectに
-    NeoBundle 'thinca/vim-textobj-comment.git'
+    NeoBundleLazy 'thinca/vim-textobj-comment.git', {
+        \ 'depends' : 'textobj-user',
+        \ 'autoload' : {
+        \   'mappings' : [
+        \     ['nx', '<Plug>(textobj-comment-a)'], ['nx', '<Plug>(textobj-comment-i)']]
+        \ }}
 
     " vim-textobj-function-javascript : 関数の中身をtext-objectに
     NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
@@ -292,7 +311,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Searching/Moving {{{
 
   " <Leader>w/fなどで、motion先をhilightする
-  NeoBundle 'EasyMotion'
+  NeoBundle 'EasyMotion', { 'autoload' : {
+        \ 'mappings' : '<Leader>' }}
 
   " vim-smartword : 単語移動がスマートな感じで
   NeoBundleLazy 'smartword', {

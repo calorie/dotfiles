@@ -1014,3 +1014,35 @@ let g:airline_mode_map = {
 let g:bufferline_echo = 0
 let g:bufferline_rotate = 2
 "}}}
+
+"------------------------------------
+" vim-textobj-entire
+"------------------------------------
+"{{{
+nmap ae <Plug>(textobj-entire-a)
+xmap ae <Plug>(textobj-entire-a)
+nmap ie <Plug>(textobj-entire-i)
+xmap ie <Plug>(textobj-entire-i)
+"}}}
+
+"------------------------------------
+" vim-textobj-indent
+"------------------------------------
+"{{{
+nmap ai <Plug>(textobj-indent-a)
+xmap ai <Plug>(textobj-indent-a)
+nmap ii <Plug>(textobj-indent-i)
+xmap ii <Plug>(textobj-indent-i)
+nmap aI <Plug>(textobj-indent-same-a)
+xmap iI <Plug>(textobj-indent-same-i)
+"}}}
+
+"------------------------------------
+" vim-textobj-comment
+"------------------------------------
+"{{{
+nmap ac <Plug>(textobj-comment-a)
+xmap ac <Plug>(textobj-comment-a)
+nmap ic <Plug>(textobj-comment-i)
+xmap ic <Plug>(textobj-comment-i)
+"}}}
