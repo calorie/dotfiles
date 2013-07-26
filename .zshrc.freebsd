@@ -1,0 +1,17 @@
+case ${UID} in
+0)
+  updateports()
+  {
+    if [ -f /usr/ports/.portsnap.INDEX ]
+    then
+        portsnap fetch update
+    else
+        portsnap fetch extract update
+    fi
+    (cd /usr/ports/; make index)
+
+    portversion -v -l \<
+  }
+  alias appsupgrade='pkgdb -F && BATCH=YES NO_CHECKSUM=YES portupgrade -a'
+  ;;
+esac

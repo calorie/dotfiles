@@ -1,5 +1,6 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin/:~/bin:$PATH
+export PATH=$PATH:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/
 
 # osx alias
 alias pbc='pbcopy'

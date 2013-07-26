@@ -1,5 +1,6 @@
 # ls
 alias la="ls -a"
+alias la="ls -al"
 alias lf="ls -F"
 alias ll="ls -l"
 
