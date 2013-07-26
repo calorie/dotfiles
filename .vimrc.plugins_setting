@@ -845,7 +845,7 @@ let g:Powerline_mode_cs = 'S･B'
 "------------------------------------
 "{{{
 let g:vim_tags_auto_generate = 1
-let g:vim_tags_use_vim_dispatch = 0
+let g:vim_tags_use_vim_dispatch = 1
 let g:vim_tags_use_ycm = 0
 "}}}
 
@@ -973,10 +973,40 @@ let g:alpaca_update_tags_config = {
       \ 'bundle': '--languages=+Ruby --languages=-css,sass,scss,js,JavaScript,coffee',
       \ }
 
-aug AlpacaUpdateTags
-  au!
-  au FileWritePost,BufWritePost * AlpacaTagsUpdate -style
-  au FileWritePost,BufWritePost Gemfile AlpacaTagsUpdateBundle
-  au FileReadPost,BufEnter * AlpacaTagsSet
-aug END
+" augroup AlpacaTags
+"   autocmd!
+"   if exists(':Tags')
+"     autocmd BufWritePost * TagsUpdate ruby
+"     autocmd BufWritePost Gemfile TagsBundle
+"     autocmd BufEnter * TagsSet
+"   endif
+" augroup END
+"}}}
+
+"------------------------------------
+" vim-airline
+"------------------------------------
+"{{{
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = "⮀"
+let g:airline_left_alt_sep = "⮁"
+let g:airline_right_sep = "⮂"
+let g:airline_right_alt_sep = "⮃"
+let g:airline_theme = 'powerlineish'
+let g:airline_mode_map = {
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V-L',
+      \ 'c'  : 'C',
+      \ ''   : 'V-B',
+      \ }
+"}}}
+
+"------------------------------------
+" vim-airline
+"------------------------------------
+"{{{
+let g:bufferline_echo = 0
 "}}}

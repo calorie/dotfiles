@@ -364,13 +364,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Programming {{{
 
   " tagsの自動生成
-  NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-        \ 'rev' : 'development',
-        \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-        \ 'autoload' : {
-        \   'commands': ['AlpacaTagsUpdate', 'AlpacaTagsSet', 'AlpacaTagsBundle'],
-        \   'unite_sources' : ['tags']
-        \ }}
+  " NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+  "     \ 'rev' : 'development',
+  "     \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+  "     \ 'autoload' : {
+  "     \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+  "     \   'unite_sources' : ['tags']
+  "     \ }}
+  NeoBundle 'szw/vim-tags'
 
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundleLazy 'thinca/vim-quickrun', {
@@ -497,6 +498,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
+  " コマンドラインにバッファ表示
+  NeoBundle 'bling/vim-bufferline'
+
   " filer
   NeoBundleLazy 'Shougo/vimfiler', {
         \ 'depends' : 'Shougo/unite.vim',
@@ -520,9 +524,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " ctrl+pでファイル検索
   NeoBundleLazy 'ctrlp.vim', {
         \ 'autoload' : { 'commands' : ['CtrlP'] }}
-
-  " コマンドラインにバッファ表示
-  " NeoBundle 'bling/vim-bufferline'
 
   " ステータスラインにバッファ表示
   " NeoBundle 'zefei/buftabs'
@@ -562,7 +563,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'yuroyoro/vimdoc_ja'
 
   " ステータスラインをカッコよくする
-  NeoBundle 'Lokaltog/vim-powerline'
+  NeoBundle 'bling/vim-airline'
 
   " タブラインをカッコよくする
   NeoBundle 'calorie/alpaca_powertabline'
@@ -622,6 +623,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends': ['mattn/webapi-vim'],
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
+
+  " ステータスラインをカッコよくする
+  " NeoBundle 'Lokaltog/vim-powerline'
 
   " Vim上でSQL実行
   " NeoBundleLazy 'dbext.vim', {
