@@ -17,6 +17,8 @@ DOTFILES_PATH=$(cd $(dirname $0); pwd)
 mkdir -p $HOME/.zsh
 cd $HOME/.zsh
 git clone git@github.com:hchbaw/auto-fu.zsh.git
+cd $HOME/.zsh/auto-fu.zsh
+git checkout pu
 
 mkdir $HOME/.tmux
 cd $HOME/.tmux
