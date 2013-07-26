@@ -498,9 +498,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " NERDTree : ツリー型エクスプローラ
   NeoBundle 'The-NERD-tree'
 
-  " コマンドラインにバッファ表示
-  NeoBundle 'bling/vim-bufferline'
-
   " filer
   NeoBundleLazy 'Shougo/vimfiler', {
         \ 'depends' : 'Shougo/unite.vim',
@@ -524,6 +521,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " ctrl+pでファイル検索
   NeoBundleLazy 'ctrlp.vim', {
         \ 'autoload' : { 'commands' : ['CtrlP'] }}
+
+  " コマンドラインにバッファ表示
+  " NeoBundle 'bling/vim-bufferline'
 
   " ステータスラインにバッファ表示
   " NeoBundle 'zefei/buftabs'

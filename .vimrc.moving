@@ -33,17 +33,20 @@ noremap <Space>k <C-b>
 " nmap <silent> <Space><Space> :bn<CR>
 " nmap <silent> <BS><BS> :bp<CR>
 
-" F2で前のバッファ
-map <F2> <ESC>;bp<CR>
-" F3で次のバッファ
-map <F3> <ESC>;bn<CR>
-" F4でバッファを削除する
-map <F4> <ESC>:bnext \| bdelete #<CR>
-command! Bw :bnext \| bdelete #
+" F1で前のバッファ
+map <F1> <ESC>:bp<CR>
+" F2で次のバッファ
+map <F2> <ESC>:bn<CR>
+" F3でバッファを削除する
+map <F3> <ESC>:bnext \| bdelete #<CR>
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+
 map <kMinus> <C-W>-
+map <C-w><Down> <C-W>10-
+map <C-w><Up> <C-W>10+
+map <C-w><Left> <C-W>10>
+map <C-w><Right> <C-W>10<
 
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif

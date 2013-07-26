@@ -826,7 +826,6 @@ unlet bundle
 " vim-powerline
 "------------------------------------
 "{{{
-" source ~/dotfiles/.vimrc.statusline.powerline
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_stl_path_style = 'filename'
 let g:Powerline_mode_n  = ' N '
@@ -993,6 +992,10 @@ let g:airline_left_alt_sep = "⮁"
 let g:airline_right_sep = "⮂"
 let g:airline_right_alt_sep = "⮃"
 let g:airline_theme = 'powerlineish'
+let g:airline_fugitive_prefix = ''
+let g:airline_linecolumn_prefix = ''
+let g:airline_linecolumn_prefix = ''
+let g:airline_linecolumn_prefix = ''
 let g:airline_mode_map = {
       \ 'n'  : 'N',
       \ 'i'  : 'I',
@@ -1005,8 +1008,9 @@ let g:airline_mode_map = {
 "}}}
 
 "------------------------------------
-" vim-airline
+" vim-bufferline
 "------------------------------------
 "{{{
 let g:bufferline_echo = 0
+let g:bufferline_rotate = 2
 "}}}
