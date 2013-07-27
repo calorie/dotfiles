@@ -1019,9 +1019,9 @@ let g:bufferline_rotate = 2
 " vim-textobj-entire
 "------------------------------------
 "{{{
-nmap ae <Plug>(textobj-entire-a)
+" nmap ae <Plug>(textobj-entire-a)
 xmap ae <Plug>(textobj-entire-a)
-nmap ie <Plug>(textobj-entire-i)
+" nmap ie <Plug>(textobj-entire-i)
 xmap ie <Plug>(textobj-entire-i)
 "}}}
 
@@ -1029,11 +1029,13 @@ xmap ie <Plug>(textobj-entire-i)
 " vim-textobj-indent
 "------------------------------------
 "{{{
-nmap ai <Plug>(textobj-indent-a)
+" nmap ai <Plug>(textobj-indent-a)
 xmap ai <Plug>(textobj-indent-a)
-nmap ii <Plug>(textobj-indent-i)
+" nmap ii <Plug>(textobj-indent-i)
 xmap ii <Plug>(textobj-indent-i)
-nmap aI <Plug>(textobj-indent-same-a)
+" nmap aI <Plug>(textobj-indent-same-a)
+" nmap iI <Plug>(textobj-indent-same-i)
+xmap aI <Plug>(textobj-indent-same-a)
 xmap iI <Plug>(textobj-indent-same-i)
 "}}}
 
@@ -1041,8 +1043,8 @@ xmap iI <Plug>(textobj-indent-same-i)
 " vim-textobj-comment
 "------------------------------------
 "{{{
-nmap ac <Plug>(textobj-comment-a)
+" nmap ac <Plug>(textobj-comment-a)
 xmap ac <Plug>(textobj-comment-a)
-nmap ic <Plug>(textobj-comment-i)
+" nmap ic <Plug>(textobj-comment-i)
 xmap ic <Plug>(textobj-comment-i)
 "}}}
