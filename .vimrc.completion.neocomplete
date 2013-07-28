@@ -46,7 +46,7 @@ function! bundle.hooks.on_source(bundle)
         \ 'perl'       : $HOME.'/.vim/dict/perl.dict',
         \ 'php'        : $HOME.'/.vim/dict/php.dict',
         \ 'scheme'     : $HOME.'/.vim/dict/scheme.dict',
-        \ 'vm'         : $HOME.'/.vim/dict/vim.dict',
+        \ 'vim'        : $HOME.'/.vim/dict/vim.dict',
         \ 'ruby'       : $HOME.'/.vim/dict/ruby.dict'
         \ }
 
