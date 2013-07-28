@@ -1019,8 +1019,8 @@ let g:bufferline_rotate = 2
 "------------------------------------
 "{{{
 " nmap ae <Plug>(textobj-entire-a)
-xmap ae <Plug>(textobj-entire-a)
 " nmap ie <Plug>(textobj-entire-i)
+xmap ae <Plug>(textobj-entire-a)
 xmap ie <Plug>(textobj-entire-i)
 "}}}
 
@@ -1029,11 +1029,11 @@ xmap ie <Plug>(textobj-entire-i)
 "------------------------------------
 "{{{
 " nmap ai <Plug>(textobj-indent-a)
-xmap ai <Plug>(textobj-indent-a)
 " nmap ii <Plug>(textobj-indent-i)
-xmap ii <Plug>(textobj-indent-i)
 " nmap aI <Plug>(textobj-indent-same-a)
 " nmap iI <Plug>(textobj-indent-same-i)
+xmap ai <Plug>(textobj-indent-a)
+xmap ii <Plug>(textobj-indent-i)
 xmap aI <Plug>(textobj-indent-same-a)
 xmap iI <Plug>(textobj-indent-same-i)
 "}}}
@@ -1043,7 +1043,7 @@ xmap iI <Plug>(textobj-indent-same-i)
 "------------------------------------
 "{{{
 " nmap ac <Plug>(textobj-comment-a)
-xmap ac <Plug>(textobj-comment-a)
 " nmap ic <Plug>(textobj-comment-i)
+xmap ac <Plug>(textobj-comment-a)
 xmap ic <Plug>(textobj-comment-i)
 "}}}
