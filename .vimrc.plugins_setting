@@ -256,7 +256,7 @@ nnoremap U :<C-u>GundoToggle<CR>
 "{{{
 " カーソル下のURLをブラウザで開く
 nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
+xmap <Leader>o <Plug>(openbrowser-open)
 " カーソル下のキーワードをググる
 nnoremap <Leader>os :<C-u>OpenBrowserSearch<Space>
 nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
@@ -299,7 +299,7 @@ noremap ,ge  ge
 map W  <Plug>(smartword-w)
 map B  <Plug>(smartword-b)
 map E  <Plug>(smartword-e)
-map ge  <Plug>(smartword-ge)
+map ge <Plug>(smartword-ge)
 "}}}
 
 "------------------------------------
@@ -977,7 +977,7 @@ let g:alpaca_update_tags_config = {
 "   if exists(':Tags')
 "     autocmd BufWritePost * TagsUpdate ruby
 "     autocmd BufWritePost Gemfile TagsBundle
-"     autocmd BufEnter * TagsSet
+"     autocmd BufWritePost * TagsSet
 "   endif
 " augroup END
 "}}}
