@@ -574,6 +574,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
   " NeoBundleLazy 'fholgado/minibufexpl.vim', {
+  "       \ 'rev' : 'develop',
   "       \ 'autoload' : { 'commands' : ['MBEToggle'] }}
 
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
