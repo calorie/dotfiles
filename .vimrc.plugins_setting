@@ -994,6 +994,7 @@ let g:airline_right_alt_sep = "⮃"
 " let g:airline_theme = 'powerlineish'
 " let g:airline_theme = 'badwolf'
 let g:airline_theme = 'laederon'
+" let g:airline_theme = 'ubaryd'
 let g:airline_branch_prefix = '⭠ '
 let g:airline_readonly_symbol = '⭤ '
 let g:airline_linecolumn_prefix = ''
