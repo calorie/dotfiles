@@ -34,7 +34,7 @@ let g:yankring_zap_keys = ""
 "------------------------------------
 "{{{
 " Alignを日本語環境で使用するための設定
-let g:Align_xstrlen = 3
+" let g:Align_xstrlen = 3
 "}}}
 
 "------------------------------------
@@ -634,16 +634,16 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 " ctrlp
 "------------------------------------
 "{{{
-nnoremap <Space>p :CtrlP ~/<CR>
-
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_lazy_update = 1
-let g:ctrlp_regexp = 1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.\(hg\|git\|sass-cache\|svn|\~\)$',
-      \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
+" nnoremap <Space>p :CtrlP ~/<CR>
+"
+" let g:ctrlp_clear_cache_on_exit = 1
+" let g:ctrlp_lazy_update = 1
+" let g:ctrlp_regexp = 1
+" let g:ctrlp_show_hidden = 1
+" let g:ctrlp_use_caching = 1
+" let g:ctrlp_custom_ignore = {
+"       \ 'dir':  '\.\(hg\|git\|sass-cache\|svn|\~\)$',
+"       \ 'file': '\.\(dll\|exe\|gif\|jpg\|png\|psd\|so\|woff\)$' }
 "}}}
 
 "------------------------------------
@@ -740,10 +740,11 @@ let g:user_zen_settings = {
 "------------------------------------
 "{{{
 " nnoremap <silent> <Space>v :<C-u>VimFiler<CR>
-nnoremap <Leader>vf :<C-u>VimFilerExplorer -winwidth=20 -toggle<CR>
+nnoremap <Leader>vf :<C-u>VimFiler -split -toggle<CR>
 
 let bundle = neobundle#get('vimfiler')
 function! bundle.hooks.on_source(bundle)
+  let g:vimfiler_ignore_pattern = ''
   let g:vimfiler_enable_clipboard = 0
   let g:vimfiler_safe_mode_by_default = 0
 
@@ -991,12 +992,12 @@ let g:airline_left_sep = "⮀"
 let g:airline_left_alt_sep = "⮁"
 let g:airline_right_sep = "⮂"
 let g:airline_right_alt_sep = "⮃"
+let g:airline_theme = 'laederon'
 " let g:airline_theme = 'powerlineish'
 " let g:airline_theme = 'badwolf'
-let g:airline_theme = 'laederon'
 " let g:airline_theme = 'ubaryd'
-let g:airline_branch_prefix = '⭠ '
-let g:airline_readonly_symbol = '⭤ '
+let g:airline_branch_prefix = ' ⭠ '
+let g:airline_readonly_symbol = ' ⭤ '
 let g:airline_linecolumn_prefix = ''
 let g:airline_mode_map = {
       \ 'n'  : 'N',

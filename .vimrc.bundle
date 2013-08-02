@@ -63,7 +63,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'ujihisa/unite-rake', {
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload': {
-        \   'filetypes' : 'ruby',
         \   'unite_sources': 'rake'
         \ }}
 
@@ -128,14 +127,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : {
         \   'filetypes' : ['xml', 'html', 'ant'],
         \ }}
-
-  " Align : 高機能整形・桁揃えプラグイン
-  NeoBundleLazy 'Align', {
-        \ 'autoload' : { 'commands' : 'Align' }}
-
-  " マルチバイト対応の整形
-  NeoBundleLazy 'h1mesuke/vim-alignta', {
-        \ 'autoload' : { 'commands' : 'Alignta' }}
 
   " フィルタリングと整形
   NeoBundleLazy 'godlygeek/tabular', {
@@ -263,6 +254,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " smartchr.vim : ==などの前後を整形
   " NeoBundleLazy 'smartchr', {
   "       \ 'autoload' : { 'insert' : 1 }}
+
+  " Align : 高機能整形・桁揃えプラグイン
+  " NeoBundleLazy 'Align', {
+  "       \ 'autoload' : { 'commands' : 'Align' }}
+
+  " マルチバイト対応の整形
+  " NeoBundleLazy 'h1mesuke/vim-alignta', {
+  "       \ 'autoload' : { 'commands' : 'Alignta' }}
 
   " 自動閉じタグ
   " NeoBundle 'yuroyoro/vim-autoclose'
@@ -493,10 +492,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " syntax checking plugins exist for
   " eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundleLazy 'scrooloose/syntastic', {
+        \ 'build' : {
+        \   'mac' : ['brew install tidy', 'brew install csslint',
+        \            'gem install sass', 'brew install jslint'] },
         \ 'autoload': {
-        \   'build' : {
-        \     'mac' : ['brew install tidy', 'brew install csslint',
-        \              'gem install sass', 'brew install jslint'] },
         \   'insert' : 1,
         \ }}
 
@@ -541,6 +540,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " filer
   NeoBundleLazy 'Shougo/vimfiler', {
+        \ 'build' : {
+        \   'mac' : 'brew install rmtrash',
+        \   'unix' : 'sudo apt-get install trash-cli',
+        \ },
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload' : {
         \   'commands' : [
@@ -560,8 +563,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " ctrl+pでファイル検索
-  NeoBundleLazy 'ctrlp.vim', {
-        \ 'autoload' : { 'commands' : ['CtrlP'] }}
+  " NeoBundleLazy 'ctrlp.vim', {
+  "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
 
   " コマンドラインにバッファ表示
   " NeoBundle 'bling/vim-bufferline'
