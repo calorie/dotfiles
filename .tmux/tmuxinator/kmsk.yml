@@ -15,7 +15,7 @@ tabs:
         - guard
         - rails c
         - rails db
-  - shell: git pull --rebase origin master && rake db:migrate
+  - shell: git stash && git pull --rebase origin master && git stash pop && rake db:migrate
   - server:
       layout: main-vertical
       panes:
