@@ -27,6 +27,9 @@ set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
 
+" ;でコマンド入力( ;と:を入れ替)
+noremap ; :
+
 " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
 imap <C-p> <ESC>"*pa
 
@@ -39,5 +42,3 @@ set helpfile=$VIMRUNTIME/doc/help.txt
 
 " 開いているバッファの位置をカレントディレクトリに
 " autocmd BufEnter * silent! lcd %:p:h
-
-" filetype plugin indent on
