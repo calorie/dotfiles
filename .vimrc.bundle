@@ -556,7 +556,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ },
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload' : {
-        \   'commands' : ['VimFiler'],
+        \   'commands' : ['VimFiler', 'VimFilerExplorer'],
         \   'explorer' : 1,
         \ }}
 

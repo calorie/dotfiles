@@ -751,7 +751,6 @@ let g:user_zen_settings = {
 " vimfiler
 "------------------------------------
 "{{{
-" nnoremap <silent> <Space>v :<C-u>VimFiler<CR>
 nnoremap <Leader>vf :<C-u>VimFiler -split -toggle<CR>
 
 let bundle = neobundle#get('vimfiler')
