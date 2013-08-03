@@ -34,11 +34,11 @@ noremap <Space>k <C-b>
 " nmap <silent> <BS><BS> :bp<CR>
 
 " F1で前のバッファ
-map <F1> <ESC>:bp<CR>
+map <F2> <ESC>:bp<CR>
 " F2で次のバッファ
-map <F2> <ESC>:bn<CR>
+map <F3> <ESC>:bn<CR>
 " F3でバッファを削除する
-map <F3> <ESC>:bnext \| bdelete #<CR>
+map <F4> <ESC>:bnext \| bdelete #<CR>
 
 "フレームサイズを怠惰に変更する
 map <kPlus> <C-W>+

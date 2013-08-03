@@ -47,13 +47,14 @@ command! Pt :set paste!
 
 " インサートモード中に<C-o>でyankした内容をputする
 inoremap <C-o> <ESC>:<C-U>YRPaste 'p'<CR>i
+" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
+" imap <C-p> <ESC>"*pa
 
 " y9で行末までヤンク
 nmap y9 y$
 " y0で行頭までヤンク
 nmap y0 y^
 
-"
 " 括弧を自動補完
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
@@ -91,7 +92,7 @@ autocmd FileType vim,zsh :set foldmethod=marker
 
 " <leader>j でJSONをformat
 " http://wozozo.hatenablog.com/entry/2012/02/08/121504
-map <Leader>j !python -m json.tool<CR>
+" map <Leader>j !python -m json.tool<CR>
 
 " quickfixウィンドウではq/ESCで閉じる
 autocmd FileType qf nnoremap <buffer> q :ccl<CR>

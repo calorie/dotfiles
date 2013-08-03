@@ -20,7 +20,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : {
         \   'commands' : [
         \     'Unite', 'UniteWithCurrentDir',
-        \     'UniteWithBufferDir', 'UniteBookmarkAdd' ],
+        \     'UniteWithBufferDir', 'UniteBookmarkAdd',
+        \     'UniteWithCursorWord'],
         \ }}
 
   " outline
@@ -542,7 +543,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Buffer {{{
 
   " NERDTree : ツリー型エクスプローラ
-  NeoBundle 'The-NERD-tree'
+  NeoBundle 'The-NERD-tree', {
+        \ 'autoload' : {
+        \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
+        \ }}
 
   " filer
   NeoBundleLazy 'Shougo/vimfiler', {
