@@ -984,6 +984,7 @@ let g:alpaca_update_tags_config = {
 "------------------------------------
 "{{{
 let g:airline_powerline_fonts = 0
+let g:airline_enable_tagbar = 0
 let g:airline_left_sep = "⮀"
 let g:airline_left_alt_sep = "⮁"
 let g:airline_right_sep = "⮂"
@@ -992,8 +993,8 @@ let g:airline_theme = 'laederon'
 " let g:airline_theme = 'powerlineish'
 " let g:airline_theme = 'badwolf'
 " let g:airline_theme = 'ubaryd'
-let g:airline_branch_prefix = ' ⭠ '
-let g:airline_readonly_symbol = ' ⭤ '
+let g:airline_branch_prefix = '⭠ '
+let g:airline_readonly_symbol = '⭤ '
 let g:airline_linecolumn_prefix = ''
 let g:airline_mode_map = {
       \ 'n'  : 'N',
