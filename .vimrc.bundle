@@ -348,12 +348,19 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'mappings' : ['nx', '%'] }}
 
   " ruby用のmatchit拡張
-  NeoBundleLazy 'ruby-matchit', {
-        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+  NeoBundleLazy 'ruby-matchit', { 'autoload' : {
+        \ 'mappings' : ['nx', '%'] }}
 
   " rubyのrefactoring
   NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
-        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+        \ 'autoload' : {
+        \   'commands' : [
+        \     'RAddParameter', 'RConvertPostConditional',
+        \     'RExtractLet', 'RExtractConstant',
+        \     'RExtractLocalVariable', 'RInlineTemp',
+        \     'RExtractMethod', 'RRenameLocalVariable',
+        \     'RRenameInstanceVariable'],
+        \ }}
 
   " open-browser.vim : カーソルの下のURLを開く
   NeoBundleLazy 'tyru/open-browser.vim', {
@@ -546,19 +553,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ },
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload' : {
-        \   'commands' : [
-        \     { 'name' : 'VimFiler',
-        \       'complete' : 'customlist,vimfiler#complete' },
-        \     { 'name' : 'VimFilerBufferDir',
-        \       'complete' : 'customlist,vimfiler#complete' },
-        \     { 'name' : 'VimFilerExplorer',
-        \       'complete' : 'customlist,vimfiler#complete' },
-        \     { 'name' : 'Edit',
-        \       'complete' : 'customlist,vimfiler#complete' },
-        \     { 'name' : 'Write',
-        \       'complete' : 'customlist,vimfiler#complete' },
-        \       'Read', 'Source'],
-        \   'mappings' : ['<Plug>(vimfiler_switch)'],
+        \   'commands' : ['VimFiler'],
         \   'explorer' : 1,
         \ }}
 
