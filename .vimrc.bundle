@@ -218,10 +218,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
           \ 'autoload': { 'filetypes': ['javascript'] }}
 
-    " vim-textobj-function-perl : 関数の中身をtext-objectに
-    NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
-          \ 'autoload': { 'filetypes': ['perl'] }}
-
     " vim-textobj-rubyblock : rubyのブロックをtext-objectに
     NeoBundleLazy 'textobj-rubyblock', {
         \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
@@ -229,6 +225,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " vim-textobj-fold : フォールディングされた範囲をtext-objectに
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
         \ 'autoload' : { 'filetypes' : ['vim'] }}
+
+    " vim-textobj-function-perl : 関数の中身をtext-objectに
+    " NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
+    "       \ 'autoload': { 'filetypes': ['perl'] }}
 
     " vim-textobj-syntax : syntax hilightされたものをtext-objectに
     " NeoBundle 'kana/vim-textobj-syntax.git'
@@ -452,10 +452,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'tpope/vim-endwise.git', {
         \ 'autoload' : { 'insert' : 1 }}
 
-  " Pydiction : Python用の入力補完
-  NeoBundleLazy 'Pydiction', {
-        \ 'autoload': { 'filetypes': 'python' }}
-
   " html zencoding
   NeoBundleLazy 'mattn/zencoding-vim', {
         \ 'autoload': {
@@ -476,8 +472,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'TagbarOpen'],
         \   'fuctions': ['tagbar#currenttag'] }}
 
-  " tagsの自動生成
-  " NeoBundle 'szw/vim-tags'
+  " Pydiction : Python用の入力補完
+  " NeoBundleLazy 'Pydiction', {
+  "       \ 'autoload': { 'filetypes': 'python' }}
 
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   " NeoBundleLazy 'taglist.vim', {
@@ -506,10 +503,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'insert' : 1,
         \ }}
 
-  " haml
-  NeoBundleLazy 'haml.zip', {
-        \ 'autoload': { 'filetypes': ['haml'] }}
-
   " JavaScript
   NeoBundleLazy 'JavaScript-syntax', {
         \ 'autoload': { 'filetypes': ['javascript'] }}
@@ -517,10 +510,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " jQuery
   NeoBundleLazy 'jQuery', {
         \ 'autoload': { 'filetypes': ['javascript', 'coffee'] }}
-
-  " nginx conf
-  NeoBundleLazy 'nginx.vim', {
-        \ 'autoload' : { 'filetype': ['nginx'] }}
 
   " markdown
   NeoBundleLazy 'tpope/vim-markdown', {
@@ -530,13 +519,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'kchmck/vim-coffee-script', {
         \ 'autoload': { 'filetypes': ['coffee'] }}
 
+  " haml
+  " NeoBundleLazy 'haml.zip', {
+  "       \ 'autoload': { 'filetypes': ['haml'] }}
+
   " python
-  NeoBundleLazy 'yuroyoro/vim-python', {
-        \ 'autoload': { 'filetypes': ['python'] }}
+  " NeoBundleLazy 'yuroyoro/vim-python', {
+  "       \ 'autoload': { 'filetypes': ['python'] }}
+
+  " nginx conf
+  " NeoBundleLazy 'nginx.vim', {
+  "       \ 'autoload' : { 'filetype': ['nginx'] }}
 
   " scala
-  NeoBundleLazy 'yuroyoro/vim-scala', {
-        \ 'autoload': { 'filetypes': ['scala'] }}
+  " NeoBundleLazy 'yuroyoro/vim-scala', {
+  "       \ 'autoload': { 'filetypes': ['scala'] }}
 
 " }}}
 
@@ -673,19 +670,19 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " NeoBundleLazy 'dbext.vim', {
   "       \ 'autoload' : {
   "       \   'commands': [
-  "       \     "Alter", "Call", "Create", "DBCheckModeline", "DBCommit",
-  "       \     "DBCompleteProcedure", "DBCompleteTable", "DBCompleteView",
-  "       \     "DBDescribeProcedure", "DBDescribeProcedureAskName",
-  "       \     "DBDescribeTable", "DBDescribeTableAskName", "DBExecRangeSQL",
-  "       \     "DBExecSQL", "DBExecSQLTopX", "DBExecSQLUnderCursor",
-  "       \     "DBExecVisualSQL", "DBGetOption", "DBHistory", "DBListColumn",
-  "       \     "DBListConnections", "DBListProcedure", "DBListTable", "DBListVar",
-  "       \     "DBListView", "DBOrientation", "DBPromptForBufferParameters",
-  "       \     "DBResultsClose", "DBResultsOpen", "DBResultsRefresh",
-  "       \     "DBResultsToggleResize", "DBRollback", "DBSelectFromTable",
-  "       \     "DBSelectFromTableAskName", "DBSelectFromTableTopX",
-  "       \     "DBSelectFromTableWithWhere", "DBSetOption", "DBVarRangeAssign",
-  "       \     "Delete", "Drop", "Insert", "Select", "Update"]
+  "       \     'Alter', 'Call', 'Create', 'DBCheckModeline', 'DBCommit',
+  "       \     'DBCompleteProcedure', 'DBCompleteTable', 'DBCompleteView',
+  "       \     'DBDescribeProcedure', 'DBDescribeProcedureAskName',
+  "       \     'DBDescribeTable', 'DBDescribeTableAskName', 'DBExecRangeSQL',
+  "       \     'DBExecSQL', 'DBExecSQLTopX', 'DBExecSQLUnderCursor',
+  "       \     'DBExecVisualSQL', 'DBGetOption', 'DBHistory', 'DBListColumn',
+  "       \     'DBListConnections', 'DBListProcedure', 'DBListTable', 'DBListVar',
+  "       \     'DBListView', 'DBOrientation', 'DBPromptForBufferParameters',
+  "       \     'DBResultsClose', 'DBResultsOpen', 'DBResultsRefresh',
+  "       \     'DBResultsToggleResize', 'DBRollback', 'DBSelectFromTable',
+  "       \     'DBSelectFromTableAskName', 'DBSelectFromTableTopX',
+  "       \     'DBSelectFromTableWithWhere', 'DBSetOption', 'DBVarRangeAssign',
+  "       \     'Delete', 'Drop', 'Insert', 'Select', 'Update']
   "       \ }}
 
   " vim上のtwitter client
