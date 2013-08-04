@@ -1086,3 +1086,13 @@ xmap iI <Plug>(textobj-indent-same-i)
 xmap ac <Plug>(textobj-comment-a)
 xmap ic <Plug>(textobj-comment-i)
 "}}}
+
+"------------------------------------
+" vim-textobj-function
+"------------------------------------
+"{{{
+" nmap af <Plug>(textobj-function-a)
+" nmap if <Plug>(textobj-function-i)
+xmap af <Plug>(textobj-function-a)
+xmap if <Plug>(textobj-function-i)
+"}}}

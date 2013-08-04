@@ -217,17 +217,25 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     ['nx', '<Plug>(textobj-comment-i)']]
         \ }}
 
-    " vim-textobj-function-javascript : 関数の中身をtext-objectに
-    NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
-          \ 'autoload': { 'filetypes': ['javascript'] }}
-
-    " vim-textobj-rubyblock : rubyのブロックをtext-objectに
-    NeoBundleLazy 'textobj-rubyblock', {
-        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
-
     " vim-textobj-fold : フォールディングされた範囲をtext-objectに
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
-        \ 'autoload' : { 'filetypes' : ['vim'] }}
+          \ 'depends' : 'textobj-user',
+          \ 'autoload' : { 'filetypes' : ['vim'] }}
+
+    " vim-textobj-ruby : rubyのブロックをtext-objectに
+    NeoBundleLazy 'rhysd/vim-textobj-ruby', {
+          \ 'depends' : 'textobj-user',
+          \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+
+    " vim-textobj-rubyblock : rubyのブロックをtext-objectに
+    " NeoBundleLazy 'textobj-rubyblock', {
+    "       \ 'depends' : 'textobj-user',
+    "       \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+
+    " vim-textobj-function-javascript : 関数の中身をtext-objectに
+    " NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
+    "       \ 'depends' : 'textobj-user',
+    "       \ 'autoload': { 'filetypes': ['javascript'] }}
 
     " vim-textobj-function-perl : 関数の中身をtext-objectに
     " NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
@@ -352,7 +360,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " ruby用のmatchit拡張
   NeoBundleLazy 'ruby-matchit', { 'autoload' : {
-        \ 'mappings' : ['nx', '%'] }}
+        \ 'filetypes' : ['ruby', 'eruby'] }}
 
   " rubyのrefactoring
   NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
