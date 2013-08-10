@@ -384,8 +384,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'lordm/vim-browser-reload-linux', {
         \ 'autoload' : {
         \   'build' : { 'unix' : ['sudo apt-get install xdotool'] },
-        \   'commands' : ['ChromeReload', 'ChromeReloadStart',
-        \     'ChromeReloadStop'],
+        \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
         \ }}
 
   " visual modeでテキスト移動
@@ -447,7 +446,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " vim上でriの表示
   NeoBundleLazy 'taka84u9/vim-ref-ri', {
         \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-        \ 'autoload': { 'commands': ['Unite', 'Ref'] }}
+        \ 'autoload': { 'commands': 'Ref' }}
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   NeoBundleLazy 'vim-ruby/vim-ruby', {
@@ -616,9 +615,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'cygwin' : 'make -f make_cygwin.mak',
         \ }}
 
-  " vimdoc 日本語
-  NeoBundle 'yuroyoro/vimdoc_ja'
-
   " ステータスラインをカッコよくする
   NeoBundle 'bling/vim-airline'
 
@@ -685,6 +681,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends': ['mattn/webapi-vim'],
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
+
+  " vimdoc 日本語
+  " NeoBundle 'yuroyoro/vimdoc_ja'
 
   " ステータスラインをカッコよくする
   " NeoBundle 'Lokaltog/vim-powerline'
