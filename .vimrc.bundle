@@ -442,8 +442,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload': { 'commands': ['Unite', 'Ref'] }}
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-  NeoBundleLazy 'ruby.vim', {
-        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
   NeoBundleLazy 'vim-ruby/vim-ruby', {
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
 
@@ -463,10 +461,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'tpope/vim-endwise.git', {
         \ 'autoload' : { 'insert' : 1 }}
 
-  " html zencoding
-  NeoBundleLazy 'mattn/zencoding-vim', {
+  " html emmet-vim
+  NeoBundleLazy 'mattn/emmet-vim', {
         \ 'autoload': {
-        \   'functions': ['zencoding#expandAbbr'],
         \   'filetypes': ['html', 'eruby', 'php',
         \     'haml', 'css', 'scss', 'sass'],
         \ }}
@@ -482,6 +479,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands': ['TagbarToggle', 'TagbarTogglePause',
         \     'TagbarOpen'],
         \   'fuctions': ['tagbar#currenttag'] }}
+
+  " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
+  " NeoBundleLazy 'ruby.vim', {
+  "       \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
 
   " Pydiction : Python用の入力補完
   " NeoBundleLazy 'Pydiction', {
