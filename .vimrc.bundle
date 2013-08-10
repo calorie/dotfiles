@@ -47,13 +47,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'rails/view']
         \ }}
 
-  " command, search, yankのhistory
-  NeoBundleLazy 'thinca/vim-unite-history', {
-        \ 'depends' : 'Shougo/unite.vim',
-        \ 'autoload' : {
-        \   'unite_sources' : ['history/command', 'history/search']
-        \ }}
-
   " tag
   NeoBundleLazy 'tsukkee/unite-tag', {
         \ 'depends' : ['Shougo/unite.vim'],
@@ -67,13 +60,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload': {
         \   'unite_sources': 'rake'
-        \ }}
-
-  " help
-  NeoBundleLazy 'Shougo/unite-help', {
-        \ 'depends' : 'Shougo/unite.vim',
-        \ 'autoload' : {
-        \   'unite_sources' : 'help'
         \ }}
 
   " tig
@@ -97,6 +83,20 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'giti/remote', 'giti/status'
         \   ]
         \ }}
+
+  " command, search, yankのhistory
+  " NeoBundleLazy 'thinca/vim-unite-history', {
+  "       \ 'depends' : 'Shougo/unite.vim',
+  "       \ 'autoload' : {
+  "       \   'unite_sources' : ['history/command', 'history/search']
+  "       \ }}
+
+  " help
+  " NeoBundleLazy 'Shougo/unite-help', {
+  "       \ 'depends' : 'Shougo/unite.vim',
+  "       \ 'autoload' : {
+  "       \   'unite_sources' : 'help'
+  "       \ }}
 
   " NeoBundle 'choplin/unite-vim_hacks'
 
@@ -288,7 +288,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Completion {{{
 
   " 補完
-  if has("lua")
+  if has('lua')
     NeoBundleLazy 'Shougo/neocomplete.vim', {
           \ 'autoload' : { 'insert' : 1 }}
   else
@@ -437,6 +437,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " perldocやphpmanual等のリファレンスをvim上で見る
   NeoBundleLazy 'thinca/vim-ref', {
         \ 'autoload' : { 'commands' : 'Ref' }}
+
+  " vim上でriの表示
   NeoBundleLazy 'taka84u9/vim-ref-ri', {
         \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
         \ 'autoload': { 'commands': ['Unite', 'Ref'] }}
