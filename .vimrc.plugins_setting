@@ -425,9 +425,9 @@ nnoremap <silent> [unite]rj    :<C-u>Unite -buffer-name=r_js rails/javascript<CR
 nnoremap <silent> [unite]rs    :<C-u>Unite -buffer-name=r_spec rails/spec<CR>
 nnoremap <silent> [unite]ra    :<C-U>Unite -buffer-name=rake rake<CR>
 " help
-nnoremap <silent> [unite]h     :<C-U>Unite -auto-preview -buffer-name=help help<CR>
+" nnoremap <silent> [unite]h     :<C-U>Unite -auto-preview -buffer-name=help help<CR>
 " outline
-nnoremap <silent> [unite]o     :<C-U>Unite -auto-preview -no-start-insert -buffer-name=outline -hide-source-names outline<CR>
+nnoremap <silent> [unite]o     :<C-U>Unite -auto-preview -buffer-name=outline -hide-source-names outline<CR>
 " history
 " nnoremap <silent> [unite]:     :<C-U>Unite -buffer-name=h_command -no-empty history/command<CR>
 " nnoremap <silent> [unite]/     :<C-U>Unite -buffer-name=h_search -no-empty history/search<CR>
