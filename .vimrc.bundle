@@ -403,6 +403,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   '<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
         \ }}
 
+  " window swap
+  NeoBundleLazy 'calorie/vim-swap-windows', { 'autoload' : {
+        \ 'commands' : [
+        \   'MarkWindow', 'SwapWindows'],
+        \ }}
+
   " smooth_scroll.vim : スクロールを賢く
   " NeoBundle 'Smooth-Scroll'
 

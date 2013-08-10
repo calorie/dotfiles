@@ -1101,3 +1101,11 @@ xmap if <Plug>(textobj-function-i)
 "{{{
 let g:ruby_path = system('echo $HOME/.rbenv/shims')
 "}}}
+
+"------------------------------------
+" vim-swap-windows
+"------------------------------------
+"{{{
+nnoremap <silent> <leader>mw :MarkWindow<CR>
+nnoremap <silent> <leader>pw :SwapWindows<CR>
+"}}}
