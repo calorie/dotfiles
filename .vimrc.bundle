@@ -623,7 +623,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " vim-dispatch : vimから非同期実行。
   NeoBundleLazy 'tpope/vim-dispatch', {
-        \ 'autoload': { 'commands': ['Dispatch'] }
+        \ 'autoload': { 'commands': ['Dispatch', 'Make', 'Start'] }
         \ }
 
   " sudo vim
