@@ -65,3 +65,5 @@ svnでディレクトリ全体をignoreをかけるコマンド
 svn propset svn:ignore ‘*’ [ディレクトリ名]/
 svn statusで変更があったファイルのみディレクトリ構造毎別なディレクトリにコピーする湾来名 > svn status | cut -d ' ' -f8 | cpio -pd ../work
 
+一日のコミットを表示
+echo "$(PROJECT=$(url=$(git config remote.origin.url) && url=${url#*github.com?} && echo ${url%.git}) && echo "hash | title" && echo "-----|------" && git log --since='12 hours ago' --author=$(git config user.email) --pretty="format:[%h](https://github.com/$PROJECT/commit/%h) | %s" | perl -nle "\$_ =~ s|#(\\d+)|[#\\1](https://github.com/${PROJECT}/pull/\\1)|g; print \$_")"
