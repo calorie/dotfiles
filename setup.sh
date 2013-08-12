@@ -14,12 +14,14 @@ done
 ORIGIN=$(pwd)
 DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
+# auto-fu
 mkdir -p $HOME/.zsh
 cd $HOME/.zsh
 git clone git@github.com:hchbaw/auto-fu.zsh.git
 cd $HOME/.zsh/auto-fu.zsh
 git checkout pu
 
+# tmux-powerline
 mkdir $HOME/.tmux
 cd $HOME/.tmux
 git clone git@github.com:erikw/tmux-powerline.git
@@ -35,15 +37,22 @@ else
   echo "plz install cmake to display used-mem on tmux"
 fi
 
+# tmuxinator
 gem i tmuxinator
 mv $HOME/.tmuxinator/* $DOTFILES_PATH/.tmux/tmuxinator/
 rm -rf $HOME/.tmuxinator
 ln -s $DOTFILES_PATH/.tmux/tmuxinator $HOME/.tmuxinator
 
+# rbenv init
+echo "$(rbenv init - zsh)" > $HOME/dotfiles/.rbenv_init
+sed -i -e "s/rbenv rehash/# rbenv rehash/" $HOME/dotfiles/.rbenv_init
+
+# NeoBundle
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
 git clone git@github.com:Shougo/neobundle.vim.git
 
+# symbolic link
 DOTFILES=(
   .zshrc .zshrc.alias
   .zshrc.linux .zshrc.osx .ctags

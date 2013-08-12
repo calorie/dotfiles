@@ -14,7 +14,9 @@ export PATH
 
 # rbenv
 export PATH=$PATH:$HOME/.rbenv/bin
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
+source $HOME/dotfiles/.rbenv_init
+
 # phpenv
 # export PATH=$PATH:$HOME/.phpenv/bin
 # eval "$(phpenv init - zsh)"
