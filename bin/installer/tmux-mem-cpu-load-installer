@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -x `which cmake` ];then
+  [ -d $HOME/.tmux ] || mkdir $HOME/.tmux
+  cd $HOME/.tmux
+  git clone https://github.com/thewtex/tmux-mem-cpu-load.git
+  ln -sb $HOME/dotfiles/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp \
+    $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
+  cd $HOME/.tmux/tmux-mem-cpu-load
+  cmake .
+  make
+  sudo make install
+fi

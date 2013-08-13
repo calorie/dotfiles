@@ -1,0 +1,7 @@
+#!/bin/bash
+
+[ -d $HOME/.zsh ] || mkdir $HOME/.zsh
+cd $HOME/.zsh
+git clone https://github.com/hchbaw/auto-fu.zsh.git
+cd $HOME/.zsh/auto-fu.zsh
+git checkout pu

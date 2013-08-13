@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -x `which gem` ];then
+  gem i tmuxinator
+  mv $HOME/.tmuxinator/* $HOME/dotfiles/.tmux/tmuxinator/
+  rm -rf $HOME/.tmuxinator
+  ln -s $HOME/dotfiles/.tmux/tmuxinator $HOME/.tmuxinator
+fi

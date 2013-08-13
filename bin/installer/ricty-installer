@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -x `which fontforge` ];then
+  git clone https://github.com/yascentur/Ricty.git ~/Ricty
+  cd $HOME/Ricty
+  wget http://levien.com/type/myfonts/Inconsolata.otf
+  wget -O mig1m.zip 'http://sourceforge.jp/frs/redir.php?m=jaist&f=%2Fmix-mplus-ipa%2F57240%2Fmigu-1m-20121030.zip'
+  unzip mig1m.zip
+  sh ricty_generator.sh auto
+  wget https://raw.github.com/Lokaltog/vim-powerline/develop/fontpatcher/PowerlineSymbols.sfd
+  wget https://raw.github.com/Lokaltog/vim-powerline/develop/fontpatcher/fontpatcher
+  fontforge -lang=py -script fontpatcher Ricty-Regular.ttf
+  mkdir $HOME/.fonts
+  cp -f Ricty* ~/.fonts
+  fc-cache -vf
+  rm -rf $HOME/Ricty
+fi

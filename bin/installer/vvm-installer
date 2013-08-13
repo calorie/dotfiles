@@ -1,0 +1,7 @@
+#!/bin/bash
+
+curl https://raw.github.com/kana/vim-version-manager/master/bin/vvm | sed -e s/git:/https:/ | python - setup
+test -f $HOME/.vvm/etc/login && source $HOME/.vvm/etc/login
+
+# install vim7.4
+$HOME/dotfiles//bin/vvm_install vimorg--v7-4
