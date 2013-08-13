@@ -5,7 +5,7 @@ dotfiles
 - vim
 - zsh
 - cmake
-- tmux >= 0.7
+- tmux >= 1.7
 - rbenv
 
 ## setup

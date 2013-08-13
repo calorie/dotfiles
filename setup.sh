@@ -14,27 +14,6 @@ done
 ORIGIN=$(pwd)
 DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
-# symbolic link
-DOTFILES=(
-  .zshrc .zshrc.alias
-  .zshrc.linux .zshrc.osx .ctags
-  .emacs.el .gdbinit .gemrc .gitconfig
-  .gitignore .inputrc .irbrc .sbtconfig
-  .screenrc .vimrc .vrapperrc
-  import.scala .tmux.conf .tmux-powerlinerc
-  .dir_colors .rdebugrc .vim/dict )
-
-mkdir -p $HOME/.vim
-for file in ${DOTFILES[@]}
-do
-  if [ -e $HOME/$file ]; then
-    echo $HOME/$file exist. backup $HOME/$file~ is created.
-  fi
-  ln -sb $DOTFILES_PATH/$file $HOME/$file
-done
-
-exec $SHELL
-
 # ricty
 if [ -x `which fontforge` ];then
   git clone https://github.com/yascentur/Ricty.git ~/Ricty
@@ -54,6 +33,7 @@ fi
 
 # vvm
 curl https://raw.github.com/kana/vim-version-manager/master/bin/vvm | python - setup
+test -f $HOME/.vvm/etc/login && source $HOME/.vvm/etc/login
 $DOTFILES_PATH/bin/vvm_install vimorg--v7-4
 
 # rbenv
@@ -111,6 +91,25 @@ ln -s $DOTFILES_PATH/.tmux/tmuxinator $HOME/.tmuxinator
 mkdir -p $HOME/.vim/bundle
 cd $HOME/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim.git
+
+# symbolic link
+DOTFILES=(
+  .zshrc .zshrc.alias
+  .zshrc.linux .zshrc.osx .ctags
+  .emacs.el .gdbinit .gemrc .gitconfig
+  .gitignore .inputrc .irbrc .sbtconfig
+  .screenrc .vimrc .vrapperrc
+  import.scala .tmux.conf .tmux-powerlinerc
+  .dir_colors .rdebugrc .vim/dict )
+
+mkdir -p $HOME/.vim
+for file in ${DOTFILES[@]}
+do
+  if [ -e $HOME/$file ]; then
+    echo $HOME/$file exist. backup $HOME/$file~ is created.
+  fi
+  ln -sb $DOTFILES_PATH/$file $HOME/$file
+done
 
 cd ${ORIGIN}
 vim +NeoBundleInstall +qa
