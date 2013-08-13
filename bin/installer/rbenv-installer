@@ -21,3 +21,5 @@ rbenv rehash
 # init
 echo "$(rbenv init - zsh)" > $HOME/dotfiles/.rbenv_init
 sed -i -e "s/rbenv rehash/# rbenv rehash/" $HOME/dotfiles/.rbenv_init
+
+gem install rbenv-rehash --no-rdoc --no-ri
