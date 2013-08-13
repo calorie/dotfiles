@@ -4,4 +4,5 @@
 cd $HOME/.zsh
 git clone https://github.com/hchbaw/auto-fu.zsh.git
 cd $HOME/.zsh/auto-fu.zsh
-git checkout pu
+git checkout -b pu origin/pu
+git pull --rebase origin pu
