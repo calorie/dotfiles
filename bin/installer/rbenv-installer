@@ -16,7 +16,7 @@ CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr --enable-shared
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr --enable-shared" rbenv install 2.0.0-p247
 rbenv global 1.9.3-p448
 rbenv rehash
-export PATH=$PATH:$HOME/.rbenv/shims
+export PATH=$HOME/.rbenv/shims:$PATH
 
 # init
 echo "$(rbenv init - zsh)" > $HOME/dotfiles/.rbenv_init

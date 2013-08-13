@@ -23,7 +23,7 @@ PKGS=(
   tmuxinator )
 for pkg in ${PKGS[@]}
 do
-  source $INSTALLER_PATH/$pkg-installer
+  $INSTALLER_PATH/$pkg-installer
 done
 
 # symbolic link
@@ -41,7 +41,7 @@ do
 done
 
 # NeoBundle
-source $INSTALLER_PATH/neobundle-installer
+$INSTALLER_PATH/neobundle-installer
 
 cd ${ORIGIN}
 
