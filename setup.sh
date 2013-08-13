@@ -30,17 +30,13 @@ done
 DOTFILES=(
   .zshrc .zshrc.alias
   .zshrc.linux .zshrc.osx .ctags
-  .emacs.el .gdbinit .gemrc .gitconfig
+  .gdbinit .gemrc .gitconfig
   .gitignore .inputrc .irbrc .sbtconfig
   .screenrc .vimrc .vrapperrc
   import.scala .tmux.conf .tmux-powerlinerc
   .dir_colors .rdebugrc .vim/dict )
-mkdir -p $HOME/.vim
 for file in ${DOTFILES[@]}
 do
-  if [ -e $HOME/$file ]; then
-    echo $HOME/$file exist. backup $HOME/$file~ is created.
-  fi
   ln -sb $DOTFILES_PATH/$file $HOME/$file
 done
 

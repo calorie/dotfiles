@@ -5,3 +5,5 @@ test -f $HOME/.vvm/etc/login && source $HOME/.vvm/etc/login
 
 # install vim7.4
 $HOME/dotfiles//bin/vvm_install vimorg--v7-4
+
+[ -d $HOME/.vim ] || mkdir $HOME/.vim

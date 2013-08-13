@@ -14,12 +14,13 @@ done
 DOT_FILES=(
   .zshrc .zshrc.alias
   .zshrc.linux .zshrc.osx .ctags
-  .emacs.el .gdbinit .gemrc .gitconfig
+  .gdbinit .gemrc .gitconfig
   .gitignore .inputrc .irbrc .sbtconfig
   .screenrc .vimrc .vrapperrc
   import.scala .tmux.conf .tmux-powerlinerc
   .dir_colors .rdebugrc .tmux .tmuxinator
-  .vim/bundle .vim/dict dotfiles )
+  .vim .vvm .zsh .fonts .rbenv
+  import.scala dotfiles )
 
 for file in ${DOT_FILES[@]}
 do
