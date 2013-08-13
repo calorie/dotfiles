@@ -1,6 +1,7 @@
 #!/bin/bash
 
 [ -d $HOME/.tmux ] || mkdir $HOME/.tmux
+cd $HOME/.tmux
 git clone https://github.com/erikw/tmux-powerline.git
 ln -sb $HOME/dotfiles/.tmux/tmux-powerline/themes/mytheme.sh \
   $HOME/.tmux/tmux-powerline/themes/mytheme.sh
