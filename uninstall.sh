@@ -25,3 +25,5 @@ for file in ${DOT_FILES[@]}
 do
   rm -rf $HOME/$file
 done
+
+exec $SHELL
