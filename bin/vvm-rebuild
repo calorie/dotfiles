@@ -16,5 +16,3 @@ vvm rebuild $1 \
     --enable-python3interp \
     --enable-luainterp \
     --with-lua-prefix=/usr
-
-exit 0

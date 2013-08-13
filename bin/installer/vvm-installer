@@ -4,6 +4,8 @@ curl https://raw.github.com/kana/vim-version-manager/master/bin/vvm | sed -e s/g
 test -f $HOME/.vvm/etc/login && source $HOME/.vvm/etc/login
 
 # install vim7.4
-$HOME/dotfiles/bin/vvm-install vimorg--v7-4
+vvm install vimorg--v7-4
+$HOME/dotfiles/bin/vvm-rebuild vimorg--v7-4
+vvm use vimorg--v7-4
 
 [ -d $HOME/.vim ] || mkdir $HOME/.vim
