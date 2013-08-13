@@ -9,6 +9,7 @@
 " Yankの履歴参照
 nmap ,y :YRShow<CR>
 let g:yankring_zap_keys = ""
+let g:yankring_history_file = '.yankring_history'
 "}}}
 
 "------------------------------------
