@@ -10,8 +10,8 @@ if [ -x `which fontforge` ];then
   wget https://raw.github.com/Lokaltog/vim-powerline/develop/fontpatcher/PowerlineSymbols.sfd
   wget https://raw.github.com/Lokaltog/vim-powerline/develop/fontpatcher/fontpatcher
   fontforge -lang=py -script fontpatcher Ricty-Regular.ttf
-  mkdir $HOME/.fonts
-  cp -f Ricty* ~/.fonts
+  [ -d $HOME/.fonts ] || mkdir $HOME/.fonts
+  cp -f $HOME/Ricty/Ricty* $HOME/.fonts
   fc-cache -vf
   rm -rf $HOME/Ricty
 fi
