@@ -67,7 +67,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends' : 'Shougo/unite.vim',
         \ 'build' : {
         \    'mac': 'brew install tig',
-        \    'unix': 'apt-get install tig',
+        \    'unix': 'sudo apt-get install tig',
         \ },
         \ 'autoload' : {
         \   'unite_sources' : 'tig'
