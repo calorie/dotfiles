@@ -15,15 +15,15 @@ ORIGIN=$(pwd)
 DOTFILES_PATH=$(cd $(dirname $0); pwd)
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
-INSTALLERS=(
+PKGS=(
   ricty vvm
   rbenv auto-fu
   tmux-powerline
   tmux-mem-cpu-load
   tmuxinator )
-for installer in ${INSTALLERS[@]}
+for pkg in ${PKGS[@]}
 do
-  source $INSTALLER_PATH/$installer-installer
+  source $INSTALLER_PATH/$pkg-installer
 done
 
 # symbolic link
