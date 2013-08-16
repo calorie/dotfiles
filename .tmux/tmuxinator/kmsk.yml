@@ -7,7 +7,7 @@ pre:
   - sudo dhclient eth0
   - sudo ifdown eth0
   - sudo ifup eth0
-tabs:
+windows:
   - editor: vim
   - debug:
       layout: main-vertical
