@@ -28,9 +28,7 @@ done
 
 # symbolic link
 DOTFILES=(
-  .zshrc .zshrc.alias
-  .zshrc.linux .zshrc.osx .ctags
-  .gdbinit .gemrc .gitconfig
+  .zshrc .ctags .gdbinit .gemrc .gitconfig
   .gitignore .inputrc .irbrc .sbtconfig
   .screenrc .vimrc .vrapperrc
   import.scala .tmux.conf .tmux-powerlinerc
