@@ -31,7 +31,7 @@ DOTFILES=(
   .zshrc .ctags .gdbinit .gemrc .gitconfig
   .gitignore .inputrc .irbrc .sbtconfig
   .screenrc .vimrc .vrapperrc
-  import.scala .tmux.conf .tmux-powerlinerc
+  .tmux.conf .tmux-powerlinerc
   .dir_colors .rdebugrc .vim/dict )
 for file in ${DOTFILES[@]}
 do
