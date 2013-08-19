@@ -669,9 +669,12 @@ _rake() {
     compadd `cat .rake_tasks`
   fi
 }
+compdef _rake rake
 # }}}
 
-compdef _rake rake
+# mkdir & cd
+function mkcd() { mkdir -p $1 && cd $1; }
+
 # alias設定
 # {{{
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
