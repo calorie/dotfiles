@@ -36,6 +36,3 @@ command! Rv source $MYVIMRC
 command! Path echo expand("%:p")
 
 set helpfile=$VIMRUNTIME/doc/help.txt
-
-" 開いているバッファの位置をカレントディレクトリに
-" autocmd BufEnter * silent! lcd %:p:h
