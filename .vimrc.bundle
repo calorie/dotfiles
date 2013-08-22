@@ -259,12 +259,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " }}}
 
+  " smartchr.vim : ==などの前後を整形
+  " NeoBundleLazy 'kana/vim-smartchr', {
+  "       \ 'autoload' : { 'insert' : 1 }}
+
+  " smartinput.vim : ==などの前後を整形
+  " NeoBundleLazy 'kana/vim-smartinput', {
+  "       \ 'autoload' : { 'insert' : 1 }}
+
   " NERD_commenter.vim : (<Leader>c<space>でコメントをトグル)
   " NeoBundle 'scrooloose/nerdcommenter.git'
-
-  " smartchr.vim : ==などの前後を整形
-  " NeoBundleLazy 'smartchr', {
-  "       \ 'autoload' : { 'insert' : 1 }}
 
   " Align : 高機能整形・桁揃えプラグイン
   " NeoBundleLazy 'Align', {

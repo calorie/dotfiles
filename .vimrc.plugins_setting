@@ -42,7 +42,7 @@ let g:yankring_history_file = '.yankring_history'
 " tabular
 "------------------------------------
 "{{{
-vmap t :Tab /
+vnoremap t :Tab /
 "}}}
 
 "------------------------------------
@@ -113,45 +113,74 @@ let g:surround_{char2nr("-")} = ":\r"
 " smartchr.vim
 "------------------------------------
 "{{{
-" let bundle = neobundle#get('smartchr')
-" function! bundle.hooks.on_source(bundle)
-  " inoremap <expr> = smartchr#loop('=', '==', '=>')
-  " inoremap <expr> . smartchr#loop('.',  '->', '=>')
-  "
-  " " 演算子の間に空白を入れる
-  " inoremap <buffer><expr> + smartchr#one_of(' + ', ' ++ ', '+')
-  " inoremap <buffer><expr> +=  smartchr#one_of(' += ')
-  " " inoremap <buffer><expr> - smartchr#one_of(' - ', ' -- ', '-')
-  " inoremap <buffer><expr> -=  smartchr#one_of(' -= ')
-  " " inoremap <buffer><expr> / smartchr#one_of(' / ', ' // ', '/')
-  " inoremap <buffer><expr> /=  smartchr#one_of(' /= ')
-  " inoremap <buffer><expr> * smartchr#one_of(' * ', ' ** ', '*')
-  " inoremap <buffer><expr> *=  smartchr#one_of(' *= ')
-  " inoremap <buffer><expr> & smartchr#one_of(' & ', ' && ', '&')
-  " inoremap <buffer><expr> % smartchr#one_of(' % ', '%')
-  " inoremap <buffer><expr> =>  smartchr#one_of(' => ')
-  " inoremap <buffer><expr> <-   smartchr#one_of(' <-  ')
-  " inoremap <buffer><expr> <Bar> smartchr#one_of(' <Bar> ', ' <Bar><Bar> ', '<Bar>')
-  " inoremap <buffer><expr> , smartchr#one_of(', ', ',')
-  " " 3項演算子の場合は、後ろのみ空白を入れる
-  " inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
-  " " inoremap <buffer><expr> : smartchr#one_of(': ', '::', ':')
-
-  " " =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
-  " " 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
-  " inoremap <buffer><expr> = search('¥(&¥<bar><bar>¥<bar>+¥<bar>-¥<bar>/¥<bar>>¥<bar><¥) ¥%#', 'bcn')? '<bs>= '  : search('¥(*¥<bar>!¥)¥%#', 'bcn') ? '= '  : smartchr#one_of(' = ', ' == ', '=')
-
-  " " 下記の文字は連続して現れることがまれなので、二回続けて入力したら改行する
-  " inoremap <buffer><expr> } smartchr#one_of('}', '}<cr>')
-  " inoremap <buffer><expr> ; smartchr#one_of(';', ';<cr>')
-  " "()は空白入れる
-  " inoremap <buffer><expr> ( smartchr#one_of('( ')
-  " inoremap <buffer><expr> ) smartchr#one_of(' )')
-
-  " " if文直後の(は自動で間に空白を入れる
-  " inoremap <buffer><expr> ( search('¥<¥if¥%#', 'bcn')? ' (': '('
+" let s:bundle = neobundle#get('vim-smartchr')
+" function! s:bundle.hooks.on_source(bundle)
+"   " inoremap <expr> + smartchr#one_of(' + ', '++', '+')
+"   " inoremap <expr> - smartchr#one_of(' - ', '--', '-')
+"   " inoremap <expr> / smartchr#one_of(' / ', '// ', '/')
+"   " inoremap <expr> ! smartchr#one_of('! ', ' != ', '!')
+"   " inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
+"   inoremap <expr> , smartchr#one_of(', ', '->', ' => ')
+"
+"   if &filetype ==? 'lisp'
+"     inoremap <expr> ; smartchr#loop('; ', ';')
+"   endif
 " endfunction
-" unlet bundle
+" unlet s:bundle
+"}}}
+
+"------------------------------------
+" smartinput.vim
+"------------------------------------
+"{{{
+" let s:bundle = neobundle#get('vim-smartinput')
+" function! s:bundle.hooks.on_source(bundle)
+"   call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+"   call smartinput#define_rule({ 'char' : '<Space>', 'at' : '(\%#)', 'input' : '<Space><Space><Left>'})
+"
+"   let lst = [
+"         \ ['<',     "smartchr#loop(' < ', ' << ', '<')" ],
+"         \ ['>',     "smartchr#loop(' > ', ' >> ', '>')"],
+"         \ ['+',     "smartchr#loop(' + ', ' ++ ', '+')"],
+"         \ ['-',     "smartchr#loop(' - ', ' -- ', '-')"],
+"         \ ['/',     "smartchr#loop(' / ', '//', '/')"],
+"         \ ['&',     "smartchr#loop(' & ', ' && ', '&')"],
+"         \ ['%',     "smartchr#loop(' % ', '%')"],
+"         \ ['*',     "smartchr#loop(' * ', '*')"],
+"         \ ['<Bar>', "smartchr#loop(' | ', ' || ', '|')"]]
+"
+"   for i in lst
+"     call smartinput#map_to_trigger('i', i[0], i[0], i[0])
+"     call smartinput#define_rule({ 'char' : i[0], 'at' : '\%#', 'input' : '<C-R>=' . i[1] . '<CR>'})
+"     if i[0] == '%'
+"       call smartinput#define_rule({'char' : i[0], 'at' : '^\([^"]*"[^"]*"\)*[^"]*"[^"]*\%#', 'input' : i[0]})
+"     endif
+"     call smartinput#define_rule({ 'char' : i[0], 'at' : '^\([^'']*''[^'']*''\)*[^'']*''[^'']*\%#', 'input' : i[0] })
+"   endfor
+"
+"   call smartinput#define_rule({'char' : '>', 'at' : ' < \%#', 'input' : '<BS><BS><BS><><Left>'})
+"
+"   call smartinput#map_to_trigger('i', '=', '=', '=')
+"   call smartinput#define_rule({ 'char' : '=', 'at' : '\%#', 'input' : "<C-R>=smartchr#loop(' = ', ' == ', '=')<CR>"})
+"   call smartinput#define_rule({ 'char' : '=', 'at' : '[&+-/<>|] \%#', 'input' : '<BS>= '})
+"   call smartinput#define_rule({ 'char' : '=', 'at' : '!\%#', 'input' : '= '})
+"   " call smartinput#define_rule({ 'char' : '=', 'at' : '^\([^"]*"[^"]*"\)*[^"]*"[^"]*\%#', 'input' : '='})
+"   call smartinput#define_rule({ 'char' : '=', 'at' : '^\([^'']*''[^'']*''\)*[^'']*''[^'']*\%#', 'input' : '='})
+"
+" "   call smartinput#map_to_trigger('i', '<BS>', '<BS>', '<BS>')
+" "   call smartinput#define_rule({ 'char' : '<BS>' , 'at' : '(\s*)\%#'   , 'input' : '<C-O>dF(<BS>'})
+" "   call smartinput#define_rule({ 'char' : '<BS>' , 'at' : '{\s*}\%#'   , 'input' : '<C-O>dF{<BS>'})
+" "   call smartinput#define_rule({ 'char' : '<BS>' , 'at' : '<\s*>\%#'   , 'input' : '<C-O>dF<<BS>'})
+" "   call smartinput#define_rule({ 'char' : '<BS>' , 'at' : '\[\s*\]\%#' , 'input' : '<C-O>dF[<BS>'})
+" "
+" "   for op in ['<', '>', '+', '-', '/', '&', '%', '*', '|']
+" "     call smartinput#define_rule({ 'char' : '<BS>' , 'at' : ' ' . op . ' #/%' , 'input' : '<BS><BS><BS>'})
+" "   endfor
+"
+"   call smartinput#map_to_trigger('i', '*', '*', '*')
+"   call smartinput#define_rule({ 'char' : '*', 'at' : 'defparameter \*\%#', 'input' : '*<Left>', 'filetype' : [ 'lisp' ]})
+" endfunction
+" unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -335,6 +364,8 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 " vimshell
 "------------------------------------
 "{{{
+command! Vs :VimShell -split
+
 let bundle = neobundle#get('vimshell')
 function! bundle.hooks.on_source(bundle)
 
@@ -387,8 +418,6 @@ function! bundle.hooks.on_source(bundle)
 
 endfunction
 unlet bundle
-
-command! Vs :VimShell -split
 "}}}
 
 "------------------------------------
@@ -663,27 +692,36 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 " Syntastic
 "------------------------------------
 "{{{
-" エラー行をsignで表示する
-let g:syntastic_enable_signs = 1
-" 可能ならhighligt表示する
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_auto_jump = 0
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_echo_current_error = 1
-let g:syntastic_enable_balloons = 1
-let g:syntastic_loc_list_height = 3
-let g:syntastic_quiet_warnings = 0
+let bundle = neobundle#get('syntastic')
+function! bundle.hooks.on_source(bundle)
+  " エラー行をsignで表示する
+  let g:syntastic_enable_signs = 1
+  " 可能ならhighligt表示する
+  let g:syntastic_enable_highlighting = 1
+  let g:syntastic_auto_jump = 0
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_echo_current_error = 1
+  let g:syntastic_enable_balloons = 1
+  let g:syntastic_loc_list_height = 3
+  let g:syntastic_quiet_warnings = 0
 
-let g:syntastic_mode_map = {
-      \ 'mode'              : 'active',
-      \ 'active_filetypes'  : [],
-      \ 'passive_filetypes' : ['html'],
-      \}
-" let g:syntastic_ruby_checkers = ['rubocop']
-if executable('rubocop')
-  nnoremap <silent><Leader>s :<C-u>Dispatch rubocop --format emacs --silent %<CR>
-endif
+  let g:syntastic_mode_map = {
+        \ 'mode'              : 'active',
+        \ 'active_filetypes' : [],
+        \ 'passive_filetypes' : ['html'],
+        \}
+
+  function! g:toggle_rubocop()
+    if exists('g:syntastic_ruby_checkers')
+      unlet g:syntastic_ruby_checkers
+    else
+      let g:syntastic_ruby_checkers = ['rubocop']
+    endif
+  endfunction
+  nnoremap <Leader>s :call g:toggle_rubocop() \| SyntasticCheck<CR>
+endfunction
+unlet bundle
 "}}}
 
 "------------------------------------

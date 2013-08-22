@@ -15,7 +15,7 @@ DOT_FILES=(
   .zshrc .ctags .gdbinit .gemrc .gitconfig
   .gitignore .inputrc .irbrc .sbtconfig
   .screenrc .vimrc .vrapperrc
-  .tmux.conf .tmux-powerlinerc
+  .tmux.conf .tmux-powerlinerc .rubocop.yml
   .dir_colors .rdebugrc .tmux .tmuxinator
   .vim .vvm .zsh .fonts .rbenv
   import.scala dotfiles )

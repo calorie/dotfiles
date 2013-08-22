@@ -30,7 +30,7 @@ done
 DOTFILES=(
   .zshrc .ctags .gdbinit .gemrc .gitconfig
   .gitignore .inputrc .irbrc .sbtconfig
-  .screenrc .vimrc .vrapperrc
+  .screenrc .vimrc .vrapperrc .rubocop.yml
   .tmux.conf .tmux-powerlinerc
   .dir_colors .rdebugrc .vim/dict )
 for file in ${DOTFILES[@]}
