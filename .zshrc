@@ -203,7 +203,7 @@ setopt extended_glob
 # Keybind configuration
 # emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes
 #   to end of it)
-bindkey -v
+bindkey -e
 
 # historical backward/forward search with linehead string binded to ^P/^N
 autoload history-search-end
@@ -313,8 +313,8 @@ zle -N cdup
 # bindkey '\^' cdup
 
 # ctrl-w, ctrl-bキーで単語移動
-bindkey "^W" forward-word
-bindkey "^B" backward-word
+# bindkey "^W" forward-word
+# bindkey "^B" backward-word
 
 # back-wordでの単語境界の設定
 autoload -Uz select-word-style
@@ -656,7 +656,7 @@ _gemfile_updated_at() {
 }
 
 _generate_cachefile() {
-  [ ! -f .rake_tasks ] || rm .rake_tasks
+  [ -f .rake_tasks ] && rm .rake_tasks
   rake --silent --tasks 2> /dev/null | cut  -f 2 -d " " > .rake_tasks
 }
 
