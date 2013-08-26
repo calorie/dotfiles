@@ -4,6 +4,9 @@ alias la="ls -al"
 alias lf="ls -F"
 alias ll="ls -l"
 
+# reload
+alias rl='exec $SHELL'
+
 # process
 # alias j="jobs -l"
 alias 'ps?'='pgrep -l -f'
