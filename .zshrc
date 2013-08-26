@@ -655,6 +655,7 @@ _gemfile_updated_at() {
 }
 
 _generate_cachefile() {
+  [ ! -f .rake_tasks ] || rm .rake_tasks
   rake --silent --tasks 2> /dev/null | cut  -f 2 -d " " > .rake_tasks
 }
 
