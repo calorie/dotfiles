@@ -494,10 +494,11 @@ zstyle ':auto-fu:highlight' completion fg=white
 zstyle ':auto-fu:var' postdisplay ''
 
 # afu+cancel
-function afucancel () {
+function afu+cancel () {
   afu-clearing-maybe
   ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur"; }
 }
+zle -N afu+cancel
 function bindkey-advice-before () {
   local key="$1"
   local advice="$2"
@@ -522,9 +523,9 @@ EOT
   zle -N "$fun"
   bindkey -M afu "$key" "$fun"
 }
-bindkey-advice-before "^G" afucancel
-bindkey-advice-before "^[" afucancel
-bindkey-advice-before "^J" afucancel afu+accept-line
+bindkey-advice-before "^G" afu+cancel
+bindkey-advice-before "^[" afu+cancel
+bindkey-advice-before "^J" afu+cancel afu+accept-line
 # # delete unambiguous prefix when accepting line
 function afu+delete-unambiguous-prefix () {
   afu-clearing-maybe
