@@ -642,24 +642,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'ujihisa/vimshell-ssh', {
         \ 'autoload' : { 'filetypes' : 'vimshell' }}
 
-  " vim-altercmd : Ex command拡張
-  NeoBundleLazy 'tyru/vim-altercmd'
-
-  " vim Interface to Web API
-  NeoBundleLazy 'mattn/webapi-vim'
-
-  " cecutil.vim : 他のpluginのためのutillity1
-  NeoBundleLazy 'cecutil'
-
-  " urilib.vim : vim scriptからURLを扱うライブラリ
-  NeoBundleLazy 'tyru/urilib.vim'
-
-  " utillity
-  NeoBundleLazy 'L9'
-
-  " Buffer管理のLibrary
-  NeoBundleLazy 'thinca/vim-openbuf'
-
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive', {
         \ 'autoload' : {
@@ -680,11 +662,29 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \               'GitGutterPrevHunk'],
         \ }}
 
+  " vim Interface to Web API
+  NeoBundleLazy 'mattn/webapi-vim'
+
   " Gist
   NeoBundleLazy 'mattn/gist-vim', {
         \ 'depends': ['mattn/webapi-vim'],
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
+
+  " vim-vcs, unite-vim-hack depend it
+  " NeoBundleLazy 'thinca/vim-openbuf'
+
+  " fuzzyfinder depends it
+  " NeoBundleLazy 'L9'
+
+  " vis.vim depends it
+  " NeoBundleLazy 'cecutil'
+
+  " extention for openbrowser-vim
+  " NeoBundleLazy 'tyru/urilib.vim'
+
+  " vim-altercmd : Ex command拡張
+  " NeoBundleLazy 'tyru/vim-altercmd'
 
   " vimdoc 日本語
   " NeoBundle 'yuroyoro/vimdoc_ja'
