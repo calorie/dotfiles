@@ -664,8 +664,8 @@ _rake() {
   if [ -f Rakefile ]; then
     if [ ! -f .rake_tasks ] || \
        [ "`cat .rake_tasks | wc -l`" = "0" ] || \
-       [ `_cachefile_updated_at` -lt `_rakefile_updated_at` ] || \
-       [ -f Gemfile -a `_cachefile_updated_at` -lt `_gemfile_updated_at` ]; then
+       [ `_cachefile_updated_at` -lt `_rakefile_updated_at` ]; then
+       # [ -f Gemfile -a `_cachefile_updated_at` -lt `_gemfile_updated_at` ]; then
       _generate_cachefile
     fi
     compadd `cat .rake_tasks`
