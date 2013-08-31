@@ -699,7 +699,7 @@ function! bundle.hooks.on_source(bundle)
   " 可能ならhighligt表示する
   let g:syntastic_enable_highlighting = 1
   let g:syntastic_auto_jump = 0
-  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 0
   let g:syntastic_echo_current_error = 1
   let g:syntastic_enable_balloons = 1
