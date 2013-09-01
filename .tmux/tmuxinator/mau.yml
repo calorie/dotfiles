@@ -1,0 +1,7 @@
+# ~/.tmuxinator/mau.yml
+
+project_name: maudsley
+project_root: ~/work/hpcss/maudsley
+windows:
+  - shell:
+  - editor: vim +VimShell +VimShellSendString\ guard +tabnew

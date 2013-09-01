@@ -637,7 +637,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " vimshell : vim上にshellを開く
   NeoBundleLazy 'Shougo/vimshell', {
-        \   'autoload' : { 'commands' : [ 'VimShell' ] }
+        \   'autoload' : { 'commands' : [ 'VimShell', 'VimShellSendString' ] }
         \}
   NeoBundleLazy 'ujihisa/vimshell-ssh', {
         \ 'autoload' : { 'filetypes' : 'vimshell' }}
