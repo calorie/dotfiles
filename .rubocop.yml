@@ -14,3 +14,7 @@ AssignmentInCondition:
   Enabled: false
 Documentation:
   Enabled: false
+RedundantBegin:
+  Enabled: false
+AvoidPerlisms:
+  Enabled: false
