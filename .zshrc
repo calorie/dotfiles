@@ -556,45 +556,6 @@ afu-ad-delete-unambiguous-prefix afu+accept-line-and-down-history
 afu-ad-delete-unambiguous-prefix afu+accept-and-hold
 # }}}
 
-# rmf
-# {{{
-function rmf(){
-  for file in $*
-  do
-    __rm_single_file $file
-  done
-}
-
-function __rm_single_file(){
-  if ! [ -d ~/.Trash/ ]
-  then
-    command /bin/mkdir ~/.Trash
-  fi
-
-  if ! [ $# -eq 1 ]
-  then
-    echo "__rm_single_file: 1 argument required but $# passed."
-    exit
-  fi
-
-  if [ -e $1 ]
-  then
-    BASENAME=`basename $1`
-    NAME=$BASENAME
-    COUNT=0
-    while [ -e ~/.Trash/$NAME ]
-    do
-      COUNT=$(($COUNT+1))
-      NAME="$BASENAME.$COUNT"
-    done
-
-    command /bin/mv $1 ~/.Trash/$NAME
-  else
-    echo "No such file or directory: $file"
-  fi
-}
-# }}}
-
 # sudo.vim
 # {{{
 sudo() {
@@ -672,6 +633,81 @@ _rake() {
   fi
 }
 compdef _rake rake
+# }}}
+
+# notify for slow commands
+# http://qiita.com/hayamiz/items/d64730b61b7918fbb970
+# {{{
+autoload -U add-zsh-hook 2>/dev/null || return
+
+__timetrack_threshold=20 # seconds
+read -r -d '' __timetrack_ignore_progs <<EOF
+less
+emacs vi vim
+ssh mosh telnet nc netcat
+gdb
+EOF
+
+export __timetrack_threshold
+export __timetrack_ignore_progs
+
+function __my_preexec_start_timetrack() {
+  local command=$1
+  export __timetrack_start=`date +%s`
+  export __timetrack_command="$command"
+}
+
+function __my_preexec_end_timetrack() {
+  local exec_time
+  local command=$__timetrack_command
+  local prog=$(echo $command|awk '{print $1}')
+  local notify_method
+  local message
+
+  export __timetrack_end=`date +%s`
+
+  if which growlnotify >/dev/null 2>&1; then
+    notify_method="growlnotify"
+  elif which notify-send >/dev/null 2>&1; then
+    notify_method="notify-send"
+  else
+    return
+  fi
+
+  if [ -z "$__timetrack_start" ] || [ -z "$__timetrack_threshold" ]; then
+    return
+  fi
+
+  for ignore_prog in $(echo $__timetrack_ignore_progs); do
+    [ "$prog" = "$ignore_prog" ] && return
+  done
+
+  exec_time=$((__timetrack_end-__timetrack_start))
+  if [ -z "$command" ]; then
+    command="<UNKNOWN>"
+  fi
+
+  message="Command finished!\nTime: $exec_time seconds\nCOMMAND: $command"
+
+  if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
+    case $notify_method in
+      "growlnotify" )
+        echo "$message" | growlnotify -n "ZSH timetracker" --appIcon Terminal
+        ;;
+      "notify-send" )
+        notify-send "ZSH timetracker" "$message"
+        ;;
+    esac
+  fi
+  unset __timetrack_start
+  unset __timetrack_command
+}
+
+if which growlnotify >/dev/null 2>&1 ||
+  which notify-send >/dev/null 2>&1; then
+  add-zsh-hook preexec __my_preexec_start_timetrack
+  add-zsh-hook precmd __my_preexec_end_timetrack
+fi
 # }}}
 
 # mkdir & cd
