@@ -1,14 +1,10 @@
-
 # vvm
 test -f ~/.vvm/etc/login && source ~/.vvm/etc/login
 
 # Terminal Colorの設定
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-
 alias ls='ls -alh --color'
-# alias vi='/usr/bin/vim'
-# alias vim='/usr/bin/vim'
 
 export PATH
 
@@ -42,16 +38,13 @@ export MAVEN_HOME=/usr/local/apache-maven-2.2.1
 export PATH=$MAVEN_HOME/bin:$PATH
 export MAVEN_OPTS=-Xmx1024M
 
-#rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-
-export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
+# ff
 export PATH=/opt/firefox:$PATH
 
 # rsense
 # export RSENSE_HOME=/opt/rsense-0.3
-export RSENSE_HOME=$HOME/.vim/bundle/rsense-0.3
-export PATH=$PATH:$RSENSE_HOME/bin
+# export RSENSE_HOME=$HOME/.vim/bundle/rsense-0.3
+# export PATH=$PATH:$RSENSE_HOME/bin
 
 # gem
 # export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/

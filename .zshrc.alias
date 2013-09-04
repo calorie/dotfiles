@@ -1,8 +1,7 @@
 # ls
 alias la="ls -a"
-alias la="ls -al"
 alias lf="ls -F"
-alias ll="ls -l"
+alias ll="ls -la"
 
 # reload
 alias rl='exec $SHELL'
