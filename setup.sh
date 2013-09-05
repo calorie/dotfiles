@@ -16,7 +16,7 @@ DOTFILES_PATH=$(cd $(dirname $0); pwd)
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
 PKGS=(
-  ricty rbenv
+  ricty
   vvm auto-fu
   tmux-powerline
   tmux-mem-cpu-load

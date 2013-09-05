@@ -28,7 +28,7 @@ $ ./setup.sh
 
 - ricty
 - vvm(vim version manager)
-- rbenv
+- ruby
 - auto-fu
 - tmux-powerline
 - tmux-mem-cpu-load
