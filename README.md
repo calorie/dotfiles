@@ -6,6 +6,7 @@ dotfiles
 - tmux >= 1.7
 - git
 - mercurial
+- ruby
 - python
 - fontforge
 
@@ -28,7 +29,6 @@ $ ./setup.sh
 
 - ricty
 - vvm(vim version manager)
-- ruby
 - auto-fu
 - tmux-powerline
 - tmux-mem-cpu-load
