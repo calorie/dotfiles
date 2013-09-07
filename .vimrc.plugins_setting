@@ -332,11 +332,6 @@ map _ <Plug>(operator-replace)
 " smartword.vim
 "------------------------------------
 "{{{
-noremap ,w  w
-noremap ,b  b
-noremap ,e  e
-noremap ,ge  ge
-
 map W  <Plug>(smartword-w)
 map B  <Plug>(smartword-b)
 map E  <Plug>(smartword-e)
@@ -453,7 +448,9 @@ nnoremap <silent> [unite]rv    :<C-u>Unite -buffer-name=r_view rails/view<CR>
 nnoremap <silent> [unite]rl    :<C-u>Unite -buffer-name=r_lib rails/lib<CR>
 nnoremap <silent> [unite]rj    :<C-u>Unite -buffer-name=r_js rails/javascript<CR>
 nnoremap <silent> [unite]rs    :<C-u>Unite -buffer-name=r_spec rails/spec<CR>
-nnoremap <silent> [unite]ra    :<C-U>Unite -buffer-name=rake rake<CR>
+nnoremap <silent> [unite]ra    :<C-U>Unite -buffer-name=r_rake rails/rake<CR>
+" rake
+" nnoremap <silent> [unite]ra    :<C-U>Unite -buffer-name=rake rake<CR>
 " help
 " nnoremap <silent> [unite]h     :<C-U>Unite -auto-preview -buffer-name=help help<CR>
 " outline
@@ -992,7 +989,7 @@ xmap <C-l> <Plug>(textmanip-move-right)
 nnoremap <Space>ap  :RAddParameter<CR>
 " 一行で書かれた条件文を伝統的な複数行の形式に変換する
 " nnoremap <Space>rcpc :RConvertPostConditional<CR>
-" 選択部分を RSpec の "let(:hoge) { fuga }" の形式に切り出す
+" 選択部分を RSpec の let(:hoge) { fuga } の形式に切り出す
 " nnoremap <Space>el  :RExtractLet<CR>
 " 選択部分を定数として切り出す
 vnoremap <Space>ec  :RExtractConstant<CR>
@@ -1126,8 +1123,8 @@ xmap iI <Plug>(textobj-indent-same-i)
 "{{{
 " nmap ac <Plug>(textobj-comment-a)
 " nmap ic <Plug>(textobj-comment-i)
-xmap ac <Plug>(textobj-comment-a)
-xmap ic <Plug>(textobj-comment-i)
+" xmap ac <Plug>(textobj-comment-a)
+" xmap ic <Plug>(textobj-comment-i)
 "}}}
 
 "------------------------------------

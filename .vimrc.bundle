@@ -49,17 +49,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " tag
   NeoBundleLazy 'tsukkee/unite-tag', {
-        \ 'depends' : ['Shougo/unite.vim'],
+        \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload' : {
         \   'unite_sources' : 'tag',
         \   'commands' : 'UniteWithCursorWord',
-        \ }}
-
-  " rake
-  NeoBundleLazy 'ujihisa/unite-rake', {
-        \ 'depends' : 'Shougo/unite.vim',
-        \ 'autoload': {
-        \   'unite_sources': 'rake'
         \ }}
 
   " tig
@@ -83,6 +76,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'giti/remote', 'giti/status'
         \   ]
         \ }}
+
+  " rake
+  " NeoBundleLazy 'ujihisa/unite-rake', {
+  "       \ 'depends' : 'Shougo/unite.vim',
+  "       \ 'autoload': {
+  "       \   'unite_sources': 'rake'
+  "       \ }}
 
   " command, search, yankのhistory
   " NeoBundleLazy 'thinca/vim-unite-history', {
@@ -208,15 +208,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     ['nx', '<Plug>(textobj-indent-same-i)']]
         \ }}
 
-    " vim-textobj-comment : コメントをtext-objectに
-    NeoBundleLazy 'thinca/vim-textobj-comment.git', {
-        \ 'depends' : 'textobj-user',
-        \ 'autoload' : {
-        \   'mappings' : [
-        \     ['nx', '<Plug>(textobj-comment-a)'],
-        \     ['nx', '<Plug>(textobj-comment-i)']]
-        \ }}
-
     " vim-textobj-fold : フォールディングされた範囲をtext-objectに
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
           \ 'depends' : 'textobj-user',
@@ -226,6 +217,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundleLazy 'rhysd/vim-textobj-ruby', {
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+
+    " vim-textobj-comment : コメントをtext-objectに
+    " NeoBundleLazy 'thinca/vim-textobj-comment.git', {
+    "     \ 'depends' : 'textobj-user',
+    "     \ 'autoload' : {
+    "     \   'mappings' : [
+    "     \     ['nx', '<Plug>(textobj-comment-a)'],
+    "     \     ['nx', '<Plug>(textobj-comment-i)']]
+    "     \ }}
 
     " vim-textobj-rubyblock : rubyのブロックをtext-objectに
     " NeoBundleLazy 'textobj-rubyblock', {
