@@ -5,9 +5,12 @@ mkdir -p $HOME/.rbenv/plugins
 cd $HOME/.rbenv/plugins
 git clone https://github.com/sstephenson/ruby-build.git
 git clone https://github.com/tpope/rbenv-ctags.git
+git clone https://github.com/sstephenson/rbenv-default-gems.git
 sudo $HOME/.rbenv/plugins/ruby-build/install.sh
 export PATH=$PATH:$HOME/.rbenv/bin
 rbenv init - zsh
+
+ln -s $HOME/dotfiles/default-gems $HOME/.rbenv/default-gems
 
 # 1.9.3
 CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr --enable-shared" rbenv install 1.9.3-p448
@@ -22,4 +25,4 @@ export PATH=$HOME/.rbenv/shims:$PATH
 echo "$(rbenv init - zsh)" > $HOME/dotfiles/.rbenv_init
 sed -i -e "s/rbenv rehash/# rbenv rehash/" $HOME/dotfiles/.rbenv_init
 
-gem install rbenv-rehash --no-rdoc --no-ri
+gem regenerate_binstubs

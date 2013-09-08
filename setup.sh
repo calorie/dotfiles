@@ -28,8 +28,9 @@ done
 
 # symbolic link
 DOTFILES=(
-  .zshrc .ctags .gdbinit .gemrc .gitconfig
-  .gitignore .inputrc .irbrc .sbtconfig
+  .zshrc .ctags .gdbinit .gemrc
+  .gitconfi .gitignore .inputrc
+  .irbrc .sbtconfig .pryrc
   .screenrc .vimrc .vrapperrc .rubocop.yml
   .tmux.conf .tmux-powerlinerc .rspec
   .dir_colors .rdebugrc .vim/dict )

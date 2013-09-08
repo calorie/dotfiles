@@ -1,0 +1,9 @@
+bundler
+noexec
+rubygems-bundler
+rbenv-rehash
+pry
+pry-remote
+pry-stack_explorer
+pry-debugger
+tmuxinator
