@@ -667,7 +667,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Gist
   NeoBundleLazy 'mattn/gist-vim', {
-        \ 'depends': ['mattn/webapi-vim'],
+        \ 'depends': 'mattn/webapi-vim',
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
 
