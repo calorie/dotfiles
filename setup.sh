@@ -29,10 +29,10 @@ done
 # symbolic link
 DOTFILES=(
   .zshrc .ctags .gdbinit .gemrc
-  .gitconfi .gitignore .inputrc
-  .irbrc .sbtconfig .pryrc
-  .screenrc .vimrc .vrapperrc .rubocop.yml
-  .tmux.conf .tmux-powerlinerc .rspec
+  .gitconfig .gitignore .inputrc
+  .irbrc .pryrc .rspec
+  .vimrc .vrapperrc .rubocop.yml
+  .tmux.conf .tmux-powerlinerc
   .dir_colors .rdebugrc .vim/dict )
 for file in ${DOTFILES[@]}
 do
