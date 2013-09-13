@@ -370,41 +370,41 @@ alias where="command -v"
 ## terminal configuration
 # http://journal.mycom.co.jp/column/zsh/009/index.html
 # {{{
-unset LSCOLORS
+  unset LSCOLORS
 
-case "${TERM}" in
-xterm)
-  export TERM=xterm-color
-  ;;
-kterm)
-  export TERM=kterm-color
-  # set BackSpace control character
-  stty erase
-  ;;
-cons25)
-  unset LANG
-  export LSCOLORS=ExFxCxdxBxegedabagacad
-  export LS_COLORS='di=01;32:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
-  zstyle ':completion:*' list-colors \
-    'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-  ;;
-kterm*|xterm*)
-  # Terminal.app
-  # precmd() {
-  #   echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-  # }
-  # export LSCOLORS=exfxcxdxbxegedabagacad
-  # export LSCOLORS=gxfxcxdxbxegedabagacad
-  # export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
-  export CLICOLOR=1
-  export LSCOLORS=ExFxCxDxBxegedabagacad
-  zstyle ':completion:*' list-colors \
-    'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-  ;;
-dumb)
-  echo "Welcome Emacs Shell"
-  ;;
-esac
+  case "${TERM}" in
+  xterm)
+    export TERM=xterm-color
+    ;;
+  kterm)
+    export TERM=kterm-color
+    # set BackSpace control character
+    stty erase
+    ;;
+  cons25)
+    unset LANG
+    export LSCOLORS=ExFxCxdxBxegedabagacad
+    export LS_COLORS='di=01;32:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+    zstyle ':completion:*' list-colors \
+      'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+    ;;
+  kterm*|xterm*)
+    # Terminal.app
+    # precmd() {
+    #   echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+    # }
+    # export LSCOLORS=exfxcxdxbxegedabagacad
+    # export LSCOLORS=gxfxcxdxbxegedabagacad
+    # export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30'
+    export CLICOLOR=1
+    export LSCOLORS=ExFxCxDxBxegedabagacad
+    zstyle ':completion:*' list-colors \
+      'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+    ;;
+  dumb)
+    echo "Welcome Emacs Shell"
+    ;;
+  esac
 # }}}
 
 export EDITOR=vim
@@ -424,50 +424,50 @@ expand-to-home-or-insert () {
 # zsh の exntended_glob と HEAD^^^ を共存させる。
 # http://subtech.g.hatena.ne.jp/cho45/20080617/1213629154
 # {{{
-typeset -A abbreviations
-abbreviations=(
-  "L"    "| $PAGER"
-  "G"    "| grep"
+  typeset -A abbreviations
+  abbreviations=(
+    "L"    "| $PAGER"
+    "G"    "| grep"
 
-  "HEAD^"     "HEAD\\^"
-  "HEAD^^"    "HEAD\\^\\^"
-  "HEAD^^^"   "HEAD\\^\\^\\^"
-  "HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
-  "HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
-)
+    "HEAD^"     "HEAD\\^"
+    "HEAD^^"    "HEAD\\^\\^"
+    "HEAD^^^"   "HEAD\\^\\^\\^"
+    "HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
+    "HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
+  )
 # }}}
 
 # 略語展開
 # {{{
-magic-abbrev-expand () {
-  local MATCH
-  LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9^]#}
-  LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
-}
+  magic-abbrev-expand () {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9^]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+  }
 
-magic-abbrev-expand-and-insert () {
-  magic-abbrev-expand
-  zle self-insert
-}
+  magic-abbrev-expand-and-insert () {
+    magic-abbrev-expand
+    zle self-insert
+  }
 
-magic-abbrev-expand-and-accept () {
-  magic-abbrev-expand
-  zle accept-line
-}
+  magic-abbrev-expand-and-accept () {
+    magic-abbrev-expand
+    zle accept-line
+  }
 
-no-magic-abbrev-expand () {
-  LBUFFER+=' '
-}
+  no-magic-abbrev-expand () {
+    LBUFFER+=' '
+  }
 
-zle -N magic-abbrev-expand
-zle -N magic-abbrev-expand-and-insert
-zle -N magic-abbrev-expand-and-accept
-zle -N no-magic-abbrev-expand
-bindkey "\r"  magic-abbrev-expand-and-accept # M-x RET はできなくなる
-bindkey "^J"  accept-line # no magic
-bindkey " "   magic-abbrev-expand-and-insert
-bindkey "."   magic-abbrev-expand-and-insert
-bindkey "^x " no-magic-abbrev-expand
+  zle -N magic-abbrev-expand
+  zle -N magic-abbrev-expand-and-insert
+  zle -N magic-abbrev-expand-and-accept
+  zle -N no-magic-abbrev-expand
+  bindkey "\r"  magic-abbrev-expand-and-accept # M-x RET はできなくなる
+  bindkey "^J"  accept-line # no magic
+  bindkey " "   magic-abbrev-expand-and-insert
+  bindkey "."   magic-abbrev-expand-and-insert
+  bindkey "^x " no-magic-abbrev-expand
 # }}}
 
 # Incremental completion on zsh
@@ -478,106 +478,106 @@ bindkey "^x " no-magic-abbrev-expand
 # http://d.hatena.ne.jp/tarao/20100531/1275322620
 # incremental completion
 # {{{
-function () {
-  local A
-  A=~/.zsh/auto-fu.zsh/auto-fu.zsh
-  [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
-  zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
-}
-source ~/.zsh/auto-fu.zsh/auto-fu; auto-fu-install
-
-# initialization and options
-function zle-line-init () { auto-fu-init }
-zle -N zle-line-init
-zstyle ':auto-fu:highlight' input bold
-zstyle ':auto-fu:highlight' completion fg=white
-zstyle ':auto-fu:var' postdisplay ''
-
-# afu+cancel
-function afu+cancel () {
-  afu-clearing-maybe
-  ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur"; }
-}
-zle -N afu+cancel
-function bindkey-advice-before () {
-  local key="$1"
-  local advice="$2"
-  local widget="$3"
-  [[ -z "$widget" ]] && {
-    local -a bind
-    bind=(`bindkey -M main "$key"`)
-    widget=$bind[2]
+  function () {
+    local A
+    A=~/.zsh/auto-fu.zsh/auto-fu.zsh
+    [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
+    zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
   }
-  local fun="$advice"
-  if [[ "$widget" != "undefined-key" ]]; then
-    local code=${"$(<=(cat <<"EOT"
-      function $advice-$widget () {
-        zle $advice
-        zle $widget
-      }
-      fun="$advice-$widget"
-EOT
-      ))"}
-    eval "${${${code//\$widget/$widget}//\$key/$key}//\$advice/$advice}"
-  fi
-  zle -N "$fun"
-  bindkey -M afu "$key" "$fun"
-}
-bindkey-advice-before "^G" afu+cancel
-bindkey-advice-before "^[" afu+cancel
-bindkey-advice-before "^J" afu+cancel afu+accept-line
-# # delete unambiguous prefix when accepting line
-function afu+delete-unambiguous-prefix () {
-  afu-clearing-maybe
-  local buf; buf="$BUFFER"
-  local bufc; bufc="$buffer_cur"
-  [[ -z "$cursor_new" ]] && cursor_new=-1
-  [[ "$buf[$cursor_new]" == ' ' ]] && return
-  [[ "$buf[$cursor_new]" == '/' ]] && return
-  ((afu_in_p == 1)) && [[ "$buf" != "$bufc" ]] && {
-    # there are more than one completion candidates
-    zle afu+complete-word
-    [[ "$buf" == "$BUFFER" ]] && {
-      # the completion suffix was an unambiguous prefix
-      afu_in_p=0; buf="$bufc"
+  source ~/.zsh/auto-fu.zsh/auto-fu; auto-fu-install
+
+  # initialization and options
+  function zle-line-init () { auto-fu-init }
+  zle -N zle-line-init
+  zstyle ':auto-fu:highlight' input bold
+  zstyle ':auto-fu:highlight' completion fg=white
+  zstyle ':auto-fu:var' postdisplay ''
+
+  # afu+cancel
+  function afu+cancel () {
+    afu-clearing-maybe
+    ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur"; }
+  }
+  zle -N afu+cancel
+  function bindkey-advice-before () {
+    local key="$1"
+    local advice="$2"
+    local widget="$3"
+    [[ -z "$widget" ]] && {
+      local -a bind
+      bind=(`bindkey -M main "$key"`)
+      widget=$bind[2]
     }
-    BUFFER="$buf"
-    buffer_cur="$bufc"
+    local fun="$advice"
+    if [[ "$widget" != "undefined-key" ]]; then
+      local code=${"$(<=(cat <<"EOT"
+        function $advice-$widget () {
+          zle $advice
+          zle $widget
+        }
+        fun="$advice-$widget"
+EOT
+        ))"}
+      eval "${${${code//\$widget/$widget}//\$key/$key}//\$advice/$advice}"
+    fi
+    zle -N "$fun"
+    bindkey -M afu "$key" "$fun"
   }
-}
-zle -N afu+delete-unambiguous-prefix
-function afu-ad-delete-unambiguous-prefix () {
-  local afufun="$1"
-  local code; code=$functions[$afufun]
-  eval "function $afufun () { zle afu+delete-unambiguous-prefix; $code }"
-}
-afu-ad-delete-unambiguous-prefix afu+accept-line
-afu-ad-delete-unambiguous-prefix afu+accept-line-and-down-history
-afu-ad-delete-unambiguous-prefix afu+accept-and-hold
+  bindkey-advice-before "^G" afu+cancel
+  bindkey-advice-before "^[" afu+cancel
+  bindkey-advice-before "^J" afu+cancel afu+accept-line
+  # # delete unambiguous prefix when accepting line
+  function afu+delete-unambiguous-prefix () {
+    afu-clearing-maybe
+    local buf; buf="$BUFFER"
+    local bufc; bufc="$buffer_cur"
+    [[ -z "$cursor_new" ]] && cursor_new=-1
+    [[ "$buf[$cursor_new]" == ' ' ]] && return
+    [[ "$buf[$cursor_new]" == '/' ]] && return
+    ((afu_in_p == 1)) && [[ "$buf" != "$bufc" ]] && {
+      # there are more than one completion candidates
+      zle afu+complete-word
+      [[ "$buf" == "$BUFFER" ]] && {
+        # the completion suffix was an unambiguous prefix
+        afu_in_p=0; buf="$bufc"
+      }
+      BUFFER="$buf"
+      buffer_cur="$bufc"
+    }
+  }
+  zle -N afu+delete-unambiguous-prefix
+  function afu-ad-delete-unambiguous-prefix () {
+    local afufun="$1"
+    local code; code=$functions[$afufun]
+    eval "function $afufun () { zle afu+delete-unambiguous-prefix; $code }"
+  }
+  afu-ad-delete-unambiguous-prefix afu+accept-line
+  afu-ad-delete-unambiguous-prefix afu+accept-line-and-down-history
+  afu-ad-delete-unambiguous-prefix afu+accept-and-hold
 # }}}
 
 # sudo.vim
 # {{{
-sudo() {
-  local args
-  case $1 in
-    vi|vim)
-      args=()
-      for arg in $@[2,-1]
-      do
-        if [ $arg[1] = '-' ]; then
-          args[$(( 1+$#args ))]=$arg
-        else
-          args[$(( 1+$#args ))]="sudo:$arg"
-        fi
-      done
-      command vim $args
-      ;;
-    *)
-      command sudo $@
-      ;;
-  esac
-}
+  sudo() {
+    local args
+    case $1 in
+      vi|vim)
+        args=()
+        for arg in $@[2,-1]
+        do
+          if [ $arg[1] = '-' ]; then
+            args[$(( 1+$#args ))]=$arg
+          else
+            args[$(( 1+$#args ))]="sudo:$arg"
+          fi
+        done
+        command vim $args
+        ;;
+      *)
+        command sudo $@
+        ;;
+    esac
+  }
 # }}}
 
 # enterでls & git status
@@ -604,110 +604,110 @@ sudo() {
 # rakeコマンドをキャッシュ
 # http://qiita.com/ToQoz/items/848abdf90a0f40e70ce0
 # {{{
-_cachefile_updated_at() {
-  echo $(stat .rake_tasks -c%Y)
-}
+  _cachefile_updated_at() {
+    echo $(stat .rake_tasks -c%Y)
+  }
 
-_rakefile_updated_at() {
-  echo $(stat Rakefile -c%Y)
-}
+  _rakefile_updated_at() {
+    echo $(stat Rakefile -c%Y)
+  }
 
-_gemfile_updated_at() {
-  echo $(stat Gemfile -c%Y)
-}
+  _gemfile_updated_at() {
+    echo $(stat Gemfile -c%Y)
+  }
 
-_generate_cachefile() {
-  [ -f .rake_tasks ] && rm .rake_tasks
-  rake --silent --tasks 2> /dev/null | cut  -f 2 -d " " > .rake_tasks
-}
+  _generate_cachefile() {
+    [ -f .rake_tasks ] && rm .rake_tasks
+    rake --silent --tasks 2> /dev/null | cut  -f 2 -d " " > .rake_tasks
+  }
 
-_rake() {
-  if [ -f Rakefile ]; then
-    if [ ! -f .rake_tasks ] || \
-       [ "`cat .rake_tasks | wc -l`" = "0" ] || \
-       [ `_cachefile_updated_at` -lt `_rakefile_updated_at` ]; then
-       # [ -f Gemfile -a `_cachefile_updated_at` -lt `_gemfile_updated_at` ]; then
-      _generate_cachefile
+  _rake() {
+    if [ -f Rakefile ]; then
+      if [ ! -f .rake_tasks ] || \
+         [ "`cat .rake_tasks | wc -l`" = "0" ] || \
+         [ `_cachefile_updated_at` -lt `_rakefile_updated_at` ]; then
+         # [ -f Gemfile -a `_cachefile_updated_at` -lt `_gemfile_updated_at` ]; then
+        _generate_cachefile
+      fi
+      compadd `cat .rake_tasks`
     fi
-    compadd `cat .rake_tasks`
-  fi
-}
-compdef _rake rake
+  }
+  compdef _rake rake
 # }}}
 
 # notify for slow commands
 # http://qiita.com/hayamiz/items/d64730b61b7918fbb970
 # {{{
-autoload -U add-zsh-hook 2>/dev/null || return
+  autoload -U add-zsh-hook 2>/dev/null || return
 
-__timetrack_threshold=10 # seconds
-read -r -d '' __timetrack_ignore_progs <<EOF
-less emacs vi vim
-ssh mosh telnet nc netcat
-gdb tmux guard edf fg
-xdg-open
+  __timetrack_threshold=10 # seconds
+  read -r -d '' __timetrack_ignore_progs <<EOF
+  less emacs vi vim
+  ssh mosh telnet nc netcat
+  gdb tmux guard edf fg
+  xdg-open
 EOF
 
-export __timetrack_threshold
-export __timetrack_ignore_progs
+  export __timetrack_threshold
+  export __timetrack_ignore_progs
 
-function __my_preexec_start_timetrack() {
-  local command=$1
-  export __timetrack_start=`date +%s`
-  export __timetrack_command="$command"
-}
+  function __my_preexec_start_timetrack() {
+    local command=$1
+    export __timetrack_start=`date +%s`
+    export __timetrack_command="$command"
+  }
 
-function __my_preexec_end_timetrack() {
-  local exec_time
-  local command=$__timetrack_command
-  local prog=$(echo $command|awk '{print $1}')
-  local notify_method
-  local message
+  function __my_preexec_end_timetrack() {
+    local exec_time
+    local command=$__timetrack_command
+    local prog=$(echo $command|awk '{print $1}')
+    local notify_method
+    local message
 
-  export __timetrack_end=`date +%s`
+    export __timetrack_end=`date +%s`
 
-  if which growlnotify >/dev/null 2>&1; then
-    notify_method="growlnotify"
-  elif which notify-send >/dev/null 2>&1; then
-    notify_method="notify-send"
-  else
-    return
+    if which growlnotify >/dev/null 2>&1; then
+      notify_method="growlnotify"
+    elif which notify-send >/dev/null 2>&1; then
+      notify_method="notify-send"
+    else
+      return
+    fi
+
+    if [ -z "$__timetrack_start" ] || [ -z "$__timetrack_threshold" ]; then
+      return
+    fi
+
+    for ignore_prog in $(echo $__timetrack_ignore_progs); do
+      [ "$prog" = "$ignore_prog" ] && return
+    done
+
+    exec_time=$((__timetrack_end-__timetrack_start))
+    if [ -z "$command" ]; then
+      command="<UNKNOWN>"
+    fi
+
+    message="Command finished!\nTime: $exec_time seconds\nCOMMAND: $command"
+
+    if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
+      case $notify_method in
+        "growlnotify" )
+          echo "$message" | growlnotify -n "ZSH timetracker" --appIcon Terminal
+          ;;
+        "notify-send" )
+          notify-send -i gtk-info "ZSH timetracker" "$message"
+          ;;
+      esac
+    fi
+    unset __timetrack_start
+    unset __timetrack_command
+  }
+
+  if which growlnotify >/dev/null 2>&1 ||
+    which notify-send >/dev/null 2>&1; then
+    add-zsh-hook preexec __my_preexec_start_timetrack
+    add-zsh-hook precmd __my_preexec_end_timetrack
   fi
-
-  if [ -z "$__timetrack_start" ] || [ -z "$__timetrack_threshold" ]; then
-    return
-  fi
-
-  for ignore_prog in $(echo $__timetrack_ignore_progs); do
-    [ "$prog" = "$ignore_prog" ] && return
-  done
-
-  exec_time=$((__timetrack_end-__timetrack_start))
-  if [ -z "$command" ]; then
-    command="<UNKNOWN>"
-  fi
-
-  message="Command finished!\nTime: $exec_time seconds\nCOMMAND: $command"
-
-  if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
-    case $notify_method in
-      "growlnotify" )
-        echo "$message" | growlnotify -n "ZSH timetracker" --appIcon Terminal
-        ;;
-      "notify-send" )
-        notify-send -i gtk-info "ZSH timetracker" "$message"
-        ;;
-    esac
-  fi
-  unset __timetrack_start
-  unset __timetrack_command
-}
-
-if which growlnotify >/dev/null 2>&1 ||
-  which notify-send >/dev/null 2>&1; then
-  add-zsh-hook preexec __my_preexec_start_timetrack
-  add-zsh-hook precmd __my_preexec_end_timetrack
-fi
 # }}}
 
 # mkdir & cd
@@ -715,28 +715,28 @@ function mkcd() { mkdir -p $1 && cd $1; }
 
 # alias設定
 # {{{
-[ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
+  [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 # }}}
 
 # os毎の設定
 # {{{
-case "${OSTYPE}" in
-# Mac(Unix)
-darwin*)
-  [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
-  ;;
-# Linux
-linux*)
-  [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
-  ;;
-# freeBSD
-freebsd*)
-  [ -f ~/dotfiles/.zshrc.freebsd ] && source ~/dotfiles/.zshrc.freebsd
-  ;;
-esac
+  case "${OSTYPE}" in
+  # Mac(Unix)
+  darwin*)
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
+  # Linux
+  linux*)
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    ;;
+  # freeBSD
+  freebsd*)
+    [ -f ~/dotfiles/.zshrc.freebsd ] && source ~/dotfiles/.zshrc.freebsd
+    ;;
+  esac
 # }}}
 
 ## local固有設定
 # {{{
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+  [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # }}}

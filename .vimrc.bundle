@@ -211,7 +211,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " vim-textobj-fold : フォールディングされた範囲をtext-objectに
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
           \ 'depends' : 'textobj-user',
-          \ 'autoload' : { 'filetypes' : ['vim'] }}
+          \ 'autoload' : { 'filetypes' : ['vim', 'zsh'] }}
 
     " vim-textobj-ruby : rubyのブロックをtext-objectに
     NeoBundleLazy 'rhysd/vim-textobj-ruby', {
