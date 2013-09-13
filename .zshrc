@@ -642,10 +642,9 @@ autoload -U add-zsh-hook 2>/dev/null || return
 
 __timetrack_threshold=10 # seconds
 read -r -d '' __timetrack_ignore_progs <<EOF
-less
-emacs vi vim
+less emacs vi vim
 ssh mosh telnet nc netcat
-gdb
+gdb edf tmux guard
 EOF
 
 export __timetrack_threshold
@@ -695,7 +694,7 @@ function __my_preexec_end_timetrack() {
         echo "$message" | growlnotify -n "ZSH timetracker" --appIcon Terminal
         ;;
       "notify-send" )
-        notify-send "ZSH timetracker" "$message"
+        notify-send -i gtk-info "ZSH timetracker" "$message"
         ;;
     esac
   fi
