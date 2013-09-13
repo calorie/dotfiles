@@ -644,7 +644,7 @@ __timetrack_threshold=10 # seconds
 read -r -d '' __timetrack_ignore_progs <<EOF
 less emacs vi vim
 ssh mosh telnet nc netcat
-gdb edf tmux guard
+gdb tmux guard edf fg
 EOF
 
 export __timetrack_threshold
