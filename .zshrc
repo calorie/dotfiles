@@ -645,6 +645,7 @@ read -r -d '' __timetrack_ignore_progs <<EOF
 less emacs vi vim
 ssh mosh telnet nc netcat
 gdb tmux guard edf fg
+xdg-open
 EOF
 
 export __timetrack_threshold
