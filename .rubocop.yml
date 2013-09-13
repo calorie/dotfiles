@@ -2,8 +2,6 @@ MethodLength:
   Max: 30
 HashSyntax:
   Enabled: false
-AvoidGlobalVars:
-  Enabled: false
 RescueModifier:
   Enabled: false
 RedundantReturn:
@@ -16,5 +14,5 @@ Documentation:
   Enabled: false
 RedundantBegin:
   Enabled: false
-AvoidPerlisms:
+SpecialGlobalVars:
   Enabled: false

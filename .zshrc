@@ -640,7 +640,7 @@ compdef _rake rake
 # {{{
 autoload -U add-zsh-hook 2>/dev/null || return
 
-__timetrack_threshold=20 # seconds
+__timetrack_threshold=10 # seconds
 read -r -d '' __timetrack_ignore_progs <<EOF
 less
 emacs vi vim
