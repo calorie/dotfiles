@@ -454,11 +454,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   NeoBundleLazy 'vim-ruby/vim-ruby', {
-        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
+        \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
 
   " rails.vim : railsの基本的な拡張機能
   NeoBundle 'tpope/vim-rails', {
-        \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
+        \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
 
   " vim-rspec : rspecの実行
   NeoBundleLazy 'skwp/vim-rspec', {
@@ -466,7 +466,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'mac': 'gem install hpricot',
         \   'unix': 'gem install hpricot'
         \ },
-        \ 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml']}}
+        \ 'autoload': { 'filetypes': ['ruby', 'eruby']}}
 
   " vim-endwise : endなどの補完
   NeoBundleLazy 'tpope/vim-endwise.git', {
