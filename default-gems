@@ -2,6 +2,7 @@ bundler
 rake
 noexec
 rubygems-bundler
+rubygems-update
 rbenv-rehash
 pry
 pry-remote
