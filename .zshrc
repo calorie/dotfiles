@@ -645,7 +645,8 @@ EOT
   less emacs vi vim
   ssh mosh telnet nc netcat
   gdb tmux guard edf fg
-  xdg-open
+  xdg-open rails thin
+  cassandra cassandra-cli
 EOF
 
   export __timetrack_threshold
