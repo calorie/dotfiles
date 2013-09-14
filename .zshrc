@@ -646,7 +646,7 @@ EOT
   ssh mosh telnet nc netcat
   gdb tmux guard edf fg
   xdg-open rails thin
-  cassandra cassandra-cli
+  cassandra cassandra-cli pry
 EOF
 
   export __timetrack_threshold
