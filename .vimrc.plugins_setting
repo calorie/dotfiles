@@ -1063,6 +1063,7 @@ let g:airline_powerline_fonts = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
 autocmd vimenter * :set showtabline=1
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
@@ -1073,7 +1074,6 @@ let g:airline_readonly_symbol = '⭤'
 let g:airline_linecolumn_prefix = ''
 let g:airline_theme = 'laederon'
 " let g:airline_theme = 'luna'
-" let g:airline_theme = 'powerlineish'
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'n'  : 'N',
