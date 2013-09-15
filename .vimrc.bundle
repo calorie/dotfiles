@@ -622,9 +622,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " ステータスラインをカッコよくする
   NeoBundle 'bling/vim-airline'
 
-  " タブラインをカッコよくする
-  NeoBundle 'calorie/alpaca_powertabline'
-
   " vim-dispatch : vimから非同期実行。
   NeoBundleLazy 'tpope/vim-dispatch', {
         \ 'autoload': { 'commands': ['Dispatch', 'Make', 'Start'] }
@@ -670,6 +667,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends': 'mattn/webapi-vim',
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
+
+  " タブラインをカッコよくする
+  " NeoBundle 'calorie/alpaca_powertabline'
 
   " vim-vcs, unite-vim-hack depend it
   " NeoBundleLazy 'thinca/vim-openbuf'

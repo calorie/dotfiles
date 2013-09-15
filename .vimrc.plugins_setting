@@ -914,11 +914,10 @@ let g:vim_tags_use_ycm = 0
 " powertabline
 "------------------------------------
 "{{{
-set showtabline=1
-let g:alpaca_powertabline_enable = 1
-let g:alpaca_powertabline_sep1 = "⮀"
-let g:alpaca_powertabline_sep2 = "⮁"
-let g:alpaca_powertabline_default_place = 1
+" let g:alpaca_powertabline_enable = 1
+" let g:alpaca_powertabline_sep1 = '⮀'
+" let g:alpaca_powertabline_sep2 = '⮁'
+" let g:alpaca_powertabline_default_place = 1
 "}}}
 
 "------------------------------------
@@ -1061,8 +1060,10 @@ map F <Plug>(clever-f-F)
 "------------------------------------
 "{{{
 let g:airline_powerline_fonts = 0
-let g:airline_enable_tagbar = 0
+let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+autocmd vimenter * :set showtabline=1
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
