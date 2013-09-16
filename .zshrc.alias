@@ -44,6 +44,8 @@ alias srr='screen -U -D -RR'
 alias tm='tmux'
 alias tma='tmux attach'
 alias tml='tmux list-window'
+alias tkwa='tmux kill-window -a'
+alias tkpa='tmux kill-pane -a'
 
 alias pon='predict-on'
 alias poff='predict-off'

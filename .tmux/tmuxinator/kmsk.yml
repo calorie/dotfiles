@@ -4,9 +4,8 @@ project_name: kmsk
 project_root: ~/work/hekk/kimisaki
 pre:
   - sudo dhclient -r
-  - sudo dhclient eth0
   - sudo ifdown eth0
-  - sudo ifup eth0
+  - sudo ifup eth0:0
 windows:
   - editor: vim
   - debug:
