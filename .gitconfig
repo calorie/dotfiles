@@ -28,6 +28,8 @@
   po  = push origin
   pof = push -f origin
   pu  = push -u origin
+  pl  = pull
+  plr = pull --rebase
   # rebase
   rbm = rebase master
   rbd = rebase develop
@@ -131,7 +133,6 @@
   fhs = flow hotfix start
   fhf = flow hotfix finish
   fs  = flow support
-  pl = pull --rebase
 
 [http]
   sslVerify = false
