@@ -30,7 +30,7 @@ done
 DOTFILES=(
   .zshrc .ctags .gdbinit .gemrc
   .gitconfig .gitignore .inputrc
-  .irbrc .pryrc .rspec
+  .irbrc .pryrc .rspec .agignore
   .vimrc .vrapperrc .rubocop.yml
   .tmux.conf .tmux-powerlinerc
   .dir_colors .rdebugrc .vim/dict )
