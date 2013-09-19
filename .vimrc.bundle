@@ -1,7 +1,6 @@
 "---------------------------------------------------------------------
-" neobunlde.vimで管理してるpluginを読み込む
+" vim plugins
 "---------------------------------------------------------------------
-
 set nocompatible
 filetype plugin indent off
 if has('vim_starting')
@@ -15,7 +14,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Unite {{{
 
-  " unite本体
+  " unite
   NeoBundleLazy 'Shougo/unite.vim', {
         \ 'autoload' : {
         \   'commands' : [
@@ -366,17 +365,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'ruby-matchit', { 'autoload' : {
         \ 'filetypes' : ['ruby', 'eruby'] }}
 
-  " rubyのrefactoring
-  NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
-        \ 'autoload' : {
-        \   'commands' : [
-        \     'RAddParameter', 'RConvertPostConditional',
-        \     'RExtractLet', 'RExtractConstant',
-        \     'RExtractLocalVariable', 'RInlineTemp',
-        \     'RExtractMethod', 'RRenameLocalVariable',
-        \     'RRenameInstanceVariable'],
-        \ }}
-
   " open-browser.vim : カーソルの下のURLを開く
   NeoBundleLazy 'tyru/open-browser.vim', {
         \ 'autoload' : {
@@ -412,6 +400,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'MarkWindow', 'SwapWindows'],
         \ }}
 
+  " rubyのrefactoring
+  " NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
+  "       \ 'autoload' : {
+  "       \   'commands' : [
+  "       \     'RAddParameter', 'RConvertPostConditional',
+  "       \     'RExtractLet', 'RExtractConstant',
+  "       \     'RExtractLocalVariable', 'RInlineTemp',
+  "       \     'RExtractMethod', 'RRenameLocalVariable',
+  "       \     'RRenameInstanceVariable'],
+  "       \ }}
+
   " smooth_scroll.vim : スクロールを賢く
   " NeoBundle 'Smooth-Scroll'
 
@@ -426,14 +425,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Programming {{{
 
   " tagsの自動生成
-  " NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-  "     \ 'rev' : 'development',
-  "     \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-  "     \ 'autoload' : {
-  "     \   'commands' : ['Tags', 'TagsUpdate',
-  "     \     'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-  "     \   'unite_sources' : ['tags']
-  "     \ }}
   NeoBundle 'szw/vim-tags'
 
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
@@ -490,6 +481,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands': ['TagbarToggle', 'TagbarTogglePause',
         \     'TagbarOpen'],
         \   'fuctions': ['tagbar#currenttag'] }}
+
+  " tagsの自動生成
+  " NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+  "     \ 'rev' : 'development',
+  "     \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+  "     \ 'autoload' : {
+  "     \   'commands' : ['Tags', 'TagsUpdate',
+  "     \     'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+  "     \   'unite_sources' : ['tags']
+  "     \ }}
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   " NeoBundleLazy 'ruby.vim', {
@@ -649,6 +650,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " vimからgitk
   NeoBundleLazy 'gregsexton/gitv', {
+        \ 'depends': 'tpope/vim-fugitive',
         \ 'autoload' : { 'commands': ['Gitv'] }}
 
   " vim上でgit diff表示
