@@ -469,8 +469,7 @@ nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -auto-preview tag<CR>
 " tig
 nnoremap <silent>[unite]ti     :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
 " giti
-nnoremap <silent>[unite]gs     :<C-U>Unite -buffer-name=giti_status -no-start-insert -horizontal giti/status<CR>
-nnoremap <silent>[unite]gba    :<C-U>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
+nnoremap <silent>[unite]br    :<C-U>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
