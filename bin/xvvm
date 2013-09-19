@@ -1,18 +1,16 @@
 #!/bin/bash
 
-if [ $# -ne 1 ]; then
-  exit 1
-fi
-
-vvm rebuild $1 \
+vvm $1 $2 \
     --enable-multibyte \
     --with-features=huge \
     --enable-fontset \
     --disable-selinux \
     --enable-perlinterp \
     --enable-pythoninterp \
+    --enable-python3interp \
     --enable-rubyinterp \
     --enable-xim \
-    --enable-python3interp \
     --enable-luainterp \
     --with-lua-prefix=/usr
+vvm use $2
+exec $SHELL
