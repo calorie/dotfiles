@@ -137,3 +137,6 @@ alias emacs='emacs -nw'
 
 # vvm
 alias vvm-versions='ls -la ~/.vvm/vims/'
+
+# xdg
+alias xopen='xdg-open'
