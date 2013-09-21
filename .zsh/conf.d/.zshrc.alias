@@ -1,3 +1,5 @@
+alias where="command -v"
+
 # ls
 alias la="ls -a"
 alias lf="ls -F"
