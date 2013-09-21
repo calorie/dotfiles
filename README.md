@@ -15,7 +15,6 @@ dotfiles
 - brew (for mac)
 - cmake (tmux-mem-cpu-load)
 - lua (neocomplete)
-- npm (jsctags)
 
 ## setup
 
