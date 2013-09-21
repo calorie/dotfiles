@@ -16,10 +16,10 @@ cnoremap <Down> <C-n>
 
 if has("lua")
   " 補完にneocompleを使う
-  source ~/dotfiles/.vimrc.completion.neocomplete
+  source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplete
 else
   " 補完にneocomplcacheを使う
-  source ~/dotfiles/.vimrc.completion.neocomplcache
+  source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplcache
 endif
 
 " 補完にAutoComplPopを使う

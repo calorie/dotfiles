@@ -642,9 +642,9 @@ EOT
 
   __timetrack_threshold=30 # seconds
   read -r -d '' __timetrack_ignore_progs <<EOF
-  less emacs vi vim
+  less vi vim
   ssh mosh telnet nc netcat
-  gdb tmux guard edf fg
+  gdb tmux guard ev edf fg
   xdg-open rails thin
   cassandra cassandra-cli pry
 EOF

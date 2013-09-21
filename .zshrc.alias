@@ -105,7 +105,7 @@ extract () {
 }
 alias ex='extract'
 
-alias ev='vi ~/dotfiles/.vimrc*'
+alias ev='cd ~/dotfiles/.vim/conf.d/ ; vim'
 
 # cd
 alias cw='cd ~/work'
