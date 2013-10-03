@@ -1,6 +1,7 @@
 #!/bin/bash
 
-vvm $1 $2 \
+version="vimorg--$2"
+vvm $1 $version \
     --enable-multibyte \
     --with-features=huge \
     --enable-fontset \
@@ -12,5 +13,5 @@ vvm $1 $2 \
     --enable-xim \
     --enable-luainterp \
     --with-lua-prefix=/usr
-vvm use $2
+vvm use $version
 exec $SHELL
