@@ -711,15 +711,26 @@ function! bundle.hooks.on_source(bundle)
         \ 'mode'              : 'active',
         \ 'passive_filetypes' : ['html'],
         \}
+  let g:syntastic_c_include_dirs = ['inc', '../inc']
+  let g:syntastic_splint_config_file = '~/.splintrc'
+  let g:syntastic_c_checkers = ['gcc']
 
-  function! g:toggle_rubocop()
-    if exists('g:syntastic_ruby_checkers')
-      unlet g:syntastic_ruby_checkers
-    else
-      let g:syntastic_ruby_checkers = ['rubocop']
+  function! g:toggle_checkers()
+    if &ft == 'ruby'
+      if exists('g:syntastic_ruby_checkers')
+        unlet g:syntastic_ruby_checkers
+      else
+        let g:syntastic_ruby_checkers = ['rubocop']
+      endif
+    elseif &ft == 'c'
+      if count(g:syntastic_c_checkers, 'splint') != 0
+        let g:syntastic_c_checkers = ['gcc']
+      else
+        let g:syntastic_c_checkers = ['gcc', 'splint']
+      endif
     endif
   endfunction
-  nnoremap <Leader>s :call g:toggle_rubocop() \| SyntasticCheck<CR>
+  nnoremap <Leader>s :call g:toggle_checkers() \| SyntasticCheck<CR>
 endfunction
 unlet bundle
 "}}}

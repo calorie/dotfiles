@@ -1,0 +1,12 @@
+-I.
+-I..
+-Iinc
+-Iinclude
+-Iheader
+-Iincludes
+-Iheaders
+-I../inc
+-I../include
+-I../header
+-I../includes
+-I../headers
