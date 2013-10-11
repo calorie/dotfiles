@@ -1170,3 +1170,11 @@ xmap if <Plug>(textobj-function-i)
 nnoremap <silent> <leader>mw :MarkWindow<CR>
 nnoremap <silent> <leader>pw :SwapWindows<CR>
 "}}}
+
+"------------------------------------
+" vim-typing-sound
+"------------------------------------
+"{{{
+let g:vim_typing_sound = 0
+let g:vim_typing_sound_path = ' ~/Dropbox/program/sound/seq2_key1.wav'
+"}}}

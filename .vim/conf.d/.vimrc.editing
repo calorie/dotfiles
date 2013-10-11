@@ -2,11 +2,6 @@
 " 編集関連 Edit
 "---------------------------------------------------------------------
 
-" 無駄に音を出す
-" if executable('aplay')
-"   autocmd InsertCharPre * call vimproc#system('aplay -q ~/.vim/sound/seq2_key1.wav')
-" endif
-
 " insertモードを抜けるとIMEオフ
 set noimdisable
 set iminsert=0 imsearch=0

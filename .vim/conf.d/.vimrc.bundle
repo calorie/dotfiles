@@ -157,6 +157,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'bouzuya/vim-ibus', {
         \ 'autoload' : { 'insert' : 1 }}
 
+  " 無駄に音を出す
+  NeoBundleLazy 'calorie/vim-typing-sound', {
+        \ 'autoload' : { 'commands' : ['TypingSound'] }}
+
   " vim-operator-user : 簡単にoperatorを定義できるようにする
   NeoBundleLazy 'operator-user'
 
