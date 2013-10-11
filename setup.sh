@@ -32,7 +32,7 @@ DOTFILES=(
   .gitconfig .gitignore .inputrc
   .irbrc .pryrc .rspec .agignore
   .vimrc .vrapperrc .rubocop.yml
-  .tmux.conf .tmux-powerlinerc
+  .tmux.conf .tmux-powerlinerc .splintrc
   .dir_colors .rdebugrc .vim/dict )
 for file in ${DOTFILES[@]}
 do
