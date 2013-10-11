@@ -1,18 +1,6 @@
 "---------------------------------------------------------------------
 " タグ関連 Tags
 "---------------------------------------------------------------------
-" set tags
-" set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
-" if exists('+autochdir')
-"   " 編集しているファイルのディレクトリに自動で移動
-"   set autochdir
-"   set tags=tags;
-" else
-"   autocmd BufEnter * silent! lcd %:p:h
-" endif
-" if filereadable(expand('~/.tags/rtags'))
-"   au FileType ruby,eruby setl tags+=~/.tags/rtags,~/.tags/gtags
-" endif
 
 set notagbsearch
 

@@ -42,7 +42,7 @@ let g:yankring_history_file = '.yankring_history'
 " tabular
 "------------------------------------
 "{{{
-vnoremap t :Tab /
+vnoremap T :Tab /
 "}}}
 
 "------------------------------------
@@ -71,26 +71,6 @@ vnoremap <silent>gc :TComment<CR>
 "------------------------------------
 "{{{
 nnoremap <silent>-- :Cascading<CR>
-"}}}
-
-" ------------------------------------
-" grep.vim
-"------------------------------------
-"{{{
-" 検索外のディレクトリ、ファイルパターン
-" let Grep_Skip_Dirs = '.svn .git .hg'
-" let Grep_Skip_Files = '*.bak *~'
-
-" :Gb <args> でGrepBufferする
-" command! -nargs=1 Gb :GrepBuffer <args>
-" カーソル下の単語をGrepBufferする
-" nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><CR>
-" :Gr <args>でカレントディレクトリ以下を再帰的にgrepする
-" command! -nargs=1 Gr :Rgrep <args> *<Enter><CR>
-" カーソル下の単語をgrepする
-" nnoremap <silent> <C-g><C-r> :<C-u>Rgrep<Space><C-r><C-w> *<Enter><CR>
-" let Grep_Skip_Dirs = '.svn .git'
-" let Grep_Skip_Files = '*.bak *~'
 "}}}
 
 "------------------------------------
@@ -194,17 +174,6 @@ nnoremap <Space>ga :<C-u>Gwrite<CR>
 nnoremap <Space>gc :<C-u>Gcommit<CR>
 nnoremap <Space>gC :<C-u>Git commit --amend<CR>
 nnoremap <Space>gb :<C-u>Gblame<CR>
-"}}}
-
-"------------------------------------
-" VTreeExplorer
-"------------------------------------
-"{{{
-" let g:treeExplVertical=1
-" <Leader>t<Space>でディレクトリツリー表示
-" noremap <Leader>t<Space> :VSTreeExplore<CR>
-" 分割したウィンドウのサイズ
-" let g:treeExplWinSize=30
 "}}}
 
 "------------------------------------
@@ -460,8 +429,7 @@ nnoremap <silent> [unite]o     :<C-U>Unite -auto-preview -buffer-name=outline -h
 " nnoremap <silent> [unite]/     :<C-U>Unite -buffer-name=h_search -no-empty history/search<CR>
 " nnoremap <silent> [unite]y     :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " tag
-nnoremap <silent> [unite]ta    :<C-U>Unite -auto-preview -buffer-name=tag -no-empty tag<CR>
-nnoremap <buffer> <C-]>        :<C-u>UniteWithCursorWord -auto-preview tag<CR>
+nnoremap <silent> [unite]ta    :<C-U>UniteWithCursorWord -auto-preview -buffer-name=tag -no-empty tag<CR>
 " search
 " nnoremap <silent> /            :<C-u>Unite -auto-preview -buffer-name=search line/fast -start-insert -no-quit<CR>
 " tweetvim
@@ -915,17 +883,6 @@ let g:vim_tags_use_ycm = 0
 "}}}
 
 "------------------------------------
-" tweetvim
-"------------------------------------
-"{{{
-" let g:tweetvim_async_post = 1
-" let g:tweetvim_display_source = 1
-" let g:tweetvim_display_time = 1
-" let g:tweetvim_open_buffer_cmd = 'tabnew'
-" nnoremap <silent>tw :<C-U>TweetVimSay<CR>
-"}}}
-
-"------------------------------------
 " powertabline
 "------------------------------------
 "{{{
@@ -1116,8 +1073,6 @@ let g:airline_mode_map = {
 " vim-textobj-entire
 "------------------------------------
 "{{{
-" nmap ae <Plug>(textobj-entire-a)
-" nmap ie <Plug>(textobj-entire-i)
 xmap ae <Plug>(textobj-entire-a)
 xmap ie <Plug>(textobj-entire-i)
 "}}}
@@ -1126,10 +1081,6 @@ xmap ie <Plug>(textobj-entire-i)
 " vim-textobj-indent
 "------------------------------------
 "{{{
-" nmap ai <Plug>(textobj-indent-a)
-" nmap ii <Plug>(textobj-indent-i)
-" nmap aI <Plug>(textobj-indent-same-a)
-" nmap iI <Plug>(textobj-indent-same-i)
 xmap ai <Plug>(textobj-indent-a)
 xmap ii <Plug>(textobj-indent-i)
 xmap aI <Plug>(textobj-indent-same-a)
@@ -1140,8 +1091,6 @@ xmap iI <Plug>(textobj-indent-same-i)
 " vim-textobj-comment
 "------------------------------------
 "{{{
-" nmap ac <Plug>(textobj-comment-a)
-" nmap ic <Plug>(textobj-comment-i)
 " xmap ac <Plug>(textobj-comment-a)
 " xmap ic <Plug>(textobj-comment-i)
 "}}}
@@ -1150,8 +1099,6 @@ xmap iI <Plug>(textobj-indent-same-i)
 " vim-textobj-function
 "------------------------------------
 "{{{
-" nmap af <Plug>(textobj-function-a)
-" nmap if <Plug>(textobj-function-i)
 xmap af <Plug>(textobj-function-a)
 xmap if <Plug>(textobj-function-i)
 "}}}
