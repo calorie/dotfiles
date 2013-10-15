@@ -133,7 +133,7 @@ alias gtags='ctags -R -f ~/.tags/gtags -a --sort=yes --exclude="*.js" --exclude=
 alias cas='sudo ~/cassandra/bin/cassandra -f'
 
 # memo
-alias memo='vi ~/tmp/memo.txt'
+alias memo='vi ~/Dropbox/tmp/memo.txt'
 
 # dhclient
 alias dc='sudo dhclient -r && sudo dhclient eth0'
