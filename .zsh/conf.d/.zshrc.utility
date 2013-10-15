@@ -187,6 +187,32 @@ _rake() {
 compdef _rake rake
 
 # ------------------------------------
+# make command cache
+# ------------------------------------
+_makefile_cache_updated_at() {
+  echo $(stat .make_targets -c%Y)
+}
+_makefile_updated_at() {
+  echo $(stat Makefile -c%Y)
+}
+_generate_makefile_cache() {
+  [ -f .make_targets ] && rm .make_targets
+  make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}' > .make_targets
+}
+_make() {
+  if [ -f Makefile ]; then
+    if [ ! -f .make_targets ] || \
+       [ "`cat .make_targets | wc -l`" = "0" ] || \
+       [ `_makefile_cache_updated_at` -lt `_makefile_updated_at` ]; then
+       # [ -f Makefile -a `_makefile_cache_updated_at` -lt `_makefile_updated_at` ]; then
+      _generate_makefile_cache
+    fi
+    compadd `cat .make_targets`
+  fi
+}
+compdef _make make
+
+# ------------------------------------
 # notify for slow commands
 # ------------------------------------
 # http://qiita.com/hayamiz/items/d64730b61b7918fbb970
