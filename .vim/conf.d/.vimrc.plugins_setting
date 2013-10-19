@@ -13,24 +13,6 @@ let g:yankring_history_file = '.yankring_history'
 "}}}
 
 "------------------------------------
-" MiniBufExplorer
-"------------------------------------
-"{{{
-" let g:miniBufExplMapWindowNavVim=1 "hjklで移動
-" let g:miniBufExplSplitBelow=0  " Put new window above
-" let g:miniBufExplMapWindowNavArrows=1
-" let g:miniBufExplMapCTabSwitchBufs=1
-" let g:miniBufExplModSelTarget=1
-" let g:miniBufExplSplitToEdge=1
-" let g:miniBufExplMaxSize = 1
-" let g:miniBufExplorerMoreThanOne = 10
-" let g:miniBufExplStatusLineText = ""
-"
-" " :MtでMiniBufExplorerの表示トグル
-" nnoremap <Leader>mt :<C-u>:MBEToggle<CR>
-"}}}
-
-"------------------------------------
 " Align
 "------------------------------------
 "{{{
@@ -52,18 +34,6 @@ vnoremap T :Tab /
 let g:tcommentmaps = 0
 nnoremap <silent>gcc :TComment<CR>
 vnoremap <silent>gc :TComment<CR>
-"}}}
-
-"------------------------------------
-" NERD_commenter.vim
-"------------------------------------
-"{{{
-" コメントの間にスペースを空ける
-" let NERDSpaceDelims = 1
-" <Leader>xでコメントをトグル(NERD_commenter.vim)
-" map <Leader>x, c<space>
-" 未対応ファイルタイプのエラーメッセージを表示しない
-" let NERDShutUp=1
 "}}}
 
 " ------------------------------------
@@ -177,23 +147,6 @@ nnoremap <Space>gb :<C-u>Gblame<CR>
 "}}}
 
 "------------------------------------
-" DumbBuf.vim
-"------------------------------------
-"{{{
-" <Leader>b<Space>でBufferList
-" let dumbbuf_hotkey = '<Leader>b<Space>'
-" let dumbbuf_mappings = {
-"     \ 'n': {
-"         \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
-"     \}
-" \}
-" let dumbbuf_single_key  = 1
-" let dumbbuf_updatetime  = 1    " &updatetimeの最小値
-" let dumbbuf_wrap_cursor = 0
-" let dumbbuf_remove_marked_when_close = 1
-"}}}
-
-"------------------------------------
 " vim-indent-guides
 "------------------------------------
 "{{{
@@ -226,38 +179,6 @@ unlet bundle
 "------------------------------------
 "{{{
 nnoremap U :<C-u>GundoToggle<CR>
-"}}}
-
-"------------------------------------
-" taglist.Vim
-"------------------------------------
-"{{{
-" map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
-" nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
-" nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
-
-" let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-" let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
-" let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-" let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
-" let Tlist_Enable_Fold_Column = 1          " 折りたたみ
-" let Tlist_Auto_Open = 0                   " 自動表示
-" let Tlist_Auto_Update = 1
-" let Tlist_WinWidth = 30
-"}}}
-
-"------------------------------------
-" Srcexp
-"------------------------------------
-"{{{
-" [Srcexpl] tagsを利用したソースコード閲覧・移動補助機能
-" let g:SrcExpl_UpdateTags    = 1         " tagsをsrcexpl起動時に自動で作成（更新）
-" let g:SrcExpl_RefreshTime   = 0         " 自動表示するまでの時間(0:off)
-" let g:SrcExpl_WinHeight     = 9         " プレビューウインドウの高さ
-" let g:SrcExpl_RefreshMapKey = "<Space>" " 手動表示のMAP
-" let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
-" Source Explorerの機能ON/OFF
-" nmap <F8> :CMiniBufExplorer<CR>:SrcExplToggle<CR>:TMiniBufExplorer<CR>
 "}}}
 
 "------------------------------------
@@ -525,13 +446,6 @@ function! bundle.hooks.on_source(bundle)
         \ 'cmdopt': '-s' }
 endfunction
 unlet bundle
-"}}}
-
-"------------------------------------
-" Pydiction
-"------------------------------------
-"{{{
-" let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 "}}}
 
 "------------------------------------
@@ -857,23 +771,6 @@ unlet bundle
 "}}}
 
 "------------------------------------
-" vim-powerline
-"------------------------------------
-"{{{
-" let g:Powerline_symbols = 'fancy'
-" let g:Powerline_stl_path_style = 'filename'
-" let g:Powerline_mode_n  = ' N '
-" let g:Powerline_mode_i  = ' I '
-" let g:Powerline_mode_R  = ' R '
-" let g:Powerline_mode_v  = ' V '
-" let g:Powerline_mode_V  = 'V･L'
-" let g:Powerline_mode_cv = 'V･B'
-" let g:Powerline_mode_s  = ' S '
-" let g:Powerline_mode_S  = 'S･L'
-" let g:Powerline_mode_cs = 'S･B'
-"}}}
-
-"------------------------------------
 " vim-tags
 "------------------------------------
 "{{{
@@ -1065,14 +962,6 @@ let g:airline_mode_map = {
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
-"}}}
-
-"------------------------------------
-" vim-bufferline
-"------------------------------------
-"{{{
-" let g:bufferline_echo = 0
-" let g:bufferline_rotate = 2
 "}}}
 
 "------------------------------------

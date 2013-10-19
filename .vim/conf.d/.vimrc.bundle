@@ -237,12 +237,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     " NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
     "       \ 'autoload': { 'filetypes': ['perl'] }}
 
-    " vim-textobj-syntax : syntax hilightされたものをtext-objectに
-    " NeoBundle 'kana/vim-textobj-syntax.git'
-
-    " vim-textobj-between : 同じ文字間をtext-objectに
-    " NeoBundle 'thinca/vim-textobj-between.git'
-
   " }}}
 
   " smartchr.vim : ==などの前後を整形
@@ -252,9 +246,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " smartinput.vim : ==などの前後を整形
   " NeoBundleLazy 'kana/vim-smartinput', {
   "       \ 'autoload' : { 'insert' : 1 }}
-
-  " NERD_commenter.vim : (<Leader>c<space>でコメントをトグル)
-  " NeoBundle 'scrooloose/nerdcommenter.git'
 
   " Align : 高機能整形・桁揃えプラグイン
   " NeoBundleLazy 'Align', {
@@ -301,12 +292,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
   " NeoBundle 'AutoComplPop'
-
-  " rubyでrequire先を補完する
-  " NeoBundle 'ujihisa/neco-ruby'
-
-  " A neocomplcache plugin for English, using look command
-  " NeoBundle 'ujihisa/neco-look'
 
 " }}}
 
@@ -386,9 +371,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \     'RRenameInstanceVariable'],
   "       \ }}
 
-  " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる
-  " NeoBundle 'eregex.vim'
-
 " }}}
 
 " Programming {{{
@@ -459,20 +441,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   " NeoBundleLazy 'ruby.vim', {
   "       \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
-
-  " Pydiction : Python用の入力補完
-  " NeoBundleLazy 'Pydiction', {
-  "       \ 'autoload': { 'filetypes': 'python' }}
-
-  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
-  " NeoBundleLazy 'taglist.vim', {
-  "       \ 'autoload': { 'commands': 'Tlist' }}
-
-  " tagsを利用したソースコード閲覧・移動補助機能
-  " NeoBundle 'Source-Explorer-srcexpl.vim'
-
-  " NERD_tree, taglist, srcexpl の統合
-  " NeoBundle 'trinity.vim'
 
 " }}}
 
@@ -546,17 +514,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " NeoBundleLazy 'ctrlp.vim', {
   "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
 
-  " コマンドラインにバッファ表示
-  " NeoBundle 'bling/vim-bufferline'
-
-  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
-  " NeoBundleLazy 'fholgado/minibufexpl.vim', {
-  "       \ 'rev' : 'develop',
-  "       \ 'autoload' : { 'commands' : ['MBEToggle'] }}
-
-  " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
-  " NeoBundle 'DumbBuf'
-
 " }}}
 
 " Encording {{{
@@ -625,29 +582,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
 
-  " タブラインをカッコよくする
-  " NeoBundle 'calorie/alpaca_powertabline'
-
-  " vim-vcs, unite-vim-hack depend it
-  " NeoBundleLazy 'thinca/vim-openbuf'
-
-  " fuzzyfinder depends it
-  " NeoBundleLazy 'L9'
-
-  " vis.vim depends it
-  " NeoBundleLazy 'cecutil'
-
   " extention for openbrowser-vim
   " NeoBundleLazy 'tyru/urilib.vim'
-
-  " vim-altercmd : Ex command拡張
-  " NeoBundleLazy 'tyru/vim-altercmd'
-
-  " vimdoc 日本語
-  " NeoBundle 'yuroyoro/vimdoc_ja'
-
-  " ステータスラインをカッコよくする
-  " NeoBundle 'Lokaltog/vim-powerline'
 
   " Vim上でSQL実行
   " NeoBundleLazy 'dbext.vim', {
@@ -667,9 +603,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \     'DBSelectFromTableWithWhere', 'DBSetOption', 'DBVarRangeAssign',
   "       \     'Delete', 'Drop', 'Insert', 'Select', 'Update']
   "       \ }}
-
-  " NeoBundleLazy 'mattn/benchvimrc-vim', {
-  "       \ 'autoload' : { 'commands' : 'BenchVimrc' }}
 
 " }}}
 
