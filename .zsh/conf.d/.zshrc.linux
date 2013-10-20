@@ -58,8 +58,8 @@ export PATH=$PATH:$HOME/cassandra/bin
 
 # go
 export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
-export PATH=/usr/local/go/bin:$PATH
+export GOPATH=$HOME/.go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # jsctags
 export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
