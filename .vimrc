@@ -31,5 +31,7 @@ source ~/dotfiles/.vim/conf.d/.vimrc.colors
 source ~/dotfiles/.vim/conf.d/.vimrc.editing
 " エンコーディング関連
 source ~/dotfiles/.vim/conf.d/.vimrc.encoding
+" プログラミング関連
+source ~/dotfiles/.vim/conf.d/.vimrc.program
 " プラグインに依存する設定
 source ~/dotfiles/.vim/conf.d/.vimrc.plugins_setting
