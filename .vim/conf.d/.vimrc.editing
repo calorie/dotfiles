@@ -57,16 +57,17 @@ inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 
-" 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
-" 保存時にtabをスペースに変換する
-fun! TabToSpace()
-    if &ft =~ 'make'
-        return
+" remove space & tab with saving
+function! s:remove_dust()
+    let cursor = getpos(".")
+    %s/\s\+$//ge
+    if &ft !~ 'make'
+      %s/\t/  /ge
     endif
-    %s/\t/  /ge
-endfun
-autocmd BufWritePre * call TabToSpace()
+    call setpos(".", cursor)
+    unlet cursor
+endfunction
+autocmd BufWritePre * call <SID>remove_dust()
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
