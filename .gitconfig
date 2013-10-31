@@ -153,4 +153,4 @@
 [pull]
   rebase = false
 [heroku]
-  account = yuu
+  account = calorie
