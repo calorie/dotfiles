@@ -22,4 +22,7 @@ samples
 .vim/bundle/
 
 .rake_tasks
-/.rbenv_init
+.rbenv_init
+.ruby-version
+.rbenv-version
+vendor/bundle
