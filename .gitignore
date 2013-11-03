@@ -22,6 +22,7 @@ samples
 .vim/bundle/
 
 .rake_tasks
+.make_targets
 .rbenv_init
 .ruby-version
 .rbenv-version
