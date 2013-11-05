@@ -66,3 +66,6 @@ export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 
 # genymotion
 export PATH=/usr/local/src/genymotion/:$PATH
+
+# vvm-rb
+export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-perlinterp --enable-pythoninterp --enable-python3interp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
