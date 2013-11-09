@@ -204,8 +204,8 @@ nnoremap <Leader>Rl :ChromeReloadStop<CR>
 "------------------------------------
 "{{{
 " camel-caseへの変換
-map <Leader>u <Plug>(operator-camelize)
-map <Leader>U <Plug>(operator-decamelize)
+" map <Leader>u <Plug>(operator-camelize)
+" map <Leader>U <Plug>(operator-decamelize)
 "}}}
 
 "------------------------------------
@@ -213,7 +213,7 @@ map <Leader>U <Plug>(operator-decamelize)
 "------------------------------------
 "{{{
 " _wなどでYankしてるもので置き換える
-map _ <Plug>(operator-replace)
+" map _ <Plug>(operator-replace)
 "}}}
 
 "------------------------------------

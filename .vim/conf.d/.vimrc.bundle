@@ -163,24 +163,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'jiangmiao/auto-pairs', {
         \ 'autoload' : { 'insert' : 1 }}
 
-  " vim-operator-user : 簡単にoperatorを定義できるようにする
-  NeoBundleLazy 'operator-user'
-
-  " operator-camelize : camel-caseへの変換
-  NeoBundleLazy 'operator-camelize', {
-        \ 'depends' : 'operator-user',
-        \ 'autoload' : {
-        \   'mappings' : [['nx', '<Plug>(operator-camelize)'],
-        \     ['nx', '<Plug>(operator-decamelize)']]
-        \ }}
-
-  " operator-replace : yankしたものでreplaceする
-  NeoBundleLazy 'operator-replace', {
-        \ 'depends' : 'operator-user',
-        \ 'autoload' : {
-        \   'mappings' : [['nx', '<Plug>(operator-replace)']]
-        \ }}
-
   " textobj {{{
 
     " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
@@ -242,6 +224,24 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     "       \ 'autoload': { 'filetypes': ['perl'] }}
 
   " }}}
+
+  " vim-operator-user : 簡単にoperatorを定義できるようにする
+  " NeoBundleLazy 'operator-user'
+
+  " operator-camelize : camel-caseへの変換
+  " NeoBundleLazy 'operator-camelize', {
+  "       \ 'depends' : 'operator-user',
+  "       \ 'autoload' : {
+  "       \   'mappings' : [['nx', '<Plug>(operator-camelize)'],
+  "       \     ['nx', '<Plug>(operator-decamelize)']]
+  "       \ }}
+
+  " operator-replace : yankしたものでreplaceする
+  " NeoBundleLazy 'operator-replace', {
+  "       \ 'depends' : 'operator-user',
+  "       \ 'autoload' : {
+  "       \   'mappings' : [['nx', '<Plug>(operator-replace)']]
+  "       \ }}
 
   " smartchr.vim : ==などの前後を整形
   " NeoBundleLazy 'kana/vim-smartchr', {
@@ -442,10 +442,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "     \   'unite_sources' : ['tags']
   "     \ }}
 
-  " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-  " NeoBundleLazy 'ruby.vim', {
-  "       \ 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] }}
-
 " }}}
 
 " Syntax {{{
@@ -553,8 +549,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'Shougo/vimshell', {
         \   'autoload' : { 'commands' : [ 'VimShell', 'VimShellSendString' ] }
         \}
-  NeoBundleLazy 'ujihisa/vimshell-ssh', {
-        \ 'autoload' : { 'filetypes' : 'vimshell' }}
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive', {
