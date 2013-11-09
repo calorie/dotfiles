@@ -415,7 +415,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload': { 'filetypes': ['ruby', 'eruby']}}
 
   " vim-endwise : endなどの補完
-  NeoBundleLazy 'tpope/vim-endwise.git', {
+  NeoBundle 'tpope/vim-endwise.git', {
         \ 'autoload' : { 'insert' : 1 }}
 
   " html emmet-vim
@@ -449,9 +449,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " syntax checking plugins exist for
   " eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundleLazy 'scrooloose/syntastic', {
-        \ 'build' : {
-        \   'mac' : ['brew install tidy', 'brew install csslint',
-        \            'gem install sass', 'brew install jslint'] },
         \ 'autoload': {
         \   'insert' : 1,
         \ }}

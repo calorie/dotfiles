@@ -661,7 +661,7 @@ unlet bundle
 " vim-endwise
 "------------------------------------
 "{{{
-let g:endwise_no_mappings = 1
+" let g:endwise_no_mappings = 1
 "}}}
 
 "------------------------------------
