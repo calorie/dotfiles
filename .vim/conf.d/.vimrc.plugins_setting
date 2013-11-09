@@ -161,11 +161,9 @@ let g:indent_guides_space_guides = 1
 
 let bundle = neobundle#get('vim-indent-guides')
 function! bundle.hooks.on_source(bundle)
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
   if 'dark' == &background
-    hi IndentGuidesOdd  ctermbg=black
-    hi IndentGuidesEven ctermbg=darkgrey
+    hi IndentGuidesOdd  ctermbg=darkgrey
+    hi IndentGuidesEven ctermbg=black
   else
     hi IndentGuidesOdd  ctermbg=white
     hi IndentGuidesEven ctermbg=lightgrey
