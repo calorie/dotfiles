@@ -154,3 +154,9 @@
   rebase = false
 [heroku]
   account = calorie
+
+[hub]
+protocol = https
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential

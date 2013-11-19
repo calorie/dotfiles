@@ -1,6 +1,5 @@
 bundler
 rake
-noexec
 rubygems-bundler
 rubygems-update
 rbenv-rehash

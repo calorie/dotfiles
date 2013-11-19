@@ -36,7 +36,7 @@ DOTFILES=(
   .dir_colors .rdebugrc .vim/dict )
 for file in ${DOTFILES[@]}
 do
-  ln -sb $DOTFILES_PATH/$file $HOME/$file
+  ln -sf $DOTFILES_PATH/$file $HOME/$file
 done
 
 # NeoBundle
