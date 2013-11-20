@@ -1,9 +1,5 @@
 alias where="command -v"
 
-# trash-cli
-alias rm='trash-put'
-alias emp='trash-empty'
-
 # ls
 alias la="ls -a"
 alias lf="ls -F"

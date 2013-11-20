@@ -1,3 +1,7 @@
+# trash-cli
+alias rm='trash-put'
+alias emp='trash-empty'
+
 # vvm
 test -f ~/.vvm/etc/login && source ~/.vvm/etc/login
 
@@ -68,4 +72,4 @@ export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 export PATH=/usr/local/src/genymotion/:$PATH
 
 # vvm-rb
-export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-perlinterp --enable-pythoninterp --enable-python3interp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
+export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"

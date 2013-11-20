@@ -160,14 +160,18 @@ sudo() {
 # rake command cache
 # ------------------------------------
 # http://qiita.com/ToQoz/items/848abdf90a0f40e70ce0
+local __rake_stat_op="-c%Y"
+if [[ "$OSTYPE" =~ "darwin.*" ]]; then
+  __rake_stat_op='-f %c'
+fi
 _cachefile_updated_at() {
-  echo $(stat .rake_tasks -c%Y)
+  echo $(stat "$__rake_stat_op" .rake_tasks)
 }
 _rakefile_updated_at() {
-  echo $(stat Rakefile -c%Y)
+  echo $(stat "$__rake_stat_op" Rakefile)
 }
 _gemfile_updated_at() {
-  echo $(stat Gemfile -c%Y)
+  echo $(stat "$__rake_stat_op" Gemfile)
 }
 _generate_cachefile() {
   [ -f .rake_tasks ] && rm .rake_tasks
