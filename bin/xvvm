@@ -6,9 +6,7 @@ vvm $1 $version \
     --with-features=huge \
     --enable-fontset \
     --disable-selinux \
-    --enable-perlinterp \
     --enable-pythoninterp \
-    --enable-python3interp \
     --enable-rubyinterp \
     --enable-xim \
     --enable-luainterp \
