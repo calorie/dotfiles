@@ -51,11 +51,11 @@ nmap y9 y$
 nmap y0 y^
 
 " 括弧を自動補完
-" inoremap { {}<LEFT>
-" inoremap [ []<LEFT>
-" inoremap ( ()<LEFT>
-" inoremap " ""<LEFT>
-" inoremap ' ''<LEFT>
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 
 " remove space & tab with saving
 function! s:remove_dust()
