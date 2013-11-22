@@ -29,3 +29,11 @@ export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disabl
 export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init - zsh)"
 # source $HOME/dotfiles/.rbenv_init
+
+# quick-cocos2d-x
+export ANDROID_ROOT=$HOME/src/android
+export ANDROID_NDK_ROOT=$ANDROID_ROOT/android/android-ndk-r9b
+export ANDROID_SDK_ROOT=$ANDROID_ROOT/android/android-sdk-macosx
+export QUICK_COCOS2DX_ROOT=$HOME/work/quick-cocos2d-x
+export COCOS2DX_ROOT=${QUICK_COCOS2DX_ROOT}/lib/cocos2d-x
+export ANDROID_HOME=${ANDROID_SDK_ROOT}
