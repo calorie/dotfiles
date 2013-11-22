@@ -4,6 +4,7 @@ alias emp='trash-empty'
 
 # vvm
 test -f ~/.vvm/etc/login && source ~/.vvm/etc/login
+alias vvm-versions='ls -la ~/.vvm/vims/'
 
 # Terminal Colorの設定
 export CLICOLOR=1

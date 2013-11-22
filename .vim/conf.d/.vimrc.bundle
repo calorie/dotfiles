@@ -507,6 +507,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'explorer' : 1,
         \ }}
 
+  NeoBundle 'vim-scripts/vim-auto-save'
+
   " ctrl+pでファイル検索
   " NeoBundleLazy 'ctrlp.vim', {
   "       \ 'autoload' : { 'commands' : ['CtrlP'] }}

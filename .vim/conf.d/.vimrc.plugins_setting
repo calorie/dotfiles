@@ -1019,3 +1019,10 @@ let g:vim_typing_sound = 0
 let g:vim_typing_sound_path = '~/Dropbox/program/sound/seq2_key1.wav'
 " let g:vim_typing_sound_path = '~/Dropbox/program/sound/seq6_key1.wav'
 "}}}
+
+"------------------------------------
+" vim-auto-save
+"------------------------------------
+"{{{
+let g:auto_save = 1
+"}}}
