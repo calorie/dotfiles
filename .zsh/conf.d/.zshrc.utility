@@ -162,7 +162,7 @@ sudo() {
 # http://qiita.com/ToQoz/items/848abdf90a0f40e70ce0
 local __rake_stat_op="-c%Y"
 if [[ "$OSTYPE" =~ "darwin.*" ]]; then
-  __rake_stat_op='-f %c'
+  __rake_stat_op='-f %m'
 fi
 _cachefile_updated_at() {
   echo $(stat "$__rake_stat_op" .rake_tasks)
