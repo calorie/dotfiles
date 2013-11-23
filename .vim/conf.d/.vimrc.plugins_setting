@@ -24,7 +24,7 @@ let g:yankring_history_file = '.yankring_history'
 " tabular
 "------------------------------------
 "{{{
-vnoremap T :Tab /
+vnoremap tb :Tab /
 "}}}
 
 "------------------------------------
