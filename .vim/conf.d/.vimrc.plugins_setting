@@ -1026,3 +1026,10 @@ let g:vim_typing_sound_path = '~/Dropbox/program/sound/seq2_key1.wav'
 "{{{
 let g:auto_save = 1
 "}}}
+
+"------------------------------------
+" vim-over
+"------------------------------------
+"{{{
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+"}}}

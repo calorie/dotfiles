@@ -159,6 +159,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'calorie/vim-typing-sound', {
         \ 'autoload' : { 'commands' : 'TypingSound' }}
 
+  " visual substitute
+  NeoBundleLazy 'osyo-manga/vim-over', {
+        \ 'autoload' : { 'commands' : 'OverCommandLine' }}
+
   " textobj {{{
 
     " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
