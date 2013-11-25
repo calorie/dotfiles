@@ -122,4 +122,8 @@
   # 2. Find the weather for you location
   # 3. Copy the last numbers in that URL. e.g. "http://weather.yahoo.com/united-states/california/newport-beach-12796587/" has the numbers "12796587"
   export TMUX_POWERLINE_SEG_WEATHER_LOCATION="15015370"
+
+  if [[ $(uname) = 'Darwin' ]]; then
+    export TMUX_POWERLINE_SEG_WEATHER_GREP="/opt/boxen/homebrew/bin/ggrep"
+  fi
 # }

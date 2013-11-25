@@ -113,6 +113,8 @@ alias ev='cd ~/dotfiles/.vim/conf.d/ ; vim'
 alias cw='cd ~/work'
 alias cdf='cd ~/dotfiles'
 alias edf='cd ~/dotfiles ; vim'
+alias cddl='cd ~/Downloads'
+alias cddr='cd ~/Dropbox'
 
 # chrome
 alias chrome='google-chrome'
