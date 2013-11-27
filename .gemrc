@@ -1,6 +1,6 @@
 ---
 :benchmark: false
-gem: --no-rdoc --no-ri
+gem: --no-rdoc --no-ri --include-dependencies
 :verbose: true
 :sources:
 - http://gems.github.com
