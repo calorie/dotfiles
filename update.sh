@@ -14,46 +14,68 @@ done
 ORIGIN=$(pwd)
 
 # tmuxinator
-gem install tmuxinator
+if [ -x `which mux` ]; then
+    gem install tmuxinator
+fi
 
 # tmux-mem-cpu-load
-cd $HOME/.tmux/tmux-mem-cpu-load/
-git reset --hard HEAD
-git pull --rebase origin master
-sed -i -e "s/ << ' ' << load_string( use_colors )//" $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
-cmake .
-make
-sudo make install
+if [ -d $HOME/.tmux/tmux-mem-cpu-load ]; then
+    cd $HOME/.tmux/tmux-mem-cpu-load
+    git reset --hard HEAD
+    git pull --rebase origin master
+    sed -i -e "s/ << ' ' << load_string( use_colors )//" $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
+    cmake .
+    make
+    sudo make install
+fi
 
 # tmux-powerline
-cd $HOME/.tmux/tmux-powerline/
-git pull --rebase origin master
+if [ -d $HOME/.tmux/tmux-powerline ]; then
+    cd $HOME/.tmux/tmux-powerline
+    git pull --rebase origin master
+fi
 
 # vvm
-vvm update_itself
+if [ -x `which vvm-rb` ]; then
+    gem install vvm-rb
+else
+    vvm update_itself
+fi
 
 # auto-fu
-cd $HOME/.zsh/auto-fu.zsh
-git pull --rebase origin pu
+if [ -d $HOME/.zsh/auto-fu.zsh ]; then
+    cd $HOME/.zsh/auto-fu.zsh
+    git pull --rebase origin pu
+fi
 
 # rbenv
-cd $HOME/.rbenv
-git pull --rebase origin master
+if [ -d $HOME/.rbenv ]; then
+    cd $HOME/.rbenv
+    git pull --rebase origin master
+fi
 
 # rbenv-ctags
-cd $HOME/.rbenv/plugins/rbenv-ctags
-git pull --rebase origin master
+if [ -d $HOME/.rbenv/plugins/rbenv-ctags ]; then
+    cd $HOME/.rbenv/plugins/rbenv-ctags
+    git pull --rebase origin master
+fi
 
 # rbenv-default-gems
-cd $HOME/.rbenv/plugins/rbenv-default-gems
-git pull --rebase origin master
+if [ -d $HOME/.rbenv/plugins/rbenv-default-gems ]; then
+    cd $HOME/.rbenv/plugins/rbenv-default-gems
+    git pull --rebase origin master
+fi
 
 # ruby-build
-cd $HOME/.rbenv/plugins/ruby-build
-git pull --rebase origin master
+if [ -d $HOME/.rbenv/plugins/ruby-build ]; then
+    cd $HOME/.rbenv/plugins/ruby-build
+    git pull --rebase origin master
+fi
 
 # vim plugins
-vim +NeoBundleUpdate +qa
+if [ -x `which vim` ]; then
+    vim +NeoBundleUpdate +qa
+fi
 
 cd ${ORIGIN}
 exec $SHELL
