@@ -36,3 +36,6 @@ command! Rv source $MYVIMRC
 command! Path echo expand("%:p")
 
 set helpfile=$VIMRUNTIME/doc/help.txt
+
+let g:is_mac = (has('mac') || has('macunix') || has('gui_macvim') ||
+      \ (!executable('xdg-open') && system('uname') =~? '^darwin'))

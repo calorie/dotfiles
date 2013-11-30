@@ -772,6 +772,9 @@ unlet bundle
 " vim-tags
 "------------------------------------
 "{{{
+let s:vim_tags_path_prefix = g:is_mac ? '/opt/boxen/homebrew/' : '/usr/local/'
+let g:vim_tags_project_tags_command = s:vim_tags_path_prefix . "bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_gems_tags_command = s:vim_tags_path_prefix . "bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 let g:vim_tags_auto_generate = 1
 let g:vim_tags_use_vim_dispatch = 1
 let g:vim_tags_use_ycm = 0

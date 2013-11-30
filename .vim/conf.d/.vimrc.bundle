@@ -384,7 +384,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Programming {{{
 
   " tagsの自動生成
-  NeoBundle 'szw/vim-tags'
+  NeoBundle 'szw/vim-tags', {
+        \ 'build': {
+        \   'unix': 'sudo apt-get install exuberant-ctags'
+        \ }}
 
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundleLazy 'thinca/vim-quickrun', {

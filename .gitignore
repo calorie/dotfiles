@@ -27,3 +27,4 @@ samples
 .ruby-version
 .rbenv-version
 vendor/bundle
+Gemfile.lock.tags
