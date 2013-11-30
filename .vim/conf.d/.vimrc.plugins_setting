@@ -1036,3 +1036,10 @@ let g:auto_save = 1
 "{{{
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 "}}}
+
+"------------------------------------
+" auto-pairs
+"------------------------------------
+"{{{
+let g:AutoPairsMapBS = 0
+"}}}

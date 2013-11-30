@@ -163,6 +163,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'osyo-manga/vim-over', {
         \ 'autoload' : { 'commands' : 'OverCommandLine' }}
 
+  " completion for parenthesis
+  NeoBundle 'jiangmiao/auto-pairs', {
+        \ 'autoload' : { 'insert' : 1 }}
+
   " textobj {{{
 
     " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
@@ -242,10 +246,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \ 'autoload' : {
   "       \   'mappings' : [['nx', '<Plug>(operator-replace)']]
   "       \ }}
-
-  " completion for parenthesis
-  " NeoBundle 'jiangmiao/auto-pairs', {
-  "       \ 'autoload' : { 'insert' : 1 }}
 
   " smartchr.vim : ==などの前後を整形
   " NeoBundleLazy 'kana/vim-smartchr', {
