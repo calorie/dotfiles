@@ -1042,4 +1042,5 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 "------------------------------------
 "{{{
 let g:AutoPairsMapBS = 0
+inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 "}}}
