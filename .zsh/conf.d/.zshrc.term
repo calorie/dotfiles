@@ -41,7 +41,7 @@ esac
 # powerline-shell
 # ------------------------------------
 function powerline_precmd() {
-  export PS1="$(~/.zsh/powerline-shell/powerline-shell.py --mode flat --cwd-max-depth 5 $? --shell zsh 2> /dev/null)"
+  export PS1="$(~/.zsh/powerline-shell/powerline-shell.py --mode flat --cwd-max-depth 4 $? --shell zsh 2> /dev/null)"
 }
 function install_powerline_precmd() {
   for s in "${precmd_functions[@]}" ; do
