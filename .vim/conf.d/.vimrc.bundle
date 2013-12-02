@@ -453,13 +453,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " syntax checking plugins exist for
   " eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundleLazy 'scrooloose/syntastic', {
-        \ 'autoload': {
-        \   'insert' : 1,
-        \ }}
+        \ 'autoload': { 'insert' : 1 }}
 
   " JavaScript
   NeoBundleLazy 'JavaScript-syntax', {
-        \ 'autoload': { 'filetypes': ['javascript'] }}
+        \ 'autoload': { 'filetypes': 'javascript' }}
 
   " jQuery
   NeoBundleLazy 'jQuery', {
@@ -467,11 +465,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " markdown
   NeoBundleLazy 'tpope/vim-markdown', {
-        \ 'autoload' : { 'filetypes' : ['markdown'] }}
+        \ 'autoload' : { 'filetypes' : 'markdown' }}
 
   " coffee script
   NeoBundleLazy 'kchmck/vim-coffee-script', {
-        \ 'autoload': { 'filetypes': ['coffee'] }}
+        \ 'autoload': { 'filetypes': 'coffee' }}
 
   " haml
   " NeoBundleLazy 'haml.zip', {
