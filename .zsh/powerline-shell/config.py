@@ -25,7 +25,7 @@ SEGMENTS = [
 
 # Show a padlock if the current user has no write access to the current
 # directory
-    # 'read_only',
+    'read_only',
 
 # Show the current git branch and status
     'git',
