@@ -38,17 +38,33 @@ dumb)
 esac
 
 # ------------------------------------
+# powerline-shell
+# ------------------------------------
+function powerline_precmd() {
+  export PS1="$(~/.zsh/powerline-shell/powerline-shell.py --mode flat --cwd-max-depth 5 $? --shell zsh 2> /dev/null)"
+}
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}" ; do
+    if [ "$s" = "powerline_precmd" ] ; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+install_powerline_precmd
+
+# ------------------------------------
 # tmux
 # ------------------------------------
-# tmux autoload
-if which tmux 2>&1 >/dev/null; then
-  #if not inside a tmux session, and if no session is started, start a new session
-  test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
-fi
 function __tmux_statusline_reload() {
   [ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
 }
-PS1="$PS1"'$(__tmux_statusline_reload)'
+# tmux autoload
+if which tmux 2>&1 >/dev/null; then
+  test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
+  __tmux_statusline_reload
+fi
+# PS1="$PS1"'$(__tmux_statusline_reload)'
 chpwd() {
   __tmux_statusline_reload
 }

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+[ -d $HOME/.zsh ] || mkdir $HOME/.zsh
+cd $HOME/.zsh
+git clone https://github.com/milkbikis/powerline-shell.git
+cd $HOME/.zsh/powerline-shell
+git pull --rebase origin master
+ln -s $HOME/dotfiles/.zsh/powerline-shell/config.py $HOME/.zsh/powerline-shell/config.py
+./install.py

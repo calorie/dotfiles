@@ -1,7 +1,7 @@
 # basic
 source ~/dotfiles/.zsh/conf.d/.zshrc.basic
 # color
-source ~/dotfiles/.zsh/conf.d/.zshrc.color
+# source ~/dotfiles/.zsh/conf.d/.zshrc.color
 # term
 source ~/dotfiles/.zsh/conf.d/.zshrc.term
 # utility

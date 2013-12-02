@@ -48,6 +48,13 @@ if [ -d $HOME/.zsh/auto-fu.zsh ]; then
     git pull --rebase origin pu
 fi
 
+# powerline-shell
+if [ -d $HOME/.zsh/powerline-shell ]; then
+    cd $HOME/.zsh/powerline-shell
+    git pull --rebase origin master
+    ./install.py
+fi
+
 # rbenv
 if [ -d $HOME/.rbenv ]; then
     cd $HOME/.rbenv
