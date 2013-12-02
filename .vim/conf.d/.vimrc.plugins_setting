@@ -1035,6 +1035,7 @@ let g:auto_save = 1
 "------------------------------------
 "{{{
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+vnoremap sub "xy:OverCommandLine<CR>%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//g<Left><Left>
 "}}}
 
 "------------------------------------
