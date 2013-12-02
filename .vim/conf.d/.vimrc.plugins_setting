@@ -163,7 +163,7 @@ let bundle = neobundle#get('vim-indent-guides')
 function! bundle.hooks.on_source(bundle)
   if 'dark' == &background
     hi IndentGuidesOdd  ctermbg=darkgrey
-    hi IndentGuidesEven ctermbg=black
+    hi IndentGuidesEven ctermbg=lightgrey
   else
     hi IndentGuidesOdd  ctermbg=white
     hi IndentGuidesEven ctermbg=lightgrey
