@@ -298,9 +298,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \    'unix': 'ruby etc/config.rb > ~/.rsense',
   "       \ } }
 
-  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
-  " NeoBundle 'AutoComplPop'
-
 " }}}
 
 " Searching/Moving {{{

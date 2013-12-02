@@ -21,6 +21,3 @@ else
   " 補完にneocomplcacheを使う
   source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplcache
 endif
-
-" 補完にAutoComplPopを使う
-" source ~/dotfiles/.vimrc.completion.autocomplpop
