@@ -1,8 +1,8 @@
 #!/bin/bash
 
-$ZSH_PATH=$HOME/.zsh
-$POWERLINE_PATH=$ZSH_PATH/powerline-shell
-$DOTFILES_POWERLINE_PATH=$HOME/dotfiles/.zsh/powerline-shell
+ZSH_PATH=$HOME/.zsh
+POWERLINE_PATH=$ZSH_PATH/powerline-shell
+DOTFILES_POWERLINE_PATH=$HOME/dotfiles/.zsh/powerline-shell
 [ -d $ZSH_PATH ] || mkdir $ZSH_PATH
 cd $ZSH_PATH
 git clone https://github.com/milkbikis/powerline-shell.git
@@ -17,3 +17,4 @@ for file in ${POWERLINE_FILES[@]}
 do
   ln -sf $DOTFILES_POWERLINE_PATH/$file $POWERLINE_PATH/$file
 done
+./install.py
