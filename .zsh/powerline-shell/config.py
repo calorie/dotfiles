@@ -44,7 +44,7 @@ SEGMENTS = [
 
 # Shows a '#' if the current user is root, '$' otherwise
 # Also, changes color if the last command exited with a non-zero error code
-    'root',
+    'myroot',
 ]
 
 # Change the colors used to draw individual segments in your prompt
