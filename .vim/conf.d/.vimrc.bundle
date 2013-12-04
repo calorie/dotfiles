@@ -90,13 +90,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \   'unite_sources' : ['history/command', 'history/search']
   "       \ }}
 
-  " help
-  " NeoBundleLazy 'Shougo/unite-help', {
-  "       \ 'depends' : 'Shougo/unite.vim',
-  "       \ 'autoload' : {
-  "       \   'unite_sources' : 'help'
-  "       \ }}
-
 " }}}
 
 " Edit {{{
@@ -254,14 +247,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " smartinput.vim : ==などの前後を整形
   " NeoBundleLazy 'kana/vim-smartinput', {
   "       \ 'autoload' : { 'insert' : 1 }}
-
-  " Align : 高機能整形・桁揃えプラグイン
-  " NeoBundleLazy 'Align', {
-  "       \ 'autoload' : { 'commands' : 'Align' }}
-
-  " マルチバイト対応の整形
-  " NeoBundleLazy 'h1mesuke/vim-alignta', {
-  "       \ 'autoload' : { 'commands' : 'Alignta' }}
 
 " }}}
 
@@ -580,9 +565,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends': 'mattn/webapi-vim',
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
-
-  " extention for openbrowser-vim
-  " NeoBundleLazy 'tyru/urilib.vim'
 
   " Vim上でSQL実行
   " NeoBundleLazy 'dbext.vim', {
