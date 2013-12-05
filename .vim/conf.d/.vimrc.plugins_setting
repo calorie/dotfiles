@@ -792,7 +792,9 @@ au FileType tagbar
       \ nnoremap <buffer><Space> <Space>
       \|nnoremap <buffer><space>tb :<C-U>TagbarToggle<CR>
 
-if exists('/usr/bin/ctags')
+if g:is_mac
+  let g:tagbar_ctags_bin = '/opt/boxen/homebrew/bin/ctags'
+elseif exists('/usr/bin/ctags')
   let g:tagbar_ctags_bin = '/usr/bin/ctags'
 endif
 let g:tagbar_compact    = 1
