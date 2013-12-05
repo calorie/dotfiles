@@ -104,10 +104,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'TCommentAs', 'TCommentMaybeInline']
         \ }}
 
-  " -- でメソッドチェーン整形
-  NeoBundleLazy 'c9s/cascading.vim', {
-        \ 'autoload' : { 'commands' : 'Cascading' }}
-
   " visually indent guide
   NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
         \ 'autoload' : {
@@ -239,6 +235,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \ 'autoload' : {
   "       \   'mappings' : [['nx', '<Plug>(operator-replace)']]
   "       \ }}
+
+  " -- でメソッドチェーン整形
+  " NeoBundleLazy 'c9s/cascading.vim', {
+  "       \ 'autoload' : { 'commands' : 'Cascading' }}
 
   " smartchr.vim : ==などの前後を整形
   " NeoBundleLazy 'kana/vim-smartchr', {
