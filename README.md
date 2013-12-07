@@ -29,6 +29,7 @@ $ ./setup.sh
 - ricty
 - vvm(vim version manager)
 - auto-fu
+- powerline-shell
 - tmux-powerline
 - tmux-mem-cpu-load
 - tmuxinator
