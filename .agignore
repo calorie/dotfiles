@@ -3,6 +3,7 @@
 *.bak
 *.old
 *.log
+*.tmp
 tmp
 old
 .vim/bundle
