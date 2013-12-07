@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -x `which ruby` ];then
+  gem install vvm-rb
+
+  VVMOPT_BASE="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp"
+  case "${OSTYPE}" in
+  darwin*)
+    export VVMOPT="${VVMOPT_BASE} --with-lua-prefix=/opt/boxen/homebrew"
+    ;;
+  linux*)
+    export VVMOPT="${VVMOPT_BASE} --with-lua-prefix=/usr"
+    ;;
+  esac
+
+  vvm-rb install -u latest
+
+  [ -d $HOME/.vim ] || mkdir $HOME/.vim
+fi
