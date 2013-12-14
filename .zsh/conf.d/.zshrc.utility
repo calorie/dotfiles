@@ -1,59 +1,19 @@
+# ------------------------------------
+# color commands
+# ------------------------------------
+# {{{
 # function make() {
   # LANG=C command make "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
 # }
 function cwaf() {
   LANG=C command ./waf "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
 }
-function mkcd() { mkdir -p $1 && cd $1; }
-
-# ------------------------------------
-# exntended_glob と HEAD^^^ を共存
-# ------------------------------------
-# http://subtech.g.hatena.ne.jp/cho45/20080617/1213629154
-typeset -A abbreviations
-abbreviations=(
-  "L"    "| $PAGER"
-  "G"    "| grep"
-
-  "HEAD^"     "HEAD\\^"
-  "HEAD^^"    "HEAD\\^\\^"
-  "HEAD^^^"   "HEAD\\^\\^\\^"
-  "HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
-  "HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
-)
-
-# ------------------------------------
-# 略語展開
-# ------------------------------------
-magic-abbrev-expand () {
-  local MATCH
-  LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9^]#}
-  LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
-}
-magic-abbrev-expand-and-insert () {
-  magic-abbrev-expand
-  zle self-insert
-}
-magic-abbrev-expand-and-accept () {
-  magic-abbrev-expand
-  zle accept-line
-}
-no-magic-abbrev-expand () {
-  LBUFFER+=' '
-}
-zle -N magic-abbrev-expand
-zle -N magic-abbrev-expand-and-insert
-zle -N magic-abbrev-expand-and-accept
-zle -N no-magic-abbrev-expand
-bindkey "\r"  magic-abbrev-expand-and-accept # M-x RET はできなくなる
-bindkey "^J"  accept-line # no magic
-bindkey " "   magic-abbrev-expand-and-insert
-bindkey "."   magic-abbrev-expand-and-insert
-bindkey "^x " no-magic-abbrev-expand
+# }}}
 
 # ------------------------------------
 # auto-fu
 # ------------------------------------
+# {{{
 # http://d.hatena.ne.jp/tarao/20100531/1275322620
 function () {
   local A
@@ -131,10 +91,12 @@ function afu-ad-delete-unambiguous-prefix () {
 afu-ad-delete-unambiguous-prefix afu+accept-line
 afu-ad-delete-unambiguous-prefix afu+accept-line-and-down-history
 afu-ad-delete-unambiguous-prefix afu+accept-and-hold
+# }}}
 
 # ------------------------------------
 # sudo.vim
 # ------------------------------------
+# {{{
 sudo() {
   local args
   case $1 in
@@ -155,10 +117,12 @@ sudo() {
       ;;
   esac
 }
+# }}}
 
 # ------------------------------------
 # rake command cache
 # ------------------------------------
+# {{{
 # http://qiita.com/ToQoz/items/848abdf90a0f40e70ce0
 local __rake_stat_op="-c%Y"
 if [[ "$OSTYPE" =~ "darwin.*" ]]; then
@@ -189,10 +153,12 @@ _rake() {
   fi
 }
 compdef _rake rake
+# }}}
 
 # ------------------------------------
 # make command cache
 # ------------------------------------
+# {{{
 _makefile_cache_updated_at() {
   echo $(stat .make_targets -c%Y)
 }
@@ -215,10 +181,12 @@ _make() {
   fi
 }
 compdef _make make
+# }}}
 
 # ------------------------------------
 # notify for slow commands
 # ------------------------------------
+# {{{
 # http://qiita.com/hayamiz/items/d64730b61b7918fbb970
 autoload -U add-zsh-hook 2>/dev/null || return
 __timetrack_threshold=30 # seconds
@@ -279,10 +247,12 @@ if which growlnotify >/dev/null 2>&1 ||
   add-zsh-hook preexec __my_preexec_start_timetrack
   add-zsh-hook precmd __my_preexec_end_timetrack
 fi
+# }}}
 
 # ------------------------------------
 # ls && git status
 # ------------------------------------
+# {{{
 # function do_enter() {
 #   if [ -n "$BUFFER" ]; then
 #     zle accept-line
@@ -300,3 +270,22 @@ fi
 # }
 # zle -N do_enter
 # bindkey '^m' do_enter
+# }}}
+
+# ------------------------------------
+# misc
+# ------------------------------------
+# {{{
+function mkcd() { mkdir -p $1 && cd $1; }
+
+# convert \ to ~/
+expand-to-home-or-insert () {
+  if [ "$LBUFFER" = "" -o "$LBUFFER[-1]" = " " ]; then
+    LBUFFER+="~/"
+  else
+    zle self-insert
+  fi
+}
+zle -N expand-to-home-or-insert
+bindkey "\\"  expand-to-home-or-insert
+# }}}

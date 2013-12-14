@@ -64,7 +64,6 @@ if which tmux 2>&1 >/dev/null; then
   test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
   __tmux_statusline_reload
 fi
-# PS1="$PS1"'$(__tmux_statusline_reload)'
 chpwd() {
   __tmux_statusline_reload
 }

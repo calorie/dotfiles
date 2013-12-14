@@ -179,14 +179,3 @@ export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
-
-# ------------------------------------
-# Misc
-# ------------------------------------
-expand-to-home-or-insert () {
-  if [ "$LBUFFER" = "" -o "$LBUFFER[-1]" = " " ]; then
-    LBUFFER+="~/"
-  else
-    zle self-insert
-  fi
-}

@@ -7,20 +7,6 @@ alias rm='rmtrash'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin/:~/bin:$PATH
-
-# vim
-# export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-# alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-# alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-
-# man path
-# MANPATH=/usr/local/man:$MANPATH
-# export MANPATH
-# INFOPATH=/usr/local/info:$INFOPATH
-# export INFOPATH
-
 # vvm-rb
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-luajit --with-lua-prefix=/opt/boxen/homebrew"
