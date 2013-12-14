@@ -350,17 +350,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'MarkWindow', 'SwapWindows'],
         \ }}
 
-  " rubyのrefactoring
-  " NeoBundleLazy 'ecomba/vim-ruby-refactoring', {
-  "       \ 'autoload' : {
-  "       \   'commands' : [
-  "       \     'RAddParameter', 'RConvertPostConditional',
-  "       \     'RExtractLet', 'RExtractConstant',
-  "       \     'RExtractLocalVariable', 'RInlineTemp',
-  "       \     'RExtractMethod', 'RRenameLocalVariable',
-  "       \     'RRenameInstanceVariable'],
-  "       \ }}
-
 " }}}
 
 " Programming {{{

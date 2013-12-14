@@ -65,7 +65,7 @@ nnoremap ) %
 " onoremap gc <C-u>normal gc<Enter>
 
 " カーソル位置の単語をyankする
-nnoremap vy vawy
+" nnoremap vy vawy
 
 " 矩形選択で自由に移動する
 set virtualedit+=block
