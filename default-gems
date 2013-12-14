@@ -1,10 +1,6 @@
 bundler
 rake
-rubygems-bundler
 rubygems-update
-rbenv-rehash
 pry
-pry-remote
-pry-stack_explorer
-pry-debugger
 tmuxinator
+vvm-rb
