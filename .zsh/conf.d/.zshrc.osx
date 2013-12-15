@@ -9,7 +9,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # vvm-rb
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
-export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-luajit --with-lua-prefix=/opt/boxen/homebrew"
+export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/opt/boxen/homebrew"
 alias vvm='RBENV_VERSION=system vvm-rb'
 
 # rbenv
