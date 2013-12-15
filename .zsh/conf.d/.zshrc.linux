@@ -14,9 +14,10 @@ alias ls='ls -alh --color'
 export PATH
 
 # rbenv
-export PATH=$PATH:$HOME/.rbenv/bin
+# export RBENV_ROOT=$HOME/.rbenv
+# export PATH=$PATH:$RBENV_ROOT/bin
 # eval "$(rbenv init - zsh)"
-source $HOME/dotfiles/.rbenv_init
+# source $HOME/dotfiles/.rbenv_init
 
 # phpenv
 # export PATH=$PATH:$HOME/.phpenv/bin
