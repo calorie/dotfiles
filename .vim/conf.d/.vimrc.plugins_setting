@@ -460,7 +460,12 @@ let g:toggle_pairs = {
 "------------------------------------
 "{{{
 " 引数なしでvimを開いたらNERDTreeを起動、引数ありならNERDTreeは起動しない
-autocmd vimenter * if !argc() | NERDTree | endif
+autocmd VimEnter *
+                \ if !argc() |
+                \   Startify |
+                \   NERDTree |
+                \   execute "normal \<c-w>w" |
+                \ endif
 " 最後にnerdtreeだけ残っていたら自動終了
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -1014,4 +1019,12 @@ vnoremap sub "xy:OverCommandLine<CR>%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//g<Lef
 "{{{
 let g:AutoPairsMapBS = 0
 inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
+"}}}
+
+"------------------------------------
+" vim-startify
+"------------------------------------
+"{{{
+autocmd FileType startify setlocal buftype=
+" let NERDTreeHijackNetrw = 0
 "}}}
