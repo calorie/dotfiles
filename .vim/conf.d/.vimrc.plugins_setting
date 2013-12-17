@@ -464,7 +464,6 @@ autocmd VimEnter *
                 \ if !argc() |
                 \   Startify |
                 \   NERDTree |
-                \   execute "normal \<c-w>w" |
                 \ endif
 " 最後にnerdtreeだけ残っていたら自動終了
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
