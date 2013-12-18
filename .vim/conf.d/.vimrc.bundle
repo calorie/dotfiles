@@ -98,7 +98,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'YankRing.vim'
 
   "コメント
-  NeoBundle 'tomtom/tcomment_vim', {
+  NeoBundleLazy 'tomtom/tcomment_vim', {
         \ 'autoload' : {
         \   'commands' : ['TComment',
         \     'TCommentAs', 'TCommentMaybeInline']
