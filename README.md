@@ -7,12 +7,11 @@ dotfiles
 - git
 - mercurial
 - ruby
-- python
 - fontforge
 
 ### optional
 
-- brew (for mac)
+- boxen (for mac)
 - cmake (tmux-mem-cpu-load)
 - lua (neocomplete)
 
