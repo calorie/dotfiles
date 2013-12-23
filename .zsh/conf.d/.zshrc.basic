@@ -75,6 +75,10 @@ setopt path_dirs
 setopt autopushd
 # expand aliases before completing
 setopt complete_aliases
+# fuzzy completion
+setopt rec_exact
+# no beep
+unsetopt list_beep
 # シンボリックリンクは実体を追うようになる
 # setopt chase_links
 # サスペンド中のプロセスと同じコマンド名を実行した場合はリジュームする
@@ -124,6 +128,13 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 ## 色付きで補完する
 zstyle ':completion:*' list-colors di=34 fi=0
 ## zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
+# zstyle ':completion:*' format '%F{white}%d%f'
+# zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' remote-access false
+zstyle ':completion:*' completer _oldlist _complete _match _ignored _list _history
 
 # ------------------------------------
 # Keybind configuration
@@ -166,7 +177,10 @@ zle -N self-insert url-quote-magic
 ## Prediction configuration
 autoload predict-on
 # predict-off
-## Completion configuration
+
+# ------------------------------------
+# Completion configuration
+# ------------------------------------
 fpath=(~/.zsh/functions/Completion ${fpath})
 autoload -U compinit
 compinit -u
