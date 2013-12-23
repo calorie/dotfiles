@@ -138,18 +138,18 @@ sudo() {
 # ------------------------------------
 # {{{
 # http://qiita.com/ToQoz/items/848abdf90a0f40e70ce0
-local __rake_stat_op="-c%Y"
+local __stat_op="-c%Y"
 if [[ "$OSTYPE" =~ "darwin.*" ]]; then
-  __rake_stat_op='-f %m'
+  __stat_op='-f %m'
 fi
 _cachefile_updated_at() {
-  echo $(stat "$__rake_stat_op" .rake_tasks)
+  echo $(stat "$__stat_op" .rake_tasks)
 }
 _rakefile_updated_at() {
-  echo $(stat "$__rake_stat_op" Rakefile)
+  echo $(stat "$__stat_op" Rakefile)
 }
 _gemfile_updated_at() {
-  echo $(stat "$__rake_stat_op" Gemfile)
+  echo $(stat "$__stat_op" Gemfile)
 }
 _generate_cachefile() {
   [ -f .rake_tasks ] && rm .rake_tasks
@@ -174,10 +174,10 @@ compdef _rake rake
 # ------------------------------------
 # {{{
 _makefile_cache_updated_at() {
-  echo $(stat .make_targets -c%Y)
+  echo $(stat "$__stat_op" .make_targets)
 }
 _makefile_updated_at() {
-  echo $(stat Makefile -c%Y)
+  echo $(stat "$__stat_op" Makefile)
 }
 _generate_makefile_cache() {
   [ -f .make_targets ] && rm .make_targets
