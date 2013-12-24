@@ -445,6 +445,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'kchmck/vim-coffee-script', {
         \ 'autoload': { 'filetypes': 'coffee' }}
 
+  " puppet
+  NeoBundleLazy 'rodjek/vim-puppet', {
+        \ 'autoload': { 'filetypes': 'puppet' }}
+
   " haml
   " NeoBundleLazy 'haml.zip', {
   "       \ 'autoload': { 'filetypes': ['haml'] }}
