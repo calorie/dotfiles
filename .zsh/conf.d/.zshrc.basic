@@ -128,7 +128,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 ## 色付きで補完する
 zstyle ':completion:*' list-colors di=34 fi=0
 ## zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' menu select
+# zstyle ':completion:*' menu select
 # zstyle ':completion:*' format '%F{white}%d%f'
 # zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
