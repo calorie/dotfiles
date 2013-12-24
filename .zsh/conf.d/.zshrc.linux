@@ -3,8 +3,9 @@ alias rm='trash-put'
 alias emp='trash-empty'
 
 # vvm
-test -f ~/.vvm/etc/login && source ~/.vvm/etc/login
-alias vvm-versions='ls -la ~/.vvm/vims/'
+test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
+export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
+# alias vvm-versions='ls -la ~/.vvm/vims/'
 
 # Terminal Colorの設定
 export CLICOLOR=1
@@ -72,6 +73,3 @@ export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 
 # genymotion
 export PATH=/usr/local/src/genymotion/:$PATH
-
-# vvm-rb
-export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
