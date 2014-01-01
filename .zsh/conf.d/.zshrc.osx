@@ -2,6 +2,7 @@
 alias pbc='pbcopy'
 alias boxen='~/work/my-boxen/script/boxen --no-fde'
 alias rm='rmtrash'
+alias emb='cd ~/work/my-boxen ; vim'
 
 # Terminal Colorの設定
 export CLICOLOR=1
