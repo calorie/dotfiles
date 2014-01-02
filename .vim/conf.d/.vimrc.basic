@@ -39,3 +39,4 @@ set helpfile=$VIMRUNTIME/doc/help.txt
 
 let g:is_mac = (has('mac') || has('macunix') || has('gui_macvim') ||
       \ (!executable('xdg-open') && system('uname') =~? '^darwin'))
+let g:is_windows = has('win16') || has('win32') || has('win64')
