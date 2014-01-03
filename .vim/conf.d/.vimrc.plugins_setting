@@ -587,7 +587,7 @@ function! bundle.hooks.on_source(bundle)
         \ 'mode'              : 'active',
         \ 'passive_filetypes' : ['html'],
         \}
-  let g:syntastic_c_include_dirs = ['inc', '../inc']
+  let g:syntastic_c_include_dirs = ['inc', '../inc', '/opt/boxen/homebrew/include']
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
 
