@@ -4,6 +4,9 @@ alias boxen='~/work/my-boxen/script/boxen --no-fde'
 alias rm='rmtrash'
 alias emb='cd ~/work/my-boxen ; vim'
 
+# path
+export C_INCLUDE_PATH="/opt/boxen/homebrew/include":$C_INCLUDE_PATH
+
 # Terminal Colorの設定
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
