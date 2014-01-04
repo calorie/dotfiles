@@ -125,15 +125,15 @@ function! bundle.hooks.on_source(bundle)
   endfunction
 
   " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ neocomplete#start_manual_complete()
-  function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction"}}}
-  " <S-TAB>: completion back.
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-b>"
+  " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+  "       \ <SID>check_back_space() ? "\<TAB>" :
+  "       \ neocomplete#start_manual_complete()
+  " function! s:check_back_space()
+  "   let col = col('.') - 1
+  "   return !col || getline('.')[col - 1]  =~ '\s'
+  " endfunction
+  " " <S-TAB>: completion back.
+  " inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-b>"
 
   " buffer開いたらneoconでcache
   " autocmd BufReadPost,BufEnter,BufWritePost :NeoCompleteBufferMakeCache <buffer>
