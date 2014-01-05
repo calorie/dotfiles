@@ -425,7 +425,9 @@ function! bundle.hooks.on_source(bundle)
         \ }
   let g:quickrun_config.tex = {
         \   'command' : 'platex',
-        \   'exec': ['%c -kanji=euc %s', 'dvipdfmx -o %s:r.pdf %s:r.dvi']
+        \   'exec': ['nkf -e --overwrite %s',
+        \            '%c -kanji=euc %s',
+        \            'dvipdfmx -o %s:r.pdf %s:r.dvi']
         \ }
   let g:quickrun_config.java = {
         \   'command' : 'ant',
