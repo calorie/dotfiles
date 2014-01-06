@@ -76,6 +76,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   ]
         \ }}
 
+  " codic
+  NeoBundleLazy 'koron/codic-vim'
+  NeoBundleLazy 'rhysd/unite-codic.vim', {
+        \ 'depends' : ['Shougo/unite.vim', 'koron/codic-vim'],
+        \ 'autoload' : {
+        \   'unite_sources' : 'codic',
+        \ }}
+
   " rake
   " NeoBundleLazy 'ujihisa/unite-rake', {
   "       \ 'depends' : 'Shougo/unite.vim',
@@ -322,13 +330,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : 'OpenBrowserSearch',
         \ }}
 
-  " ブラウザリロード
-  NeoBundleLazy 'lordm/vim-browser-reload-linux', {
-        \ 'autoload' : {
-        \   'build' : { 'unix' : ['sudo apt-get install xdotool'] },
-        \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
-        \ }}
-
   " visual modeでテキスト移動
   NeoBundleLazy 't9md/vim-textmanip', { 'autoload' : {
         \ 'mappings' : [
@@ -349,6 +350,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'commands' : [
         \   'MarkWindow', 'SwapWindows'],
         \ }}
+
+  " ブラウザリロード
+  " NeoBundleLazy 'lordm/vim-browser-reload-linux', {
+  "       \ 'autoload' : {
+  "       \   'build' : { 'unix' : ['sudo apt-get install xdotool'] },
+  "       \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
+  "       \ }}
 
 " }}}
 
