@@ -316,8 +316,8 @@ nnoremap <silent> [unite]m  :<C-u>Unite -auto-preview -buffer-name=mru file_mru<
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -auto-preview -buffer-name=dir file<CR>
 " bookmark
-nnoremap <silent> [unite]ba :<C-u>UniteBookmarkAdd<CR><CR><CR>
-nnoremap <silent> [unite]bm :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
+nnoremap <silent> [unite]Ba :<C-u>UniteBookmarkAdd<CR><CR><CR>
+nnoremap <silent> [unite]B :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
 " grep
 nnoremap <silent> [unite]gr :<C-u>Unite -auto-preview -buffer-name=grep -immediately grep:<CR>
 nnoremap <silent> [unite]Gr :<C-u>UniteWithCursorWord -auto-preview -buffer-name=grep -immediately grep<CR>
@@ -336,7 +336,7 @@ nnoremap <silent> [unite]ta :<C-U>UniteWithCursorWord -auto-preview -buffer-name
 " tig
 nnoremap <silent> [unite]ti :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
 " giti
-nnoremap <silent> [unite]br :<C-U>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
+nnoremap <silent> [unite]gb :<C-U>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
 " codic
 nnoremap <silent> [unite]c  :<C-U>Unite codic -start-insert<CR>
 " rake
