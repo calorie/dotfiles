@@ -270,7 +270,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   endif
 
   " neocomplcacheのsinpet補完
+  NeoBundleLazy 'Shougo/neosnippet-snippets'
   NeoBundleLazy 'Shougo/neosnippet', {
+        \ 'depends' : 'Shougo/neosnippet-snippets',
         \ 'autoload' : {
         \   'commands' : ['NeoSnippetEdit'],
         \   'filetypes' : 'snippet',
