@@ -20,13 +20,13 @@ dotfiles
 ```
 $ git clone git://github.com/calorie/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
-$ ./setup.sh
+$ ./script/setup
 ```
 
 ### installed pkg
 
 - ricty
-- vvm(vim version manager)
+- vvm-rb(vim version manager)
 - auto-fu
 - powerline-shell
 - tmux-powerline
@@ -38,6 +38,6 @@ $ ./setup.sh
 
 ```
 $ cd ~/dotfiles
-$ ./uninstall.sh
+$ ./script/uninstall
 ```
 

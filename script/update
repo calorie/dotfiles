@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 while :
 do
   read -p "update? y/n " yn

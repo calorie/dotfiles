@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 while :
 do
   read -p "uninstall dotfiles? y/n " yn
