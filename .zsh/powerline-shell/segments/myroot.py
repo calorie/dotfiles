@@ -4,8 +4,8 @@ def add_root_indicator_segment():
         'zsh': ' $ ',
         'bare': ' $ ',
     }
-    bg = Color.CMD_PASSED_BG
-    fg = Color.CMD_PASSED_FG
+    bg = Color.CMD_PASSED_FG
+    fg = Color.CMD_PASSED_BG
     if powerline.args.prev_error != 0:
         fg = Color.CMD_FAILED_FG
         bg = Color.CMD_FAILED_BG
