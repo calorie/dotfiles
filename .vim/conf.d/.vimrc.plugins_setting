@@ -1027,6 +1027,6 @@ inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 " vim-startify
 "------------------------------------
 "{{{
-autocmd FileType startify setlocal buftype=
+" autocmd FileType startify setlocal buftype=
 " let NERDTreeHijackNetrw = 0
 "}}}
