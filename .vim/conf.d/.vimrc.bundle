@@ -569,7 +569,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
 
-  NeoBundle 'mhinz/vim-startify'
+  " NeoBundle 'mhinz/vim-startify', {
+  "       \ 'autoload' : { 'commands' : 'Startify' }}
 
   " Vim上でSQL実行
   " NeoBundleLazy 'dbext.vim', {

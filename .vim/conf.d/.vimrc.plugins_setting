@@ -466,7 +466,6 @@ let g:toggle_pairs = {
 " 引数なしでvimを開いたらNERDTreeを起動、引数ありならNERDTreeは起動しない
 autocmd VimEnter *
                 \ if !argc() |
-                \   Startify |
                 \   NERDTree |
                 \ endif
 " 最後にnerdtreeだけ残っていたら自動終了
