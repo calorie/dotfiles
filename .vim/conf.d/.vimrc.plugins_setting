@@ -317,7 +317,7 @@ nnoremap <silent> [unite]m  :<C-u>Unite -auto-preview -buffer-name=mru file_mru<
 nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -auto-preview -buffer-name=dir file<CR>
 " bookmark
 nnoremap <silent> [unite]Ba :<C-u>UniteBookmarkAdd<CR><CR><CR>
-nnoremap <silent> [unite]B :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
+nnoremap <silent> [unite]B  :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
 " grep
 nnoremap <silent> [unite]gr :<C-u>Unite -auto-preview -buffer-name=grep -immediately grep:<CR>
 nnoremap <silent> [unite]Gr :<C-u>UniteWithCursorWord -auto-preview -buffer-name=grep -immediately grep<CR>
@@ -328,17 +328,25 @@ nnoremap <silent> [unite]rv :<C-u>Unite -buffer-name=r_view rails/view<CR>
 nnoremap <silent> [unite]rl :<C-u>Unite -buffer-name=r_lib rails/lib<CR>
 nnoremap <silent> [unite]rj :<C-u>Unite -buffer-name=r_js rails/javascript<CR>
 nnoremap <silent> [unite]rs :<C-u>Unite -buffer-name=r_spec rails/spec<CR>
-nnoremap <silent> [unite]ra :<C-U>Unite -buffer-name=r_rake rails/rake<CR>
+nnoremap <silent> [unite]ra :<C-u>Unite -buffer-name=r_rake rails/rake<CR>
 " outline
-nnoremap <silent> [unite]o  :<C-U>Unite -auto-preview -buffer-name=outline -hide-source-names outline<CR>
+nnoremap <silent> [unite]o  :<C-u>Unite -auto-preview -buffer-name=outline -hide-source-names outline<CR>
 " tag
-nnoremap <silent> [unite]ta :<C-U>UniteWithCursorWord -auto-preview -buffer-name=tag -no-empty tag<CR>
+nnoremap <silent> [unite]ta :<C-u>UniteWithCursorWord -auto-preview -buffer-name=tag -no-empty tag<CR>
 " tig
 nnoremap <silent> [unite]ti :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
 " giti
-nnoremap <silent> [unite]gb :<C-U>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
+nnoremap <silent> [unite]gb :<C-u>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
 " codic
-nnoremap <silent> [unite]c  :<C-U>Unite codic -start-insert<CR>
+nnoremap <silent> [unite]c  :<C-u>Unite codic -start-insert<CR>
+" ref
+autocmd FileType *       nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/man -start-insert ref/man<CR>
+autocmd FileType ruby    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/refe -start-insert ref/refe<CR>
+" autocmd FileType python  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/pydoc -start-insert ref/pydoc<CR>
+" autocmd FileType php     nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/phpmanual -start-insert ref/phpmanual<CR>
+" autocmd FileType perl    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/perldoc -start-insert ref/perldoc<CR>
+" autocmd FileType clojure nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/clojure -start-insert ref/clojure<CR>
+" autocmd FileType erlang  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/erlang -start-insert ref/erlang<CR>
 " rake
 " nnoremap <silent> [unite]ra :<C-U>Unite -buffer-name=rake rake<CR>
 " help
@@ -483,14 +491,10 @@ let g:NERDTreeWinSize = 20
 "------------------------------------
 "{{{
 autocmd FileType ruby,eruby,ruby.rspec nmap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
-autocmd User Rails nmap <buffer>KK :<C-U>Ref ri <C-R><C-W><CR>
-
-let bundle = neobundle#get('vim-ref')
-function! bundle.hooks.on_source(bundle)
-  let g:ref_refe_cmd = expand('~/.vim/ref/ruby-refe/refe-1_9_2')
-  let g:ref_ri_cmd = expand('~/.rbenv/versions/1.9.3-p194/bin/ri')
-endfunction
-unlet bundle
+" autocmd User Rails nmap <buffer>KK :<C-U>Ref ri <C-R><C-W><CR>
+let g:ref_open = 'vsplit'
+let g:ref_refe_cmd = 'refe'
+let g:ref_refe_version = 2
 "}}}
 
 "------------------------------------

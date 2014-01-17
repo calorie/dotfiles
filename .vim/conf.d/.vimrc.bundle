@@ -379,12 +379,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " perldocやphpmanual等のリファレンスをvim上で見る
   NeoBundleLazy 'thinca/vim-ref', {
-        \ 'autoload' : { 'commands' : 'Ref' }}
-
-  " vim上でriの表示
-  NeoBundleLazy 'taka84u9/vim-ref-ri', {
-        \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-        \ 'autoload': { 'commands': 'Ref' }}
+        \ 'depends': 'Shougo/unite.vim',
+        \ 'autoload': {
+        \   'commands': 'Ref',
+        \   'unite_sources' :
+        \     ['ref/refe', 'ref/clojure', 'ref/erlang',
+        \      'ref/man', 'ref/perldoc', 'ref/phpmanual',
+        \      'ref/pydoc'],
+        \ }}
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   NeoBundleLazy 'vim-ruby/vim-ruby', {
@@ -419,6 +421,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands': ['TagbarToggle', 'TagbarTogglePause',
         \     'TagbarOpen'],
         \   'fuctions': ['tagbar#currenttag'] }}
+
+  " vim上でriの表示
+  " NeoBundleLazy 'taka84u9/vim-ref-ri', {
+  "       \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
+  "       \ 'build': {
+  "       \   'mac': 'brew install lynx',
+  "       \ },
+  "       \ 'autoload': {
+  "       \   'unite_sources' : 'ref/ri',
+  "       \ }}
 
   " tagsの自動生成
   " NeoBundleLazy 'alpaca-tc/alpaca_tags', {
@@ -497,8 +509,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'explorer' : 1,
         \ }}
 
-  NeoBundle 'vim-scripts/vim-auto-save'
-
   " ctrl+pでファイル検索
   " NeoBundleLazy 'ctrlp.vim', {
   "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
@@ -512,6 +522,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
 " Utility {{{
+
+  NeoBundle 'vim-scripts/vim-auto-save'
 
   " vimproc : vimから非同期実行。vimshelleで必要
   NeoBundle 'Shougo/vimproc', {
