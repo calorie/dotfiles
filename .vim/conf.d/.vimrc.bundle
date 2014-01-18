@@ -425,9 +425,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " vim上でriの表示
   " NeoBundleLazy 'taka84u9/vim-ref-ri', {
   "       \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-  "       \ 'build': {
-  "       \   'mac': 'brew install lynx',
-  "       \ },
   "       \ 'autoload': {
   "       \   'unite_sources' : 'ref/ri',
   "       \ }}
