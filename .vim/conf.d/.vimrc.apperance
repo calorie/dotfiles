@@ -1,22 +1,22 @@
 "---------------------------------------------------------------------
-" 表示 Apperance
+" Apperance
 "---------------------------------------------------------------------
-set showmatch         " 括弧の対応をハイライト
-set number            " 行番号表示
-set list              " 不可視文字表示
-set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
-set display=uhex      " 印字不可能文字を16進数で表示
-set previewheight=15  " プレビュー画面サイズ
-set cmdheight=1       " コマンドラインに使われる画面上の行数
-set lazyredraw        " コマンド実行中は再描画しない
-set ttyfast           " 高速ターミナル接続を行う
-set cursorline        " カーソル行をハイライト
+set showmatch         " highlight parenthesis
+set number            " display line number
+set list              " display unvisible character
+set listchars=tab:>.,trail:_,extends:>,precedes:< " unvisible character's format
+set display=uhex      " display unprintable character by hex
+set previewheight=15  " size of preview
+set cmdheight=1       " command line height
+set lazyredraw        " dont redraw when command is running
+set ttyfast           " fast terminal connect
+set cursorline        " highlight cursor
 
-" 全角スペースの表示
+" display zenkakuspace
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
-" カレントウィンドウにのみ罫線を引く
+" cursor line only current window
 augroup cch
   autocmd! cch
   autocmd WinLeave * set nocursorline

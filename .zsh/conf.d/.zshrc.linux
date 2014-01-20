@@ -7,7 +7,7 @@ test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
 # alias vvm-versions='ls -la ~/.vvm/vims/'
 
-# Terminal Colorの設定
+# Terminal Color
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 alias ls='ls -alh --color'

@@ -1,22 +1,21 @@
 "---------------------------------------------------------------------
-" 検索設定 Search
+" Search
 "---------------------------------------------------------------------
-set wrapscan   " 最後まで検索したら先頭へ戻る
-set ignorecase " 大文字小文字無視
-set smartcase  " 検索文字列に大文字が含まれている場合は区別して検索する
-set incsearch  " インクリメンタルサーチ
-set hlsearch   " 検索文字をハイライト
-"Escの2回押しでハイライト消去
+set wrapscan   " loop search
+set ignorecase " ignore lower & upper
+set smartcase  " case sensitive
+set incsearch  " incremental search
+set hlsearch   " highlight search word
+" disable highlight by esc*2
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 nmap <C-c><C-c> :nohlsearch<CR><ESC>
 
-"選択した文字列を検索
+" search selected word
 vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-"s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
+" replace keyword
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>//g<Left><Left>'
 
-" Ctrl-iでヘルプ
+" help
 " nnoremap <C-i> :<C-u>help<Space>
-" カーソル下のキーワードをヘルプでひく
 nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><CR>

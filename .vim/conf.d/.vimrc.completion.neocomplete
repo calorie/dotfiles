@@ -135,7 +135,7 @@ function! bundle.hooks.on_source(bundle)
   " " <S-TAB>: completion back.
   " inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-b>"
 
-  " buffer開いたらneoconでcache
+  " cache buffer
   " autocmd BufReadPost,BufEnter,BufWritePost :NeoCompleteBufferMakeCache <buffer>
 
   " Enable omni completion.

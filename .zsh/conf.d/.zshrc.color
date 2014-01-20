@@ -28,7 +28,7 @@ case ${UID} in
     PROMPT='${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}'
     RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
 
-    # Vi入力モードでPROMPTの色を変える
+    # color vi mode
     # http://memo.officebrook.net/20090226.html
     function zle-line-init zle-keymap-select {
       case $KEYMAP in
@@ -44,8 +44,8 @@ case ${UID} in
     zle -N zle-line-init
     zle -N zle-keymap-select
 
-    # 直前のコマンドの終了ステータスが0以外のときは赤くする。
-    # ${MY_MY_PROMPT_COLOR}はprecmdで変化させている数値。
+    # display red when exit code is not 0
+    # ${MY_MY_PROMPT_COLOR} precmd
     local MY_COLOR="$ESCX"'%(0?.${MY_PROMPT_COLOR}.31)'m
     local NORMAL_COLOR="$ESCX"m
 
@@ -64,10 +64,10 @@ case ${UID} in
 
     autoload -Uz is-at-least
     if is-at-least 4.3.10; then
-      # この check-for-changes が今回の設定するところ
+      # check-for-changes
       zstyle ':vcs_info:git:*' check-for-changes true
-      zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
-      zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
+      zstyle ':vcs_info:git:*' stagedstr "+"
+      zstyle ':vcs_info:git:*' unstagedstr "-"
       zstyle ':vcs_info:git:*' formats '(%s)-[%c%u%b]'
       zstyle ':vcs_info:git:*' actionformats '(%s)-[%c%u%b|%a]'
     fi
@@ -100,7 +100,7 @@ case ${UID} in
     ;;
 esac
 
-# エラーメッセージ本文出力に色付け
+# color error message
 e_normal=`echo -e "¥033[0;30m"`
 e_RED=`echo -e "¥033[1;31m"`
 e_BLUE=`echo -e "¥033[1;36m"`

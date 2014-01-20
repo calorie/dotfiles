@@ -102,10 +102,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Edit {{{
 
-  " YankRing.vim : ヤンクの履歴を管理
+  " manage yank's history
   NeoBundle 'YankRing.vim'
 
-  "コメント
+  " comment
   NeoBundleLazy 'tomtom/tcomment_vim', {
         \ 'autoload' : {
         \   'commands' : ['TComment',
@@ -119,21 +119,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'IndentGuidesDisable', 'IndentGuidesToggle'],
         \ }}
 
-  " XMLとかHTMLとかの編集機能を強化する
+  " support to edit xml,html
   NeoBundleLazy 'xmledit', {
         \ 'autoload' : {
         \   'filetypes' : ['xml', 'html', 'ant'],
         \ }}
 
-  " フィルタリングと整形
+  " filtering & align text
   NeoBundleLazy 'godlygeek/tabular', {
         \ 'autoload' : { 'commands' : 'Tab' }}
 
-  " undo履歴を追える (need python support)
+  " manage undo's history
   NeoBundleLazy 'Gundo', {
         \ 'autoload' : { 'commands' : 'GundoToggle' }}
 
-  " surround.vim : テキストを括弧で囲む／削除する
+  " enclose text
   NeoBundleLazy 'tpope/vim-surround', {
         \ 'autoload' : {
         \   'mappings' : [
@@ -144,15 +144,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     ['nx', '<Plug>VSurround']]
         \ }}
 
-  " <C-a>でtrue/false切替。他色々
+  " toggle text
   NeoBundleLazy 'taku-o/vim-toggle', {
         \ 'autoload' : { 'mappings' : [['n', '<Plug>ToggleN']] }}
 
-  " IME制御
+  " manage IME
   NeoBundleLazy 'bouzuya/vim-ibus', {
         \ 'autoload' : { 'insert' : 1 }}
 
-  " 無駄に音を出す
+  " typing sound
   NeoBundleLazy 'calorie/vim-typing-sound', {
         \ 'autoload' : { 'commands' : 'TypingSound' }}
 
@@ -166,10 +166,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " textobj {{{
 
-    " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
+    " create text object
     NeoBundleLazy 'textobj-user'
 
-    " vim-textobj-entire : buffer全体をtext-objectに
+    " all text
     NeoBundleLazy 'textobj-entire', {
         \ 'depends' : 'textobj-user',
         \ 'autoload' : {
@@ -177,7 +177,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     ['nx', '<Plug>(textobj-entire-i)']]
         \ }}
 
-    " vim-textobj-function : 関数の中身をtext-objectに
+    " function
     NeoBundleLazy 'kana/vim-textobj-function.git', {
         \ 'depends' : 'textobj-user',
         \ 'autoload' : {
@@ -185,7 +185,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     ['nx', '<Plug>(textobj-function-i)']]
         \ }}
 
-    " vim-textobj-indent : インデントされたものをtext-objectに
+    " indent
     NeoBundleLazy 'kana/vim-textobj-indent.git', {
         \ 'depends' : 'textobj-user',
         \ 'autoload' : {
@@ -196,17 +196,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     ['nx', '<Plug>(textobj-indent-same-i)']]
         \ }}
 
-    " vim-textobj-fold : フォールディングされた範囲をtext-objectに
+    " fold
     NeoBundleLazy 'kana/vim-textobj-fold.git', {
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['vim', 'zsh'] }}
 
-    " vim-textobj-ruby : rubyのブロックをtext-objectに
+    " ruby syntax
     NeoBundleLazy 'rhysd/vim-textobj-ruby', {
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
-    " vim-textobj-comment : コメントをtext-objectに
+    " comment
     " NeoBundleLazy 'thinca/vim-textobj-comment.git', {
     "     \ 'depends' : 'textobj-user',
     "     \ 'autoload' : {
@@ -215,21 +215,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     "     \     ['nx', '<Plug>(textobj-comment-i)']]
     "     \ }}
 
-    " vim-textobj-function-javascript : 関数の中身をtext-objectに
+    " javascript
     " NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
     "       \ 'depends' : 'textobj-user',
     "       \ 'autoload': { 'filetypes': ['javascript'] }}
 
-    " vim-textobj-function-perl : 関数の中身をtext-objectに
+    " perl function
     " NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
     "       \ 'autoload': { 'filetypes': ['perl'] }}
 
   " }}}
 
-  " vim-operator-user : 簡単にoperatorを定義できるようにする
+  " create text operator
   " NeoBundleLazy 'operator-user'
 
-  " operator-camelize : camel-caseへの変換
+  " convert to camelcase
   " NeoBundleLazy 'operator-camelize', {
   "       \ 'depends' : 'operator-user',
   "       \ 'autoload' : {
@@ -237,22 +237,22 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \     ['nx', '<Plug>(operator-decamelize)']]
   "       \ }}
 
-  " operator-replace : yankしたものでreplaceする
+  " replace to yank
   " NeoBundleLazy 'operator-replace', {
   "       \ 'depends' : 'operator-user',
   "       \ 'autoload' : {
   "       \   'mappings' : [['nx', '<Plug>(operator-replace)']]
   "       \ }}
 
-  " -- でメソッドチェーン整形
+  " format method chain
   " NeoBundleLazy 'c9s/cascading.vim', {
   "       \ 'autoload' : { 'commands' : 'Cascading' }}
 
-  " smartchr.vim : ==などの前後を整形
+  " format character
   " NeoBundleLazy 'kana/vim-smartchr', {
   "       \ 'autoload' : { 'insert' : 1 }}
 
-  " smartinput.vim : ==などの前後を整形
+  " format input
   " NeoBundleLazy 'kana/vim-smartinput', {
   "       \ 'autoload' : { 'insert' : 1 }}
 
@@ -260,7 +260,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Completion {{{
 
-  " 補完
+  " completion
   if has('lua')
     NeoBundleLazy 'Shougo/neocomplete.vim', {
           \ 'autoload' : { 'insert' : 1 }}
@@ -269,7 +269,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
           \ 'autoload' : { 'insert' : 1 }}
   endif
 
-  " neocomplcacheのsinpet補完
+  " snippet completion
   NeoBundleLazy 'Shougo/neosnippet-snippets'
   NeoBundleLazy 'Shougo/neosnippet', {
         \ 'depends' : 'Shougo/neosnippet-snippets',
@@ -281,12 +281,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'neosnippet/runtime'],
         \ }}
 
-  " neocomplcacheのrsense
+  " neocomplcache's rsense
   " NeoBundleLazy 'Shougo/neocomplcache-rsense', {
   "       \ 'depends': 'Shougo/neocomplcache',
   "       \ 'autoload': { 'filetypes': 'ruby' }}
 
-  " rsense本体
+  " rsense
   " NeoBundleFetch 'taichouchou2/rsense-0.3', {
   "       \ 'build' : {
   "       \    'mac': 'ruby etc/config.rb > ~/.rsense',
@@ -297,10 +297,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Searching/Moving {{{
 
-  " <Leader>w/fなどで、motion先をhilightする
+  " intuitive moving
   NeoBundle 'EasyMotion'
 
-  " vim-smartword : 単語移動がスマートな感じで
+  " smart moving
   NeoBundleLazy 'smartword', {
         \ 'autoload' : {
         \   'mappings' : [
@@ -308,7 +308,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     '<Plug>(smartword-e)', '<Plug>(smartword-ge)']
         \ }}
 
-  " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
+  " CamelCase,snake_case moving
   NeoBundleLazy 'camelcasemotion', {
         \ 'autoload' : {
         \   'mappings' : [
@@ -317,22 +317,22 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     '<Plug>CamelCaseMotion_ib', '<Plug>CamelCaseMotion_ie'],
         \ }}
 
-  " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
+  " expand %
   NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
         \ 'mappings' : ['nx', '%'] }}
 
-  " ruby用のmatchit拡張
+  " expand matchit for ruby
   NeoBundleLazy 'ruby-matchit', { 'autoload' : {
         \ 'filetypes' : ['ruby', 'eruby'] }}
 
-  " open-browser.vim : カーソルの下のURLを開く
+  " open url
   NeoBundleLazy 'tyru/open-browser.vim', {
         \ 'autoload' : {
         \   'mappings' : [['nx', '<Plug>(openbrowser-open)']],
         \   'commands' : 'OpenBrowserSearch',
         \ }}
 
-  " visual modeでテキスト移動
+  " intuitive moving on visual mode
   NeoBundleLazy 't9md/vim-textmanip', { 'autoload' : {
         \ 'mappings' : [
         \   ['x', '<Plug>(textmanip-move-down)'],
@@ -341,7 +341,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   ['x', '<Plug>(textmanip-move-right)']],
         \ }}
 
-  " fで連続移動
+  " expand f moving
   NeoBundleLazy 'rhysd/clever-f.vim', { 'autoload' : {
         \ 'mappings' : [
         \   '<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
@@ -353,7 +353,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'MarkWindow', 'SwapWindows'],
         \ }}
 
-  " ブラウザリロード
+  " reload browser
   " NeoBundleLazy 'lordm/vim-browser-reload-linux', {
   "       \ 'autoload' : {
   "       \   'build' : { 'unix' : ['sudo apt-get install xdotool'] },
@@ -364,20 +364,20 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Programming {{{
 
-  " tagsの自動生成
+  " auto create tags
   NeoBundle 'szw/vim-tags', {
         \ 'build': {
         \   'unix': 'sudo apt-get install exuberant-ctags'
         \ }}
 
-  " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
+  " run command quickly
   NeoBundleLazy 'thinca/vim-quickrun', {
         \ 'autoload' : {
         \   'mappings' : [['nxo', '<Plug>(quickrun)']],
         \   'commands' : 'QuickRun',
         \ }}
 
-  " perldocやphpmanual等のリファレンスをvim上で見る
+  " show reference
   NeoBundleLazy 'thinca/vim-ref', {
         \ 'depends': 'Shougo/unite.vim',
         \ 'autoload': {
@@ -388,15 +388,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \      'ref/pydoc'],
         \ }}
 
-  " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
+  " basic ruby extension
   NeoBundleLazy 'vim-ruby/vim-ruby', {
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
 
-  " rails.vim : railsの基本的な拡張機能
+  " basic rails extension
   NeoBundle 'tpope/vim-rails', {
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
 
-  " vim-rspec : rspecの実行
+  " run rspec
   NeoBundleLazy 'skwp/vim-rspec', {
         \ 'build': {
         \   'mac': 'gem install hpricot',
@@ -404,7 +404,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ },
         \ 'autoload': { 'filetypes': ['ruby', 'eruby']}}
 
-  " vim-endwise : endなどの補完
+  " completion end
   NeoBundle 'tpope/vim-endwise.git', {
         \ 'autoload' : { 'insert' : 1 }}
 
@@ -415,21 +415,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'haml', 'css', 'scss', 'sass'],
         \ }}
 
-  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
+  " display methods,valiables list
   NeoBundleLazy 'majutsushi/tagbar', {
         \ 'autoload' : {
         \   'commands': ['TagbarToggle', 'TagbarTogglePause',
         \     'TagbarOpen'],
         \   'fuctions': ['tagbar#currenttag'] }}
 
-  " vim上でriの表示
+  " show ri
   " NeoBundleLazy 'taka84u9/vim-ref-ri', {
   "       \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
   "       \ 'autoload': {
   "       \   'unite_sources' : 'ref/ri',
   "       \ }}
 
-  " tagsの自動生成
+  " auto create tags
   " NeoBundleLazy 'alpaca-tc/alpaca_tags', {
   "     \ 'rev' : 'development',
   "     \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
@@ -488,7 +488,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Buffer {{{
 
-  " NERDTree : ツリー型エクスプローラ
+  " tree explore
   NeoBundle 'The-NERD-tree', {
         \ 'autoload' : {
         \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
@@ -506,7 +506,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'explorer' : 1,
         \ }}
 
-  " ctrl+pでファイル検索
+  " search files
   " NeoBundleLazy 'ctrlp.vim', {
   "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
 
@@ -520,9 +520,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Utility {{{
 
+  " auto save
   NeoBundle 'vim-scripts/vim-auto-save'
 
-  " vimproc : vimから非同期実行。vimshelleで必要
+  " async run
   NeoBundle 'Shougo/vimproc', {
         \ 'build' : {
         \   'mac'    : 'make -f make_mac.mak',
@@ -530,10 +531,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'cygwin' : 'make -f make_cygwin.mak',
         \ }}
 
-  " ステータスラインをカッコよくする
+  " cool statusline
   NeoBundle 'bling/vim-airline'
 
-  " vim-dispatch : vimから非同期実行。
+  " async run
   NeoBundleLazy 'tpope/vim-dispatch', {
         \ 'autoload': { 'commands': ['Dispatch', 'Make', 'Start'] }
         \ }
@@ -543,12 +544,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload': { 'commands': ['SudoRead', 'SudoWrite'] }
         \ }
 
-  " vimshell : vim上にshellを開く
+  " open shell on vim
   NeoBundleLazy 'Shougo/vimshell', {
         \   'autoload' : { 'commands' : [ 'VimShell', 'VimShellSendString' ] }
         \}
 
-  " vimからGit操作する
+  " control git
   NeoBundle 'tpope/vim-fugitive', {
         \ 'autoload' : {
         \   'commands': [
@@ -556,12 +557,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'Gcommit', 'Gblame', 'Ggrep', 'Gdiff'],
         \ }}
 
-  " vimからgitk
+  " gitk
   NeoBundleLazy 'gregsexton/gitv', {
         \ 'depends': 'tpope/vim-fugitive',
         \ 'autoload' : { 'commands': ['Gitv'] }}
 
-  " vim上でgit diff表示
+  " display git diff
   NeoBundleLazy 'airblade/vim-gitgutter', {
         \ 'autoload' : {
         \   'commands': ['GitGutterToggle',
@@ -581,7 +582,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " NeoBundle 'mhinz/vim-startify', {
   "       \ 'autoload' : { 'commands' : 'Startify' }}
 
-  " Vim上でSQL実行
+  " run SQL
   " NeoBundleLazy 'dbext.vim', {
   "       \ 'autoload' : {
   "       \   'commands': [

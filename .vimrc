@@ -1,4 +1,4 @@
-" 起動時間表示
+" display startup time
 if has('vim_starting') && has('reltime')
   let g:startuptime = reltime()
   augroup vimrc-startuptime
@@ -7,31 +7,31 @@ if has('vim_starting') && has('reltime')
   augroup END
 endif
 
-" pluginを読み込む
+" plugin
 source ~/dotfiles/.vim/conf.d/.vimrc.bundle
-" 基本設定
+" basic
 source ~/dotfiles/.vim/conf.d/.vimrc.basic
-" StatusLine設定
+" statusline
 source ~/dotfiles/.vim/conf.d/.vimrc.statusline
-" インデント設定
+" indent
 source ~/dotfiles/.vim/conf.d/.vimrc.indent
-" 表示関連
+" apperance
 source ~/dotfiles/.vim/conf.d/.vimrc.apperance
-" 補完関連
+" completion
 source ~/dotfiles/.vim/conf.d/.vimrc.completion
-" Tags関連
+" tags
 source ~/dotfiles/.vim/conf.d/.vimrc.tags
-" 検索関連
+" search
 source ~/dotfiles/.vim/conf.d/.vimrc.search
-" 移動関連
+" moving
 source ~/dotfiles/.vim/conf.d/.vimrc.moving
-" Color関連
+" color
 source ~/dotfiles/.vim/conf.d/.vimrc.colors
-" 編集関連
+" editing
 source ~/dotfiles/.vim/conf.d/.vimrc.editing
-" エンコーディング関連
+" encoding
 source ~/dotfiles/.vim/conf.d/.vimrc.encoding
-" プログラミング関連
+" program
 source ~/dotfiles/.vim/conf.d/.vimrc.program
-" プラグインに依存する設定
+" plugins setting
 source ~/dotfiles/.vim/conf.d/.vimrc.plugins_setting

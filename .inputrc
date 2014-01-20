@@ -1,21 +1,21 @@
-# viキーバインド
+# vi
 set editing-mode vi
 set keymap vi-insert
 
-# チルダをタブにより展開
+# expand tilde
 set expand-tilde on
 
-# 日本語関係
+# japanese
 set input-meta on
 set convert-meta off
 set output-meta on
 
-# タブ補完時、大文字小文字無視
+# ignore lower,upper
 set completion-ignore-case on
 
-# コンソールの横幅をあふれたとき自動スクロール
+# auto scroll
 set horizontal-scroll-mode on
 
-# ヒストリー補完機能を Ctrl+N, Ctrl+P に割り当てる
+# history completion by c-n,c-p
 "\C-p": history-search-backward
 "\C-n": history-search-forward

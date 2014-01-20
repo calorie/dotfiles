@@ -64,7 +64,6 @@ alias oppai='git'
 alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
-alias '偽ｔ'=git
 compdef g=git
 
 alias java='nocorrect java'

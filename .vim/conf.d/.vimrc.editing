@@ -1,56 +1,58 @@
 "---------------------------------------------------------------------
-" 編集関連 Edit
+" Edit
 "---------------------------------------------------------------------
 
-" insertモードを抜けるとIMEオフ
+" IME off when normal mode
 set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
-" yeでそのカーソル位置にある単語をレジスタに追加
+" add word to register
 nmap ye :let @"=expand("<cword>")<CR>
-" Visualモードでのpで選択範囲をレジスタの内容に置き換える
+" add selected word to register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
-" xselでクリップボードにコピー&ペースト
+" copy & paste by xsel
 if executable('xsel')
   vmap <silent> <C-\> :w !xsel -ib<CR><CR>
   nmap <silent> <C-\> :r !xsel -ob<CR>
 endif
 
-" Tabキーを空白に変換
+" convert tab to space
 set expandtab
 
-" コンマの後に自動的にスペースを挿入
+" add space after comma
 inoremap , ,<Space>
-" XMLの閉タグを自動挿入
+" auto close xml tag
 " augroup MyXML
 "   autocmd!
 "   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
 " augroup END
 
-"  Insert mode中で単語単位/行単位の削除をアンドゥ可能にする
+" undo on insert mode
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
-"backspace & delete
+" backspace & delete
 inoremap <C-b> <BS>
 
-" :Ptでインデントモード切替
+" toggle paste mode
 command! Pt :set paste!
 
-" インサートモード中に<C-o>でyankした内容をputする
+" paste yank on insert mode
 inoremap <C-o> <ESC>:<C-U>YRPaste 'p'<CR>i
-" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
 " imap <C-p> <ESC>"*pa
 
-" y9で行末までヤンク
+" yank to line end
 nmap y9 y$
-" y0で行頭までヤンク
+" yank to line start
 nmap y0 y^
 
-" 括弧を自動補完
+" yank word
+" nnoremap vy vawy
+
+" parenthesis completion
 " inoremap { {}<LEFT>
 " inoremap [ []<LEFT>
 " inoremap ( ()<LEFT>
@@ -69,27 +71,27 @@ function! s:remove_dust()
 endfunction
 autocmd BufWritePre * call <SID>remove_dust()
 
-" 日時の自動入力
+" date completion
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 
-" foldは各FiltTypeにお任せる
+" syntax fold
 " set foldmethod=syntax
-" 折りたたみは全て展開した状態で開始する
+" expand fold
 set foldlevelstart=99
 " .vimはmarker
 autocmd FileType vim,zsh :set foldmethod=marker
 
-" <leader>j でJSONをformat
+" format JSON
 " http://wozozo.hatenablog.com/entry/2012/02/08/121504
 " map <Leader>j !python -m json.tool<CR>
 
-" quickfixウィンドウではq/ESCで閉じる
+" close quickfix by q,esc
 autocmd FileType qf nnoremap <buffer> q :ccl<CR>
 autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
 
-" quickfixとlocation listのウィンドウ表示をtoggleするようにした
+" toggle quickfix & location list
 function! s:toggle_qf_ll_window(pfx)
   for bufnr in range(1,  winnr('$'))
     if getwinvar(bufnr,  '&buftype') ==# 'quickfix'

@@ -1,16 +1,14 @@
 "---------------------------------------------------------------------
-" ステータスライン StatusLine
+" StatusLine
 "---------------------------------------------------------------------
-set laststatus=2 " 常にステータスラインを表示
+set laststatus=2 " display statusline
+set ruler        " display cursorline
 
-"カーソルが何行目の何列目に置かれているかを表示する
-set ruler
-
-"自動的に QuickFix リストを表示する
+" display quickfix automatically
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
 
-" vim起動中はtmuxを隠す
+" hide tmux's statusline
 " if !has('gui_running') && $TMUX !=# ''
 "   augroup Tmux
 "     autocmd!

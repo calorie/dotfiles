@@ -1,13 +1,11 @@
 "---------------------------------------------------------------------
-" インデント Indent
+" Indent
 "---------------------------------------------------------------------
-set autoindent   " 自動でインデント
-" set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
-set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
-set cindent      " Cプログラムファイルの自動インデントを始める
-
-" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
-set tabstop=2 shiftwidth=2 softtabstop=0
+set autoindent   " auto indent
+set smartindent  " same indent num when newline
+set cindent      " indent for C
+set tabstop=2 shiftwidth=2 softtabstop=0 " softtabstop is tab & bs space num
+" set paste        " eable auto indent when paste
 
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et

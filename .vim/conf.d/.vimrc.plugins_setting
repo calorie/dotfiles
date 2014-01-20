@@ -1,12 +1,12 @@
 "--------------------------------------------------------------------
-" プラグインごとの設定 Plugins
+" Plugins
 "--------------------------------------------------------------------
 
 "------------------------------------
 " YankRing.vim
 "------------------------------------
 "{{{
-" Yankの履歴参照
+" show history
 nmap ,y :YRShow<CR>
 let g:yankring_zap_keys = ""
 let g:yankring_history_file = '.yankring_history'
@@ -39,7 +39,7 @@ vnoremap <silent>gc :TComment<CR>
 " surround.vim
 "------------------------------------
 "{{{
-" s, ssで選択範囲を指定文字でくくる
+" select word by s, ss
 nmap s  <Plug>Ysurround
 nmap ss <Plug>Yssurround
 nmap ds <Plug>Dsurround
@@ -175,10 +175,10 @@ nnoremap U :<C-u>GundoToggle<CR>
 " open-blowser.vim
 "------------------------------------
 "{{{
-" カーソル下のURLをブラウザで開く
+" open url
 nmap <Leader>o <Plug>(openbrowser-open)
 xmap <Leader>o <Plug>(openbrowser-open)
-" カーソル下のキーワードをググる
+" search word
 nnoremap <Leader>os :<C-u>OpenBrowserSearch<Space>
 nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 "}}}
@@ -195,7 +195,7 @@ nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 " operator-camelize.vim
 "------------------------------------
 "{{{
-" camel-caseへの変換
+" convert to camel case
 " map <Leader>u <Plug>(operator-camelize)
 " map <Leader>U <Plug>(operator-decamelize)
 "}}}
@@ -204,7 +204,7 @@ nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 " operator-replace.vim
 "------------------------------------
 "{{{
-" _wなどでYankしてるもので置き換える
+" replace to yank
 " map _ <Plug>(operator-replace)
 "}}}
 
@@ -222,11 +222,11 @@ map ge <Plug>(smartword-ge)
 " camelcasemotion.vim
 "------------------------------------
 "{{{
-" <Shift-wbe>でCameCaseやsnake_case単位での単語移動
+" CamelCase,snake_case moving
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
-" text-objectで使用できるように
+" use textobj
 omap <silent> iw <Plug>CamelCaseMotion_iw
 xmap <silent> iw <Plug>CamelCaseMotion_iw
 omap <silent> ib <Plug>CamelCaseMotion_ib
@@ -303,17 +303,17 @@ unlet bundle
 nnoremap [unite] <Nop>
 nmap <Space> [unite]
 
-" 全部乗せ
+" all
 nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -auto-preview -buffer-name=all buffer file_mru bookmark file<CR>
-" ファイル一覧
+" file
 nnoremap <silent> [unite]f  :<C-u>Unite -auto-preview -buffer-name=file file<CR>
-" バッファ一覧
+" buffer
 nnoremap <silent> [unite]b  :<C-u>Unite -auto-preview -buffer-name=buffre buffer<CR>
-" 常用セット
+" regulary use
 nnoremap <silent> [unite]u  :<C-u>Unite -auto-preview -buffer-name=file_mru buffer file_mru<CR>
-" 最近使用したファイル一覧
+" recent use
 nnoremap <silent> [unite]m  :<C-u>Unite -auto-preview -buffer-name=mru file_mru<CR>
-" 現在のバッファのカレントディレクトリからファイル一覧
+" file on current directory
 nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -auto-preview -buffer-name=dir file<CR>
 " bookmark
 nnoremap <silent> [unite]Ba :<C-u>UniteBookmarkAdd<CR><CR><CR>
@@ -367,22 +367,22 @@ function! bundle.hooks.on_source(bundle)
   function! s:unite_my_settings()
     " Overwrite settings.
 
-    " ESCキーを2回押すと終了する
+    " exit by esc*2
     nmap <buffer> <ESC>      <Plug>(unite_exit)
     nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
     imap <buffer> jj <Plug>(unite_insert_leave)
     nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
     imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 
-    " ウィンドウを開く
+    " open window
     nnoremap <silent> <buffer> <expr> o unite#do_action('open')
 
-    " ウィンドウを分割して開く
+    " open split window
     nnoremap <silent> <buffer> <expr> l     unite#do_action('split')
     nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
     inoremap <silent> <buffer> <expr> <C-l> unite#do_action('split')
 
-    " ウィンドウを縦に分割して開く
+    " open vsplit window
     nnoremap <silent> <buffer> <expr> s     unite#do_action('vsplit')
     nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
     inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
@@ -471,12 +471,9 @@ let g:toggle_pairs = {
 " NERDTree.vim
 "------------------------------------
 "{{{
-" 引数なしでvimを開いたらNERDTreeを起動、引数ありならNERDTreeは起動しない
-autocmd VimEnter *
-                \ if !argc() |
-                \   NERDTree |
-                \ endif
-" 最後にnerdtreeだけ残っていたら自動終了
+" open nerdtree when no args
+autocmd VimEnter * if !argc() | NERDTree | endif
+" auto close nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
@@ -544,14 +541,14 @@ unlet bundle
 " easy-mosion
 "------------------------------------
 "{{{
-" ホームポジションに近いキーを使う
+" use close keys
 let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-" 「,」 + 何かにマッピング
+" use leader key
 let g:EasyMotion_leader_key = "<Leader>"
-" 1 ストローク選択を優先する
+" 1 stroke selection
 let g:EasyMotion_grouping = 1
 
-" カラー設定変更
+" color config
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 "}}}
@@ -578,9 +575,9 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 "{{{
 let bundle = neobundle#get('syntastic')
 function! bundle.hooks.on_source(bundle)
-  " エラー行をsignで表示する
+  " sign error lines
   let g:syntastic_enable_signs = 1
-  " 可能ならhighligt表示する
+  " enable highlight
   let g:syntastic_enable_highlighting = 1
   let g:syntastic_auto_jump = 0
   let g:syntastic_auto_loc_list = 1
