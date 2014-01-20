@@ -1,14 +1,7 @@
-# basic
-source ~/dotfiles/.zsh/conf.d/.zshrc.basic
-# color
-# source ~/dotfiles/.zsh/conf.d/.zshrc.color
-# term
-source ~/dotfiles/.zsh/conf.d/.zshrc.term
-# utility
-source ~/dotfiles/.zsh/conf.d/.zshrc.utility
-# alias
-source ~/dotfiles/.zsh/conf.d/.zshrc.alias
-# os
-source ~/dotfiles/.zsh/conf.d/.zshrc.os
+# load zshrc
+rcs=( basic term alias utility os )
+for rc in $rcs; do
+  source $HOME/dotfiles/.zsh/conf.d/.zshrc.$rc
+done
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
