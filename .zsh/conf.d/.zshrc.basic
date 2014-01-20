@@ -126,7 +126,10 @@ autoload predict-on
 # ------------------------------------
 # Completion configuration
 # ------------------------------------
-# fpath=(~/.zsh/functions/Completion ${fpath})
+if [ -x `which brew` ]; then
+  local _SITE_FUNCTION=$(brew --prefix)/share/zsh/site-functions
+  [ -d $_SITE_FUNCTION ] && fpath=($_SITE_FUNCTION $fpath)
+fi
 autoload -Uz compinit
 compinit -C
 
