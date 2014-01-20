@@ -122,6 +122,7 @@ zle -N self-insert url-quote-magic
 # Prediction configuration
 autoload predict-on
 # predict-off
+autoload -Uz add-zsh-hook
 
 # ------------------------------------
 # Completion configuration
