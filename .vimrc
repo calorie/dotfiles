@@ -7,31 +7,13 @@ if has('vim_starting') && has('reltime')
   augroup END
 endif
 
-" plugin
-source ~/dotfiles/.vim/conf.d/.vimrc.bundle
-" basic
-source ~/dotfiles/.vim/conf.d/.vimrc.basic
-" statusline
-source ~/dotfiles/.vim/conf.d/.vimrc.statusline
-" indent
-source ~/dotfiles/.vim/conf.d/.vimrc.indent
-" apperance
-source ~/dotfiles/.vim/conf.d/.vimrc.apperance
-" completion
-source ~/dotfiles/.vim/conf.d/.vimrc.completion
-" tags
-source ~/dotfiles/.vim/conf.d/.vimrc.tags
-" search
-source ~/dotfiles/.vim/conf.d/.vimrc.search
-" moving
-source ~/dotfiles/.vim/conf.d/.vimrc.moving
-" color
-source ~/dotfiles/.vim/conf.d/.vimrc.colors
-" editing
-source ~/dotfiles/.vim/conf.d/.vimrc.editing
-" encoding
-source ~/dotfiles/.vim/conf.d/.vimrc.encoding
-" program
-source ~/dotfiles/.vim/conf.d/.vimrc.program
-" plugins setting
-source ~/dotfiles/.vim/conf.d/.vimrc.plugins_setting
+" load vimrc
+let s:rcs = [
+      \ 'bundle', 'basic', 'statusline',
+      \ 'indent', 'apperance', 'completion',
+      \ 'tags', 'search', 'moving',
+      \ 'colors', 'editing', 'encoding',
+      \ 'program', 'plugins_setting']
+for rc in s:rcs
+  execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . rc
+endfor
