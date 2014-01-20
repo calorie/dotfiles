@@ -16,6 +16,7 @@ Session.vim
 *.aux
 *.elc
 *.orig
+*.zwc
 .zshrc.local
 samples
 
