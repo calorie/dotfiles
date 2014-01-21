@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -x `which gem` ];then
+if [[ -x `whence -p gem` ]]; then
   gem install tmuxinator --no-ri --no-rdoc
   mv $HOME/.tmuxinator/* $HOME/dotfiles/.tmux/tmuxinator/
   rm -rf $HOME/.tmuxinator

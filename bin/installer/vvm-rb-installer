@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -x `which ruby` ];then
+if [[ -x `whence -p gem` ]]; then
   gem install vvm-rb
   [ -d $HOME/.vim ] || mkdir $HOME/.vim
 fi

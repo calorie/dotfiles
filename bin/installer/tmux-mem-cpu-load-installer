@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -x `which cmake` ];then
+if [[ -x `whence -p cmake` ]]; then
   [ -d $HOME/.tmux ] || mkdir $HOME/.tmux
   cd $HOME/.tmux
   git clone https://github.com/thewtex/tmux-mem-cpu-load.git

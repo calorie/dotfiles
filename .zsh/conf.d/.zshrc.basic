@@ -127,10 +127,6 @@ autoload -Uz add-zsh-hook
 # ------------------------------------
 # Completion configuration
 # ------------------------------------
-if [ -x `which brew` ]; then
-  local _SITE_FUNCTION=$(brew --prefix)/share/zsh/site-functions
-  [ -d $_SITE_FUNCTION ] && fpath=($_SITE_FUNCTION $fpath)
-fi
 autoload -Uz compinit
 compinit -C
 

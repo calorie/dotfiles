@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -x `which vim` ];then
+if [[ -x `whence -p vim` ]]; then
   [ -d $HOME/.vim/bundle ] || mkdir -p $HOME/.vim/bundle
   cd $HOME/.vim/bundle
   git clone https://github.com/Shougo/neobundle.vim.git

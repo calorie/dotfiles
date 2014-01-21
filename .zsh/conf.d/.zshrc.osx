@@ -4,6 +4,12 @@ alias boxen='~/work/my-boxen/script/boxen --no-fde'
 alias rm='rmtrash'
 alias emb='cd ~/work/my-boxen ; vim'
 
+# fpath
+if [[ -x `whence -p brew` ]]; then
+  local _SITE_FUNCTION=$(brew --prefix)/share/zsh/site-functions
+  [ -d $_SITE_FUNCTION ] && fpath=($_SITE_FUNCTION $fpath)
+fi
+
 # path
 export C_INCLUDE_PATH="/opt/boxen/homebrew/include":$C_INCLUDE_PATH
 
