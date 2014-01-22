@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d $HOME/.tmux/tmux-mem-cpu-load ]; then
+  rm -rf $HOME/.tmux/tmux-mem-cpu-load
+fi

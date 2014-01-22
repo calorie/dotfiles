@@ -14,17 +14,26 @@ rbenv init - zsh
 
 ln -s $HOME/dotfiles/default-gems $HOME/.rbenv/default-gems
 
-# 1.9.3
-CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr --enable-shared" rbenv install 1.9.3-p448
+case "${OSTYPE}" in
+darwin*)
+  [[ -x `whence -p brew` ]] && brew install openssl readline
+  # 1.9.3
+  CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 1.9.3-p484
+  # 2.0.0
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 2.0.0-p353
+  # 2.1.0
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 2.1.0
+  ;;
+linux*)
+  # 1.9.3
+  CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 1.9.3-p484
+  # 2.0.0
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.0.0-p353
+  # 2.1.0
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.1.0
+  ;;
+esac
 
-# 2.0.0
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.0.0-p247
-rbenv global 1.9.3-p448
+rbenv global 2.1.0
 rbenv rehash
 export PATH=$HOME/.rbenv/shims:$PATH
-
-# init
-echo "$(rbenv init - zsh)" > $HOME/dotfiles/.rbenv_init
-sed -i -e "s/rbenv rehash/# rbenv rehash/" $HOME/dotfiles/.rbenv_init
-
-gem regenerate_binstubs

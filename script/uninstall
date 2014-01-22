@@ -12,6 +12,20 @@ do
   fi
 done
 
+UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
+
+PKGS=(
+  ricty
+  vvm-rb auto-fu
+  powerline-shell
+  tmux-powerline
+  tmux-mem-cpu-load
+  tmuxinator )
+for pkg in ${PKGS[@]}
+do
+  $UNINSTALLER_PATH/$pkg-uninstaller
+done
+
 DOT_FILES=(
   .zshrc .zshenv .ctags .gdbinit .gemrc
   .gitconfig .gitignore .inputrc

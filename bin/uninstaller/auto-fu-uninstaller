@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d $HOME/.zsh/auto-fu.zsh ]; then
+  rm -rf $HOME/.zsh/auto-fu.zsh
+fi

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d $HOME/.vvm ]; then
+  rm -rf $HOME/.vvm
+fi

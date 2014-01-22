@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ -d $HOME/.fonts ]; then
+  rm -rf $HOME/.fonts
+  fc-cache -vf
+fi
