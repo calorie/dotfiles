@@ -6,9 +6,10 @@ darwin*)
 # Linux
 linux*)
   export RBENV_ROOT=$HOME/.rbenv
+  export PATH="$RBENV_ROOT/bin:${PATH}"
   ;;
 esac
 if [ -d $RBENV_ROOT ]; then
-  export PATH=$PATH:$RBENV_ROOT/bin
-  eval "$(rbenv init - --no-rehash)"
+  export PATH="$RBENV_ROOT/shims:${PATH}"
+  eval "$(rbenv init - --no-rehash zsh)"
 fi

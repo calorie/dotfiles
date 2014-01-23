@@ -30,7 +30,7 @@ done
 
 # symbolic link
 DOTFILES=(
-  .zshrc .zshenv .ctags .gdbinit .gemrc
+  .zshrc .ctags .gdbinit .gemrc
   .gitconfig .gitignore .inputrc
   .irbrc .pryrc .rspec .agignore
   .vimrc .vrapperrc .rubocop.yml

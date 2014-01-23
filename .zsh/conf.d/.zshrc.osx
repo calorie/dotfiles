@@ -23,9 +23,7 @@ export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disabl
 alias vvm='vvm-rb'
 
 # rbenv
-# export PATH=$PATH:$RBENV_ROOT/bin
-# eval "$(rbenv init - zsh)"
-# source $HOME/dotfiles/.rbenv_init
+export PATH="$RBENV_ROOT/shims:$PATH"
 
 # quick-cocos2d-x
 export ANDROID_ROOT=$HOME/src/android
