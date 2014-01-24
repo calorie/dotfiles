@@ -56,14 +56,17 @@ install_powerline_precmd
 # ------------------------------------
 # tmux
 # ------------------------------------
-function __tmux_statusline_reload() {
+function __restore_tmuxpwd() {
   [ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
 }
+
 # tmux autoload
 if which tmux 2>&1 >/dev/null; then
   test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
-  __tmux_statusline_reload
+  __restore_tmuxpwd
 fi
-add-zsh-hook chpwd __tmux_statusline_reload
+
+add-zsh-hook chpwd __restore_tmuxpwd
+
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
