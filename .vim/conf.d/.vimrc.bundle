@@ -91,7 +91,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "       \   'unite_sources': 'rake'
   "       \ }}
 
-  " command, search, yankのhistory
+  " history of command, search, yank
   " NeoBundleLazy 'thinca/vim-unite-history', {
   "       \ 'depends' : 'Shougo/unite.vim',
   "       \ 'autoload' : {
@@ -103,7 +103,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Edit {{{
 
   " manage yank's history
-  NeoBundle 'YankRing.vim'
+  NeoBundleLazy 'YankRing.vim', {
+        \ 'autoload' : { 'commands' : 'YRShow' }}
 
   " comment
   NeoBundleLazy 'tomtom/tcomment_vim', {
@@ -372,6 +373,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " run command quickly
   NeoBundleLazy 'thinca/vim-quickrun', {
+        \ 'depends' : 'Shougo/vimproc',
         \ 'autoload' : {
         \   'mappings' : [['nxo', '<Plug>(quickrun)']],
         \   'commands' : 'QuickRun',
@@ -524,11 +526,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundle 'vim-scripts/vim-auto-save'
 
   " async run
-  NeoBundle 'Shougo/vimproc', {
+  NeoBundleLazy 'Shougo/vimproc', {
         \ 'build' : {
         \   'mac'    : 'make -f make_mac.mak',
         \   'unix'   : 'make -f make_unix.mak',
         \   'cygwin' : 'make -f make_cygwin.mak',
+        \ },
+        \ 'autoload' : {
+        \   'function_prefix' : 'vimproc',
         \ }}
 
   " cool statusline
@@ -546,8 +551,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " open shell on vim
   NeoBundleLazy 'Shougo/vimshell', {
-        \   'autoload' : { 'commands' : [ 'VimShell', 'VimShellSendString' ] }
-        \}
+        \ 'depends' : 'Shougo/vimproc',
+        \ 'autoload' : { 'commands' : ['VimShell', 'VimShellSendString'] }
+        \ }
 
   " control git
   NeoBundle 'tpope/vim-fugitive', {
