@@ -9,4 +9,3 @@
 :verbose: true
 benchmark: false
 gem: "--no-rdoc --no-ri --include-dependencies"
-custom_shebang: "$env ruby_bundler_wrapper"
