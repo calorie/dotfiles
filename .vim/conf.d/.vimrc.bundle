@@ -299,7 +299,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Searching/Moving {{{
 
   " intuitive moving
-  NeoBundle 'EasyMotion'
+  NeoBundle 'EasyMotion', {
+      \ 'autoload' : { 'mappings' : '<Leader>' }}
 
   " smart moving
   NeoBundleLazy 'smartword', {

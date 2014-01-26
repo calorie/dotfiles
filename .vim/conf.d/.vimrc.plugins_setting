@@ -546,7 +546,7 @@ unlet bundle
 " use close keys
 let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 " use leader key
-let g:EasyMotion_leader_key = "<Leader>"
+let g:EasyMotion_leader_key = '<Leader>'
 " 1 stroke selection
 let g:EasyMotion_grouping = 1
 
