@@ -612,7 +612,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ColorScheme {{{
 
-  " jellybeans, wombat
+  " calorie, jellybeans, wombat, railscasts
   NeoBundle 'calorie/colorschemes'
 
 " }}}
