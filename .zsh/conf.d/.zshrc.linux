@@ -5,6 +5,7 @@ alias emp='trash-empty'
 # vvm
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
+alias vvm='vvm-rb'
 # alias vvm-versions='ls -la ~/.vvm/vims/'
 
 # Terminal Color
