@@ -24,11 +24,6 @@ set expandtab
 
 " add space after comma
 inoremap , ,<Space>
-" auto close xml tag
-" augroup MyXML
-"   autocmd!
-"   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-" augroup END
 
 " undo on insert mode
 inoremap <C-u> <C-g>u<C-u>
