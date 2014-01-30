@@ -103,7 +103,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Edit {{{
 
   " manage yank's history
-  NeoBundleLazy 'YankRing.vim', {
+  NeoBundle 'YankRing.vim', {
         \ 'autoload' : { 'commands' : 'YRShow' }}
 
   " comment
