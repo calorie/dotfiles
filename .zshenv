@@ -1,7 +1,7 @@
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)
-  [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+  [ -f /opt/boxen/env.sh ] && [ -z $BOXEN_HOME ] && source /opt/boxen/env.sh
   ;;
 # Linux
 linux*)
