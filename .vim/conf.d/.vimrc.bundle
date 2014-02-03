@@ -84,20 +84,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'unite_sources' : 'codic',
         \ }}
 
-  " rake
-  " NeoBundleLazy 'ujihisa/unite-rake', {
-  "       \ 'depends' : 'Shougo/unite.vim',
-  "       \ 'autoload': {
-  "       \   'unite_sources': 'rake'
-  "       \ }}
-
-  " history of command, search, yank
-  " NeoBundleLazy 'thinca/vim-unite-history', {
-  "       \ 'depends' : 'Shougo/unite.vim',
-  "       \ 'autoload' : {
-  "       \   'unite_sources' : ['history/command', 'history/search']
-  "       \ }}
-
 " }}}
 
 " Edit {{{
@@ -221,10 +207,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     "       \ 'depends' : 'textobj-user',
     "       \ 'autoload': { 'filetypes': ['javascript'] }}
 
-    " perl function
-    " NeoBundleLazy 'thinca/vim-textobj-function-perl.git', {
-    "       \ 'autoload': { 'filetypes': ['perl'] }}
-
   " }}}
 
   " create text operator
@@ -281,18 +263,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'unite_sources' : ['snippet', 'neosnippet/user',
         \     'neosnippet/runtime'],
         \ }}
-
-  " neocomplcache's rsense
-  " NeoBundleLazy 'Shougo/neocomplcache-rsense', {
-  "       \ 'depends': 'Shougo/neocomplcache',
-  "       \ 'autoload': { 'filetypes': 'ruby' }}
-
-  " rsense
-  " NeoBundleFetch 'taichouchou2/rsense-0.3', {
-  "       \ 'build' : {
-  "       \    'mac': 'ruby etc/config.rb > ~/.rsense',
-  "       \    'unix': 'ruby etc/config.rb > ~/.rsense',
-  "       \ } }
 
 " }}}
 
@@ -478,10 +448,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " python
   " NeoBundleLazy 'yuroyoro/vim-python', {
   "       \ 'autoload': { 'filetypes': ['python'] }}
-
-  " nginx conf
-  " NeoBundleLazy 'nginx.vim', {
-  "       \ 'autoload' : { 'filetype': ['nginx'] }}
 
   " scala
   " NeoBundleLazy 'yuroyoro/vim-scala', {
