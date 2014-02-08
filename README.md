@@ -25,7 +25,7 @@ $ ./script/setup
 
 ### installed pkg
 
-- ricty
+- ricty(font)
 - vvm-rb(vim version manager)
 - auto-fu
 - powerline-shell
