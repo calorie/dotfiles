@@ -395,23 +395,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'TagbarOpen'],
         \   'fuctions': ['tagbar#currenttag'] }}
 
-  " show ri
-  " NeoBundleLazy 'taka84u9/vim-ref-ri', {
-  "       \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref'],
-  "       \ 'autoload': {
-  "       \   'unite_sources' : 'ref/ri',
-  "       \ }}
-
-  " auto create tags
-  " NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-  "     \ 'rev' : 'development',
-  "     \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-  "     \ 'autoload' : {
-  "     \   'commands' : ['Tags', 'TagsUpdate',
-  "     \     'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-  "     \   'unite_sources' : ['tags']
-  "     \ }}
-
 " }}}
 
 " Syntax {{{
