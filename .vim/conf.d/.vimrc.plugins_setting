@@ -342,7 +342,7 @@ nnoremap <silent> [unite]c  :<C-u>Unite codic -start-insert<CR>
 " yank
 nnoremap <silent> [unite]y  :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " ref
-autocmd FileType *       nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/man -start-insert ref/man<CR>
+nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/man -start-insert ref/man<CR>
 autocmd FileType ruby    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/refe -start-insert ref/refe<CR>
 " autocmd FileType python  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/pydoc -start-insert ref/pydoc<CR>
 " autocmd FileType php     nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/phpmanual -start-insert ref/phpmanual<CR>
@@ -1022,4 +1022,13 @@ inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 "{{{
 " autocmd FileType startify setlocal buftype=
 " let NERDTreeHijackNetrw = 0
+"}}}
+
+"------------------------------------
+" vim-rspec
+"------------------------------------
+"{{{
+let g:rspec_command = 'Dispatch rspec {spec}'
+autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
+" autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
 "}}}

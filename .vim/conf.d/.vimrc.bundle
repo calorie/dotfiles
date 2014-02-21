@@ -202,11 +202,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     "     \     ['nx', '<Plug>(textobj-comment-i)']]
     "     \ }}
 
-    " javascript
-    " NeoBundleLazy 'thinca/vim-textobj-function-javascript.git', {
-    "       \ 'depends' : 'textobj-user',
-    "       \ 'autoload': { 'filetypes': ['javascript'] }}
-
   " }}}
 
   " create text operator
@@ -370,12 +365,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
 
   " run rspec
-  NeoBundleLazy 'skwp/vim-rspec', {
-        \ 'build': {
-        \   'mac': 'gem install hpricot',
-        \   'unix': 'gem install hpricot'
-        \ },
-        \ 'autoload': { 'filetypes': ['ruby', 'eruby']}}
+  NeoBundleLazy 'thoughtbot/vim-rspec', {
+        \ 'depends'  : 'tpope/vim-dispatch',
+        \ 'autoload': {
+        \   'functions':
+        \     ['RunCurrentSpecFile', 'RunNearestSpec',
+        \     'RunLastSpec', 'RunAllSpecs'] }}
 
   " completion end
   NeoBundle 'tpope/vim-endwise.git', {
