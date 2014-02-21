@@ -264,7 +264,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Searching/Moving {{{
 
   " intuitive moving
-  NeoBundle 'EasyMotion', {
+  NeoBundle 'Lokaltog/vim-easymotion', {
       \ 'autoload' : { 'mappings' : '<Leader>' }}
 
   " smart moving
