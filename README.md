@@ -1,6 +1,6 @@
 dotfiles
 ========
-## requirements
+## Requirements
 
 - zsh
 - tmux >= 1.7
@@ -9,13 +9,13 @@ dotfiles
 - ruby
 - fontforge
 
-### optional
+### Optional
 
 - boxen (for mac)
 - cmake (tmux-mem-cpu-load)
 - lua (neocomplete)
 
-## setup
+## Setup
 
 ```
 $ git clone git://github.com/calorie/dotfiles.git ~/dotfiles
@@ -23,7 +23,7 @@ $ cd ~/dotfiles
 $ ./script/setup
 ```
 
-### installed pkg
+### Installed packages
 
 - ricty (font)
 - vvm-rb (vim version manager)
@@ -34,7 +34,7 @@ $ ./script/setup
 - tmuxinator
 - some vim plugins
 
-## uninstall
+## Uninstall
 
 ```
 $ cd ~/dotfiles
