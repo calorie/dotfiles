@@ -452,23 +452,6 @@ unlet bundle
 "}}}
 
 "------------------------------------
-" toggle.vim
-"------------------------------------
-"{{{
-nmap <silent> + <Plug>ToggleN
-" imap <C-A> <Plug>ToggleI
-" vmap <C-A> <Plug>ToggleV
-
-let g:toggle_pairs = {
-      \ 'and':'or', 'or':'and', 'if':'unless',
-      \ 'unless':'if', 'yes':'no', 'no':'yes',
-      \ 'enable':'disable', 'disable':'enable',
-      \ 'pick':'reword', 'reword':'fixup',
-      \ 'fixup':'squash', 'squash':'edit',
-      \ 'edit':'exec', 'exec':'pick' }
-"}}}
-
-"------------------------------------
 " NERDTree.vim
 "------------------------------------
 "{{{
@@ -1030,4 +1013,32 @@ inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 let g:rspec_command = 'Dispatch rspec {spec}'
 autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
 " autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
+"}}}
+
+"------------------------------------
+" switch.vim
+"------------------------------------
+"{{{
+nnoremap + :Switch<CR>
+nnoremap - :call switch#Switch(g:variable_style_switch_definitions)<cr>
+let g:switch_custom_definitions =
+      \ [
+      \   ['+', '-'],
+      \   ['*', '/'],
+      \   ['and', 'or'],
+      \   ['yes', 'no'],
+      \   ['if', 'unless'],
+      \   ['enable', 'disable'],
+      \   ['pick', 'reword', 'fixup', 'squash', 'edit', 'exec'],
+      \ ]
+let g:variable_style_switch_definitions = [
+      \   {
+      \     '\<[a-z0-9]\+_\k\+\>': {
+      \       '_\(.\)': '\U\1'
+      \     },
+      \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+      \       '\([A-Z]\)': '_\l\1'
+      \     },
+      \   }
+      \ ]
 "}}}

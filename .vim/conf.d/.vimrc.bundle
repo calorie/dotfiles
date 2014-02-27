@@ -132,8 +132,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " toggle text
-  NeoBundleLazy 'taku-o/vim-toggle', {
-        \ 'autoload' : { 'mappings' : [['n', '<Plug>ToggleN']] }}
+  NeoBundleLazy 'AndrewRadev/switch.vim', {
+        \ 'autoload' : { 'commands' : 'Switch' }}
 
   " manage IME
   NeoBundleLazy 'bouzuya/vim-ibus', {
