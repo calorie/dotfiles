@@ -52,7 +52,9 @@ fi
 # powerline-shell
 if [ -d $HOME/.zsh/powerline-shell ]; then
     cd $HOME/.zsh/powerline-shell
+    git stash -u
     git pull --rebase origin master
+    git stash pop
     ./install.py
 fi
 
