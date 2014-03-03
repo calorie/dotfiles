@@ -25,13 +25,13 @@ $ ./script/setup
 
 ### Installed packages
 
-- ricty (font)
-- vvm-rb (vim version manager)
-- auto-fu
-- powerline-shell
-- tmux-powerline
-- tmux-mem-cpu-load
-- tmuxinator
+- [Ricty](https://github.com/yascentur/Ricty)
+- [vvm-rb](https://github.com/calorie/vvm-rb)
+- [auto-fu](https://github.com/hchbaw/auto-fu.zsh)
+- [powerline-shell](https://github.com/milkbikis/powerline-shell)
+- [tmux-powerline](https://github.com/erikw/tmux-powerline)
+- [tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
+- [tmuxinator](https://github.com/tmuxinator/tmuxinator)
 - some vim plugins
 
 ## Uninstall
