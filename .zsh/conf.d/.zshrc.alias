@@ -140,3 +140,6 @@ alias emacs='emacs -nw'
 
 # xdg
 alias xopen='xdg-open'
+
+# bundle
+alias bi='bundle install --path vendor/bundle --binstubs .bundle/bin'
