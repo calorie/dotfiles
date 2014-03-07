@@ -207,14 +207,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " create text operator
   " NeoBundleLazy 'operator-user'
 
-  " convert to camelcase
-  " NeoBundleLazy 'operator-camelize', {
-  "       \ 'depends' : 'operator-user',
-  "       \ 'autoload' : {
-  "       \   'mappings' : [['nx', '<Plug>(operator-camelize)'],
-  "       \     ['nx', '<Plug>(operator-decamelize)']]
-  "       \ }}
-
   " replace to yank
   " NeoBundleLazy 'operator-replace', {
   "       \ 'depends' : 'operator-user',
