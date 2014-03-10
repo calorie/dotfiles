@@ -423,6 +423,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " NeoBundleLazy 'yuroyoro/vim-scala', {
   "       \ 'autoload': { 'filetypes': ['scala'] }}
 
+  " nginx
+  " NeoBundleLazy 'nginx.vim', {
+  "       \ 'autoload': { 'filetypes': ['nginx'] }}
+
 " }}}
 
 " Buffer {{{
