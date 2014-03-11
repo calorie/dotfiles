@@ -3,10 +3,12 @@
 "---------------------------------------------------------------------
 syntax enable
 
-colorscheme calorie
-" colorscheme wombat
-" colorscheme railscasts
-" colorscheme jellybeans
+if neobundle#is_sourced('colorschemes')
+  colorscheme calorie
+  " colorscheme wombat
+  " colorscheme railscasts
+  " colorscheme jellybeans
+endif
 
 " color config by terminal
 " 256

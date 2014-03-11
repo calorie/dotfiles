@@ -4,5 +4,5 @@ if command -v vim >/dev/null 2>&1; then
   [ -d $HOME/.vim/bundle ] || mkdir -p $HOME/.vim/bundle
   cd $HOME/.vim/bundle
   git clone https://github.com/Shougo/neobundle.vim.git
-  yes '' | vim +NeoBundleInstall +qa
+  vim +NeoBundleInstall +qa
 fi
