@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -x `whence -p gem` ]]; then
+if command -v gem >/dev/null 2>&1; then
   gem install vvm-rb
   [ -d $HOME/.vim ] || mkdir $HOME/.vim
 fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -x `whence -p fontforge` ]]; then
+if command -v fontforge >/dev/null 2>&1; then
   git clone https://github.com/yascentur/Ricty.git ~/Ricty
   cd $HOME/Ricty
   wget http://levien.com/type/myfonts/Inconsolata.otf
