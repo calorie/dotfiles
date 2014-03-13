@@ -59,7 +59,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends' : 'Shougo/unite.vim',
         \ 'build' : {
         \    'mac': 'brew install tig',
-        \    'unix': 'sudo apt-get install tig',
         \ },
         \ 'autoload' : {
         \   'unite_sources' : 'tig'
@@ -324,10 +323,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Programming {{{
 
   " auto create tags
-  NeoBundle 'szw/vim-tags', {
-        \ 'build': {
-        \   'unix': 'sudo apt-get install exuberant-ctags'
-        \ }}
+  NeoBundle 'szw/vim-tags'
 
   " run command quickly
   NeoBundleLazy 'thinca/vim-quickrun', {
@@ -441,7 +437,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'Shougo/vimfiler', {
         \ 'build' : {
         \   'mac' : 'brew install rmtrash',
-        \   'unix' : 'sudo apt-get install trash-cli',
         \ },
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload' : {
