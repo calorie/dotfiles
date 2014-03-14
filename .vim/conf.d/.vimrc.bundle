@@ -407,6 +407,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'rodjek/vim-puppet', {
         \ 'autoload': { 'filetypes': 'puppet' }}
 
+  " json
+  NeoBundleLazy 'elzr/vim-json', {
+        \ 'autoload': { 'filetypes': 'json' }}
+
   " haml
   " NeoBundleLazy 'haml.zip', {
   "       \ 'autoload': { 'filetypes': ['haml'] }}

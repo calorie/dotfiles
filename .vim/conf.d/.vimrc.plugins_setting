@@ -1047,3 +1047,10 @@ let g:variable_style_switch_definitions = [
       \   }
       \ ]
 "}}}
+
+"------------------------------------
+" vim-json
+"------------------------------------
+"{{{
+let g:vim_json_syntax_conceal = 0
+"}}}
