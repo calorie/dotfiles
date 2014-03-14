@@ -1,10 +1,14 @@
 #!/bin/bash
 
-if command -v gem >/dev/null 2>&1; then
-  RBENV_ROOT=$HOME/.rbenv
-  [ -d $RBENV_ROOT ] || RBENV_ROOT=/usr/local/rbenv
-  $RBENV_ROOT/bin/rbenv exec gem install tmuxinator --no-ri --no-rdoc
-  mv $HOME/.tmuxinator/* $HOME/dotfiles/.tmux/tmuxinator/
-  rm -rf $HOME/.tmuxinator
+RBENV_ROOT=$HOME/.rbenv
+[ -d $RBENV_ROOT ] || RBENV_ROOT=/opt/boxen/rbenv
+[ -d $RBENV_ROOT ] || RBENV_ROOT=/usr/local/rbenv
+RBENV=$RBENV_ROOT/bin/rbenv
+if [ -x $RBENV ] && ! command -v mux >/dev/null 2>&1; then
+  $RBENV exec gem install tmuxinator --no-ri --no-rdoc
+  if [ -d $HOME/.tmuxinator ]; then
+    mv -f $HOME/.tmuxinator/* $HOME/dotfiles/.tmux/tmuxinator/
+    rm -rf $HOME/.tmuxinator
+  fi
   ln -s $HOME/dotfiles/.tmux/tmuxinator $HOME/.tmuxinator
 fi

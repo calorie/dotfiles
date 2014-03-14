@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if command -v gem >/dev/null 2>&1; then
-  RBENV_ROOT=$HOME/.rbenv
-  [ -d $RBENV_ROOT ] || RBENV_ROOT=/usr/local/rbenv
-  $RBENV_ROOT/bin/rbenv exec gem install vvm-rb
+RBENV_ROOT=$HOME/.rbenv
+[ -d $RBENV_ROOT ] || RBENV_ROOT=/opt/boxen/rbenv
+[ -d $RBENV_ROOT ] || RBENV_ROOT=/usr/local/rbenv
+RBENV=$RBENV_ROOT/bin/rbenv
+if [ -x $RBENV ] && ! command -v vvm-rb >/dev/null 2>&1; then
+  $RBENV exec gem install vvm-rb --no-ri --no-rdoc
   [ -d $HOME/.vim ] || mkdir $HOME/.vim
 fi
