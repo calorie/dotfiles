@@ -3,6 +3,8 @@
 if command -v vim >/dev/null 2>&1; then
   [ -d $HOME/.vim/bundle ] || mkdir -p $HOME/.vim/bundle
   cd $HOME/.vim/bundle
-  git clone https://github.com/Shougo/neobundle.vim.git
-  vim +NeoBundleInstall +qa
+  if [ ! -d $HOME/.vim/bundle/neobundle.vim ]; then
+    git clone https://github.com/Shougo/neobundle.vim.git
+  fi
+  . $HOME/.vim/bundle/neobundle.vim/bin/neoinstall
 fi
