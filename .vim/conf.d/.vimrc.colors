@@ -3,7 +3,7 @@
 "---------------------------------------------------------------------
 syntax enable
 
-if neobundle#is_sourced('colorschemes')
+if neobundle#is_installed('colorschemes') && neobundle#is_sourced('colorschemes')
   colorscheme calorie
   " colorscheme wombat
   " colorscheme railscasts
