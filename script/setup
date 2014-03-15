@@ -17,8 +17,7 @@ DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
 PKGS=(
-  ricty
-  vvm-rb auto-fu
+  ricty auto-fu
   powerline-shell
   tmux-powerline
   tmux-mem-cpu-load
