@@ -32,7 +32,7 @@ $ ./script/setup
 - [tmux-powerline](https://github.com/erikw/tmux-powerline)
 - [tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
 - [tmuxinator](https://github.com/tmuxinator/tmuxinator)
-- some vim plugins
+- [some vim plugins](https://github.com/calorie/dotfiles/blob/master/.vim/conf.d/.vimrc.bundle)
 
 ## Uninstall
 
