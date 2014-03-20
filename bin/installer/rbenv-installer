@@ -16,24 +16,26 @@ ln -s $HOME/dotfiles/default-gems $HOME/.rbenv/default-gems
 
 case "${OSTYPE}" in
 darwin*)
-  [[ -x `whence -p brew` ]] && brew install openssl readline
+  if command -v brew >/dev/null 2>&1; then
+    brew install openssl readline
+  fi
   # 1.9.3
-  CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 1.9.3-p484
+  CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 1.9.3-p545
   # 2.0.0
-  RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 2.0.0-p353
-  # 2.1.0
-  RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 2.1.0
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 2.0.0-p451
+  # 2.1.1
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared" rbenv install 2.1.1
   ;;
 linux*)
   # 1.9.3
-  CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 1.9.3-p484
+  CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 1.9.3-p545
   # 2.0.0
-  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.0.0-p353
-  # 2.1.0
-  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.1.0
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.0.0-p451
+  # 2.1.1
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared" rbenv install 2.1.1
   ;;
 esac
 
-rbenv global 2.1.0
+rbenv global 2.1.1
 rbenv rehash
 export PATH=$HOME/.rbenv/shims:$PATH

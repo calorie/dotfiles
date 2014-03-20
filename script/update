@@ -15,76 +15,76 @@ done
 ORIGIN=$(pwd)
 
 # tmuxinator
-if [ -x `which mux` ]; then
-    gem install tmuxinator
+if command -v mux >/dev/null 2>&1; then
+  gem install tmuxinator
 fi
 
 # tmux-mem-cpu-load
 if [ -d $HOME/.tmux/tmux-mem-cpu-load ]; then
-    cd $HOME/.tmux/tmux-mem-cpu-load
-    git reset --hard HEAD
-    git pull --rebase origin master
-    sed -i -e "s/ << ' ' << load_string( use_colors )//" $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
-    cmake .
-    make
-    sudo make install
+  cd $HOME/.tmux/tmux-mem-cpu-load
+  git reset --hard HEAD
+  git pull --rebase origin master
+  sed -i -e "s/ << ' ' << load_string( use_colors )//" $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
+  cmake .
+  make
+  sudo make install
 fi
 
 # tmux-powerline
 if [ -d $HOME/.tmux/tmux-powerline ]; then
-    cd $HOME/.tmux/tmux-powerline
-    git pull --rebase origin master
+  cd $HOME/.tmux/tmux-powerline
+  git pull --rebase origin master
 fi
 
 # vvm
-if [ -x `which vvm-rb` ]; then
-    gem install vvm-rb
-else
-    vvm update_itself
+if command -v vvm-rb >/dev/null 2>&1; then
+  gem install vvm-rb
+elif command -v vvm >/dev/null 2>&1; then
+  vvm update_itself
 fi
 
 # auto-fu
 if [ -d $HOME/.zsh/auto-fu.zsh ]; then
-    cd $HOME/.zsh/auto-fu.zsh
-    git pull --rebase origin pu
+  cd $HOME/.zsh/auto-fu.zsh
+  git pull --rebase origin pu
 fi
 
 # powerline-shell
 if [ -d $HOME/.zsh/powerline-shell ]; then
-    cd $HOME/.zsh/powerline-shell
-    git stash -u
-    git pull --rebase origin master
-    git stash pop
-    ./install.py
+  cd $HOME/.zsh/powerline-shell
+  git stash -u
+  git pull --rebase origin master
+  git stash pop
+  ./install.py
 fi
 
 # rbenv
 if [ -d $HOME/.rbenv ]; then
-    cd $HOME/.rbenv
-    git pull --rebase origin master
+  cd $HOME/.rbenv
+  git pull --rebase origin master
 fi
 
 # rbenv-ctags
 if [ -d $HOME/.rbenv/plugins/rbenv-ctags ]; then
-    cd $HOME/.rbenv/plugins/rbenv-ctags
-    git pull --rebase origin master
+  cd $HOME/.rbenv/plugins/rbenv-ctags
+  git pull --rebase origin master
 fi
 
 # rbenv-default-gems
 if [ -d $HOME/.rbenv/plugins/rbenv-default-gems ]; then
-    cd $HOME/.rbenv/plugins/rbenv-default-gems
-    git pull --rebase origin master
+  cd $HOME/.rbenv/plugins/rbenv-default-gems
+  git pull --rebase origin master
 fi
 
 # ruby-build
 if [ -d $HOME/.rbenv/plugins/ruby-build ]; then
-    cd $HOME/.rbenv/plugins/ruby-build
-    git pull --rebase origin master
+  cd $HOME/.rbenv/plugins/ruby-build
+  git pull --rebase origin master
 fi
 
 # vim plugins
-if [ -x `which vim` ]; then
-    vim +NeoBundleUpdate +qa
+if command -v vim >/dev/null 2>&1; then
+  vim +NeoBundleUpdate +qa
 fi
 
 cd ${ORIGIN}

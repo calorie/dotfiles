@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [ -d $HOME/.rbenv ]; then
-  rm -rf $HOME/.rbenv
-fi

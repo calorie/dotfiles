@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [ -d $HOME/.vim/bundle ]; then
-  rm -rf $HOME/.vim/bundle
-fi

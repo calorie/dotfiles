@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [[ -x `whence -p mux` ]]; then
-  [[ -x `whence -p gem` ]] && gem uninstall tmuxinator
-  rm -rf $HOME/.tmuxinator
-fi

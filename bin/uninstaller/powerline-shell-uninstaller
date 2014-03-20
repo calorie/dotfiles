@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [ -d $HOME/.zsh/powerline-shell ]; then
-  rm -rf $HOME/.zsh/powerline-shell
-fi

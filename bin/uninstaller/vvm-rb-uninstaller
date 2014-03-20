@@ -1,10 +1,7 @@
 #!/bin/bash
 
-if [[ -x `whence -p vvm-rb` ]]; then
-  [[ -x `whence -p gem` ]] && gem uninstall vvm-rb
-  if [ -z $VVMROOT ]; then
-      rm -rf $HOME/.vvm-rb
-  else
-      rm -rf $VVMROOT
-  fi
+if [ -z $VVMROOT ]; then
+  [ -d $HOME/.vvm-rb ] && rm -rf $HOME/.vvm-rb
+else
+  [ -d $VVMROOT ] && rm -rf $VVMROOT
 fi
