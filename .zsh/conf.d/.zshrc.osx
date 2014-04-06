@@ -24,7 +24,7 @@ alias vvm='vvm-rb'
 
 # rbenv
 export PATH="$RBENV_ROOT/shims:$PATH"
-eval "$(rbenv init - --no-rehash zsh)"
+# eval "$(rbenv init - --no-rehash zsh)"
 
 # quick-cocos2d-x
 export ANDROID_ROOT=$HOME/src/android
