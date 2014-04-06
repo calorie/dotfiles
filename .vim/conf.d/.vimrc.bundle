@@ -64,17 +64,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'unite_sources' : 'tig'
         \ }}
 
-  " git
-  NeoBundleLazy 'kmnk/vim-unite-giti', {
-        \ 'depends' : 'Shougo/unite.vim',
-        \ 'autoload': {
-        \   'unite_sources': [
-        \     'giti', 'giti/branch', 'giti/branch/new',
-        \     'giti/branch_all', 'giti/config', 'giti/log',
-        \     'giti/remote', 'giti/status'
-        \   ]
-        \ }}
-
   " codic
   NeoBundleLazy 'koron/codic-vim'
   NeoBundleLazy 'rhysd/unite-codic.vim', {
@@ -192,38 +181,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
-    " comment
-    " NeoBundleLazy 'thinca/vim-textobj-comment.git', {
-    "     \ 'depends' : 'textobj-user',
-    "     \ 'autoload' : {
-    "     \   'mappings' : [
-    "     \     ['nx', '<Plug>(textobj-comment-a)'],
-    "     \     ['nx', '<Plug>(textobj-comment-i)']]
-    "     \ }}
-
   " }}}
-
-  " create text operator
-  " NeoBundleLazy 'operator-user'
-
-  " replace to yank
-  " NeoBundleLazy 'operator-replace', {
-  "       \ 'depends' : 'operator-user',
-  "       \ 'autoload' : {
-  "       \   'mappings' : [['nx', '<Plug>(operator-replace)']]
-  "       \ }}
-
-  " format method chain
-  " NeoBundleLazy 'c9s/cascading.vim', {
-  "       \ 'autoload' : { 'commands' : 'Cascading' }}
-
-  " format character
-  " NeoBundleLazy 'kana/vim-smartchr', {
-  "       \ 'autoload' : { 'insert' : 1 }}
-
-  " format input
-  " NeoBundleLazy 'kana/vim-smartinput', {
-  "       \ 'autoload' : { 'insert' : 1 }}
 
 " }}}
 
@@ -312,11 +270,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " reload browser
-  " NeoBundleLazy 'lordm/vim-browser-reload-linux', {
-  "       \ 'autoload' : {
-  "       \   'build' : { 'unix' : ['sudo apt-get install xdotool'] },
-  "       \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
-  "       \ }}
+  NeoBundleLazy 'tell-k/vim-browsereload-mac', {
+        \ 'autoload' : {
+        \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
+        \ }}
 
 " }}}
 
@@ -437,21 +394,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
         \ }}
 
-  " filer
-  NeoBundleLazy 'Shougo/vimfiler', {
-        \ 'build' : {
-        \   'mac' : 'brew install rmtrash',
-        \ },
-        \ 'depends' : 'Shougo/unite.vim',
-        \ 'autoload' : {
-        \   'commands' : ['VimFiler', 'VimFilerExplorer'],
-        \   'explorer' : 1,
-        \ }}
-
-  " search files
-  " NeoBundleLazy 'ctrlp.vim', {
-  "       \ 'autoload' : { 'commands' : ['CtrlP'] }}
-
 " }}}
 
 " Encording {{{
@@ -489,12 +431,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload': { 'commands': ['SudoRead', 'SudoWrite'] }
         \ }
 
-  " open shell on vim
-  NeoBundleLazy 'Shougo/vimshell', {
-        \ 'depends' : 'Shougo/vimproc',
-        \ 'autoload' : { 'commands' : ['VimShell', 'VimShellSendString'] }
-        \ }
-
   " control git
   NeoBundle 'tpope/vim-fugitive', {
         \ 'autoload' : {
@@ -502,11 +438,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'Git', 'Gstatus', 'Gwrite', 'Glog',
         \     'Gcommit', 'Gblame', 'Ggrep', 'Gdiff'],
         \ }}
-
-  " gitk
-  NeoBundleLazy 'gregsexton/gitv', {
-        \ 'depends': 'tpope/vim-fugitive',
-        \ 'autoload' : { 'commands': ['Gitv'] }}
 
   " display git diff
   NeoBundleLazy 'airblade/vim-gitgutter', {
@@ -524,28 +455,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'depends': 'mattn/webapi-vim',
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
-
-  " NeoBundle 'mhinz/vim-startify', {
-  "       \ 'autoload' : { 'commands' : 'Startify' }}
-
-  " run SQL
-  " NeoBundleLazy 'dbext.vim', {
-  "       \ 'autoload' : {
-  "       \   'commands': [
-  "       \     'Alter', 'Call', 'Create', 'DBCheckModeline', 'DBCommit',
-  "       \     'DBCompleteProcedure', 'DBCompleteTable', 'DBCompleteView',
-  "       \     'DBDescribeProcedure', 'DBDescribeProcedureAskName',
-  "       \     'DBDescribeTable', 'DBDescribeTableAskName', 'DBExecRangeSQL',
-  "       \     'DBExecSQL', 'DBExecSQLTopX', 'DBExecSQLUnderCursor',
-  "       \     'DBExecVisualSQL', 'DBGetOption', 'DBHistory', 'DBListColumn',
-  "       \     'DBListConnections', 'DBListProcedure', 'DBListTable', 'DBListVar',
-  "       \     'DBListView', 'DBOrientation', 'DBPromptForBufferParameters',
-  "       \     'DBResultsClose', 'DBResultsOpen', 'DBResultsRefresh',
-  "       \     'DBResultsToggleResize', 'DBRollback', 'DBSelectFromTable',
-  "       \     'DBSelectFromTableAskName', 'DBSelectFromTableTopX',
-  "       \     'DBSelectFromTableWithWhere', 'DBSetOption', 'DBVarRangeAssign',
-  "       \     'Delete', 'Drop', 'Insert', 'Select', 'Update']
-  "       \ }}
 
 " }}}
 
