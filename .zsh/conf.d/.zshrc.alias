@@ -6,7 +6,7 @@ alias lf="ls -F"
 alias ll="ls -la"
 
 # reload
-alias rl='exec $SHELL'
+alias rl='exec $SHELL -l'
 
 # process
 # alias j="jobs -l"

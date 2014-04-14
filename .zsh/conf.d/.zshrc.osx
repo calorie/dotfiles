@@ -5,7 +5,7 @@ alias rm='rmtrash'
 alias emb='cd ~/work/my-boxen ; vim'
 
 # fpath
-if [[ -x `whence -p brew` ]]; then
+if command -v brew >/dev/null 2>&1; then
   local _SITE_FUNCTION=$(brew --prefix)/share/zsh/site-functions
   [ -d $_SITE_FUNCTION ] && fpath=($_SITE_FUNCTION $fpath)
 fi
@@ -23,7 +23,7 @@ export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disabl
 alias vvm='vvm-rb'
 
 # rbenv
-export PATH="$RBENV_ROOT/shims:$PATH"
+# export PATH="$RBENV_ROOT/shims:$PATH"
 # eval "$(rbenv init - --no-rehash zsh)"
 
 # quick-cocos2d-x

@@ -1,5 +1,36 @@
-# boxen
-[ -f /opt/boxen/env.sh ] && [ -z $BOXEN_HOME ] && source /opt/boxen/env.sh
+# ------------------------------------
+# TMUX
+# ------------------------------------
+autoload -Uz add-zsh-hook
+
+function __restore_tmuxpwd() {
+  [ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
+}
+
+# tmux autoload
+if [[ "$OSTYPE" =~ "darwin+" ]] && [ -z $BOXEN_HOME ]; then
+  export HOMEBREW_BIN=/opt/boxen/homebrew/bin
+  export PATH=$HOMEBREW_BIN:$PATH
+fi
+if command -v tmux >/dev/null 2>&1; then
+  test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
+  __restore_tmuxpwd
+  add-zsh-hook chpwd __restore_tmuxpwd
+fi
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# remove path
+if [ -n $HOMEBREW_BIN ]; then
+  export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$HOMEBREW_BIN'"' | sed 's/:$//'`;
+  unset HOMEBREW_BIN
+fi
+
+#------------------------------------
+# BOXEN
+#------------------------------------
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 #------------------------------------
 # ENV
@@ -122,7 +153,6 @@ zle -N self-insert url-quote-magic
 # Prediction configuration
 autoload predict-on
 # predict-off
-autoload -Uz add-zsh-hook
 
 # ------------------------------------
 # Completion configuration
@@ -134,7 +164,8 @@ compinit -C
 # Export configuration
 # ------------------------------------
 export EDITOR=vim
-export PATH=$PATH:$HOME/local/bin:/usr/local/git/bin
+# export PATH=$PATH:$HOME/local/bin
+# export PATH=$PATH:/usr/local/git/bin
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
