@@ -225,7 +225,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " CamelCase,snake_case moving
-  NeoBundleLazy 'camelcasemotion', {
+  NeoBundleLazy 'bkad/CamelCaseMotion', {
         \ 'autoload' : {
         \   'mappings' : [
         \     '<Plug>CamelCaseMotion_w', '<Plug>CamelCaseMotion_b',
