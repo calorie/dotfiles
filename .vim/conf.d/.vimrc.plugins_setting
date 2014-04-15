@@ -291,6 +291,7 @@ unlet bundle
 autocmd VimEnter * if !argc() && neobundle#is_installed('The-NERD-tree') && neobundle#is_sourced('The-NERD-tree') | NERDTree | endif
 " auto close nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd quitpre * if (winnr('$') == 2 && exists("b:NERDTreeType") && empty(bufname(1))) | exec 'qa' | endif
 
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
