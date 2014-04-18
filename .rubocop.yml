@@ -1,9 +1,3 @@
-AllCops:
-  Excludes:
-    - .bundle/**
-    - .git/**
-    - coverage/**
-    - vendor/**
 MethodLength:
   Max: 30
 HashSyntax:
