@@ -396,22 +396,22 @@ function! bundle.hooks.on_source(bundle)
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
 
-  function! g:toggle_checkers()
-    if &ft == 'ruby'
-      if exists('g:syntastic_ruby_checkers')
-        unlet g:syntastic_ruby_checkers
-      else
-        let g:syntastic_ruby_checkers = ['rubocop']
-      endif
-    elseif &ft == 'c'
-      if count(g:syntastic_c_checkers, 'splint') != 0
-        let g:syntastic_c_checkers = ['gcc']
-      else
-        let g:syntastic_c_checkers = ['gcc', 'splint']
-      endif
-    endif
-  endfunction
-  nnoremap <Leader>s :call g:toggle_checkers() \| SyntasticCheck<CR>
+  " function! g:toggle_checkers()
+  "   if &ft == 'ruby'
+  "     if exists('g:syntastic_ruby_checkers')
+  "       unlet g:syntastic_ruby_checkers
+  "     else
+  "       let g:syntastic_ruby_checkers = ['rubocop']
+  "     endif
+  "   elseif &ft == 'c'
+  "     if count(g:syntastic_c_checkers, 'splint') != 0
+  "       let g:syntastic_c_checkers = ['gcc']
+  "     else
+  "       let g:syntastic_c_checkers = ['gcc', 'splint']
+  "     endif
+  "   endif
+  " endfunction
+  " nnoremap <Leader>s :call g:toggle_checkers() \| SyntasticCheck<CR>
 endfunction
 unlet bundle
 "}}}
