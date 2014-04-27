@@ -123,10 +123,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'AndrewRadev/switch.vim', {
         \ 'autoload' : { 'commands' : 'Switch' }}
 
-  " manage IME
-  NeoBundleLazy 'bouzuya/vim-ibus', {
-        \ 'autoload' : { 'insert' : 1 }}
-
   " typing sound
   NeoBundleLazy 'calorie/vim-typing-sound', {
         \ 'autoload' : { 'commands' : 'TypingSound' }}
@@ -180,6 +176,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
     NeoBundleLazy 'rhysd/vim-textobj-ruby', {
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+
+  " manage IME
+  " NeoBundleLazy 'bouzuya/vim-ibus', {
+  "       \ 'autoload' : { 'insert' : 1 }}
 
   " }}}
 

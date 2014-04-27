@@ -345,13 +345,13 @@ endif
 " vim-ibus
 "------------------------------------
 "{{{
-let bundle = neobundle#get('vim-ibus')
-function! bundle.hooks.on_source(bundle)
-  if has('python') && g:is_mac == 0
-    autocmd InsertLeave * call ibus#disable()
-  endif
-endfunction
-unlet bundle
+" let bundle = neobundle#get('vim-ibus')
+" function! bundle.hooks.on_source(bundle)
+"   if has('python') && g:is_mac == 0
+"     autocmd InsertLeave * call ibus#disable()
+"   endif
+" endfunction
+" unlet bundle
 "}}}
 
 "------------------------------------
