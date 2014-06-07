@@ -212,7 +212,7 @@ compdef _make make
 autoload -U add-zsh-hook 2>/dev/null || return
 __timetrack_threshold=30 # seconds
 read -r -d '' __timetrack_ignore_progs <<EOF
-  rl less vi vim
+  rl less vi vim vagrant
   ssh mosh telnet nc netcat
   gdb tmux guard ev edf fg
   xdg-open rails thin
