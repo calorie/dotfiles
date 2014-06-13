@@ -57,9 +57,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   " tig
   NeoBundleLazy 'Kocha/vim-unite-tig', {
         \ 'depends' : 'Shougo/unite.vim',
-        \ 'build' : {
-        \    'mac': 'brew install tig',
-        \ },
         \ 'autoload' : {
         \   'unite_sources' : 'tig'
         \ }}
