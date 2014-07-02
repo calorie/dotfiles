@@ -9,7 +9,7 @@ set tabstop=2 shiftwidth=2 softtabstop=0 " softtabstop is tab & bs space num
 
 autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
+autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
 autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=4 sts=4 ts=4 et

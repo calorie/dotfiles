@@ -4,6 +4,7 @@
 *.old
 *.log
 *.tmp
+*.cache
 tmp
 old
 .vim/bundle
@@ -19,3 +20,4 @@ node_modules
 *.egg
 *.egg-info
 vendor
+aclocal.m4
