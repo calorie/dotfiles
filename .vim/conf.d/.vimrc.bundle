@@ -84,11 +84,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \     'TCommentAs', 'TCommentMaybeInline']
         \ }}
 
-  " visually indent guide
-  NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
+  NeoBundle 'Yggdroot/indentLine', {
         \ 'autoload' : {
-        \   'commands' : ['IndentGuidesEnable',
-        \     'IndentGuidesDisable', 'IndentGuidesToggle'],
+        \   'commands' : ['IndentLinesReset', 'IndentLinesToggle'],
         \ }}
 
   " support to edit xml,html

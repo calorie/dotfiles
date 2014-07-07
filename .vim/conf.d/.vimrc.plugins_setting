@@ -58,32 +58,6 @@ nnoremap <Space>gb :<C-u>Gblame<CR>
 "}}}
 
 "------------------------------------
-" vim-indent-guides
-"------------------------------------
-"{{{
-nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<CR>
-
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_color_change_percent = 20
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_space_guides = 1
-
-let bundle = neobundle#get('vim-indent-guides')
-function! bundle.hooks.on_source(bundle)
-  if 'dark' == &background
-    hi IndentGuidesOdd  ctermbg=darkgrey
-    hi IndentGuidesEven ctermbg=lightgrey
-  else
-    hi IndentGuidesOdd  ctermbg=white
-    hi IndentGuidesEven ctermbg=lightgrey
-  endif
-endfunction
-unlet bundle
-"}}}
-
-"------------------------------------
 " gundo.Vim
 "------------------------------------
 "{{{
