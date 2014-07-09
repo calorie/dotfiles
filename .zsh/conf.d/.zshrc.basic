@@ -153,6 +153,7 @@ zle -N self-insert url-quote-magic
 # Prediction configuration
 autoload predict-on
 # predict-off
+autoload cdr
 
 # ------------------------------------
 # Completion configuration

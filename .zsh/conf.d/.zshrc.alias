@@ -113,7 +113,7 @@ alias cw='cd ~/work'
 alias cdf='cd ~/dotfiles'
 alias edf='cd ~/dotfiles ; vim'
 alias cdl='cd ~/Downloads'
-alias cdr='cd ~/Dropbox'
+# alias cdr='cd ~/Dropbox'
 
 # chrome
 alias chrome='google-chrome'
