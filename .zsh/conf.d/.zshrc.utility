@@ -71,7 +71,7 @@ EOT
         zle -N "$fun"
         bindkey -M afu "$key" "$fun"
     }
-    bindkey-advice-before "^G" afu+cancel
+    # bindkey-advice-before "^G" afu+cancel
     bindkey-advice-before "^[" afu+cancel
     bindkey-advice-before "^J" afu+cancel afu+accept-line
 
@@ -298,6 +298,18 @@ fi
 # }
 # zle -N do_enter
 # bindkey '^m' do_enter
+# }}}
+
+# ------------------------------------
+# peco
+# ------------------------------------
+# {{{
+function peco-pushd() {
+  eval cd $(pushd | sed -e "s/ /\n/g" | peco)
+  zle reset-prompt
+}
+zle -N peco-pushd
+bindkey '^G' peco-pushd
 # }}}
 
 # ------------------------------------
