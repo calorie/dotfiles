@@ -253,7 +253,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " expand f moving
-  NeoBundleLazy 'rhysd/clever-f.vim', { 'autoload' : {
+  NeoBundle 'rhysd/clever-f.vim', { 'autoload' : {
         \ 'mappings' : [
         \   '<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
         \ }}
