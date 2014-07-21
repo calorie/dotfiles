@@ -153,4 +153,4 @@ let g:neocomplcache_include_suffixes = {
 "------------------------------------
 " neocomplcache-rsense
 "------------------------------------
-let g:neocomplcache#sources#rsense#home_directory = neobundle#get_neobundle_dir() . 'rsense-0.3'
+" let g:neocomplcache#sources#rsense#home_directory = neobundle#get_neobundle_dir() . 'rsense-0.3'

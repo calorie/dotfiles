@@ -34,14 +34,6 @@ alias 'm'='make'
 alias 'mn'='make native-code'
 alias 'mc'='make clean'
 
-# screen
-alias s='screen -U'
-alias sc='screen -S main'
-alias sn='screen'
-alias sl='screen -ls'
-alias sr='screen -r main'
-alias srr='screen -U -D -RR'
-
 # tmux
 alias tm='tmux'
 alias tma='tmux attach'
@@ -53,7 +45,6 @@ alias pon='predict-on'
 alias poff='predict-off'
 alias p='ping -c 4'
 
-#alias ls='ls -al'
 alias cp='nocorrect cp -irp'
 alias refe='nocorrect refe'
 
@@ -67,7 +58,6 @@ alias gci='git commit -a'
 compdef g=git
 
 alias java='nocorrect java'
-alias cp='nocorrect cp -irp'
 alias erl='nocorrect erl'
 alias sbcl='nocorrect sbcl'
 alias gosh='nocorrect gosh'
@@ -112,8 +102,6 @@ alias ev='cd ~/dotfiles/.vim/conf.d/ ; vim'
 alias cw='cd ~/work'
 alias cdf='cd ~/dotfiles'
 alias edf='cd ~/dotfiles ; vim'
-alias cdl='cd ~/Downloads'
-# alias cdr='cd ~/Dropbox'
 
 # chrome
 alias chrome='google-chrome'
@@ -121,13 +109,6 @@ alias chrome='google-chrome'
 # history
 alias hist='history -50'
 alias hista='history 1'
-
-# tags
-# alias rtags='ctags -R -f ~/.tags/rtags -a --sort=yes --exclude="*.js" --exclude="*.h" --exclude="log" --exclude="*.yml" --langmap=RUBY:.rb ~/.rbenv/versions/1.9.3-p385/lib/ruby/1.9.1'
-# alias gtags='ctags -R -f ~/.tags/gtags -a --sort=yes --exclude="*.js" --exclude="*.exp"  --exclude="*.am" --exclude="*.in" --exclude="*.m4" --exclude="*.o" --exclude="*.h" --exclude="log" --exclude="*.yml" --langmap=RUBY:.rb ~/.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems'
-
-# cassandra
-alias cas='sudo ~/cassandra/bin/cassandra -f'
 
 # memo
 alias memo='vi ~/Dropbox/tmp/memo.txt'

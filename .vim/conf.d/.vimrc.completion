@@ -15,9 +15,7 @@ cnoremap <C-n> <Down>
 cnoremap <Down> <C-n>
 
 if has("lua")
-  " use neocomple
   source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplete
 else
-  " use neocomplcache
   source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplcache
 endif

@@ -16,5 +16,4 @@ autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
 "     au VimLeave,FocusLost * silent !tmux set status on
 "   augroup END
 " endif
-" nmap <silent> <C-z> :!tmux set status on<CR>:suspend<CR>
 command! Tm silent :!tmux set status

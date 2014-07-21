@@ -6,7 +6,6 @@ alias emp='trash-empty'
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
 alias vvm='vvm-rb'
-# alias vvm-versions='ls -la ~/.vvm/vims/'
 
 # Terminal Color
 export CLICOLOR=1
@@ -14,6 +13,12 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 alias ls='ls -alh --color'
 
 export PATH
+
+export_if_exist () {
+  if [ -d $1 ]; then
+    export PATH=$PATH:$1
+  fi
+}
 
 # rbenv
 if [ -z $RBENV_ROOT ]; then
@@ -29,51 +34,53 @@ fi
 # eval "$(phpenv init - zsh)"
 
 # mpi
-# export PATH=$PATH:/usr/local/mpich/bin
-# export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/mpich/include
-export LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # man path
-MANPATH=/usr/local/man:$MANPATH
-export MANPATH
-INFOPATH=/usr/local/info:$INFOPATH
-export INFOPATH
+if [ -d /usr/local/man ]; then
+  MANPATH=/usr/local/man:$MANPATH
+  export MANPATH
+fi
+if [ -d /usr/local/info ]; then
+  INFOPATH=/usr/local/info:$INFOPATH
+  export INFOPATH
+fi
 
 # Java
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
-export CLASSPATH=".:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar"
-export PATH=$JAVA_HOME/bin:$PATH
+if [ -d /usr/lib/jvm/java-7-openjdk-i386 ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
+  export CLASSPATH=".:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar"
+  export PATH=$JAVA_HOME/bin:$PATH
+fi
 
 # Maven2
-export MAVEN_HOME=/usr/local/apache-maven-2.2.1
-export PATH=$MAVEN_HOME/bin:$PATH
-export MAVEN_OPTS=-Xmx1024M
+if [ -d /usr/local/apache-maven-2.2.1 ]; then
+  export MAVEN_HOME=/usr/local/apache-maven-2.2.1
+  export PATH=$MAVEN_HOME/bin:$PATH
+  export MAVEN_OPTS=-Xmx1024M
+fi
 
-# ff
-export PATH=/opt/firefox:$PATH
-
-# rsense
-# export RSENSE_HOME=/opt/rsense-0.3
-# export RSENSE_HOME=$HOME/.vim/bundle/rsense-0.3
-# export PATH=$PATH:$RSENSE_HOME/bin
-
-# gem
-# export GEM_HOME=~/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/
-# export GEM_HOME=~/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/
-
-# android
-export PATH=$PATH:$HOME/android/sdk/platform-tools:$HOME/android/sdk/tools
-
-# cassandra
-export PATH=$PATH:$HOME/cassandra/bin
-
-# go
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/.go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+# Go
+if [ -d /usr/local/go ]; then
+  export GOROOT=/usr/local/go
+  export GOPATH=$HOME/.go
+  export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+fi
 
 # jsctags
-export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+if [ -d /usr/local/lib/jsctags ]; then
+  export NODE_PATH=/usr/local/lib/jsctags:$NODE_PATH
+fi
+
+# firefox
+export_if_exist /opt/firefox
+
+# android
+export_if_exist $HOME/android/sdk/platform-tools
+export_if_exist $HOME/android/sdk/tools
+
+# cassandra
+export_if_exist $HOME/cassandra/bin
 
 # genymotion
-export PATH=/usr/local/src/genymotion/:$PATH
+export_if_exist /usr/local/src/genymotion

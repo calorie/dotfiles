@@ -39,8 +39,6 @@ fi
 # vvm
 if command -v vvm-rb >/dev/null 2>&1; then
   gem install vvm-rb
-elif command -v vvm >/dev/null 2>&1; then
-  vvm update_itself
 fi
 
 # auto-fu

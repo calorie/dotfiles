@@ -275,7 +275,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Programming {{{
 
   " auto create tags
-  NeoBundle 'szw/vim-tags'
+  NeoBundleLazy 'szw/vim-tags', {
+        \ 'depends' : 'tpope/vim-dispatch',
+        \ 'autoload' : {
+        \   'commands' : 'TagsGenerate',
+        \ }}
 
   " run command quickly
   NeoBundleLazy 'thinca/vim-quickrun', {
@@ -363,17 +367,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   NeoBundleLazy 'elzr/vim-json', {
         \ 'autoload': { 'filetypes': 'json' }}
 
-  " haml
-  " NeoBundleLazy 'haml.zip', {
-  "       \ 'autoload': { 'filetypes': ['haml'] }}
-
   " python
   " NeoBundleLazy 'yuroyoro/vim-python', {
   "       \ 'autoload': { 'filetypes': ['python'] }}
-
-  " scala
-  " NeoBundleLazy 'yuroyoro/vim-scala', {
-  "       \ 'autoload': { 'filetypes': ['scala'] }}
 
   " nginx
   " NeoBundleLazy 'nginx.vim', {

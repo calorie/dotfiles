@@ -176,7 +176,6 @@ function! bundle.hooks.on_source(bundle)
     " exit by esc*2
     nmap <buffer> <ESC>      <Plug>(unite_exit)
     nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
-    imap <buffer> jj <Plug>(unite_insert_leave)
     nnoremap <silent><buffer> <C-k> :<C-u>call unite#mappings#do_action('preview')<CR>
     imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 
@@ -264,7 +263,6 @@ unlet bundle
 autocmd VimEnter * if !argc() && neobundle#is_installed('The-NERD-tree') && neobundle#is_sourced('The-NERD-tree') | NERDTree | endif
 " auto close nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" autocmd quitpre * if (winnr('$') == 2 && exists("b:NERDTreeType") && empty(bufname(1))) | exec 'qa' | endif
 
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
@@ -368,23 +366,6 @@ function! bundle.hooks.on_source(bundle)
   let g:syntastic_c_include_dirs = ['inc', '../inc', '/opt/boxen/homebrew/include']
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
-
-  " function! g:toggle_checkers()
-  "   if &ft == 'ruby'
-  "     if exists('g:syntastic_ruby_checkers')
-  "       unlet g:syntastic_ruby_checkers
-  "     else
-  "       let g:syntastic_ruby_checkers = ['rubocop']
-  "     endif
-  "   elseif &ft == 'c'
-  "     if count(g:syntastic_c_checkers, 'splint') != 0
-  "       let g:syntastic_c_checkers = ['gcc']
-  "     else
-  "       let g:syntastic_c_checkers = ['gcc', 'splint']
-  "     endif
-  "   endif
-  " endfunction
-  " nnoremap <Leader>s :call g:toggle_checkers() \| SyntasticCheck<CR>
 endfunction
 unlet bundle
 "}}}

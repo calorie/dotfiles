@@ -47,13 +47,6 @@ nmap y0 y^
 " yank word
 " nnoremap vy vawy
 
-" parenthesis completion
-" inoremap { {}<LEFT>
-" inoremap [ []<LEFT>
-" inoremap ( ()<LEFT>
-" inoremap " ""<LEFT>
-" inoremap ' ''<LEFT>
-
 " remove space & tab with saving
 function! s:remove_dust()
     let cursor = getpos(".")
