@@ -2,6 +2,9 @@
 alias rm='trash-put'
 alias emp='trash-empty'
 
+# dmenu
+alias dmenu='dmenu_run -fn "Ricty:size=15"'
+
 # vvm
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr"
