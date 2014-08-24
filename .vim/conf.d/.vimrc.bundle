@@ -172,10 +172,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
-  " manage IME
-  " NeoBundleLazy 'bouzuya/vim-ibus', {
-  "       \ 'autoload' : { 'insert' : 1 }}
-
   " }}}
 
 " }}}
