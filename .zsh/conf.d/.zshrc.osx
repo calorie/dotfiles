@@ -2,6 +2,7 @@
 alias pbc='pbcopy'
 alias boxen='~/work/my-boxen/script/boxen --no-fde'
 alias rm='rmtrash'
+alias b2d='boot2docker'
 
 # fpath
 if command -v brew >/dev/null 2>&1; then
@@ -43,3 +44,15 @@ if command -v goenv >/dev/null 2>&1; then
   export GOROOT="$GOENV_ROOT/versions/$GOENV_VERSION"
 fi
 export GOPATH=$HOME/.go
+
+
+# boot2docker
+if command -v boot2docker &>/dev/null; then
+  function __docker() {
+    if [ $(boot2docker status | grep -c 'poweroff') -eq 1 ]; then
+      boot2docker up && export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+    fi
+    docker $@
+  }
+  alias docker='__docker'
+fi
