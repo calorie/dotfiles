@@ -16,6 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " unite
   NeoBundleLazy 'Shougo/unite.vim', {
+        \ 'depends' : 'Shougo/neomru.vim',
         \ 'autoload' : {
         \   'commands' : [
         \     'Unite', 'UniteWithCurrentDir',
@@ -265,6 +266,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ 'autoload' : {
         \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
         \ }}
+
+  NeoBundleLazy 'Shougo/neomru.vim'
 
 " }}}
 
