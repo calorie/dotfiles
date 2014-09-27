@@ -267,7 +267,19 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : ['ChromeReload', 'ChromeReloadStart'],
         \ }}
 
+  " mru
   NeoBundleLazy 'Shougo/neomru.vim'
+
+  " echo the number of match words
+  NeoBundleLazy 'osyo-manga/vim-anzu', {
+        \ 'autoload' : {
+        \   'mappings' : [
+        \     '<Plug>(anzu-mode-n)',
+        \     '<Plug>(anzu-mode-N)',
+        \     '<Plug>(anzu-star)',
+        \     '<Plug>(anzu-sharp)'
+        \   ],
+        \ }}
 
 " }}}
 

@@ -686,3 +686,12 @@ autocmd FileType json let g:indentLine_noConcealCursor=""
 " vim-bufferline
 "------------------------------------
 let g:bufferline_echo = 0
+
+"------------------------------------
+" vim-anzu
+"------------------------------------
+let g:anzu_search_limit = 100
+nmap n <Plug>(anzu-mode-n)
+nmap N <Plug>(anzu-mode-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
