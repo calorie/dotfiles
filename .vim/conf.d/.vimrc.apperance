@@ -25,3 +25,23 @@ augroup END
 hi clear CursorLine
 hi CursorLine gui=underline
 hi CursorLine ctermbg=black guibg=black
+
+"---------------------------------------------------------------------
+" StatusLine
+"---------------------------------------------------------------------
+set laststatus=2 " display statusline
+set ruler        " display cursorline
+
+" display quickfix automatically
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
+autocmd QuickfixCmdPost lmake,lgrep,lgrepadd,lvimgrep,lvimgrepadd lwin
+
+" hide tmux's statusline
+" if !has('gui_running') && $TMUX !=# ''
+"   augroup Tmux
+"     autocmd!
+"     au VimEnter,FocusGained * silent !tmux set status off
+"     au VimLeave,FocusLost * silent !tmux set status on
+"   augroup END
+" endif
+command! Tm silent :!tmux set status

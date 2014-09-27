@@ -9,11 +9,10 @@ endif
 
 " load vimrc
 let s:rcs = [
-      \ 'bundle', 'basic', 'statusline',
-      \ 'indent', 'apperance', 'completion',
-      \ 'tags', 'search', 'moving',
-      \ 'colors', 'editing', 'encoding',
-      \ 'program', 'plugins_setting']
+      \ 'bundle', 'basic', 'indent',
+      \ 'apperance', 'completion',
+      \ 'search', 'moving', 'colors',
+      \ 'editing', 'encoding', 'plugins_setting']
 for rc in s:rcs
   execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . rc
 endfor

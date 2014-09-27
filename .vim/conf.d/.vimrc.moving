@@ -84,3 +84,19 @@ nnoremap <BS><BS> :<C-u>tabprevious<CR>
 
 " esc by jj
 " inoremap jj <Esc>
+
+"---------------------------------------------------------------------
+" Tags
+"---------------------------------------------------------------------
+set notagbsearch
+
+" tags-and-searches
+nnoremap t <Nop>
+" jump
+nnoremap tt <C-]>
+" next
+nnoremap tj :<C-u>tag<CR>
+" back
+nnoremap tk :<C-u>pop<CR>
+" list
+nnoremap tl :<C-u>tags<CR>
