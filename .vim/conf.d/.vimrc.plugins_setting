@@ -7,9 +7,9 @@
 "------------------------------------
 "{{{
 " show history
-nmap ,y :YRShow<CR>
-let g:yankring_zap_keys = ""
-let g:yankring_history_file = '.yankring_history'
+" nmap ,y :YRShow<CR>
+" let g:yankring_zap_keys = ""
+" let g:yankring_history_file = '.yankring_history'
 "}}}
 
 "------------------------------------
@@ -522,6 +522,7 @@ map F <Plug>(clever-f-F)
 "------------------------------------
 "{{{
 let g:airline_powerline_fonts = 0
+let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -679,3 +680,9 @@ let g:variable_style_switch_definitions = [
 " let g:vim_json_syntax_conceal = 0
 autocmd FileType json let g:indentLine_noConcealCursor=""
 "}}}
+"
+
+"------------------------------------
+" vim-bufferline
+"------------------------------------
+let g:bufferline_echo = 0

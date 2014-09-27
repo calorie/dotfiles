@@ -74,8 +74,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Edit {{{
 
   " manage yank's history
-  NeoBundle 'YankRing.vim', {
-        \ 'autoload' : { 'commands' : 'YRShow' }}
+  " NeoBundle 'YankRing.vim', {
+  "       \ 'autoload' : { 'commands' : 'YRShow' }}
 
   " comment
   NeoBundleLazy 'tomtom/tcomment_vim', {
@@ -226,7 +226,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " expand %
   NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
-        \ 'mappings' : ['nx', '%'] }}
+        \ 'mappings' : ['%'] }}
 
   " expand matchit for ruby
   NeoBundleLazy 'ruby-matchit', { 'autoload' : {
@@ -381,6 +381,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
         \ }}
 
+  NeoBundleLazy 'bling/vim-bufferline'
+
 " }}}
 
 " Encording {{{
@@ -406,7 +408,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
         \ }}
 
   " cool statusline
-  NeoBundle 'bling/vim-airline'
+  NeoBundle 'bling/vim-airline', {
+        \ 'depends': 'bling/vim-bufferline'
+        \ }
 
   " async run
   NeoBundleLazy 'tpope/vim-dispatch', {
