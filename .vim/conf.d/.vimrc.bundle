@@ -1,12 +1,11 @@
 "---------------------------------------------------------------------
 " vim plugins
 "---------------------------------------------------------------------
-set nocompatible
-filetype plugin indent off
 if has('vim_starting')
+  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 let g:neobundle#types#git#default_protocol = 'https'
 
@@ -481,4 +480,5 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " }}}
 
+call neobundle#end()
 filetype plugin indent on
