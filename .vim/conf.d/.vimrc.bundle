@@ -398,6 +398,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   NeoBundleLazy 'bling/vim-bufferline'
 
+  NeoBundleLazy 'junegunn/goyo.vim', {
+        \ 'autoload' : {
+        \   'commands' : ['Goyo']
+        \ }}
+
+  NeoBundleLazy 'junegunn/limelight.vim', {
+        \ 'autoload' : {
+        \   'commands' : ['Limelight']
+        \ }}
+
 " }}}
 
 " Encording {{{

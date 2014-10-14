@@ -123,4 +123,4 @@ alias emacs='emacs -nw'
 alias xopen='xdg-open'
 
 # bundle
-alias bi='bundle install --path vendor/bundle --binstubs .bundle/bin'
+alias bi='bundle install --path vendor/bundle --binstubs .bundle/bin --jobs=4'

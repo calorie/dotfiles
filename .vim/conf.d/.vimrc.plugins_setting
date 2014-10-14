@@ -695,3 +695,15 @@ nmap n <Plug>(anzu-mode-n)
 nmap N <Plug>(anzu-mode-N)
 nmap * <Plug>(anzu-star)
 nmap # <Plug>(anzu-sharp)
+
+"------------------------------------
+" limelight.vim
+"------------------------------------
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+"------------------------------------
+" goyo.vim
+"------------------------------------
+autocmd User GoyoEnter Limelight
+autocmd User GoyoLeave Limelight!
