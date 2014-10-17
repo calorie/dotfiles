@@ -461,9 +461,9 @@ else
   " display git diff
   NeoBundleLazy 'airblade/vim-gitgutter', {
         \ 'autoload' : {
-        \   'commands': ['GitGutterToggle',
-        \               'GitGutterNextHunk',
-        \               'GitGutterPrevHunk'],
+        \   'commands': ['GitGutterToggle'],
+        \   'mappings' : [
+        \     '<Plug>GitGutterNextHunk', '<Plug>GitGutterPrevHunk' ]
         \ }}
 
   " vim Interface to Web API

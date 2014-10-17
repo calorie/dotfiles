@@ -362,9 +362,11 @@ unlet bundle
 "------------------------------------
 "{{{
 let g:gitgutter_enabled = 0
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_map_keys = 0
 nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
-nnoremap <Leader>ggn :<C-u>GitGutterNextHunk<CR>
-nnoremap <Leader>ggp :<C-u>GitGutterPrevHunk<CR>
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 "}}}
 
 "------------------------------------
