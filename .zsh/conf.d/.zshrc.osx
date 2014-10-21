@@ -4,12 +4,6 @@ alias boxen='~/src/our-boxen/script/boxen --no-fde'
 alias rm='rmtrash'
 alias b2d='boot2docker'
 
-# fpath
-if command -v brew >/dev/null 2>&1; then
-  local _SITE_FUNCTION=$(brew --prefix)/share/zsh/site-functions
-  [ -d $_SITE_FUNCTION ] && fpath=($_SITE_FUNCTION $fpath)
-fi
-
 # path
 export C_INCLUDE_PATH="/opt/boxen/homebrew/include":$C_INCLUDE_PATH
 
