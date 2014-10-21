@@ -693,10 +693,10 @@ let g:bufferline_echo = 0
 " vim-anzu
 "------------------------------------
 let g:anzu_search_limit = 100
-nmap n <Plug>(anzu-mode-n)
-nmap N <Plug>(anzu-mode-N)
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
 
 "------------------------------------
 " limelight.vim

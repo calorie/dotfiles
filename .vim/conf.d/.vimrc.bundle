@@ -277,10 +277,10 @@ else
   NeoBundleLazy 'osyo-manga/vim-anzu', {
         \ 'autoload' : {
         \   'mappings' : [
-        \     '<Plug>(anzu-mode-n)',
-        \     '<Plug>(anzu-mode-N)',
-        \     '<Plug>(anzu-star)',
-        \     '<Plug>(anzu-sharp)'
+        \     '<Plug>(anzu-n-with-echo)',
+        \     '<Plug>(anzu-N-with-echo)',
+        \     '<Plug>(anzu-star-with-echo)',
+        \     '<Plug>(anzu-sharp-with-echo)'
         \   ],
         \ }}
 
