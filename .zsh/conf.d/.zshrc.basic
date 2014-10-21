@@ -8,7 +8,7 @@ function __restore_tmuxpwd() {
 }
 
 # tmux autoload
-if [[ "$OSTYPE" =~ "darwin+" ]] && [ -z $BOXEN_HOME ]; then
+if [[ "$OSTYPE" =~ "darwin+" ]] && [ -z "$BOXEN_HOME" ]; then
   export HOMEBREW_BIN=/opt/boxen/homebrew/bin
   export PATH=$HOMEBREW_BIN:$PATH
 fi
