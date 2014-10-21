@@ -28,11 +28,9 @@ function () { # precompile
     [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
     zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
 }
-source ~/.zsh/auto-fu.zsh/auto-fu.zsh
+source ~/.zsh/auto-fu.zsh/auto-fu ; auto-fu-install
 
 function install-auto-fu () {
-    # auto-fu-install
-
     zstyle ':auto-fu:highlight' input bold
     zstyle ':auto-fu:highlight' completion fg=white,dim
     # zstyle ':auto-fu:highlight' completion/one fg=blue,dim
@@ -297,7 +295,6 @@ function do_enter() {
   return 0
 }
 zle -N do_enter
-bindkey '^m' do_enter
 bindkey -M afu '^m' do_enter
 # }}}
 
@@ -330,8 +327,6 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 
-bindkey '^G' peco-cdr
-bindkey '^R' peco-select-history
 bindkey -M afu '^G' peco-cdr
 bindkey -M afu '^R' peco-select-history
 # }}}
@@ -351,6 +346,5 @@ expand-to-home-or-insert () {
   fi
 }
 zle -N expand-to-home-or-insert
-bindkey "\\"  expand-to-home-or-insert
 bindkey -M afu '\\' expand-to-home-or-insert
 # }}}
