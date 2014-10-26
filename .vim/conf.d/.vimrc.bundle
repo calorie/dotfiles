@@ -208,8 +208,8 @@ else
 " Searching/Moving {{{
 
   " intuitive moving
-  NeoBundle 'Lokaltog/vim-easymotion', {
-      \ 'autoload' : { 'mappings' : '<Leader>' }}
+  NeoBundleLazy 'Lokaltog/vim-easymotion', {
+      \ 'autoload' : { 'mappings' : ',' }}
 
   " smart moving
   NeoBundleLazy 'smartword', {
@@ -230,7 +230,7 @@ else
 
   " expand %
   NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
-        \ 'mappings' : ['%'] }}
+        \ 'mappings' : '%' }}
 
   " expand matchit for ruby
   NeoBundleLazy 'ruby-matchit', { 'autoload' : {

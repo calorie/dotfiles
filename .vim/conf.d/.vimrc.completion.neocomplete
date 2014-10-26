@@ -36,7 +36,6 @@ function! bundle.hooks.on_source(bundle)
 
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default'    : '',
-        \ 'vimshell'   : $HOME.'/.vimshell/command_history',
         \ 'scala'      : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
         \ 'java'       : $HOME.'/.vim/dict/java.dict',
         \ 'c'          : $HOME.'/.vim/dict/c.dict',
@@ -47,7 +46,8 @@ function! bundle.hooks.on_source(bundle)
         \ 'php'        : $HOME.'/.vim/dict/php.dict',
         \ 'scheme'     : $HOME.'/.vim/dict/scheme.dict',
         \ 'vim'        : $HOME.'/.vim/dict/vim.dict',
-        \ 'ruby'       : $HOME.'/.vim/dict/ruby.dict'
+        \ 'ruby'       : $HOME.'/.vim/dict/ruby.dict',
+        \ 'rails'      : $HOME.'/.vim/dict/rails.dict'
         \ }
 
   let g:neocomplete#enable_auto_delimiter = 1
@@ -78,15 +78,6 @@ function! bundle.hooks.on_source(bundle)
   let g:neocomplete#sources#vim#complete_functions = {
         \ 'Ref' : 'ref#complete',
         \ 'Unite' : 'unite#complete_source',
-        \ 'VimShellExecute' :
-        \      'vimshell#vimshell_execute_complete',
-        \ 'VimShellInteractive' :
-        \      'vimshell#vimshell_execute_complete',
-        \ 'VimShellTerminal' :
-        \      'vimshell#vimshell_execute_complete',
-        \ 'VimShell' : 'vimshell#complete',
-        \ 'VimFiler' : 'vimfiler#complete',
-        \ 'Vinarise' : 'vinarise#complete',
         \}
   call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
