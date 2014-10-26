@@ -437,7 +437,7 @@ else
 
   " cool statusline
   NeoBundle 'bling/vim-airline', {
-        \ 'depends': 'bling/vim-bufferline'
+        \ 'depends': ['bling/vim-bufferline', 'tpope/vim-fugitive']
         \ }
 
   " async run

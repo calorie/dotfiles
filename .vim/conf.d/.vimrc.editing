@@ -39,8 +39,7 @@ inoremap <C-b> <BS>
 command! Pt :set paste!
 
 " paste yank on insert mode
-inoremap <C-o> <ESC>:<C-U>YRPaste 'p'<CR>i
-" imap <C-p> <ESC>"*pa
+imap <C-o> <ESC>"*pa
 
 " yank to line end
 nmap y9 y$

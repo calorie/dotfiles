@@ -519,6 +519,7 @@ map F <Plug>(clever-f-F)
 "------------------------------------
 "{{{
 let g:airline_powerline_fonts = 0
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
@@ -591,6 +592,9 @@ xmap if <Plug>(textobj-function-i)
 "------------------------------------
 "{{{
 " let g:ruby_path = system('echo $HOME/.rbenv/shims')
+autocmd filetype ruby,eruby let g:rubycomplete_rails = 1
+autocmd filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd filetype ruby,eruby let g:rubycomplete_classes_in_global = 1
 "}}}
 
 "------------------------------------
