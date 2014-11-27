@@ -21,6 +21,8 @@ function git_ignore() { curl http://www.gitignore.io/api/$@ ;}
 # auto-fu
 # ------------------------------------
 # {{{
+afu-zle-aysce-install () afu-zle-force-install;
+
 # http://d.hatena.ne.jp/tarao/20100531/1275322620
 function () { # precompile
     local A
