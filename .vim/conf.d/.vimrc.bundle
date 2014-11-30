@@ -2,12 +2,9 @@
 " vim plugins
 "---------------------------------------------------------------------
 if has('vim_starting')
-  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
-
-let g:neobundle#types#git#default_protocol = 'https'
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -319,8 +316,11 @@ else
         \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
 
   " basic rails extension
-  NeoBundle 'tpope/vim-rails', {
-        \ 'autoload' : { 'filetypes': ['ruby', 'eruby'] }}
+  NeoBundleLazy 'tpope/vim-rails', {
+        \ 'autoload' : {
+        \   'commands': ['Emodel', 'Econtroller',
+        \     'Eview', 'Espec']
+        \ }}
 
   " run rspec
   NeoBundleLazy 'thoughtbot/vim-rspec', {
@@ -340,13 +340,6 @@ else
         \   'filetypes': ['html', 'eruby', 'php',
         \     'haml', 'css', 'scss', 'sass'],
         \ }}
-
-  " display methods,valiables list
-  NeoBundleLazy 'majutsushi/tagbar', {
-        \ 'autoload' : {
-        \   'commands': ['TagbarToggle', 'TagbarTogglePause',
-        \     'TagbarOpen'],
-        \   'fuctions': ['tagbar#currenttag'] }}
 
 " }}}
 
@@ -403,12 +396,12 @@ else
 
   NeoBundleLazy 'junegunn/goyo.vim', {
         \ 'autoload' : {
-        \   'commands' : ['Goyo']
+        \   'commands' : 'Goyo'
         \ }}
 
   NeoBundleLazy 'junegunn/limelight.vim', {
         \ 'autoload' : {
-        \   'commands' : ['Limelight']
+        \   'commands' : 'Limelight'
         \ }}
 
 " }}}
@@ -461,7 +454,7 @@ else
   " display git diff
   NeoBundleLazy 'airblade/vim-gitgutter', {
         \ 'autoload' : {
-        \   'commands': ['GitGutterToggle'],
+        \   'commands': 'GitGutterToggle',
         \   'mappings' : [
         \     '<Plug>GitGutterNextHunk', '<Plug>GitGutterPrevHunk' ]
         \ }}

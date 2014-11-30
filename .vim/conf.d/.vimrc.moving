@@ -12,13 +12,12 @@ nnoremap <Up>   gk
 
 " move to start,end by 0,9
 nmap 1 0
-nmap 0 ^
-nmap 9 $
+nnoremap 0 ^
+nnoremap 9 $
 
 " moving on insert mode
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
-inoremap <C-0> <HOME>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
@@ -28,38 +27,30 @@ inoremap <C-l> <Right>
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-" move to next,previous buffer
-" nmap <silent> <Space><Space> :bn<CR>
-" nmap <silent> <BS><BS> :bp<CR>
-
 " previous buffer
-map <F2> <ESC>:bp<CR>
+nnoremap <silent> <F2> :bp<CR>
 " next buffer
-map <F3> <ESC>:bn<CR>
+nnoremap <silent> <F3> :bn<CR>
 " delete buffer
-map <F4> <ESC>:bnext \| bdelete #<CR>
+nnoremap <silent> <F4> :bnext \| bdelete #<CR>
 
 " change flame size
-map <kPlus> <C-W>+
-map <kMinus> <C-W>-
-map <C-w><Down> <C-W>10-
-map <C-w><Up> <C-W>10+
-map <C-w><Left> <C-W>10>
-map <C-w><Right> <C-W>10<
+nnoremap <kPlus> <C-W>+
+nnoremap <kMinus> <C-W>-
+nnoremap <C-w><Down> <C-W>10-
+nnoremap <C-w><Up> <C-W>10+
+nnoremap <C-w><Left> <C-W>10>
+nnoremap <C-w><Right> <C-W>10<
 
 " move to ended cursor line
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-nnoremap gb '[
-nnoremap gp ']
+augroup CursorLine
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+augroup END
 
 " move parenthesis
 nnoremap ( %
 nnoremap ) %
-
-" select last changed text
-" nnoremap gc  `[v`]
-" vnoremap gc <C-u>normal gc<Enter>
-" onoremap gc <C-u>normal gc<Enter>
 
 " moving on visual block mode
 set virtualedit+=block
@@ -81,9 +72,6 @@ nnoremap <Space><Space> :<C-u>tabnext<CR>
 nnoremap <BS><BS> :<C-u>tabprevious<CR>
 " nnoremap <C-t>j :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
 " nnoremap <C-t>k gT
-
-" esc by jj
-" inoremap jj <Esc>
 
 "---------------------------------------------------------------------
 " Tags

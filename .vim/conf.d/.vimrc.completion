@@ -6,7 +6,8 @@ set wildchar=<tab>         " command completion start key
 set wildmode=list:full     " show list
 set history=1000           " history length
 set complete+=k            " add dictionary
-set completeopt-=preview
+set completeopt=menuone
+" set completeopt-=preview
 
 " history completion by c-p,c-n
 cnoremap <C-p> <Up>
@@ -14,7 +15,7 @@ cnoremap <Up> <C-p>
 cnoremap <C-n> <Down>
 cnoremap <Down> <C-n>
 
-if has("lua")
+if has('lua')
   source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplete
 else
   source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplcache

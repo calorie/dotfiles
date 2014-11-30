@@ -159,17 +159,23 @@ nnoremap <silent> [unite]c  :<C-u>Unite codic -start-insert<CR>
 nnoremap <silent> [unite]y  :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " ref
 nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/man -start-insert ref/man<CR>
-autocmd FileType ruby    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/refe -start-insert ref/refe<CR>
-" autocmd FileType python  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/pydoc -start-insert ref/pydoc<CR>
-" autocmd FileType php     nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/phpmanual -start-insert ref/phpmanual<CR>
-" autocmd FileType perl    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/perldoc -start-insert ref/perldoc<CR>
-" autocmd FileType clojure nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/clojure -start-insert ref/clojure<CR>
-" autocmd FileType erlang  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/erlang -start-insert ref/erlang<CR>
+augroup Unite
+  autocmd!
+  autocmd FileType ruby    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/refe -start-insert ref/refe<CR>
+  " autocmd FileType python  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/pydoc -start-insert ref/pydoc<CR>
+  " autocmd FileType php     nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/phpmanual -start-insert ref/phpmanual<CR>
+  " autocmd FileType perl    nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/perldoc -start-insert ref/perldoc<CR>
+  " autocmd FileType clojure nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/clojure -start-insert ref/clojure<CR>
+  " autocmd FileType erlang  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/erlang -start-insert ref/erlang<CR>
+augroup END
 
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
 
-  autocmd FileType unite call s:unite_my_settings()
+  augroup UniteSettings
+    autocmd!
+    autocmd FileType unite call s:unite_my_settings()
+  augroup END
   function! s:unite_my_settings()
     " Overwrite settings.
 
@@ -260,10 +266,13 @@ unlet bundle
 " NERDTree.vim
 "------------------------------------
 "{{{
-" open nerdtree when no args
-autocmd VimEnter * if !argc() && neobundle#is_installed('The-NERD-tree') && neobundle#is_sourced('The-NERD-tree') | NERDTree | endif
-" auto close nerdtree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup NERDTree
+  autocmd!
+  " open nerdtree when no args
+  autocmd VimEnter * if !argc() && neobundle#is_installed('The-NERD-tree') && neobundle#is_sourced('The-NERD-tree') | NERDTree | endif
+  " auto close nerdtree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
@@ -277,7 +286,10 @@ let g:NERDTreeIgnore = ['.DS_Store', '.gitkeep', '.keep']
 " vim-ref
 "------------------------------------
 "{{{
-autocmd FileType ruby,eruby,ruby.rspec nmap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
+augroup VimRef
+  autocmd!
+  autocmd FileType ruby,eruby,ruby.rspec nnoremap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
+augroup END
 let g:ref_open = 'vsplit'
 let g:ref_refe_cmd = 'refe'
 let g:ref_refe_version = 2
@@ -317,16 +329,20 @@ endif
 " easy-mosion
 "------------------------------------
 "{{{
-" use close keys
-let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-" use leader key
-let g:EasyMotion_leader_key = '<Leader>'
-" 1 stroke selection
-let g:EasyMotion_grouping = 1
+let bundle = neobundle#get('vim-easymotion')
+function! bundle.hooks.on_source(bundle)
+  " use close keys
+  let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+  " use leader key
+  let g:EasyMotion_leader_key = '<Leader>'
+  " 1 stroke selection
+  let g:EasyMotion_grouping = 1
 
-" color config
-hi EasyMotionTarget ctermbg=none ctermfg=red
-hi EasyMotionShade  ctermbg=none ctermfg=blue
+  " color config
+  highlight EasyMotionTarget ctermbg=none ctermfg=red
+  highlight EasyMotionShade  ctermbg=none ctermfg=blue
+endfunction
+unlet bundle
 "}}}
 
 "------------------------------------
@@ -362,18 +378,28 @@ unlet bundle
 " vim-gitgutter
 "------------------------------------
 "{{{
-let g:gitgutter_enabled = 0
-let g:gitgutter_highlight_lines = 1
-let g:gitgutter_map_keys = 0
 nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+let bundle = neobundle#get('vim-gitgutter')
+function! bundle.hooks.on_source(bundle)
+  let g:gitgutter_enabled = 0
+  let g:gitgutter_highlight_lines = 1
+  let g:gitgutter_map_keys = 0
+endfunction
+unlet bundle
 "}}}
 
 "------------------------------------
 " vim-rails.vim
 "------------------------------------
 "{{{
+" nnoremap <Space>r :R<CR>
+" nnoremap <Space>a :A<CR>
+nnoremap <Leader>em :Emodel<CR>
+nnoremap <Leader>ec :Econtroller<CR>
+nnoremap <Leader>ev :Eview<CR>
+nnoremap <Leader>es :Espec<CR>
 let bundle = neobundle#get('vim-rails')
 function! bundle.hooks.on_source(bundle)
   let g:rails_some_option = 1
@@ -385,13 +411,6 @@ function! bundle.hooks.on_source(bundle)
   " let g:dbext_default_SQLITE_bin = 'mysql2'
   let g:rails_default_file = 'config/database.yml'
   " let g:rails_ctags_arguments = ''
-
-  " nmap <Space>r :R<CR>
-  " nmap <Space>a :A<CR>
-  nmap rm :Emodel<CR>
-  nmap rc :Econtroller<CR>
-  nmap rv :Eview<CR>
-  nmap rs :Espec<CR>
 endfunction
 unlet bundle
 "}}}
@@ -433,57 +452,6 @@ let g:vim_tags_use_ycm = 0
 "}}}
 
 "------------------------------------
-" tagbar.vim
-"------------------------------------
-"{{{
-nnoremap <Space>tb :<C-U>TagbarToggle<CR>
-
-au FileType tagbar
-      \ nnoremap <buffer><Space> <Space>
-      \|nnoremap <buffer><space>tb :<C-U>TagbarToggle<CR>
-
-if g:is_mac
-  let g:tagbar_ctags_bin = '/opt/boxen/homebrew/bin/ctags'
-elseif exists('/usr/bin/ctags')
-  let g:tagbar_ctags_bin = '/usr/bin/ctags'
-endif
-let g:tagbar_compact    = 1
-let g:tagbar_autofocus  = 1
-let g:tagbar_autoshowtag= 1
-let g:tagbar_iconchars  =  ['▸', '▾']
-let g:tagbar_width = 30
-let g:tagbar_autoclose = 1
-" let g:tagbar_sort = 0
-let g:tagbar_type_javascript = {
-      \ 'ctagsbin' : '/usr/local/bin/jsctags',
-      \ 'kinds'     : [
-      \   'o:object',
-      \   'f:function',
-      \   'a:array',
-      \   's:string'
-      \ ]}
-let g:tagbar_type_ruby = {
-      \ 'kinds'     : [
-      \   'm:modules',
-      \   'c:classes',
-      \   'd:rspec describes',
-      \   't:rspec contexts',
-      \   'C:constants',
-      \   'f:methods',
-      \   'F:singleton methods'
-      \ ]}
-let g:tagbar_type_coffee = {
-      \ 'ctagstype' : 'coffee',
-      \ 'kinds'     : [
-      \   'c:classes',
-      \   'm:methods',
-      \   'f:functions',
-      \   'v:variables',
-      \   'f:fields',
-      \ ]}
-"}}}
-
-"------------------------------------
 " text-manipvim
 "------------------------------------
 "{{{
@@ -499,10 +467,10 @@ xmap <C-l> <Plug>(textmanip-move-right)
 "{{{
 augroup Sudo
   autocmd!
-  au BufReadCmd   sudo:*,sudo:*/* SudoRead <afile>
-  au FileReadCmd  sudo:*,sudo:*/* SudoRead <afile>
-  au BufWriteCmd  sudo:*,sudo:*/* SudoWrite <afile>
-  au FileWriteCmd sudo:*,sudo:*/* SudoWrite <afile>
+  autocmd BufReadCmd   sudo:*,sudo:*/* SudoRead <afile>
+  autocmd FileReadCmd  sudo:*,sudo:*/* SudoRead <afile>
+  autocmd BufWriteCmd  sudo:*,sudo:*/* SudoWrite <afile>
+  autocmd FileWriteCmd sudo:*,sudo:*/* SudoWrite <afile>
 augroup END
 "}}}
 
@@ -591,10 +559,14 @@ xmap if <Plug>(textobj-function-i)
 " vim-ruby
 "------------------------------------
 "{{{
-" let g:ruby_path = system('echo $HOME/.rbenv/shims')
-autocmd filetype ruby,eruby let g:rubycomplete_rails = 1
-autocmd filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd filetype ruby,eruby let g:rubycomplete_classes_in_global = 1
+let bundle = neobundle#get('vim-ruby')
+function! bundle.hooks.on_source(bundle)
+  " let g:ruby_path = system('echo $HOME/.rbenv/shims')
+  let g:rubycomplete_rails = 1
+  let g:rubycomplete_buffer_loading = 1
+  let g:rubycomplete_classes_in_global = 1
+endfunction
+unlet bundle
 "}}}
 
 "------------------------------------
@@ -642,8 +614,11 @@ inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 "------------------------------------
 "{{{
 let g:rspec_command = 'Dispatch rspec {spec}'
-autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
-" autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
+augroup VimRspec
+  autocmd!
+  autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
+  " autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
+augroup END
 "}}}
 
 "------------------------------------
@@ -678,8 +653,12 @@ let g:variable_style_switch_definitions = [
 " vim-json
 "------------------------------------
 "{{{
-" let g:vim_json_syntax_conceal = 0
-autocmd FileType json let g:indentLine_noConcealCursor=""
+let bundle = neobundle#get('vim-json')
+function! bundle.hooks.on_source(bundle)
+  " let g:vim_json_syntax_conceal = 0
+  let g:indentLine_noConcealCursor = ''
+endfunction
+unlet bundle
 "}}}
 "
 
@@ -706,5 +685,26 @@ let g:limelight_conceal_ctermfg = 240
 "------------------------------------
 " goyo.vim
 "------------------------------------
-autocmd User GoyoEnter Limelight
-autocmd User GoyoLeave Limelight!
+let bundle = neobundle#get('goyo.vim')
+function! bundle.hooks.on_source(bundle)
+  function! s:goyo_enter()
+    silent !tmux set status off
+    set noshowmode
+    set noshowcmd
+    set scrolloff=999
+    Limelight
+  endfunction
+  function! s:goyo_leave()
+    silent !tmux set status on
+    set showmode
+    set showcmd
+    set scrolloff=5
+    set showtabline=1
+    Limelight!
+  endfunction
+  autocmd! User GoyoEnter
+  autocmd! User GoyoLeave
+  autocmd  User GoyoEnter nested call <SID>goyo_enter()
+  autocmd  User GoyoLeave nested call <SID>goyo_leave()
+endfunction
+unlet bundle
