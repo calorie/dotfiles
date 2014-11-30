@@ -693,6 +693,7 @@ function! bundle.hooks.on_source(bundle)
     set noshowcmd
     set scrolloff=999
     Limelight
+    TypingSound
   endfunction
   function! s:goyo_leave()
     silent !tmux set status on
@@ -701,6 +702,7 @@ function! bundle.hooks.on_source(bundle)
     set scrolloff=5
     set showtabline=1
     Limelight!
+    TypingSound
   endfunction
   autocmd! User GoyoEnter
   autocmd! User GoyoLeave
