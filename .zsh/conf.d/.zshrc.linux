@@ -24,7 +24,7 @@ export_if_exist () {
 }
 
 # rbenv
-if [ -z $RBENV_ROOT ]; then
+if [ -z "$RBENV_ROOT" ]; then
   export RBENV_ROOT=$HOME/.rbenv
   [ -d $RBENV_ROOT ] || export RBENV_ROOT=/usr/local/rbenv
   export PATH="$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH"
