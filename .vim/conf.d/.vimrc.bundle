@@ -52,7 +52,6 @@ else
         \ 'depends' : 'Shougo/unite.vim',
         \ 'autoload' : {
         \   'unite_sources' : 'tag',
-        \   'commands' : 'UniteWithCursorWord',
         \ }}
 
   " tig
