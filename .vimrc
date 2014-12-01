@@ -13,6 +13,6 @@ let s:rcs = [
       \ 'apperance', 'completion',
       \ 'search', 'moving', 'colors',
       \ 'editing', 'encoding', 'plugins_setting']
-for rc in s:rcs
-  execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . rc
+for s:rc in s:rcs
+  execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . s:rc
 endfor

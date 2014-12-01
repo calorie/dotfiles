@@ -169,8 +169,8 @@ augroup Unite
   " autocmd FileType erlang  nnoremap <silent><buffer> [unite]K :<C-u>Unite -buffer-name=ref/erlang -start-insert ref/erlang<CR>
 augroup END
 
-let bundle = neobundle#get('unite.vim')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('unite.vim')
+function! s:bundle.hooks.on_source(bundle)
 
   augroup UniteSettings
     autocmd!
@@ -223,7 +223,7 @@ function! bundle.hooks.on_source(bundle)
   endif
 
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -232,8 +232,8 @@ unlet bundle
 "{{{
 nnoremap <silent><Leader>r :QuickRun<CR>
 
-let bundle = neobundle#get('vim-quickrun')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('vim-quickrun')
+function! s:bundle.hooks.on_source(bundle)
   let g:quickrun_config = {}
   " let g:quickrun_config._ = {'runner' : 'vimproc'}
   let g:quickrun_config.coffee = {'command' : 'coffee', 'exec' : ['%c -cbp %s']}
@@ -259,7 +259,7 @@ function! bundle.hooks.on_source(bundle)
         \ 'outputter': 'browser',
         \ 'cmdopt': '-s' }
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -329,8 +329,8 @@ endif
 " easy-mosion
 "------------------------------------
 "{{{
-let bundle = neobundle#get('vim-easymotion')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('vim-easymotion')
+function! s:bundle.hooks.on_source(bundle)
   " use close keys
   let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
   " use leader key
@@ -342,15 +342,15 @@ function! bundle.hooks.on_source(bundle)
   highlight EasyMotionTarget ctermbg=none ctermfg=red
   highlight EasyMotionShade  ctermbg=none ctermfg=blue
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
 " Syntastic
 "------------------------------------
 "{{{
-let bundle = neobundle#get('syntastic')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('syntastic')
+function! s:bundle.hooks.on_source(bundle)
   " sign error lines
   let g:syntastic_enable_signs = 1
   " enable highlight
@@ -371,7 +371,7 @@ function! bundle.hooks.on_source(bundle)
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -381,13 +381,13 @@ unlet bundle
 nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
-let bundle = neobundle#get('vim-gitgutter')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('vim-gitgutter')
+function! s:bundle.hooks.on_source(bundle)
   let g:gitgutter_enabled = 0
   let g:gitgutter_highlight_lines = 1
   let g:gitgutter_map_keys = 0
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -400,8 +400,8 @@ nnoremap <Leader>em :Emodel<CR>
 nnoremap <Leader>ec :Econtroller<CR>
 nnoremap <Leader>ev :Eview<CR>
 nnoremap <Leader>es :Espec<CR>
-let bundle = neobundle#get('vim-rails')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('vim-rails')
+function! s:bundle.hooks.on_source(bundle)
   let g:rails_some_option = 1
   let g:rails_level = 4
   let g:rails_syntax = 1
@@ -412,7 +412,7 @@ function! bundle.hooks.on_source(bundle)
   let g:rails_default_file = 'config/database.yml'
   " let g:rails_ctags_arguments = ''
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -559,14 +559,14 @@ xmap if <Plug>(textobj-function-i)
 " vim-ruby
 "------------------------------------
 "{{{
-let bundle = neobundle#get('vim-ruby')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('vim-ruby')
+function! s:bundle.hooks.on_source(bundle)
   " let g:ruby_path = system('echo $HOME/.rbenv/shims')
   let g:rubycomplete_rails = 1
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_classes_in_global = 1
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 
 "------------------------------------
@@ -653,12 +653,12 @@ let g:variable_style_switch_definitions = [
 " vim-json
 "------------------------------------
 "{{{
-let bundle = neobundle#get('vim-json')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('vim-json')
+function! s:bundle.hooks.on_source(bundle)
   " let g:vim_json_syntax_conceal = 0
   let g:indentLine_noConcealCursor = ''
 endfunction
-unlet bundle
+unlet s:bundle
 "}}}
 "
 
@@ -685,8 +685,8 @@ let g:limelight_conceal_ctermfg = 240
 "------------------------------------
 " goyo.vim
 "------------------------------------
-let bundle = neobundle#get('goyo.vim')
-function! bundle.hooks.on_source(bundle)
+let s:bundle = neobundle#get('goyo.vim')
+function! s:bundle.hooks.on_source(bundle)
   function! s:goyo_enter()
     silent !tmux set status off
     set noshowmode
@@ -709,4 +709,4 @@ function! bundle.hooks.on_source(bundle)
   autocmd  User GoyoEnter nested call <SID>goyo_enter()
   autocmd  User GoyoLeave nested call <SID>goyo_leave()
 endfunction
-unlet bundle
+unlet s:bundle
