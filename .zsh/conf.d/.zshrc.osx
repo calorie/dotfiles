@@ -13,7 +13,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # vvm-rb
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
-export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/opt/boxen/homebrew"
+export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/opt/boxen/homebrew --disable-netbeans --disable-gtktest --disable-gpm --enable-gui=no --disable-sysmouse --disable-xsmp --disable-xsmp-interact --without-x"
 alias vvm='vvm-rb'
 
 # rbenv
