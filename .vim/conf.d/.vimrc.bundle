@@ -216,7 +216,7 @@ else
         \ }}
 
   " CamelCase,snake_case moving
-  NeoBundleLazy 'bkad/CamelCaseMotion', {
+  NeoBundle 'bkad/CamelCaseMotion', {
         \ 'autoload' : {
         \   'mappings' : [
         \     '<Plug>CamelCaseMotion_w', '<Plug>CamelCaseMotion_b',
