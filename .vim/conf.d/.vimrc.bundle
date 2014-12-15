@@ -386,7 +386,7 @@ else
 " Buffer {{{
 
   " tree explore
-  NeoBundle 'The-NERD-tree', {
+  NeoBundle 'scrooloose/nerdtree', {
         \ 'autoload' : {
         \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
         \ }}
