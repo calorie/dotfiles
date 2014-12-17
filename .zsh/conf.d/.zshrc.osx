@@ -33,9 +33,15 @@ if [ -d $HOME/work/quick-cocos2d-x ]; then
 fi
 
 # go
-if command -v goenv >/dev/null 2>&1; then
-  export GOENV_VERSION="$(goenv version)"
-  export GOROOT="$GOENV_ROOT/versions/$GOENV_VERSION"
+if command -v chgo >/dev/null 2>&1; then
+  export CHGO_SKIP_AUTO_INSTALL=1
+  if [ -n "$CHGO_ROOT" ] && [ -f $CHGO_ROOT/version ]; then
+    export CHGO_VERSION="$(cat $CHGO_ROOT/version)"
+    if [ -d $CHGO_ROOT/versions/$CHGO_VERSION ]; then
+      export GOROOT=$CHGO_ROOT/versions/$CHGO_VERSION
+      export PATH=$GOROOT/bin:$PATH
+    fi
+  fi
 fi
 export GOPATH=$HOME/.go
 
