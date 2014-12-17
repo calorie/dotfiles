@@ -5,4 +5,3 @@ for rc in $rcs; do
 done
 # local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-typeset -U path PATH
