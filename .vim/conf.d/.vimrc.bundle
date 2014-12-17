@@ -90,7 +90,7 @@ else
         \ }}
 
   " support to edit xml,html
-  NeoBundleLazy 'xmledit', {
+  NeoBundleLazy 'sukima/xmledit', {
         \ 'autoload' : {
         \   'filetypes' : ['xml', 'html', 'ant'],
         \ }}
@@ -100,7 +100,7 @@ else
         \ 'autoload' : { 'commands' : 'Tab' }}
 
   " manage undo's history
-  NeoBundleLazy 'Gundo', {
+  NeoBundleLazy 'sjl/gundo.vim', {
         \ 'autoload' : { 'commands' : 'GundoToggle' }}
 
   " enclose text
@@ -133,10 +133,10 @@ else
   " textobj {{{
 
     " create text object
-    NeoBundleLazy 'textobj-user'
+    NeoBundleLazy 'kana/vim-textobj-user'
 
     " all text
-    NeoBundleLazy 'textobj-entire', {
+    NeoBundleLazy 'kana/vim-textobj-entire', {
         \ 'depends' : 'textobj-user',
         \ 'autoload' : {
         \   'mappings' : [['nx', '<Plug>(textobj-entire-a)'],
@@ -144,7 +144,7 @@ else
         \ }}
 
     " function
-    NeoBundleLazy 'kana/vim-textobj-function.git', {
+    NeoBundleLazy 'kana/vim-textobj-function', {
         \ 'depends' : 'textobj-user',
         \ 'autoload' : {
         \   'mappings' : [['nx', '<Plug>(textobj-function-a)'],
@@ -152,7 +152,7 @@ else
         \ }}
 
     " indent
-    NeoBundleLazy 'kana/vim-textobj-indent.git', {
+    NeoBundleLazy 'kana/vim-textobj-indent', {
         \ 'depends' : 'textobj-user',
         \ 'autoload' : {
         \   'mappings' : [
@@ -163,7 +163,7 @@ else
         \ }}
 
     " fold
-    NeoBundleLazy 'kana/vim-textobj-fold.git', {
+    NeoBundleLazy 'kana/vim-textobj-fold', {
           \ 'depends' : 'textobj-user',
           \ 'autoload' : { 'filetypes' : ['vim', 'zsh'] }}
 
@@ -208,7 +208,7 @@ else
       \ 'autoload' : { 'mappings' : ',' }}
 
   " smart moving
-  NeoBundleLazy 'smartword', {
+  NeoBundleLazy 'kana/vim-smartword', {
         \ 'autoload' : {
         \   'mappings' : [
         \     '<Plug>(smartword-w)', '<Plug>(smartword-b)',
@@ -350,12 +350,8 @@ else
         \ 'autoload': { 'insert' : 1 }}
 
   " JavaScript
-  NeoBundleLazy 'JavaScript-syntax', {
+  NeoBundleLazy 'pangloss/vim-javascript', {
         \ 'autoload': { 'filetypes': 'javascript' }}
-
-  " jQuery
-  NeoBundleLazy 'jQuery', {
-        \ 'autoload': { 'filetypes': ['javascript', 'coffee'] }}
 
   " markdown
   NeoBundleLazy 'tpope/vim-markdown', {
@@ -378,7 +374,7 @@ else
   "       \ 'autoload': { 'filetypes': ['python'] }}
 
   " nginx
-  " NeoBundleLazy 'nginx.vim', {
+  " NeoBundleLazy 'evanmiller/nginx-vim-syntax', {
   "       \ 'autoload': { 'filetypes': ['nginx'] }}
 
 " }}}
