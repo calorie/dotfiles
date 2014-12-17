@@ -7,7 +7,7 @@ alias dmenu='dmenu_run -fn "Ricty:size=15"'
 
 # vvm
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
-export VVMOPT="--enable-multibyte --with-features=huge --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr --disable-darwin --disable-netbeans --disable-gtktest --disable-gpm --enable-gui=no --disable-sysmouse --disable-xsmp --disable-xsmp-interact --without-x"
+export VVMOPT="--enable-multibyte --with-features=big --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/usr --disable-darwin --disable-netbeans --disable-gtktest --disable-gpm --disable-sysmouse --disable-xsmp --disable-xsmp-interact --without-x --disable-nls --disable-gui"
 alias vvm='vvm-rb'
 
 # Terminal Color
