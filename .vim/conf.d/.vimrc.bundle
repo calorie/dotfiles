@@ -54,21 +54,6 @@ else
         \   'unite_sources' : 'tag',
         \ }}
 
-  " tig
-  NeoBundleLazy 'Kocha/vim-unite-tig', {
-        \ 'depends' : 'Shougo/unite.vim',
-        \ 'autoload' : {
-        \   'unite_sources' : 'tig'
-        \ }}
-
-  " codic
-  NeoBundleLazy 'koron/codic-vim'
-  NeoBundleLazy 'rhysd/unite-codic.vim', {
-        \ 'depends' : ['Shougo/unite.vim', 'koron/codic-vim'],
-        \ 'autoload' : {
-        \   'unite_sources' : 'codic',
-        \ }}
-
 " }}}
 
 " Edit {{{
@@ -322,12 +307,12 @@ else
         \ }}
 
   " run rspec
-  NeoBundleLazy 'thoughtbot/vim-rspec', {
-        \ 'depends'  : 'tpope/vim-dispatch',
-        \ 'autoload': {
-        \   'functions':
-        \     ['RunCurrentSpecFile', 'RunNearestSpec',
-        \     'RunLastSpec', 'RunAllSpecs'] }}
+  " NeoBundleLazy 'thoughtbot/vim-rspec', {
+  "       \ 'depends'  : 'tpope/vim-dispatch',
+  "       \ 'autoload': {
+  "       \   'functions':
+  "       \     ['RunCurrentSpecFile', 'RunNearestSpec',
+  "       \     'RunLastSpec', 'RunAllSpecs'] }}
 
   " completion end
   NeoBundle 'tpope/vim-endwise.git', {

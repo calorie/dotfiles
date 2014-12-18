@@ -153,11 +153,11 @@ nnoremap <silent> [unite]o  :<C-u>Unite -auto-preview -buffer-name=outline -hide
 " tag
 nnoremap <silent> [unite]ta :<C-u>UniteWithCursorWord -auto-preview -buffer-name=tag -no-empty tag<CR>
 " tig
-nnoremap <silent> [unite]ti :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
+" nnoremap <silent> [unite]ti :<C-u>Unite tig -buffer-name=tig -no-start-insert<CR>
 " giti
 " nnoremap <silent> [unite]gb :<C-u>Unite -buffer-name=giti_branchall -no-start-insert giti/branch_all<CR>
 " codic
-nnoremap <silent> [unite]c  :<C-u>Unite codic -start-insert<CR>
+" nnoremap <silent> [unite]c  :<C-u>Unite codic -start-insert<CR>
 " yank
 nnoremap <silent> [unite]y  :<C-U>Unite -buffer-name=h_yank -no-empty history/yank<CR>
 " ref
@@ -292,7 +292,7 @@ let g:NERDTreeIgnore = ['.DS_Store', '.gitkeep', '.keep', '\.lo$', '\.o$']
 "{{{
 augroup VimRef
   autocmd!
-  autocmd FileType ruby,eruby,ruby.rspec nnoremap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
+  autocmd FileType ruby,eruby nnoremap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
 augroup END
 let g:ref_open = 'vsplit'
 let g:ref_refe_cmd = 'refe'
@@ -617,12 +617,12 @@ inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 " vim-rspec
 "------------------------------------
 "{{{
-let g:rspec_command = 'Dispatch rspec {spec}'
-augroup VimRspec
-  autocmd!
-  autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
-  " autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
-augroup END
+" let g:rspec_command = 'Dispatch rspec {spec}'
+" augroup VimRspec
+"   autocmd!
+"   autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
+"   " autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
+" augroup END
 "}}}
 
 "------------------------------------
