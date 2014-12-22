@@ -19,9 +19,6 @@ set noshowmode                   " not display current mode
 set viminfo='50,<1000,s100,\"50  " viminfo's file conf
 set modelines=0                  " disable modeline
 set clipboard=unnamed            " use os's clipboard
-set mouse=a                      " use mouse
-set guioptions+=a
-set ttymouse=xterm2
 
 " swap ; to :
 noremap ; :
