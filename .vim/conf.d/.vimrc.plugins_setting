@@ -283,7 +283,7 @@ nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 20
-let g:NERDTreeIgnore = ['.DS_Store', '.gitkeep', '.keep', '\.lo$', '\.o$']
+let g:NERDTreeIgnore = ['.DS_Store', '.gitkeep', '.keep', '\.lo$', '\.o$', '.dirstamp', '.libs', '.deps']
 "}}}
 
 "------------------------------------
