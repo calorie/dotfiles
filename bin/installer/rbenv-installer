@@ -8,6 +8,7 @@ git clone https://github.com/sstephenson/rbenv-gem-rehash.git
 git clone https://github.com/tpope/rbenv-ctags.git
 git clone https://github.com/sstephenson/rbenv-default-gems.git
 git clone https://github.com/ianheggie/rbenv-binstubs.git
+git clone https://github.com/rkh/rbenv-update
 export PATH=$PATH:$HOME/.rbenv/bin
 rbenv init - zsh
 
@@ -17,8 +18,8 @@ case "${OSTYPE}" in
 darwin*)
   if command -v brew >/dev/null 2>&1; then
     brew install openssl readline
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared"
   fi
-  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix openssl` --enable-shared"
   ;;
 linux*)
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr --with-readline-dir=/usr/include/readline --enable-shared"
@@ -26,12 +27,12 @@ linux*)
 esac
 
 # 1.9.3
-rbenv install 1.9.3-p547
-# 2.0.0
-rbenv install 2.0.0-p481
-# 2.1.2
-rbenv install 2.1.2
+rbenv install 1.9.3-p551
+# 2.1.5
+rbenv install 2.1.5
+# 2.2.0
+rbenv install 2.2.0
 
-rbenv global 2.1.2
+rbenv global 2.2.0
 rbenv rehash
 export PATH=$HOME/.rbenv/shims:$PATH
