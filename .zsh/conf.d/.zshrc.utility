@@ -340,13 +340,13 @@ bindkey -M afu '^R' peco-select-history
 function mkcd() { mkdir -p $1 && cd $1; }
 
 # convert \ to ~/
-expand-to-home-or-insert () {
-  if [ "$LBUFFER" = "" -o "$LBUFFER[-1]" = " " ]; then
-    LBUFFER+="~/"
-  else
-    zle self-insert
-  fi
-}
-zle -N expand-to-home-or-insert
-bindkey -M afu '\\' expand-to-home-or-insert
+# expand-to-home-or-insert () {
+#   if [ "$LBUFFER" = "" -o "$LBUFFER[-1]" = " " ]; then
+#     LBUFFER+="~/"
+#   else
+#     zle self-insert
+#   fi
+# }
+# zle -N expand-to-home-or-insert
+# bindkey -M afu '\\' expand-to-home-or-insert
 # }}}
