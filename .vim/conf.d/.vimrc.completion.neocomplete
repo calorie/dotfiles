@@ -28,6 +28,7 @@ function! bundle.hooks.on_source(bundle)
   let g:neocomplete#enable_auto_select = 0
   let g:neocomplete#enable_refresh_always = 0
   let g:neocomplete#enable_cursor_hold_i = 0
+  let g:neocomplete#enable_insert_char_pre = 1
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default'    : '',
         \ 'scala'      : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
@@ -61,8 +62,9 @@ function! bundle.hooks.on_source(bundle)
   if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
   endif
-  let g:neocomplete#keyword_patterns._ = '[0-9a-zA-Z:#_]\+'
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
   let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
+  let g:neocomplete#ignore_source_files = ['tag.vim']
   let g:neocomplete#sources#vim#complete_functions = {
         \ 'Ref' : 'ref#complete',
         \ 'Unite' : 'unite#complete_source',
@@ -72,11 +74,9 @@ function! bundle.hooks.on_source(bundle)
   inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
   inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
   inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <expr><C-s> neocomplete#complete_common_string()
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
     return neocomplete#smart_close_popup() . "\<CR>"
   endfunction
-
 endfunction
 unlet bundle

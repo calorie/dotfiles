@@ -2,6 +2,7 @@
 " Apperance
 "---------------------------------------------------------------------
 set showmatch         " highlight parenthesis
+set matchtime=1       " matching time
 set number            " display line number
 set display=uhex      " display unprintable character by hex
 set previewheight=15  " size of preview
