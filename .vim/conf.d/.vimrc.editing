@@ -6,7 +6,12 @@
 set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+if executable('ibus')
+  augroup Ibus
+    autocmd!
+    autocmd InsertLeave * call system('ibus engine "xkb:us::eng"')
+  augroup END
+endif
 
 " add selected word to register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
