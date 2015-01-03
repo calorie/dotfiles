@@ -17,6 +17,7 @@ if [[ "$OSTYPE" =~ "darwin+" ]] && [ -z "$BOXEN_HOME" ]; then
 fi
 if command -v tmux >/dev/null 2>&1; then
   test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
+  __restore_tmuxpwd
   add-zsh-hook chpwd __restore_tmuxpwd
 fi
 
