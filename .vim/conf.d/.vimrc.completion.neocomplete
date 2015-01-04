@@ -28,7 +28,7 @@ function! bundle.hooks.on_source(bundle)
   let g:neocomplete#enable_auto_select = 0
   let g:neocomplete#enable_refresh_always = 0
   let g:neocomplete#enable_cursor_hold_i = 0
-  let g:neocomplete#enable_insert_char_pre = 1
+  let g:neocomplete#enable_insert_char_pre = 0
   let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'default'    : '',
         \ 'scala'      : $HOME.'/.vim/bundle/vim-scala/dict/scala.dict',
@@ -71,12 +71,20 @@ function! bundle.hooks.on_source(bundle)
         \ }
   call neocomplete#custom#source('look', 'min_pattern_length', 4)
 
-  inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>\<Down>"
+  inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-p>\<Down>"
   inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
   inoremap <expr><C-g> neocomplete#undo_completion()
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
     return neocomplete#smart_close_popup() . "\<CR>"
   endfunction
+
+  inoremap <expr><BS>    neocomplete#smart_close_popup() . "\<BS>"
+  inoremap <expr><HOME>  neocomplete#close_popup() . "\<HOME>"
+  inoremap <expr><END>   neocomplete#close_popup() . "\<END>"
+  inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+  inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+  inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+  inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
 endfunction
 unlet bundle

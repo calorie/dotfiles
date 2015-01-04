@@ -32,10 +32,10 @@ inoremap , ,<Space>
 inoremap <C-u> <C-g>u<C-u>
 
 " backspace & delete
-inoremap <C-b> <BS>
+imap <C-b> <BS>
 
 " paste yank on insert mode
-imap <C-o> <ESC>"*pa
+" imap <C-o> <ESC>"*pa
 
 " yank to line end
 nmap y9 y$

@@ -2,7 +2,6 @@
 " Basics
 "---------------------------------------------------------------------
 let mapleader = ","              " key map leader
-set shortmess+=I                 " hidden start messages
 set scrolloff=5                  " scroll margin
 set textwidth=0                  " disable auto newline
 set nobackup                     " no backup
@@ -19,6 +18,10 @@ set noshowmode                   " not display current mode
 set viminfo='50,<1000,s100,\"50  " viminfo's file conf
 set modelines=0                  " disable modeline
 set clipboard=unnamed            " use os's clipboard
+set shortmess+=I                 " hidden start messages
+if has('patch-7.4.314')
+  set shortmess+=c
+endif
 
 " swap ; to :
 noremap ; :

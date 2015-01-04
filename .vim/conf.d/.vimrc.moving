@@ -3,12 +3,8 @@
 "---------------------------------------------------------------------
 
 " display lines moving
-nnoremap h <Left>
 nnoremap j gj
 nnoremap k gk
-nnoremap l <Right>
-nnoremap <Down> gj
-nnoremap <Up>   gk
 
 " move to start,end by 0,9
 nmap 1 0
@@ -16,12 +12,12 @@ nnoremap 0 ^
 nnoremap 9 $
 
 " moving on insert mode
-inoremap <C-e> <END>
-inoremap <C-a> <HOME>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+imap <C-e> <END>
+imap <C-a> <HOME>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
 
 " scroll
 noremap <Space>j <C-f>
