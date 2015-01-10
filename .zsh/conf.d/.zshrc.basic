@@ -17,23 +17,18 @@ if [[ "$OSTYPE" =~ "darwin+" ]] && [ -z "$BOXEN_HOME" ]; then
 fi
 if command -v tmux >/dev/null 2>&1; then
   test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
-  __restore_tmuxpwd
-  add-zsh-hook chpwd __restore_tmuxpwd
 fi
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-# remove path
-if [ -n "$HOMEBREW_BIN" ]; then
-  export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$HOMEBREW_BIN'"' | sed 's/:$//'`;
-  unset HOMEBREW_BIN
-fi
-
 #------------------------------------
 # BOXEN
 #------------------------------------
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
+__restore_tmuxpwd
+add-zsh-hook chpwd __restore_tmuxpwd
 
 #------------------------------------
 # ENV
