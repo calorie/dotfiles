@@ -1,6 +1,6 @@
 # osx alias
 alias pbc='pbcopy'
-alias boxen='~/src/our-boxen/script/boxen --no-fde'
+alias boxen='~/src/our-boxen/script/boxen --no-fde --no-pull'
 alias rm='rmtrash'
 alias b2d='boot2docker'
 
