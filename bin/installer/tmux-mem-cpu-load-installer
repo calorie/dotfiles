@@ -4,7 +4,8 @@ if command -v cmake >/dev/null 2>&1; then
   [ -d $HOME/.tmux ] || mkdir $HOME/.tmux
   cd $HOME/.tmux
   git clone https://github.com/thewtex/tmux-mem-cpu-load.git
-  sed -i -e "s/ << ' ' << load_string( use_colors )//" $HOME/.tmux/tmux-mem-cpu-load/tmux-mem-cpu-load.cpp
+  sed -i.bak -e ':a' -e 'N' -e '$!ba' -e "s/ << ' '\\n    << load_string( use_colors )//" $HOME/.tmux/tmux-mem-cpu-load/common/main.cc
+  rm $HOME/.tmux/tmux-mem-cpu-load/common/main.cc.bak
   cd $HOME/.tmux/tmux-mem-cpu-load
   cmake .
   make

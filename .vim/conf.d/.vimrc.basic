@@ -26,6 +26,8 @@ endif
 " swap ; to :
 noremap ; :
 
+inoremap <C-c> <ESC>
+
 " edit & reload .vimrc
 " command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
