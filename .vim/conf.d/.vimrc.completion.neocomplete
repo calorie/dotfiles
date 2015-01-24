@@ -74,12 +74,17 @@ function! bundle.hooks.on_source(bundle)
   inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-p>\<Down>"
   inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
   inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return neocomplete#smart_close_popup() . "\<CR>"
+
+  let s:is_auto_pairs = neobundle#is_sourced('auto-pairs')
+
+  inoremap <expr><CR> neocomplete#smart_close_popup() . "\<CR>"
+
+  inoremap <silent> <BS> <C-r>=<SID>my_bs_function()<CR>
+  function! s:my_bs_function()
+    let s:bs = s:is_auto_pairs ? AutoPairsDelete() : "\<BS>"
+    return neocomplete#smart_close_popup() . s:bs
   endfunction
 
-  inoremap <expr><BS>    neocomplete#smart_close_popup() . "\<BS>"
   inoremap <expr><HOME>  neocomplete#close_popup() . "\<HOME>"
   inoremap <expr><END>   neocomplete#close_popup() . "\<END>"
   inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"

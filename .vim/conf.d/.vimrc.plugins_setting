@@ -80,8 +80,8 @@ nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 " vim-browser-reload-linux, mac
 "------------------------------------
 "{{{
-nnoremap <Leader>rl :ChromeReloadStart<CR>
-nnoremap <Leader>Rl :ChromeReloadStop<CR>
+" nnoremap <Leader>rl :ChromeReloadStart<CR>
+" nnoremap <Leader>Rl :ChromeReloadStop<CR>
 "}}}
 
 "------------------------------------
@@ -607,7 +607,6 @@ vnoremap <Leader>sb "xy:OverCommandLine<CR>%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>
 "------------------------------------
 "{{{
 let g:AutoPairsMapBS = 0
-inoremap <buffer> <silent> <BS> <C-R>=AutoPairsDelete()<CR>
 "}}}
 
 "------------------------------------
