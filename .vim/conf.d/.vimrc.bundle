@@ -373,8 +373,6 @@ else
         \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
         \ }}
 
-  NeoBundleLazy 'bling/vim-bufferline'
-
   NeoBundleLazy 'junegunn/goyo.vim', {
         \ 'autoload' : {
         \   'commands' : 'Goyo'
@@ -411,7 +409,7 @@ else
 
   " cool statusline
   NeoBundle 'bling/vim-airline', {
-        \ 'depends': ['bling/vim-bufferline', 'tpope/vim-fugitive']
+        \ 'depends': ['tpope/vim-fugitive']
         \ }
 
   " async run
