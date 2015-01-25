@@ -13,7 +13,37 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # vvm-rb
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
-export VVMOPT="--enable-multibyte --with-features=big --enable-fontset --disable-selinux --enable-pythoninterp --enable-rubyinterp --enable-xim --enable-luainterp --with-lua-prefix=/opt/boxen/homebrew --disable-netbeans --disable-gtktest --disable-gpm --disable-sysmouse --disable-xsmp --disable-xsmp-interact --without-x --disable-nls --disable-gui"
+vvm_opt=(
+  --enable-multibyte
+  --with-features=big
+  --enable-fontset
+  --enable-xim
+  --enable-rubyinterp
+  --enable-luainterp
+  --with-lua-prefix=/opt/boxen/homebrew
+  --enable-pythoninterp
+  --disable-python3interp
+  --disable-mzschemeinterp
+  --disable-tclinterp
+  --disable-selinux
+  --disable-netbeans
+  --disable-gtktest
+  --disable-gpm
+  --disable-sysmouse
+  --disable-xsmp
+  --disable-xsmp-interact
+  --without-x
+  --disable-nls
+  --disable-gui
+  --disable-cscope
+  --disable-workshop
+  --disable-sniff
+  --disable-hangulinput
+  --disable-largefile
+  --with-modified-by=\"Yuu Shigetani\"
+  --with-compiledby=\"Yuu Shigetani\"
+)
+export VVMOPT="${vvm_opt}"
 alias vvm='vvm-rb'
 
 # rbenv
