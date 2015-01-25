@@ -135,7 +135,7 @@ nnoremap <silent> [unite]m  :<C-u>Unite -auto-preview -buffer-name=mru file_mru<
 " file on current directory
 nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -auto-preview -buffer-name=dir file<CR>
 " bookmark
-nnoremap <silent> [unite]Ba :<C-u>UniteBookmarkAdd<CR><CR><CR>
+nnoremap <silent> [unite]A  :<C-u>UniteBookmarkAdd<CR><CR><CR>
 nnoremap <silent> [unite]B  :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
 " grep
 nnoremap <silent> [unite]gr :<C-u>Unite -auto-preview -buffer-name=grep -immediately grep:<CR>
