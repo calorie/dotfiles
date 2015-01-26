@@ -27,14 +27,20 @@ do
   $INSTALLER_PATH/$pkg-installer
 done
 
-# symbolic link
+DIRS=( .vim .config/zathura )
+for dir in ${DIRS[@]}
+do
+  mkdir -p $HOME/$dir
+done
+
 DOTFILES=(
   .zshrc .ctags .gdbinit .gemrc
   .gitconfig .gitignore .inputrc
   .irbrc .pryrc .rspec .agignore
   .vimrc .vrapperrc .rubocop.yml
   .tmux.conf .tmux-powerlinerc .splintrc
-  .dir_colors .rdebugrc .vim/dict )
+  .dir_colors .rdebugrc .vim/dict
+  .config/zathura/zathurarc )
 for file in ${DOTFILES[@]}
 do
   ln -sf $DOTFILES_PATH/$file $HOME/$file

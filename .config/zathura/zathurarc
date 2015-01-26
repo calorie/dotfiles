@@ -1,0 +1,14 @@
+set window-height 1024
+set window-width 768
+set adjust-open width
+map [normal]     <F11> toggle_fullscreen
+map [fullscreen] <F11> toggle_fullscreen
+map [normal] j navigate next
+map [normal] k navigate previous
+map [normal] J scroll down
+map [normal] K scroll up
+map [fullscreen] j navigate next
+map [fullscreen] k navigate previous
+map [fullscreen] J scroll down
+map [fullscreen] K scroll up
+map [index] q quit

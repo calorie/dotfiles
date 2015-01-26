@@ -29,11 +29,12 @@ DOT_FILES=(
   .tmux.conf .tmux-powerlinerc .splintrc
   .tmuxinator .tmux/tmux-powerline
   .tmux/tmux-mem-cpu-load .dir_colors
-  .rdebugrc .vim/dict dotfiles )
+  .rdebugrc .vim/dict dotfiles
+  .config/zathura/zathurarc )
 
 for file in ${DOT_FILES[@]}
 do
-  [ -d $HOME/$file ] && rm -rf $HOME/$file
+  rm -rf $HOME/$file
 done
 
 exec $SHELL
