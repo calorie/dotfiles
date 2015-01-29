@@ -329,6 +329,10 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 
+function agvi () {
+  vim $(ag -S $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
+
 bindkey -M afu '^G' peco-cdr
 bindkey -M afu '^R' peco-select-history
 # }}}
