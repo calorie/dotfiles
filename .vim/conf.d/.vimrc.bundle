@@ -201,15 +201,6 @@ else
         \     '<Plug>(smartword-e)', '<Plug>(smartword-ge)']
         \ }}
 
-  " CamelCase,snake_case moving
-  NeoBundle 'bkad/CamelCaseMotion', {
-        \ 'autoload' : {
-        \   'mappings' : [
-        \     '<Plug>CamelCaseMotion_w', '<Plug>CamelCaseMotion_b',
-        \     '<Plug>CamelCaseMotion_e', '<Plug>CamelCaseMotion_iw',
-        \     '<Plug>CamelCaseMotion_ib', '<Plug>CamelCaseMotion_ie'],
-        \ }}
-
   " expand %
   NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
         \ 'mappings' : '%' }}
