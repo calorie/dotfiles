@@ -39,7 +39,6 @@ vvm_opt=(
   --with-compiledby=\"Yuu Shigetani\"
 )
 export VVMOPT="${vvm_opt}"
-alias vvm='vvm-rb'
 
 # Terminal Color
 export CLICOLOR=1

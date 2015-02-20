@@ -44,7 +44,6 @@ vvm_opt=(
   --with-compiledby=\"Yuu Shigetani\"
 )
 export VVMOPT="${vvm_opt}"
-alias vvm='vvm-rb'
 
 # rbenv
 # export PATH="$RBENV_ROOT/shims:$PATH"
