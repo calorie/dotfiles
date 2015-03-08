@@ -350,6 +350,9 @@ function! s:bundle.hooks.on_source(bundle)
   let g:syntastic_c_include_dirs = ['inc', '../inc', '/opt/boxen/homebrew/include']
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
+  if executable('rbenv')
+    let g:syntastic_ruby_exec = system('echo -n `rbenv which ruby`')
+  endif
 endfunction
 unlet s:bundle
 " }}}
