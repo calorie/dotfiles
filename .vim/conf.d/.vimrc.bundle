@@ -384,9 +384,7 @@ else
 " Utility {{{
 
   " auto save
-  NeoBundle 'vim-scripts/vim-auto-save', {
-        \ 'rev' : '0.1.6',
-        \ }
+  NeoBundle 'vim-scripts/vim-auto-save'
 
   " async run
   NeoBundleLazy 'Shougo/vimproc', {

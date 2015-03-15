@@ -344,8 +344,8 @@ function! s:bundle.hooks.on_source(bundle)
   let g:syntastic_quiet_messages = {}
 
   let g:syntastic_mode_map = {
-        \ 'mode'              : 'active',
-        \ 'passive_filetypes' : ['html', 'puppet'],
+        \ 'mode'             : 'passive',
+        \ 'active_filetypes' : [],
         \ }
   let g:syntastic_c_include_dirs = ['inc', '../inc', '/opt/boxen/homebrew/include']
   let g:syntastic_splint_config_file = '~/.splintrc'
