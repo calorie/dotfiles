@@ -58,10 +58,6 @@ else
 
 " Edit {{{
 
-  " manage yank's history
-  " NeoBundle 'YankRing.vim', {
-  "       \ 'autoload' : { 'commands' : 'YRShow' }}
-
   " comment
   NeoBundleLazy 'tomtom/tcomment_vim', {
         \ 'autoload' : {
