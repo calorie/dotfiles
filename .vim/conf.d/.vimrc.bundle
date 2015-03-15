@@ -166,7 +166,6 @@ else
   " completion
   if has('lua')
     NeoBundleLazy 'Shougo/neocomplete.vim', {
-          \ 'rev' : 'ac49a0737f3581507f063b83ea4439669539d6d8',
           \ 'autoload' : { 'insert' : 1 }}
   else
     NeoBundleLazy 'Shougo/neocomplcache', {
