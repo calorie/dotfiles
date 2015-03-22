@@ -265,6 +265,7 @@ else
 
   " run command quickly
   NeoBundleLazy 'thinca/vim-quickrun', {
+        \ 'depends' : 'Shougo/vimproc',
         \ 'autoload' : {
         \   'mappings' : [['nxo', '<Plug>(quickrun)']],
         \   'commands' : 'QuickRun',
@@ -380,6 +381,17 @@ else
 
   " auto save
   NeoBundle 'vim-scripts/vim-auto-save'
+
+  " async run
+  NeoBundleLazy 'Shougo/vimproc', {
+        \ 'build' : {
+        \   'mac'    : 'make -f make_mac.mak',
+        \   'unix'   : 'make -f make_unix.mak',
+        \   'cygwin' : 'make -f make_cygwin.mak',
+        \ },
+        \ 'autoload' : {
+        \   'function_prefix' : 'vimproc',
+        \ }}
 
   " cool statusline
   NeoBundle 'bling/vim-airline', {
