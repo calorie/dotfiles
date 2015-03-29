@@ -1,0 +1,12 @@
+# ~/.tmuxinator/vvm.yml
+
+project_name: vvm-rb
+project_root: ~/work/vvm-rb
+windows:
+  - shell:
+  - editor: vim
+  - test:
+      layout: main-vertical
+      panes:
+        - rake spec
+        - rubocop
