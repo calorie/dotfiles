@@ -572,6 +572,8 @@ let g:vim_typing_sound_path = '~/Dropbox/program/sound/seq2_key1.wav'
 "------------------------------------
 " {{{
 let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_in_insert_mode = 0
 " }}}
 
 "------------------------------------
