@@ -265,7 +265,6 @@ else
 
   " run command quickly
   NeoBundleLazy 'thinca/vim-quickrun', {
-        \ 'depends' : 'Shougo/vimproc',
         \ 'autoload' : {
         \   'mappings' : [['nxo', '<Plug>(quickrun)']],
         \   'commands' : 'QuickRun',
