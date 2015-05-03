@@ -344,6 +344,10 @@ else
   NeoBundleLazy 'elzr/vim-json', {
         \ 'autoload': { 'filetypes': 'json' }}
 
+  " perl
+  NeoBundleLazy 'c9s/perlomni.vim', {
+        \ 'autoload': { 'filetypes': 'perl' }}
+
   " python
   " NeoBundleLazy 'yuroyoro/vim-python', {
   "       \ 'autoload': { 'filetypes': ['python'] }}
