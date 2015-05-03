@@ -8,9 +8,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-if neobundle#has_cache()
-  NeoBundleLoadCache
-else
+if neobundle#load_cache()
 
 " Unite {{{
 
