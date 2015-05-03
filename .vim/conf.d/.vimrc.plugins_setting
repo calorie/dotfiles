@@ -335,13 +335,18 @@ function! s:bundle.hooks.on_source(bundle)
 
   let g:syntastic_mode_map = {
         \ 'mode'             : 'passive',
-        \ 'active_filetypes' : [],
+        \ 'active_filetypes' : ['perl'],
         \ }
   let g:syntastic_c_include_dirs = ['inc', '../inc', '/opt/boxen/homebrew/include']
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
   if executable('rbenv')
     let g:syntastic_ruby_exec = system('echo -n `rbenv which ruby`')
+  endif
+  let g:syntastic_enable_perl_checker = 1
+  let g:syntastic_perl_checkers = ['perl', 'podchecker']
+  if executable('carton')
+    let g:syntastic_perl_lib_path = system('carton exec perl -e "print join(',', @INC)"')
   endif
 endfunction
 unlet s:bundle
