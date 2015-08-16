@@ -14,6 +14,8 @@
   autocrlf = input
   editor = vim
   quotepath = false
+  preloadindex = true
+  fscache = true
 [merge]
   tool = vimdiff
 [alias]
