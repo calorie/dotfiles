@@ -345,7 +345,7 @@ function! s:bundle.hooks.on_source(bundle)
   endif
   let g:syntastic_enable_perl_checker = 1
   let g:syntastic_perl_checkers = ['perl', 'podchecker']
-  if executable('carton')
+  if executable('carton') && filereadable('./cartonfile')
     let g:syntastic_perl_lib_path = system('carton exec perl -e "print join(',', @INC)"')
   endif
 endfunction
