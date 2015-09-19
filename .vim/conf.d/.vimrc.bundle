@@ -89,8 +89,7 @@ if neobundle#load_cache()
         \     ['nx', '<Plug>Dsurround'], ['nx', '<Plug>Csurround' ],
         \     ['nx', '<Plug>Ysurround' ], ['nx', '<Plug>YSurround' ],
         \     ['nx', '<Plug>Yssurround'], ['nx', '<Plug>YSsurround'],
-        \     ['nx', '<Plug>YSsurround'], ['nx', '<Plug>VgSurround'],
-        \     ['nx', '<Plug>VSurround']]
+        \     ['nx', '<Plug>VgSurround'], ['nx', '<Plug>VSurround']]
         \ }}
 
   " toggle text
