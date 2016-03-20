@@ -3,8 +3,9 @@
 if command -v fontforge >/dev/null 2>&1; then
   git clone https://github.com/yascentur/Ricty.git ~/Ricty
   cd $HOME/Ricty
-  wget http://levien.com/type/myfonts/Inconsolata.otf
-  wget -O mig1m.zip 'http://sourceforge.jp/frs/redir.php?m=iij&f=%2Fmix-mplus-ipa%2F59022%2Fmigu-1m-20130617.zip'
+  wget https://github.com/google/fonts/raw/master/ofl/inconsolata/Inconsolata-Regular.ttf
+  wget https://github.com/google/fonts/raw/master/ofl/inconsolata/Inconsolata-Bold.ttf
+  wget -O mig1m.zip 'https://osdn.jp/frs/redir.php?m=jaist&f=%2Fmix-mplus-ipa%2F63545%2Fmigu-1m-20150712.zip'
   unzip mig1m.zip
   sh ricty_generator.sh auto
   wget https://raw.github.com/Lokaltog/vim-powerline/develop/fontpatcher/PowerlineSymbols.sfd
