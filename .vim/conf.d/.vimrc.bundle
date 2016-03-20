@@ -357,10 +357,7 @@ if neobundle#load_cache()
 " Buffer {{{
 
   " tree explore
-  NeoBundleLazy 'scrooloose/nerdtree', {
-        \ 'autoload' : {
-        \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
-        \ }}
+  NeoBundle 'scrooloose/nerdtree'
 
   NeoBundleLazy 'junegunn/goyo.vim', {
         \ 'autoload' : {
