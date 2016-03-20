@@ -105,8 +105,7 @@ if neobundle#load_cache()
         \ 'autoload' : { 'commands' : 'OverCommandLine' }}
 
   " completion for parenthesis
-  NeoBundle 'jiangmiao/auto-pairs', {
-        \ 'autoload' : { 'insert' : 1 }}
+  NeoBundle 'jiangmiao/auto-pairs'
 
   " make template
   NeoBundleLazy 'mattn/sonictemplate-vim', {
@@ -358,7 +357,7 @@ if neobundle#load_cache()
 " Buffer {{{
 
   " tree explore
-  NeoBundle 'scrooloose/nerdtree', {
+  NeoBundleLazy 'scrooloose/nerdtree', {
         \ 'autoload' : {
         \   'commands' : ['NERDTreeToggle','NERDTreeFind','NERDTree']
         \ }}
@@ -389,8 +388,9 @@ if neobundle#load_cache()
   " async run
   NeoBundleLazy 'Shougo/vimproc', {
         \ 'build' : {
-        \   'mac'    : 'make -f make_mac.mak',
-        \   'unix'   : 'make -f make_unix.mak',
+        \   'mac'    : 'make',
+        \   'linux'  : 'make',
+        \   'unix'   : 'gmake',
         \   'cygwin' : 'make -f make_cygwin.mak',
         \ },
         \ 'autoload' : {
@@ -398,9 +398,11 @@ if neobundle#load_cache()
         \ }}
 
   " cool statusline
-  NeoBundle 'bling/vim-airline', {
-        \ 'depends': ['tpope/vim-fugitive']
+  NeoBundle 'vim-airline/vim-airline', {
+        \ 'depends': ['tpope/vim-fugitive', 'vim-airline/vim-airline-themes']
         \ }
+
+  NeoBundleLazy 'vim-airline/vim-airline-themes'
 
   " async run
   NeoBundleLazy 'tpope/vim-dispatch', {
