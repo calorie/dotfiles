@@ -63,10 +63,7 @@ if neobundle#load_cache()
         \     'TCommentAs', 'TCommentMaybeInline']
         \ }}
 
-  NeoBundle 'Yggdroot/indentLine', {
-        \ 'autoload' : {
-        \   'commands' : ['IndentLinesReset', 'IndentLinesToggle'],
-        \ }}
+  NeoBundle 'Yggdroot/indentLine'
 
   " support to edit xml,html
   NeoBundleLazy 'sukima/xmledit', {
@@ -301,8 +298,7 @@ if neobundle#load_cache()
   "       \     'RunLastSpec', 'RunAllSpecs'] }}
 
   " completion end
-  NeoBundle 'tpope/vim-endwise.git', {
-        \ 'autoload' : { 'insert' : 1 }}
+  NeoBundle 'tpope/vim-endwise.git'
 
   " html emmet-vim
   NeoBundleLazy 'mattn/emmet-vim', {
