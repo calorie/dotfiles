@@ -2,4 +2,4 @@
 
 [ -d $HOME/.tmux ] || mkdir $HOME/.tmux
 cd $HOME/.tmux
-git clone https://github.com/erikw/tmux-powerline.git
+git clone -b fix_weather_api_uri https://github.com/calorie/tmux-powerline.git
