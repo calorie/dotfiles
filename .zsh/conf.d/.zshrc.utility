@@ -212,11 +212,29 @@ compdef _make make
 autoload -U add-zsh-hook 2>/dev/null || return
 __timetrack_threshold=30 # seconds
 read -r -d '' __timetrack_ignore_progs <<EOF
-  rl less vi vim vagrant
-  ssh mosh telnet nc netcat
-  gdb tmux guard ev edf fg
-  xdg-open rails thin
-  cassandra cassandra-cli pry
+  cassandra
+  cassandra-cli
+  edf
+  ev
+  fg
+  gdb
+  guard
+  less
+  mosh
+  nc
+  netcat
+  pry
+  rails
+  rl
+  ssh
+  telnet
+  thin
+  tmux
+  top
+  vagrant
+  vi
+  vim
+  xdg-open
 EOF
 export __timetrack_threshold
 export __timetrack_ignore_progs
