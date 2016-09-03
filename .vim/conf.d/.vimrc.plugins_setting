@@ -594,6 +594,7 @@ vnoremap <Leader>sb "xy:OverCommandLine<CR>%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>
 "------------------------------------
 " {{{
 let g:AutoPairsMapBS = 0
+let g:AutoPairsMapCh = 0
 " }}}
 
 "------------------------------------
