@@ -115,7 +115,7 @@ if neobundle#load_cache()
 
     " all text
     NeoBundleLazy 'kana/vim-textobj-entire', {
-        \ 'depends' : 'textobj-user',
+        \ 'depends' : 'kana/vim-textobj-user',
         \ 'autoload' : {
         \   'mappings' : [['nx', '<Plug>(textobj-entire-a)'],
         \     ['nx', '<Plug>(textobj-entire-i)']]
@@ -123,7 +123,7 @@ if neobundle#load_cache()
 
     " function
     NeoBundleLazy 'kana/vim-textobj-function', {
-        \ 'depends' : 'textobj-user',
+        \ 'depends' : 'kana/vim-textobj-user',
         \ 'autoload' : {
         \   'mappings' : [['nx', '<Plug>(textobj-function-a)'],
         \     ['nx', '<Plug>(textobj-function-i)']]
@@ -131,7 +131,7 @@ if neobundle#load_cache()
 
     " indent
     NeoBundleLazy 'kana/vim-textobj-indent', {
-        \ 'depends' : 'textobj-user',
+        \ 'depends' : 'kana/vim-textobj-user',
         \ 'autoload' : {
         \   'mappings' : [
         \     ['nx', '<Plug>(textobj-indent-a)'],
@@ -142,13 +142,13 @@ if neobundle#load_cache()
 
     " fold
     NeoBundleLazy 'kana/vim-textobj-fold', {
-          \ 'depends' : 'textobj-user',
-          \ 'autoload' : { 'filetypes' : ['vim', 'zsh'] }}
+        \ 'depends' : 'kana/vim-textobj-user',
+        \ 'autoload' : { 'filetypes' : ['vim', 'zsh'] }}
 
     " ruby syntax
     NeoBundleLazy 'rhysd/vim-textobj-ruby', {
-          \ 'depends' : 'textobj-user',
-          \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
+        \ 'depends' : 'kana/vim-textobj-user',
+        \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
   " }}}
 
