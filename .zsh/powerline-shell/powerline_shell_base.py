@@ -48,8 +48,8 @@ class Powerline:
 
     color_templates = {
         'bash': '\\[\\e%s\\]',
-        'zsh': '%%{%s%%}',
-        'bare': '%s',
+        'zsh': '%%{%s%%}',
+        'bare': '%s',
     }
 
     def __init__(self, args, cwd):
