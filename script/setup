@@ -16,55 +16,55 @@ ORIGIN=$(pwd)
 DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
-PKGS=(
-  auto-fu
-  powerline-shell
-  ricty-diminished
-  tmux-mem-cpu-load
-  tmux-powerline
-  tmuxinator
-)
-for pkg in ${PKGS[@]}
-do
-  $INSTALLER_PATH/$pkg-installer
-done
-
-DIRS=(
-  .config/zathura
-  .vim
-)
-for dir in ${DIRS[@]}
-do
-  mkdir -p $HOME/$dir
-done
-
-DOTFILES=(
-  .agignore
-  .ctags
-  .config/zathura/zathurarc
-  .dir_colors
-  .gdbinit
-  .gemrc
-  .gitconfig
-  .gitignore
-  .inputrc
-  .irbrc
-  .pryrc
-  .rdebugrc
-  .rspec
-  .rubocop.yml
-  .splintrc
-  .tmux-powerlinerc
-  .tmux.conf
-  .vim/dict
-  .vimrc
-  .vrapperrc
-  .zshrc
-)
-for file in ${DOTFILES[@]}
-do
-  ln -sf $DOTFILES_PATH/$file $HOME/$file
-done
+# PKGS=(
+#   auto-fu
+#   powerline-shell
+#   ricty-diminished
+#   tmux-mem-cpu-load
+#   tmux-powerline
+#   tmuxinator
+# )
+# for pkg in ${PKGS[@]}
+# do
+#   $INSTALLER_PATH/$pkg-installer
+# done
+#
+# DIRS=(
+#   .config/zathura
+#   .vim
+# )
+# for dir in ${DIRS[@]}
+# do
+#   mkdir -p $HOME/$dir
+# done
+#
+# DOTFILES=(
+#   .agignore
+#   .ctags
+#   .config/zathura/zathurarc
+#   .dir_colors
+#   .gdbinit
+#   .gemrc
+#   .gitconfig
+#   .gitignore
+#   .inputrc
+#   .irbrc
+#   .pryrc
+#   .rdebugrc
+#   .rspec
+#   .rubocop.yml
+#   .splintrc
+#   .tmux-powerlinerc
+#   .tmux.conf
+#   .vim/dict
+#   .vimrc
+#   .vrapperrc
+#   .zshrc
+# )
+# for file in ${DOTFILES[@]}
+# do
+#   ln -sf $DOTFILES_PATH/$file $HOME/$file
+# done
 
 # NeoBundle
 . $INSTALLER_PATH/neobundle-installer
