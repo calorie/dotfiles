@@ -6,8 +6,7 @@ if command -v cmake >/dev/null 2>&1; then
 
   [ -d $TMUX_PATH ] || mkdir $TMUX_PATH
   git clone https://github.com/thewtex/tmux-mem-cpu-load.git $TMUX_MEM_CPU_LOAD_PATH
-  cd $TMUX_MEM_CPU_LOAD_PATH
-  cmake .
-  make
-  sudo make install
+  cmake $TMUX_MEM_CPU_LOAD_PATH
+  make -C $TMUX_MEM_CPU_LOAD_PATH
+  sudo make -C $TMUX_MEM_CPU_LOAD_PATH install
 fi

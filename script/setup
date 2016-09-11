@@ -29,27 +29,45 @@ do
   $INSTALLER_PATH/$pkg-installer
 done
 
-DIRS=( .vim .config/zathura )
+DIRS=(
+  .config/zathura
+  .vim
+)
 for dir in ${DIRS[@]}
 do
   mkdir -p $HOME/$dir
 done
 
 DOTFILES=(
-  .zshrc .ctags .gdbinit .gemrc
-  .gitconfig .gitignore .inputrc
-  .irbrc .pryrc .rspec .agignore
-  .vimrc .vrapperrc .rubocop.yml
-  .tmux.conf .tmux-powerlinerc .splintrc
-  .dir_colors .rdebugrc .vim/dict
-  .config/zathura/zathurarc )
+  .agignore
+  .ctags
+  .config/zathura/zathurarc
+  .dir_colors
+  .gdbinit
+  .gemrc
+  .gitconfig
+  .gitignore
+  .inputrc
+  .irbrc
+  .pryrc
+  .rdebugrc
+  .rspec
+  .rubocop.yml
+  .splintrc
+  .tmux-powerlinerc
+  .tmux.conf
+  .vim/dict
+  .vimrc
+  .vrapperrc
+  .zshrc
+)
 for file in ${DOTFILES[@]}
 do
   ln -sf $DOTFILES_PATH/$file $HOME/$file
 done
 
 # NeoBundle
-$INSTALLER_PATH/neobundle-installer
+. $INSTALLER_PATH/neobundle-installer
 
 cd ${ORIGIN}
 exec $SHELL
