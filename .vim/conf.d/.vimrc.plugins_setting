@@ -240,7 +240,7 @@ augroup NERDTree
   " open nerdtree when no args
   autocmd VimEnter * if !argc() && neobundle#is_installed('nerdtree') | NERDTree | endif
   " auto close nerdtree
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   autocmd FileType nerdtree silent! nunmap <buffer> CD
 augroup END
 
