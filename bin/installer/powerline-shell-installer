@@ -3,11 +3,10 @@
 ZSH_PATH=$HOME/.zsh
 POWERLINE_PATH=$ZSH_PATH/powerline-shell
 DOTFILES_POWERLINE_PATH=$HOME/dotfiles/.zsh/powerline-shell
+
 [ -d $ZSH_PATH ] || mkdir $ZSH_PATH
-cd $ZSH_PATH
-git clone https://github.com/milkbikis/powerline-shell.git
+git clone https://github.com/milkbikis/powerline-shell.git $POWERLINE_PATH
 cd $POWERLINE_PATH
-git pull --rebase origin master
 POWERLINE_FILES=(
     config.py
     powerline-shell.py.template

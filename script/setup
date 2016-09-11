@@ -17,11 +17,13 @@ DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
 PKGS=(
-  ricty auto-fu
+  auto-fu
   powerline-shell
-  tmux-powerline
+  ricty-diminished
   tmux-mem-cpu-load
-  tmuxinator )
+  tmux-powerline
+  tmuxinator
+)
 for pkg in ${PKGS[@]}
 do
   $INSTALLER_PATH/$pkg-installer
