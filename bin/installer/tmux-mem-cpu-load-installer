@@ -1,11 +1,12 @@
 #!/bin/bash
 
 if command -v cmake >/dev/null 2>&1; then
-  [ -d $HOME/.tmux ] || mkdir $HOME/.tmux
-  cd $HOME/.tmux
-  git clone https://github.com/thewtex/tmux-mem-cpu-load.git
-  ln -sf $HOME/dotfiles/.tmux/tmux-powerline/segments/tmux_mem_cpu_load.sh $HOME/.tmux/tmux-powerline/segments/tmux_mem_cpu_load.sh
-  cd $HOME/.tmux/tmux-mem-cpu-load
+  TMUX_PATH=$HOME/.tmux
+  TMUX_MEM_CPU_LOAD_PATH=$TMUX_PATH/tmux-mem-cpu-load
+
+  [ -d $TMUX_PATH ] || mkdir $TMUX_PATH
+  git clone https://github.com/thewtex/tmux-mem-cpu-load.git $TMUX_MEM_CPU_LOAD_PATH
+  cd $TMUX_MEM_CPU_LOAD_PATH
   cmake .
   make
   sudo make install

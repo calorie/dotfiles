@@ -3,10 +3,12 @@
 test -f $HOME/.vvm-rb/etc/login && source $HOME/.vvm-rb/etc/login
 
 if command -v vim >/dev/null 2>&1; then
-  [ -d $HOME/.vim/bundle ] || mkdir -p $HOME/.vim/bundle
-  cd $HOME/.vim/bundle
-  if [ ! -d $HOME/.vim/bundle/neobundle.vim ]; then
-    git clone https://github.com/Shougo/neobundle.vim.git
+  BUNDLE_PATH=$HOME/.vim/bundle
+  NEOBUNDLE_PATH=$HOME/.vim/bundle/neobundle.vim
+
+  [ -d $BUNDLE_PATH ] || mkdir -p $BUNDLE_PATH
+  if [ ! -d $NEOBUNDLE_PATH ]; then
+    git clone https://github.com/Shougo/neobundle.vim.git $NEOBUNDLE_PATH
   fi
-  . $HOME/.vim/bundle/neobundle.vim/bin/neoinstall
+  . $NEOBUNDLE_PATH/bin/neoinstall
 fi

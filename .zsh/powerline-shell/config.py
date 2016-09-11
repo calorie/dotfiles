@@ -31,10 +31,10 @@ SEGMENTS = [
     'git',
 
 # Show the current mercurial branch and status
-    'hg',
+    # 'hg',
 
 # Show the current svn branch and status
-    'svn',
+    # 'svn',
 
 # Show the current fossil branch and status
     # 'fossil',
@@ -44,7 +44,7 @@ SEGMENTS = [
 
 # Shows a '#' if the current user is root, '$' otherwise
 # Also, changes color if the last command exited with a non-zero error code
-    'myroot',
+    'root',
 ]
 
 # Change the colors used to draw individual segments in your prompt

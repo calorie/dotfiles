@@ -1,5 +1,8 @@
 #!/bin/bash
 
-[ -d $HOME/.tmux ] || mkdir $HOME/.tmux
-cd $HOME/.tmux
-git clone -b fix_weather_api_uri https://github.com/calorie/tmux-powerline.git
+TMUX_PATH=$HOME/.tmux
+TMUX_POWERLINE_PATH=$TMUX_PATH/tmux-powerline
+
+[ -d $TMUX_PATH ] || mkdir $TMUX_PATH
+git clone -b fix_weather_api_uri https://github.com/calorie/tmux-powerline.git $TMUX_POWERLINE_PATH
+ln -sf $HOME/dotfiles/.tmux/tmux-powerline/segments/tmux_mem_cpu_load.sh $TMUX_POWERLINE_PATH/segments/tmux_mem_cpu_load.sh
