@@ -5,14 +5,10 @@ test -f $HOME/.vvm-rb/etc/login && source $HOME/.vvm-rb/etc/login
 if command -v vim >/dev/null 2>&1; then
   BUNDLE_PATH=$HOME/.vim/bundle
   NEOBUNDLE_PATH=$HOME/.vim/bundle/neobundle.vim
-  VIMPROC_PATH=$HOME/.vim/bundle/vimproc
 
   [ -d $BUNDLE_PATH ] || mkdir -p $BUNDLE_PATH
   if [ ! -d $NEOBUNDLE_PATH ]; then
     git clone https://github.com/Shougo/neobundle.vim.git $NEOBUNDLE_PATH
-  fi
-  if [ ! -d $VIMPROC_PATH ]; then
-    git clone https://github.com/Shougo/vimproc.vim.git $VIMPROC_PATH
   fi
   . $NEOBUNDLE_PATH/bin/neoinstall
 fi
