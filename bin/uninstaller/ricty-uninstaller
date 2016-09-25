@@ -1,6 +1,6 @@
 #!/bin/bash
 
 if [ -d $HOME/.fonts ]; then
-  rm -rf $HOME/.fonts
+  rm -rf $HOME/.fonts/RictyDiminished*
   fc-cache -vf
 fi

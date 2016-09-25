@@ -5,7 +5,6 @@ dotfiles
 - zsh
 - tmux >= 1.7
 - git
-- mercurial
 - ruby
 - fontforge
 
@@ -25,8 +24,7 @@ $ ./script/setup
 
 ### Installed packages
 
-- [Ricty](https://github.com/yascentur/Ricty)
-- [vvm-rb](https://github.com/calorie/vvm-rb)
+- [RictyDiminished](https://github.com/edihbrandon/RictyDiminished)
 - [auto-fu](https://github.com/hchbaw/auto-fu.zsh)
 - [powerline-shell](https://github.com/milkbikis/powerline-shell)
 - [tmux-powerline](https://github.com/erikw/tmux-powerline)
@@ -40,4 +38,3 @@ $ ./script/setup
 $ cd ~/dotfiles
 $ ./script/uninstall
 ```
-

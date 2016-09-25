@@ -14,24 +14,37 @@ done
 
 UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
 
-PKGS=( ricty vvm-rb )
+PKGS=(
+  ricty
+)
 for pkg in ${PKGS[@]}
 do
   $UNINSTALLER_PATH/$pkg-uninstaller
 done
 
-DOT_FILES=(
-  .zshrc .zsh/powerline-shell
-  .zsh/auto-fu.zsh .ctags .gdbinit .gemrc
-  .gitconfig .gitignore .inputrc
-  .irbrc .pryrc .rspec .agignore
-  .vimrc .vim/bundle .vrapperrc .rubocop.yml
-  .tmux.conf .tmux-powerlinerc .splintrc
-  .tmuxinator .tmux/tmux-powerline
-  .tmux/tmux-mem-cpu-load .dir_colors
-  .rdebugrc .vim/dict dotfiles
-  .config/zathura/zathurarc )
-
+DOTFILES=(
+  .agignore
+  .ctags
+  .config/zathura/zathurarc
+  .dir_colors
+  .gdbinit
+  .gemrc
+  .gitconfig
+  .gitignore
+  .inputrc
+  .irbrc
+  .pryrc
+  .rdebugrc
+  .rspec
+  .rubocop.yml
+  .splintrc
+  .tmux-powerlinerc
+  .tmux.conf
+  .vim/dict
+  .vimrc
+  .vrapperrc
+  .zshrc
+)
 for file in ${DOT_FILES[@]}
 do
   rm -rf $HOME/$file
