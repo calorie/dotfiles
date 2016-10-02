@@ -1,0 +1,2 @@
+nnoremap <Leader>sb :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+vnoremap <Leader>sb "xy:OverCommandLine<CR>%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//g<Left><Left>

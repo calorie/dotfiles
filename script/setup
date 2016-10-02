@@ -30,6 +30,7 @@ do
 done
 
 DIRS=(
+  .cache
   .config/zathura
   .vim
 )
@@ -57,6 +58,7 @@ DOTFILES=(
   .tmux-powerlinerc
   .tmux.conf
   .vim/dict
+  .vim/init.vim
   .vimrc
   .vrapperrc
   .zshrc

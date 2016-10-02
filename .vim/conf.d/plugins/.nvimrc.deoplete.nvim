@@ -1,0 +1,37 @@
+let g:deoplete#enable_at_startup      = 1
+let g:acp_enableAtStartup             = 0
+let g:neocomplcache_enable_at_startup = 0
+let g:neocomplete#enable_at_startup   = 0
+
+let g:deoplete#keyword_patterns   = {}
+let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
+
+let g:deoplete#omni#input_patterns        = {}
+let g:deoplete#omni#input_patterns.python = ''
+let g:deoplete#omni#functions             = {}
+let g:deoplete#omni#functions.lua         = 'xolox#lua#omnifunc'
+
+let g:deoplete#enable_refresh_always      = 1
+let g:deoplete#enable_camel_case          = 1
+let g:deoplete#auto_complete_start_length = 2
+
+inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-p>\<Down>"
+inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
+inoremap <expr><C-g> deoplete#mappings#undo_completion()
+
+let s:is_auto_pairs = dein#is_sourced('auto-pairs')
+
+inoremap <expr><CR> deoplete#mappings#smart_close_popup()."\<CR>"
+
+inoremap <silent> <BS> <C-r>=<SID>my_bs_function()<CR>
+function! s:my_bs_function() abort
+  let s:bs = s:is_auto_pairs ? AutoPairsDelete() : "\<BS>"
+  return deoplete#mappings#close_popup() . s:bs
+endfunction
+
+inoremap <expr><HOME>  deoplete#mappings#close_popup() . "\<HOME>"
+inoremap <expr><END>   deoplete#mappings#close_popup() . "\<END>"
+inoremap <expr><Left>  deoplete#mappings#close_popup() . "\<Left>"
+inoremap <expr><Right> deoplete#mappings#close_popup() . "\<Right>"
+inoremap <expr><Up>    deoplete#mappings#close_popup() . "\<Up>"
+inoremap <expr><Down>  deoplete#mappings#close_popup() . "\<Down>"

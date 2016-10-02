@@ -1,0 +1,285 @@
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+" Set dein paths
+let s:vim_dir        = expand('~/.vim')
+let s:dein_dir       = s:vim_dir . '/dein'
+let s:dein_github    = s:dein_dir . '/repos/github.com'
+let s:dein_repo_name = 'Shougo/dein.vim'
+let s:dein_repo_dir  = s:dein_github . '/' . s:dein_repo_name
+let &runtimepath     = &runtimepath . ',' . s:dein_repo_dir
+
+let s:plugins_dir = expand('~/dotfiles/.vim/conf.d/plugins')
+
+let s:cache_path = expand('~/.cache/dein')
+if !dein#load_state(s:cache_path)
+  finish
+endif
+
+call dein#begin(s:dein_dir)
+
+call dein#add('Shougo/dein.vim')
+
+"------------------------------------
+" Buffer
+"------------------------------------
+call dein#add('Yggdroot/indentLine', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
+      \ })
+
+call dein#add('scrooloose/nerdtree', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nerdtree.preload',
+      \ })
+
+call dein#add('vim-airline/vim-airline', {
+      \ 'depends': ['vim-fugitive', 'vim-airline-themes'],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-airline.preload',
+      \ })
+
+call dein#add('vim-airline/vim-airline-themes', {
+      \ 'lazy': 1,
+      \ })
+
+"------------------------------------
+" Color
+"------------------------------------
+call dein#add('calorie/colorschemes', {
+      \ 'hook_add': 'colorscheme calorie',
+      \ })
+
+"------------------------------------
+" Completion
+"------------------------------------
+call dein#add('Shougo/deoplete.nvim', {
+      \ 'lazy': 1,
+      \ 'depends': 'context_filetype.vim',
+      \ 'if': 'has("python3")',
+      \ 'on_event': 'InsertEnter',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete.nvim',
+      \ })
+
+call dein#add('Shougo/neosnippet-snippets', {
+      \ 'lazy': 1,
+      \ })
+
+call dein#add('Shougo/neosnippet.vim', {
+      \ 'lazy': 1,
+      \ 'depends': ['context_filetype.vim', 'neosnippet-snippets'],
+      \ 'on_event': 'InsertCharPre',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.neosnippet.vim',
+      \ })
+
+"------------------------------------
+" Edit
+"------------------------------------
+call dein#add('jiangmiao/auto-pairs', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.auto-pairs.preload',
+      \ })
+
+call dein#add('Shougo/context_filetype.vim', {
+      \ 'lazy': 1,
+      \ })
+
+call dein#add('banyan/recognize_charcode.vim')
+
+call dein#add('AndrewRadev/switch.vim', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'Switch',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.switch.vim.preload',
+      \ })
+
+call dein#add('godlygeek/tabular', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'Tab',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tabular.preload',
+      \ })
+
+call dein#add('tomtom/tcomment_vim', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'TComment', 'TCommentAs', 'TCommentMaybeInline',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
+      \ })
+
+call dein#add('tpope/vim-endwise.git')
+
+call dein#add('osyo-manga/vim-over', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'OverCommandLine',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-over.preload',
+      \ })
+
+call dein#add('tpope/vim-surround', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['nx', '<Plug>Csurround'], ['nx', '<Plug>Dsurround'],
+      \   ['nx', '<Plug>VgSurround'], ['nx', '<Plug>VSurround'],
+      \   ['nx', '<Plug>Yssurround'], ['nx', '<Plug>YSsurround'],
+      \   ['nx', '<Plug>Ysurround'], ['nx', '<Plug>YSurround'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-surround.preload',
+      \ })
+
+"------------------------------------
+" Search/Move
+"------------------------------------
+call dein#add('osyo-manga/vim-anzu', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['n', '<Plug>(anzu-n-with-echo)'], ['n', '<Plug>(anzu-N-with-echo)'],
+      \   ['n', '<Plug>(anzu-star-with-echo)'], ['n', '<Plug>(anzu-sharp-with-echo)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-anzu.preload',
+      \ })
+
+call dein#add('szw/vim-tags', {
+      \ 'lazy': 1,
+      \ 'depends': 'vim-dispatch',
+      \ 'on_cmd': [
+      \   'TagsGenerate',
+      \ ],
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-tags',
+      \ })
+
+call dein#add('t9md/vim-textmanip', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['x', '<Plug>(textmanip-move-down)'], ['x', '<Plug>(textmanip-move-left)'],
+      \   ['x', '<Plug>(textmanip-move-right)'], ['x', '<Plug>(textmanip-move-up)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
+      \ })
+
+call dein#add('edsono/vim-matchit', {
+      \ 'lazy': 1,
+      \ 'on_map': '%',
+      \ })
+
+call dein#add('Lokaltog/vim-easymotion', {
+      \ 'lazy': 1,
+      \ 'on_map': ',',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-easymotion',
+      \ })
+
+call dein#add('kana/vim-smartword', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['nx', '<Plug>(smartword-b)'], ['nx', '<Plug>(smartword-e)'],
+      \   ['nx', '<Plug>(smartword-ge)'], ['nx', '<Plug>(smartword-w)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-smartword.preload',
+      \ })
+
+"------------------------------------
+" Syntax
+"------------------------------------
+call dein#add('scrooloose/syntastic', {
+      \ 'lazy': 1,
+      \ 'on_event': 'InsertEnter',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.syntastic',
+      \ })
+
+"------------------------------------
+" textobj
+"------------------------------------
+call dein#add('kana/vim-textobj-user', {
+      \ 'lazy': 1,
+      \ })
+
+call dein#add('kana/vim-textobj-entire', {
+      \ 'lazy': 1,
+      \ 'depends': 'vim-textobj-user',
+      \ 'on_map': [
+      \   ['nx', '<Plug>(textobj-entire-a)'],
+      \   ['nx', '<Plug>(textobj-entire-i)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textobj-entire.preload',
+      \ })
+
+call dein#add('kana/vim-textobj-indent', {
+      \ 'lazy': 1,
+      \ 'depends': 'vim-textobj-user',
+      \ 'on_map': [
+      \   ['nx', '<Plug>(textobj-indent-a)'],
+      \   ['nx', '<Plug>(textobj-indent-i)'],
+      \   ['nx', '<Plug>(textobj-indent-same-a)'],
+      \   ['nx', '<Plug>(textobj-indent-same-i)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textobj-indent.preload',
+      \ })
+
+"------------------------------------
+" Unite
+"------------------------------------
+call dein#add('Shougo/neomru.vim', {
+      \ 'lazy': 1,
+      \ })
+
+call dein#add('Shougo/unite.vim', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'Unite', 'UniteBookmarkAdd', 'UniteWithBufferDir',
+      \   'UniteWithCurrentDir', 'UniteWithCursorWord',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.unite.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.unite',
+      \ 'depends': ['neomru.vim'],
+      \ })
+
+"------------------------------------
+" Utility
+"------------------------------------
+call dein#add('vim-scripts/sudo.vim', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'SudoRead', 'SudoWrite',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.sudo.vim.preload',
+      \ })
+
+call dein#add('tpope/vim-dispatch', {
+      \ 'lazy': 1,
+      \ })
+
+call dein#add('tpope/vim-fugitive', {
+      \ 'on_cmd': [
+      \   'Git', 'Gstatus', 'Gwrite', 'Glog',
+      \   'Gcommit', 'Gblame', 'Ggrep', 'Gdiff',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-fugitive.preload',
+      \ })
+
+call dein#add('thinca/vim-quickrun', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'QuickRun',
+      \ ],
+      \ 'on_map': [
+      \   ['nxo', '<Plug>(quickrun)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun',
+      \ })
+
+call dein#add('Shougo/vimproc', {
+      \ 'build': 'make',
+      \ })
+
+call dein#end()
+call dein#save_state()
+
+if !has('vim_starting')
+  call dein#call_hook('source')
+  call dein#call_hook('post_source')
+
+  syntax enable
+  filetype plugin indent on
+endif

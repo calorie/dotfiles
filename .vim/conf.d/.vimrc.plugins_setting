@@ -499,7 +499,7 @@ let g:airline_symbols.linenr = ''
 " let g:airline_theme = 'murmur'
 " let g:airline_theme = 'sol'
 " let g:airline_theme = 'laederon'
-let g:airline_theme = 'raven'
+let g:airline_theme = 'ravenpower'
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'n'  : 'N',

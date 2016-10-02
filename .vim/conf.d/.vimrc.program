@@ -9,3 +9,7 @@ if !empty($GOROOT)
   exe "set runtimepath+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
   filetype plugin indent on
 endif
+
+if g:is_mac
+  let g:python3_host_prog = expand('/Library/Frameworks/Python.framework/Versions/3.5/bin/python3')
+endif

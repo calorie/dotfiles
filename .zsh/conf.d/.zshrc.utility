@@ -223,6 +223,7 @@ read -r -d '' __timetrack_ignore_progs <<EOF
   mosh
   nc
   netcat
+  nvim
   pry
   rails
   rl

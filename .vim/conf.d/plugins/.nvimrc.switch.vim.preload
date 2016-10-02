@@ -1,0 +1,22 @@
+nnoremap + :Switch<CR>
+nnoremap - :call switch#Switch(g:variable_style_switch_definitions)<CR>
+let g:switch_custom_definitions =
+      \ [
+      \   ['+', '-'],
+      \   ['*', '/'],
+      \   ['and', 'or'],
+      \   ['yes', 'no'],
+      \   ['if', 'unless'],
+      \   ['enable', 'disable'],
+      \   ['pick', 'reword', 'fixup', 'squash', 'edit', 'exec'],
+      \ ]
+let g:variable_style_switch_definitions = [
+      \   {
+      \     '\<[a-z0-9]\+_\k\+\>': {
+      \       '_\(.\)': '\U\1'
+      \     },
+      \     '\<[a-z0-9]\+[A-Z]\k\+\>': {
+      \       '\([A-Z]\)': '_\l\1'
+      \     },
+      \   }
+      \ ]

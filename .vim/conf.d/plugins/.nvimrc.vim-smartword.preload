@@ -1,0 +1,7 @@
+nmap W <Plug>(smartword-w)
+nmap B <Plug>(smartword-b)
+nmap E <Plug>(smartword-e)
+
+xmap W <Plug>(smartword-w)
+xmap B <Plug>(smartword-b)
+xmap E <Plug>(smartword-e)

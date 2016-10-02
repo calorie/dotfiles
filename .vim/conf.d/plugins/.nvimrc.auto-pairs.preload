@@ -1,0 +1,2 @@
+let g:AutoPairsMapBS = 0
+let g:AutoPairsMapCh = 0
