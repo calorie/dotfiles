@@ -11,10 +11,6 @@ function __restore_tmuxpwd() {
 }
 
 # tmux autoload
-if [[ "$OSTYPE" =~ "darwin+" ]] && [ -z "$BOXEN_HOME" ]; then
-  export HOMEBREW_BIN=/opt/boxen/homebrew/bin
-  export PATH=$HOMEBREW_BIN:$PATH
-fi
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   tmux -2 new-session -A -s main
 fi

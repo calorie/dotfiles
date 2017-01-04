@@ -1,11 +1,11 @@
 # osx alias
 alias pbc='pbcopy'
-alias boxen='~/src/our-boxen/script/boxen --no-fde --no-pull'
+alias boxen='/opt/boxen/repo/script/boxen --no-fde --no-pull'
 alias rm='rmtrash'
 alias b2d='boot2docker'
 
 # path
-export C_INCLUDE_PATH="/opt/boxen/homebrew/include":$C_INCLUDE_PATH
+export C_INCLUDE_PATH="/usr/local/include":$C_INCLUDE_PATH
 
 # Terminal Color
 export CLICOLOR=1
@@ -20,7 +20,7 @@ vvm_opt=(
   --enable-xim
   --enable-rubyinterp
   --enable-luainterp
-  --with-lua-prefix=/opt/boxen/homebrew
+  --with-lua-prefix=/usr/local
   --enable-pythoninterp
   --disable-python3interp
   --disable-mzschemeinterp

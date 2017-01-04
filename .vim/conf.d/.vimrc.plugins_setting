@@ -337,7 +337,7 @@ function! s:bundle.hooks.on_source(bundle)
         \ 'mode'             : 'passive',
         \ 'active_filetypes' : [],
         \ }
-  let g:syntastic_c_include_dirs = ['inc', '../inc', '/opt/boxen/homebrew/include']
+  let g:syntastic_c_include_dirs = ['inc', '../inc', '/user/local/include']
   let g:syntastic_splint_config_file = '~/.splintrc'
   let g:syntastic_c_checkers = ['gcc']
   if executable('rbenv')
@@ -421,7 +421,7 @@ let g:user_zen_settings = {
 " vim-tags
 "------------------------------------
 " {{{
-let s:vim_tags_path_prefix = g:is_mac ? '/opt/boxen/homebrew/' : '/usr/'
+let s:vim_tags_path_prefix = g:is_mac ? '/usr/local/' : '/usr/'
 let g:vim_tags_project_tags_command = s:vim_tags_path_prefix . "bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 let g:vim_tags_gems_tags_command = s:vim_tags_path_prefix . "bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 let g:vim_tags_auto_generate = 1
