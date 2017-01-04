@@ -124,6 +124,6 @@
   export TMUX_POWERLINE_SEG_WEATHER_LOCATION="1118370"
 
   if [[ $(uname) = 'Darwin' ]]; then
-    export TMUX_POWERLINE_SEG_WEATHER_GREP="/opt/boxen/homebrew/bin/ggrep"
+    export TMUX_POWERLINE_SEG_WEATHER_GREP="/usr/local/bin/ggrep"
   fi
 # }
