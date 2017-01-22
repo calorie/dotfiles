@@ -5,6 +5,7 @@ autocmd MyAutoCmd FileType nerdtree silent! nunmap <buffer> CD
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
+let g:NERDTreeMinimalUI  = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize    = 20
 let g:NERDTreeIgnore     = [

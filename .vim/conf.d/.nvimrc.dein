@@ -223,14 +223,24 @@ call dein#add('Shougo/neomru.vim', {
       \ 'lazy': 1,
       \ })
 
-call dein#add('Shougo/unite.vim', {
+" call dein#add('Shougo/unite.vim', {
+"       \ 'lazy': 1,
+"       \ 'on_cmd': [
+"       \   'Unite', 'UniteBookmarkAdd', 'UniteWithBufferDir',
+"       \   'UniteWithCurrentDir', 'UniteWithCursorWord',
+"       \ ],
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.unite.preload',
+"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.unite',
+"       \ 'depends': ['neomru.vim'],
+"       \ })
+
+call dein#add('Shougo/denite.nvim', {
       \ 'lazy': 1,
       \ 'on_cmd': [
-      \   'Unite', 'UniteBookmarkAdd', 'UniteWithBufferDir',
-      \   'UniteWithCurrentDir', 'UniteWithCursorWord',
+      \   'Denite',
       \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.unite.preload',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.unite',
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.denite.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.denite',
       \ 'depends': ['neomru.vim'],
       \ })
 
