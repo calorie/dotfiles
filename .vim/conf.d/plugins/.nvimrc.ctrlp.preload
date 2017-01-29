@@ -1,0 +1,6 @@
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 100000
+let g:ctrlp_max_depth = 10
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
