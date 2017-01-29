@@ -158,7 +158,7 @@ call dein#add('t9md/vim-textmanip', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
-call dein#add('edsono/vim-matchit', {
+call dein#add('vim-scripts/matchit.zip', {
       \ 'lazy': 1,
       \ 'on_map': '%',
       \ })
