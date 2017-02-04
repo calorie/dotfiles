@@ -19,3 +19,5 @@ let g:NERDTreeIgnore     = [
       \ '.deps',
       \ '.meta',
       \ ]
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'

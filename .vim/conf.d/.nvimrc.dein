@@ -31,6 +31,7 @@ call dein#add('kien/ctrlp.vim', {
 
 call dein#add('nixprime/cpsm', {
       \ 'lazy': 1,
+      \ 'build': 'PY3=ON install.py',
       \ })
 
 call dein#add('Yggdroot/indentLine', {
