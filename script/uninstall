@@ -16,6 +16,7 @@ UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
 
 PKGS=(
   ricty
+  vvm-rb
 )
 for pkg in ${PKGS[@]}
 do
@@ -47,7 +48,9 @@ DOTFILES=(
 )
 for file in ${DOT_FILES[@]}
 do
-  rm -rf $HOME/$file
+  if [ -f $HOME/$file ]; then
+    rm -rf $HOME/$file
+  fi
 done
 
 exec $SHELL

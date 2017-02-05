@@ -1,8 +1,4 @@
 #!/bin/bash
 
 [ -d $HOME/.zsh ] || mkdir $HOME/.zsh
-cd $HOME/.zsh
-git clone https://github.com/hchbaw/auto-fu.zsh.git
-cd $HOME/.zsh/auto-fu.zsh
-git checkout -b pu origin/pu
-git pull --rebase origin pu
+git clone -b pu https://github.com/hchbaw/auto-fu.zsh.git $HOME/.zsh/auto-fu.zsh

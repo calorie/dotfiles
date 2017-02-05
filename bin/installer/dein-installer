@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if command -v nvim >/dev/null 2>&1; then
+  PLUGIN_DIR=$HOME/.vim/dein/repos/github.com/Shougo
+  INSTALL_DIR=$PLUGIN_DIR/dein.vim
+
+  [ -d $PLUGIN_DIR ] || mkdir -p $PLUGIN_DIR
+  if [ ! -d $INSTALL_DIR ]; then
+    git clone https://github.com/Shougo/dein.vim.git $INSTALL_DIR
+  fi
+
+  nvim +':silent call dein#install()' +qa
+fi

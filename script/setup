@@ -31,7 +31,6 @@ done
 
 DIRS=(
   .cache
-  .config/zathura
   .vim
 )
 for dir in ${DIRS[@]}
@@ -42,7 +41,6 @@ done
 DOTFILES=(
   .agignore
   .ctags
-  .config/zathura/zathurarc
   .dir_colors
   .gdbinit
   .gemrc
@@ -54,13 +52,11 @@ DOTFILES=(
   .rdebugrc
   .rspec
   .rubocop.yml
-  .splintrc
   .tmux-powerlinerc
   .tmux.conf
   .vim/dict
   .vim/init.vim
   .vimrc
-  .vrapperrc
   .zshrc
 )
 for file in ${DOTFILES[@]}
@@ -70,6 +66,9 @@ done
 
 # NeoBundle
 . $INSTALLER_PATH/neobundle-installer
+
+# dein
+$INSTALLER_PATH/dein-installer
 
 cd ${ORIGIN}
 exec $SHELL
