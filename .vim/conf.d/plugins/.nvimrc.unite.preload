@@ -11,3 +11,4 @@ nnoremap <silent> [unite]A  :<C-u>UniteBookmarkAdd<CR><CR><CR>
 nnoremap <silent> [unite]B  :<C-u>Unite -auto-preview -buffer-name=bookmark bookmark<CR>
 nnoremap <silent> [unite]gr :<C-u>Unite -auto-preview -buffer-name=grep -immediately grep:<CR>
 nnoremap <silent> [unite]Gr :<C-u>UniteWithCursorWord -auto-preview -buffer-name=grep -immediately grep<CR>
+nnoremap <silent> [unite]o  :<C-u>Unite -auto-preview -buffer-name=outline -hide-source-names outline<CR>
