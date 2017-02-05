@@ -7,11 +7,11 @@ if has('vim_starting') && has('reltime')
   augroup END
 endif
 
+source ~/dotfiles/.vim/conf.d/.vimrc.basic
 source ~/dotfiles/.vim/conf.d/.nvimrc.dein
 
 " load vimrc
 let s:rcs = [
-      \ 'basic',
       \ 'indent',
       \ 'apperance',
       \ 'completion',
