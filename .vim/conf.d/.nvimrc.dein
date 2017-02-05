@@ -58,6 +58,10 @@ call dein#add('calorie/colorschemes', {
       \ 'hook_add': 'colorscheme calorie',
       \ })
 
+" call dein#add('whatyouhide/vim-gotham', {
+"       \ 'hook_add': 'colorscheme gotham256',
+"       \ })
+
 "------------------------------------
 " Completion
 "------------------------------------
