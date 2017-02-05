@@ -15,7 +15,13 @@ let g:deoplete#enable_refresh_always      = 1
 let g:deoplete#enable_camel_case          = 1
 let g:deoplete#auto_complete_start_length = 2
 
-inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-p>\<Down>"
+if dein#is_sourced('neosnippet.vim')
+  inoremap <expr><C-n> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-p>\<Down>"
+else
+  inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-p>\<Down>"
+endif
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 inoremap <expr><C-g> deoplete#mappings#undo_completion()
 
@@ -35,3 +41,6 @@ inoremap <expr><Left>  deoplete#mappings#close_popup() . "\<Left>"
 inoremap <expr><Right> deoplete#mappings#close_popup() . "\<Right>"
 inoremap <expr><Up>    deoplete#mappings#close_popup() . "\<Up>"
 inoremap <expr><Down>  deoplete#mappings#close_popup() . "\<Down>"
+
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.perl = '\h\w*-&gt;\h\w*\|\h\w*::'
