@@ -1,10 +1,6 @@
-autocmd MyAutoCmd FileType denite call s:denite_my_settings()
-
-function! s:denite_my_settings()
-  nnoremap <silent> <buffer> <expr> o denite#do_action('open')
-  nnoremap <silent> <buffer> <expr> l denite#do_action('split')
-  nnoremap <silent> <buffer> <expr> s denite#do_action('vsplit')
-endfunction
+call denite#custom#map('_', 'o', '<denite:do_action:open>')
+call denite#custom#map('_', 'l', '<denite:do_action:split>')
+call denite#custom#map('_', 's', '<denite:do_action:vsplit>')
 
 call denite#custom#map(
       \ 'insert',
