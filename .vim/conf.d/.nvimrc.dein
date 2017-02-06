@@ -34,24 +34,8 @@ call dein#add('kien/ctrlp.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ctrlp.preload',
       \ })
 
-call dein#add('junegunn/goyo.vim', {
-      \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'Goyo',
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.goyo.vim.preload',
-      \ })
-
 call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
-      \ })
-
-call dein#add('junegunn/limelight.vim', {
-      \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'Limelight',
-      \ ],
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.limelight.vim',
       \ })
 
 call dein#add('scrooloose/nerdtree', {
@@ -137,6 +121,8 @@ call dein#add('tomtom/tcomment_vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
       \ })
 
+call dein#add('ConradIrwin/vim-bracketed-paste')
+
 call dein#add('tpope/vim-endwise.git')
 
 call dein#add('osyo-manga/vim-over', {
@@ -161,6 +147,11 @@ call dein#add('tpope/vim-surround', {
 "------------------------------------
 " Search/Move
 "------------------------------------
+call dein#add('rhysd/clever-f.vim', {
+      \ 'on_map': ['<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
+      \ })
+
 call dein#add('vim-scripts/matchit.zip', {
       \ 'lazy': 1,
       \ 'on_map': '%',
