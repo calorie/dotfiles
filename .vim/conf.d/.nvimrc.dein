@@ -26,7 +26,8 @@ call dein#add('Shougo/dein.vim')
 "------------------------------------
 call dein#add('nixprime/cpsm', {
       \ 'lazy': 1,
-      \ 'build': 'PY3=ON python3 install.py',
+      \ 'build': 'PY3=ON install.sh',
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.cpsm.preload',
       \ })
 
 call dein#add('kien/ctrlp.vim', {
