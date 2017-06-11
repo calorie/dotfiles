@@ -1,9 +1,9 @@
 call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
 call denite#custom#source('grep', 'matchers', ['matcher_cpsm'])
 
-call denite#custom#map('_', 'o', '<denite:do_action:open>')
-call denite#custom#map('_', 'l', '<denite:do_action:split>')
-call denite#custom#map('_', 's', '<denite:do_action:vsplit>')
+call denite#custom#map('normal', 'o', '<denite:do_action:open>')
+call denite#custom#map('normal', 'l', '<denite:do_action:split>')
+call denite#custom#map('normal', 's', '<denite:do_action:vsplit>')
 
 call denite#custom#map(
       \ 'insert',
