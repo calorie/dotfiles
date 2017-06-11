@@ -194,7 +194,7 @@ if neobundle#load_cache()
         \ }}
 
   " expand %
-  NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
+  NeoBundleLazy 'vim-scripts/vim-matchit', { 'autoload' : {
         \ 'mappings' : '%' }}
 
   " expand matchit for ruby
