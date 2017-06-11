@@ -248,7 +248,7 @@ call dein#add('Shougo/denite.nvim', {
       \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.denite.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.denite',
-      \ 'depends': ['neomru.vim', 'neoyank.vim'],
+      \ 'depends': ['neomru.vim', 'neoyank.vim' , 'cpsm'],
       \ })
 
 call dein#add('Shougo/neomru.vim', {
