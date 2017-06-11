@@ -6,6 +6,6 @@ nnoremap <silent> [denite]b  :<C-u>Denite -mode=normal -vertical-preview -buffer
 nnoremap <silent> [denite]u  :<C-u>Denite -mode=normal -vertical-preview -buffer-name=file_mru buffer file_mru<CR>
 nnoremap <silent> [denite]m  :<C-u>Denite -mode=normal -vertical-preview -buffer-name=mru file_mru<CR>
 nnoremap <silent> [denite]gr :<C-u>Denite -mode=normal -vertical-preview -buffer-name=grep grep:<CR>
-nnoremap <silent> [denite]gc :<C-u>DeniteBufferDir -mode=normal -vertical-preview -auto-highlight -buffer-name=grep grep:<CR>
+nnoremap <silent> [denite]gc :<C-u>DeniteBufferDir -mode=normal -vertical-preview -buffer-name=grep grep:<CR>
 nnoremap <silent> [denite]y  :<C-u>Denite -mode=normal -buffer-name=yank neoyank<CR>
 nnoremap <silent> [denite]o  :<C-u>Denite -mode=normal -vertical-preview -auto-preview -auto-highlight -buffer-name=outline outline<CR>
