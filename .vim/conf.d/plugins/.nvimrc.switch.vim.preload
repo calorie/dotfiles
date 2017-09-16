@@ -1,5 +1,3 @@
-nnoremap + :Switch<CR>
-nnoremap - :call switch#Switch(g:variable_style_switch_definitions)<CR>
 let g:switch_custom_definitions =
       \ [
       \   ['+', '-'],
@@ -20,3 +18,6 @@ let g:variable_style_switch_definitions = [
       \     },
       \   }
       \ ]
+
+nnoremap + :Switch<CR>
+nnoremap - :call switch#Switch({'definitions': g:variable_style_switch_definitions})<CR>
