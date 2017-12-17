@@ -20,7 +20,7 @@ vvm_opt=(
   --enable-xim
   --enable-rubyinterp
   --enable-luainterp
-  --with-lua-prefix=/usr/local
+  --with-lua-prefix=/usr/local/Homebrew
   --enable-pythoninterp
   --disable-python3interp
   --disable-mzschemeinterp

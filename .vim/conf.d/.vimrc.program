@@ -11,5 +11,5 @@ if !empty($GOROOT)
 endif
 
 if g:is_mac
-  let g:python3_host_prog = expand('/Library/Frameworks/Python.framework/Versions/3.5/bin/python3')
+  let g:python3_host_prog = expand('/usr/local/Homebrew/bin/python3')
 endif
