@@ -1,6 +1,6 @@
 # osx alias
 alias pbc='pbcopy'
-alias boxen='/opt/boxen/repo/script/boxen --no-fde --no-pull'
+alias boxen='SKIP_OS_CHECK=1 /opt/boxen/repo/script/boxen --no-fde --no-pull'
 alias rm='rmtrash'
 alias b2d='boot2docker'
 

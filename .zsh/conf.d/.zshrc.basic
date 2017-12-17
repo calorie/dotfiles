@@ -1,3 +1,8 @@
+#------------------------------------
+# BOXEN
+#------------------------------------
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
 # ------------------------------------
 # TMUX
 # ------------------------------------
@@ -17,11 +22,6 @@ fi
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-#------------------------------------
-# BOXEN
-#------------------------------------
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 __restore_tmuxpwd
 add-zsh-hook chpwd __restore_tmuxpwd
