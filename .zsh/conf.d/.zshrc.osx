@@ -73,15 +73,3 @@ if command -v chgo >/dev/null 2>&1; then
   fi
 fi
 export GOPATH=$HOME/.go
-
-
-# boot2docker
-if command -v boot2docker &>/dev/null; then
-  function __docker() {
-    if [ $(boot2docker status | grep -c 'poweroff') -eq 1 ]; then
-      boot2docker up && export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
-    fi
-    docker $@
-  }
-  alias docker='__docker'
-fi
