@@ -8,35 +8,31 @@ alias dmenu='dmenu_run -fn "Ricty:size=15"'
 # vvm
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 vvm_opt=(
-  --enable-multibyte
-  --with-features=big
-  --enable-fontset
-  --enable-xim
-  --enable-rubyinterp
-  --enable-luainterp
-  --with-lua-prefix=/usr
-  --enable-pythoninterp
-  --disable-python3interp
-  --disable-mzschemeinterp
-  --disable-tclinterp
-  --disable-darwin
-  --disable-selinux
-  --disable-netbeans
-  --disable-gtktest
+  --disable-cscope
   --disable-gpm
+  --disable-gtktest
+  --disable-gui
+  --disable-largefile
+  --disable-mzschemeinterp
+  --disable-netbeans
+  --disable-nls
+  --disable-python3interp
+  --disable-selinux
   --disable-sysmouse
+  --disable-tclinterp
   --disable-xsmp
   --disable-xsmp-interact
-  --without-x
-  --disable-nls
-  --disable-gui
-  --disable-cscope
   --disable-workshop
-  --disable-sniff
-  --disable-hangulinput
-  --disable-largefile
-  --with-modified-by=\"Yuu Shigetani\"
+  --enable-fail-if-missing
+  --enable-luainterp
+  --enable-multibyte
+  --enable-pythoninterp
+  --enable-rubyinterp
   --with-compiledby=\"Yuu Shigetani\"
+  --with-features=big
+  --with-lua-prefix=/usr
+  --with-modified-by=\"Yuu Shigetani\"
+  --without-x
 )
 export VVMOPT="${vvm_opt}"
 
