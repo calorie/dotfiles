@@ -1,6 +1,5 @@
 # osx alias
 alias pbc='pbcopy'
-alias boxen='SKIP_OS_CHECK=1 /opt/boxen/repo/script/boxen --no-fde --no-pull'
 alias rm='rmtrash'
 alias b2d='boot2docker'
 
@@ -42,10 +41,6 @@ vvm_opt=(
 )
 export VVMOPT="${vvm_opt}"
 
-# rbenv
-# export PATH="$RBENV_ROOT/shims:$PATH"
-# eval "$(rbenv init - --no-rehash zsh)"
-
 # quick-cocos2d-x
 if [ -d $HOME/src/android ]; then
   export ANDROID_ROOT=$HOME/src/android
@@ -70,3 +65,7 @@ if command -v chgo >/dev/null 2>&1; then
   fi
 fi
 export GOPATH=$HOME/.go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+# flutter
+ export PATH="$PATH:$HOME/src/flutter/bin"

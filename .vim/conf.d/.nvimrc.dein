@@ -26,7 +26,7 @@ call dein#add('Shougo/dein.vim')
 "------------------------------------
 call dein#add('nixprime/cpsm', {
       \ 'lazy': 1,
-      \ 'build': 'PY3=ON install.sh',
+      \ 'build': 'PY3=ON ./install.sh',
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.cpsm.preload',
       \ })
 
@@ -96,8 +96,6 @@ call dein#add('Shougo/context_filetype.vim', {
       \ 'lazy': 1,
       \ })
 
-call dein#add('banyan/recognize_charcode.vim')
-
 call dein#add('AndrewRadev/switch.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': [
@@ -109,7 +107,7 @@ call dein#add('AndrewRadev/switch.vim', {
 call dein#add('godlygeek/tabular', {
       \ 'lazy': 1,
       \ 'on_cmd': [
-      \   'Tab',
+      \   'Tabularize', 'AddTabularPipeline'
       \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tabular.preload',
       \ })
@@ -151,11 +149,6 @@ call dein#add('tpope/vim-surround', {
 call dein#add('rhysd/clever-f.vim', {
       \ 'on_map': ['<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
-      \ })
-
-call dein#add('vim-scripts/matchit.zip', {
-      \ 'lazy': 1,
-      \ 'on_map': '%',
       \ })
 
 call dein#add('osyo-manga/vim-anzu', {

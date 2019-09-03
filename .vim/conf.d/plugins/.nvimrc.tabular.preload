@@ -1,1 +1,1 @@
-vnoremap tb :Tab /
+vnoremap tb :Tabularize /

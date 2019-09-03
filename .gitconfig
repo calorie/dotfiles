@@ -1,5 +1,5 @@
 [user]
-  name = YuuShigetani
+  name = Yu Shigetani
   email = s2g4t1n2@gmail.com
 [color]
   status = auto
@@ -156,9 +156,5 @@
   rebase = false
 [heroku]
   account = calorie
-
 [hub]
 protocol = https
-
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential

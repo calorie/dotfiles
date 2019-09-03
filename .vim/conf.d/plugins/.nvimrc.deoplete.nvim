@@ -25,21 +25,20 @@ else
   inoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<C-p>\<Down>"
 endif
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
-inoremap <expr><C-g> deoplete#mappings#undo_completion()
 
 let s:is_auto_pairs = dein#is_sourced('auto-pairs')
 
-inoremap <expr><CR> deoplete#mappings#smart_close_popup()."\<CR>"
+inoremap <expr><CR> deoplete#smart_close_popup()."\<CR>"
 
 inoremap <silent> <BS> <C-r>=<SID>my_bs_function()<CR>
 function! s:my_bs_function() abort
   let s:bs = s:is_auto_pairs ? AutoPairsDelete() : "\<BS>"
-  return deoplete#mappings#close_popup() . s:bs
+  return deoplete#close_popup() . s:bs
 endfunction
 
-inoremap <expr><HOME>  deoplete#mappings#close_popup() . "\<HOME>"
-inoremap <expr><END>   deoplete#mappings#close_popup() . "\<END>"
-inoremap <expr><Left>  deoplete#mappings#close_popup() . "\<Left>"
-inoremap <expr><Right> deoplete#mappings#close_popup() . "\<Right>"
-inoremap <expr><Up>    deoplete#mappings#close_popup() . "\<Up>"
-inoremap <expr><Down>  deoplete#mappings#close_popup() . "\<Down>"
+inoremap <expr><HOME>  deoplete#close_popup() . "\<HOME>"
+inoremap <expr><END>   deoplete#close_popup() . "\<END>"
+inoremap <expr><Left>  deoplete#close_popup() . "\<Left>"
+inoremap <expr><Right> deoplete#close_popup() . "\<Right>"
+inoremap <expr><Up>    deoplete#close_popup() . "\<Up>"
+inoremap <expr><Down>  deoplete#close_popup() . "\<Down>"

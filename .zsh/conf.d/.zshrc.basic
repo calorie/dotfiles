@@ -1,8 +1,3 @@
-#------------------------------------
-# BOXEN
-#------------------------------------
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
 # ------------------------------------
 # TMUX
 # ------------------------------------
@@ -163,3 +158,24 @@ export EDITOR=vim
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
+
+# ------------------------------------
+# NeoVim
+# ------------------------------------
+test -f ~/.nvvm/etc/login && source ~/.nvvm/etc/login
+
+# ------------------------------------
+# rbenv
+# ------------------------------------
+if [ -d $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/shims:$PATH"
+  eval "$(rbenv init - --no-rehash zsh)"
+fi
+
+# ------------------------------------
+# nodenv
+# ------------------------------------
+if [ -d $HOME/.nodenv ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi

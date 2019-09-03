@@ -194,8 +194,8 @@ if neobundle#load_cache()
         \ }}
 
   " expand %
-  NeoBundleLazy 'vim-scripts/vim-matchit', { 'autoload' : {
-        \ 'mappings' : '%' }}
+  " NeoBundleLazy 'vim-scripts/vim-matchit', { 'autoload' : {
+  "       \ 'mappings' : '%' }}
 
   " expand matchit for ruby
   NeoBundleLazy 'ruby-matchit', { 'autoload' : {
@@ -379,7 +379,7 @@ if neobundle#load_cache()
   NeoBundle 'vim-scripts/vim-auto-save'
 
   " async run
-  NeoBundleLazy 'Shougo/vimproc', {
+  NeoBundleLazy 'Shougo/vimproc.vim', {
         \ 'build' : {
         \   'mac'    : 'make',
         \   'linux'  : 'make',

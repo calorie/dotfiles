@@ -46,19 +46,19 @@ nmap y0 y^
 " nnoremap vy vawy
 
 " remove space & tab with saving
-function! s:remove_dust()
-    let cursor = getpos(".")
-    %s/\s\+$//ge
-    if &ft !~ 'make'
-      %s/\t/  /ge
-    endif
-    call setpos(".", cursor)
-    unlet cursor
-endfunction
-augroup RemoveDust
-  autocmd!
-  autocmd BufWritePre * call <SID>remove_dust()
-augroup END
+" function! s:remove_dust()
+"     let cursor = getpos(".")
+"     %s/\s\+$//ge
+"     if &ft !~ 'make'
+"       %s/\t/  /ge
+"     endif
+"     call setpos(".", cursor)
+"     unlet cursor
+" endfunction
+" augroup RemoveDust
+"   autocmd!
+"   autocmd BufWritePre * call <SID>remove_dust()
+" augroup END
 
 " date completion
 " inoremap <expr> <Leader>df strftime('%Y/%m/%d %H:%M:%S')

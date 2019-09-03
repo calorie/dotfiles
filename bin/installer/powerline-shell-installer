@@ -15,4 +15,4 @@ for file in ${POWERLINE_FILES[@]}
 do
   ln -sf $DOTFILES_POWERLINE_PATH/$file $POWERLINE_PATH/$file
 done
-./install.py
+python setup.py install

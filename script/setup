@@ -17,7 +17,6 @@ DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
 PKGS=(
-  auto-fu
   powerline-shell
   ricty-diminished
   tmux-mem-cpu-load
@@ -31,6 +30,8 @@ done
 
 DIRS=(
   .cache
+  .config/nvim
+  .config/powerline-shell
   .vim
 )
 for dir in ${DIRS[@]}
@@ -55,7 +56,8 @@ DOTFILES=(
   .tmux-powerlinerc
   .tmux.conf
   .vim/dict
-  .vim/init.vim
+  .config/nvim/init.vim
+  .config/powerline-shell/config.json
   .vimrc
   .zshrc
 )
