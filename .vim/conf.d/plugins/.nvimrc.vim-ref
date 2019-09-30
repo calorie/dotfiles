@@ -1,0 +1,2 @@
+autocmd MyAutoCmd FileType ruby,eruby nnoremap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
+autocmd MyAutoCmd FileType ruby,eruby nnoremap <buffer>KK :<C-U>Ref ri <C-R><C-W><CR>
