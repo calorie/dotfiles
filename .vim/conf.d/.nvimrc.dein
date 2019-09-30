@@ -120,8 +120,6 @@ call dein#add('tomtom/tcomment_vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
       \ })
 
-call dein#add('ConradIrwin/vim-bracketed-paste')
-
 call dein#add('tpope/vim-endwise.git')
 
 call dein#add('osyo-manga/vim-over', {
@@ -130,6 +128,29 @@ call dein#add('osyo-manga/vim-over', {
       \   'OverCommandLine',
       \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-over.preload',
+      \ })
+
+call dein#add('rainerborene/vim-reek', {
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'RunReek',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-reek.preload',
+      \ })
+
+call dein#add('thinca/vim-ref', {
+      \ 'lazy': 1,
+      \ 'on_map': ['<Plug>(ref-keyword)'],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-ref.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-ref',
+      \ })
+
+call dein#add('yuku/vim-ref-ri', {
+      \ 'lazy': 1,
+      \ 'depends': 'vim-ref',
+      \ 'on_ft': [
+      \   'ruby', 'eruby'
+      \ ],
       \ })
 
 call dein#add('tpope/vim-surround', {

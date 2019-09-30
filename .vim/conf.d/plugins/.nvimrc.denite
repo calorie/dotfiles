@@ -1,7 +1,7 @@
 call denite#custom#source('file/rec', 'matchers', ['matcher/cpsm'])
 call denite#custom#source('grep', 'matchers', ['matcher/cpsm'])
 
-autocmd FileType denite call s:denite_my_settings()
+autocmd MyAutoCmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
   nnoremap <silent><buffer><expr> o denite#do_map('do_action')
