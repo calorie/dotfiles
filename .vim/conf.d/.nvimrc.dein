@@ -120,8 +120,6 @@ call dein#add('tomtom/tcomment_vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
       \ })
 
-call dein#add('ConradIrwin/vim-bracketed-paste')
-
 call dein#add('tpope/vim-endwise.git')
 
 call dein#add('osyo-manga/vim-over', {
