@@ -13,3 +13,5 @@ endif
 if g:is_mac
   let g:python3_host_prog = expand('/usr/local/bin/python3')
 endif
+
+autocmd BufRead,BufNewFile *.slim setfiletype slim
