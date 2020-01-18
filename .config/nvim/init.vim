@@ -20,6 +20,7 @@ let s:rcs = [
       \ 'colors',
       \ 'editing',
       \ 'encoding',
+      \ 'program',
       \ ]
 for s:rc in s:rcs
   execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . s:rc

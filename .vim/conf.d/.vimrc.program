@@ -11,6 +11,7 @@ if !empty($GOROOT)
 endif
 
 if g:is_mac
+  let g:python_host_prog = expand('/usr/local/bin/python')
   let g:python3_host_prog = expand('/usr/local/bin/python3')
 endif
 
