@@ -96,6 +96,10 @@ call dein#add('Shougo/context_filetype.vim', {
       \ 'lazy': 1,
       \ })
 
+call dein#add('neovim/nvim-lsp', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lsp.preload',
+      \ })
+
 call dein#add('AndrewRadev/switch.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': [
@@ -223,18 +227,18 @@ call dein#add('scrooloose/syntastic', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.syntastic',
       \ })
 
+call dein#add('leafgarland/typescript-vim', {
+      \ 'lazy': 1,
+      \ 'on_ft': [
+      \   'typescript'
+      \ ],
+      \ })
+
 call dein#add('slim-template/vim-slim', {
       \ 'lazy': 1,
       \ 'depends': 'vim-ref',
       \ 'on_ft': [
       \   'slim'
-      \ ],
-      \ })
-
-call dein#add('leafgarland/typescript-vim', {
-      \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'typescript'
       \ ],
       \ })
 
