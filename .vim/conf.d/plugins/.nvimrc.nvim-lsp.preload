@@ -1,4 +1,4 @@
-lua require'nvim_lsp'.solargraph.setup{ log_level = vim.lsp.protocol.MessageType.Debug }
+lua require'nvim_lsp'.solargraph.setup{ init_options = { diagnostics = true } }
 lua require'nvim_lsp'.yamlls.setup{}
 lua require'nvim_lsp'.tsserver.setup{}
 
