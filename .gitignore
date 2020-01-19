@@ -30,5 +30,6 @@ samples
 .bundle
 vendor/bundle
 Gemfile.lock.tags
+.solargraph.yml
 
 .envrc
