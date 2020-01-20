@@ -142,21 +142,6 @@ call dein#add('rainerborene/vim-reek', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-reek.preload',
       \ })
 
-" call dein#add('thinca/vim-ref', {
-"       \ 'lazy': 1,
-"       \ 'on_map': ['<Plug>(ref-keyword)'],
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-ref.preload',
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-ref',
-"       \ })
-"
-" call dein#add('yuku/vim-ref-ri', {
-"       \ 'lazy': 1,
-"       \ 'depends': 'vim-ref',
-"       \ 'on_ft': [
-"       \   'ruby', 'eruby'
-"       \ ],
-"       \ })
-
 call dein#add('tpope/vim-surround', {
       \ 'lazy': 1,
       \ 'on_map': [
@@ -185,14 +170,14 @@ call dein#add('osyo-manga/vim-anzu', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-anzu.preload',
       \ })
 
-call dein#add('szw/vim-tags', {
-      \ 'lazy': 1,
-      \ 'depends': 'vim-dispatch',
-      \ 'on_cmd': [
-      \   'TagsGenerate',
-      \ ],
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-tags',
-      \ })
+" call dein#add('szw/vim-tags', {
+"       \ 'lazy': 1,
+"       \ 'depends': 'vim-dispatch',
+"       \ 'on_cmd': [
+"       \   'TagsGenerate',
+"       \ ],
+"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-tags',
+"       \ })
 
 call dein#add('t9md/vim-textmanip', {
       \ 'lazy': 1,
@@ -221,11 +206,11 @@ call dein#add('kana/vim-smartword', {
 "------------------------------------
 " Syntax
 "------------------------------------
-call dein#add('scrooloose/syntastic', {
-      \ 'lazy': 1,
-      \ 'on_event': 'InsertEnter',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.syntastic',
-      \ })
+" call dein#add('scrooloose/syntastic', {
+"       \ 'lazy': 1,
+"       \ 'on_event': 'InsertEnter',
+"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.syntastic',
+"       \ })
 
 call dein#add('leafgarland/typescript-vim', {
       \ 'lazy': 1,
@@ -299,17 +284,6 @@ call dein#add('Shougo/neoyank.vim', {
       \ 'lazy': 1,
       \ })
 
-" call dein#add('Shougo/unite.vim', {
-"       \ 'lazy': 1,
-"       \ 'on_cmd': [
-"       \   'Unite', 'UniteBookmarkAdd', 'UniteWithBufferDir',
-"       \   'UniteWithCurrentDir', 'UniteWithCursorWord',
-"       \ ],
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.unite.preload',
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.unite',
-"       \ 'depends': ['neomru.vim'],
-"       \ })
-
 "------------------------------------
 " Utility
 "------------------------------------
@@ -325,9 +299,9 @@ call dein#add('vim-scripts/vim-auto-save', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-auto-save.preload',
       \ })
 
-call dein#add('tpope/vim-dispatch', {
-      \ 'lazy': 1,
-      \ })
+" call dein#add('tpope/vim-dispatch', {
+"       \ 'lazy': 1,
+"       \ })
 
 call dein#add('tpope/vim-fugitive', {
       \ 'on_cmd': [
