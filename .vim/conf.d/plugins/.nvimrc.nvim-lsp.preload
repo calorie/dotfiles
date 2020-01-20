@@ -2,9 +2,9 @@ lua require'nvim_lsp'.solargraph.setup{ init_options = { diagnostics = true } }
 lua require'nvim_lsp'.yamlls.setup{}
 lua require'nvim_lsp'.tsserver.setup{}
 
-autocmd Filetype ruby setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd Filetype yaml setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd MyAutoCmd Filetype ruby setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd MyAutoCmd Filetype yaml setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd MyAutoCmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
