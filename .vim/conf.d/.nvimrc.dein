@@ -134,13 +134,13 @@ call dein#add('osyo-manga/vim-over', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-over.preload',
       \ })
 
-call dein#add('rainerborene/vim-reek', {
-      \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'RunReek',
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-reek.preload',
-      \ })
+" call dein#add('rainerborene/vim-reek', {
+"       \ 'lazy': 1,
+"       \ 'on_cmd': [
+"       \   'RunReek',
+"       \ ],
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-reek.preload',
+"       \ })
 
 call dein#add('tpope/vim-surround', {
       \ 'lazy': 1,
