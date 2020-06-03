@@ -3,19 +3,24 @@ let g:acp_enableAtStartup             = 0
 let g:neocomplcache_enable_at_startup = 0
 let g:neocomplete#enable_at_startup   = 0
 
-let g:deoplete#keyword_patterns   = {}
-let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
+call deoplete#custom#option('keyword_patterns', {
+  \ '_': '[a-zA-Z_]\k*',
+  \ 'ruby': '[a-zA-Z_]\w*[!?]?',
+  \ })
 
-let g:deoplete#omni#input_patterns        = {}
-let g:deoplete#omni#input_patterns.python = ''
-let g:deoplete#omni#input_patterns.perl   = '\h\w*-&gt;\h\w*\|\h\w*::'
-let g:deoplete#omni#functions             = {}
-let g:deoplete#omni#functions.lua         = 'xolox#lua#omnifunc'
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'javascript': '[^. *\t]\.\w*',
+  \ })
+call deoplete#custom#var('omni', 'functions', {
+  \ 'javascript': ['javascriptcomplete#CompleteJS']
+  \ })
 
-let g:deoplete#enable_refresh_always      = 1
-let g:deoplete#enable_camel_case          = 1
-let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#auto_complete_delay        = 50
+call deoplete#custom#option({
+    \ 'auto_complete_delay': 50,
+    \ 'smart_case': v:true,
+    \ 'refresh_always': v:true,
+    \ 'min_pattern_length': 1,
+    \ })
 
 if dein#is_sourced('neosnippet.vim')
   inoremap <expr><C-n> pumvisible() ? "\<C-n>" :
