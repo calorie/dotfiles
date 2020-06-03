@@ -153,6 +153,16 @@ call dein#add('tpope/vim-surround', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-surround.preload',
       \ })
 
+call dein#add('LeafCage/yankround.vim', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['nx', '<Plug>(yankround-p)'], ['n', '<Plug>(yankround-P)'],
+      \   ['nx', '<Plug>(yankround-gp)'], ['n', '<Plug>(yankround-gP)'],
+      \   ['n', '<Plug>(yankround-prev)'], ['n', '<Plug>Yssurround'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.yankround.vim.preload',
+      \ })
+
 "------------------------------------
 " Search/Move
 "------------------------------------
