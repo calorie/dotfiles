@@ -1,6 +1,9 @@
-lua require'nvim_lsp'.solargraph.setup{ init_options = { diagnostics = true } }
-lua require'nvim_lsp'.yamlls.setup{}
-lua require'nvim_lsp'.tsserver.setup{}
+lua << END
+  local nvim_lsp = require'nvim_lsp'
+  nvim_lsp.solargraph.setup{ init_options = { diagnostics = true } }
+  nvim_lsp.yamlls.setup{}
+  nvim_lsp.tsserver.setup{}
+END
 
 autocmd MyAutoCmd Filetype ruby setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd MyAutoCmd Filetype yaml setlocal omnifunc=v:lua.vim.lsp.omnifunc

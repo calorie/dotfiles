@@ -68,10 +68,14 @@ call dein#add('calorie/colorschemes', {
 "------------------------------------
 call dein#add('Shougo/deoplete.nvim', {
       \ 'lazy': 1,
-      \ 'depends': 'context_filetype.vim',
+      \ 'depends': ['context_filetype.vim', 'deoplete-lsp'],
       \ 'if': 'has("python3")',
       \ 'on_event': 'InsertEnter',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete.nvim',
+      \ })
+
+call dein#add('Shougo/deoplete-lsp', {
+      \ 'lazy': 1,
       \ })
 
 call dein#add('Shougo/neosnippet.vim', {
@@ -231,7 +235,6 @@ call dein#add('leafgarland/typescript-vim', {
 
 call dein#add('slim-template/vim-slim', {
       \ 'lazy': 1,
-      \ 'depends': 'vim-ref',
       \ 'on_ft': [
       \   'slim'
       \ ],
