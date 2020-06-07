@@ -1,11 +1,11 @@
 nnoremap [denite] <Nop>
 nmap <Space> [denite]
 
-nnoremap <silent> [denite]f  :<C-u>Denite -vertical-preview -buffer-name=file_rec file/rec<CR>
-nnoremap <silent> [denite]b  :<C-u>Denite -vertical-preview -buffer-name=buffre buffer<CR>
-nnoremap <silent> [denite]u  :<C-u>Denite -vertical-preview -buffer-name=file_mru buffer file_mru<CR>
-nnoremap <silent> [denite]m  :<C-u>Denite -vertical-preview -buffer-name=mru file_mru<CR>
-nnoremap <silent> [denite]gr :<C-u>Denite -vertical-preview -auto-action=preview -buffer-name=grep grep<CR>
-nnoremap <silent> [denite]gc :<C-u>DeniteBufferDir -vertical-preview -auto-action=preview -buffer-name=grep grep<CR>
+nnoremap <silent> [denite]f  :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=file_rec file/rec<CR>
+nnoremap <silent> [denite]b  :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=buffre buffer<CR>
+nnoremap <silent> [denite]u  :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=file_mru buffer file_mru<CR>
+nnoremap <silent> [denite]m  :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=mru file_mru<CR>
+nnoremap <silent> [denite]gr :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=grep grep<CR>
+nnoremap <silent> [denite]gc :<C-u>DeniteBufferDir -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=grep grep<CR>
 nnoremap <silent> [denite]y  :<C-u>Denite -buffer-name=yank neoyank<CR>
-nnoremap <silent> [denite]o  :<C-u>Denite -vertical-preview -auto-action=preview -auto-action=highlight -buffer-name=outline outline<CR>
+nnoremap <silent> [denite]o  :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=outline outline<CR>
