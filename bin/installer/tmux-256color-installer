@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tic $HOME/dotfiles/bin/installer/tmux-256color.terminfo
