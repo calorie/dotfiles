@@ -17,7 +17,7 @@ set showcmd                      " display command
 set noshowmode                   " not display current mode
 set viminfo='50,<1000,s100,\"50  " viminfo's file conf
 set modelines=0                  " disable modeline
-set clipboard=unnamed            " use os's clipboard
+set clipboard=unnamedplus        " use os's clipboard
 set shortmess+=I                 " hidden start messages
 if has('patch-7.4.314')
   set shortmess+=c
