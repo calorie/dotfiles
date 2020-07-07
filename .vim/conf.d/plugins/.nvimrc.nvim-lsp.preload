@@ -3,6 +3,7 @@ lua << END
   nvim_lsp.solargraph.setup{ init_options = { diagnostics = true } }
   nvim_lsp.yamlls.setup{}
   nvim_lsp.tsserver.setup{}
+  nvim_lsp.gopls.setup{}
 END
 
 autocmd MyAutoCmd Filetype ruby setlocal omnifunc=v:lua.vim.lsp.omnifunc
