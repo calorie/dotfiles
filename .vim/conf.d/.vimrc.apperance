@@ -13,6 +13,8 @@ set cursorline        " highlight cursor
 set list              " display unvisible character
 set listchars=tab:>.,trail:_,extends:>,precedes:< " unvisible character's format
 
+set redrawtime=10000 " https://github.com/prabirshrestha/vim-lsp/issues/786
+
 " display zenkakuspace
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
