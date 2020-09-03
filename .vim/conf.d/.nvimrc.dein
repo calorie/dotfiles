@@ -40,6 +40,11 @@ call dein#add('Yggdroot/indentLine', {
       \ })
 
 call dein#add('scrooloose/nerdtree', {
+      \ 'on_cmd': [
+      \   'NERDTree',
+      \   'NERDTreeToggle',
+      \   'NERDTreeFind',
+      \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nerdtree.preload',
       \ })
 

@@ -11,8 +11,9 @@ if !empty($GOROOT)
 endif
 
 if g:is_mac
-  let g:python_host_prog = expand('/usr/local/bin/python')
-  let g:python3_host_prog = expand('/usr/local/bin/python3')
+  let g:loaded_python_provider = 0
+  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 endif
 
 autocmd BufRead,BufNewFile *.slim setfiletype slim
