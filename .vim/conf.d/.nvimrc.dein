@@ -238,6 +238,14 @@ call dein#add('leafgarland/typescript-vim', {
       \ ],
       \ })
 
+call dein#add('elzr/vim-json', {
+      \ 'lazy': 1,
+      \ 'on_ft': [
+      \   'json'
+      \ ],
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-json',
+      \ })
+
 call dein#add('slim-template/vim-slim', {
       \ 'lazy': 1,
       \ 'on_ft': [
