@@ -1,5 +1,5 @@
-call denite#custom#source('file/rec', 'matchers', ['matcher/cpsm'])
-call denite#custom#source('grep', 'matchers', ['matcher/cpsm'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/clap'])
+call denite#custom#filter('matcher/clap', 'clap_path', expand('~/.vim/dein/repos/github.com/liuchengxu/vim-clap'))
 
 autocmd MyAutoCmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
