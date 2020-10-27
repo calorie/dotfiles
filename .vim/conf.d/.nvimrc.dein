@@ -32,6 +32,10 @@ call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
       \ })
 
+call dein#add('camspiers/lens.vim', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lens.vim.preload',
+      \ })
+
 call dein#add('scrooloose/nerdtree', {
       \ 'on_cmd': [
       \   'NERDTree',
