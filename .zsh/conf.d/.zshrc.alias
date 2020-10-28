@@ -87,12 +87,10 @@ extract () {
 }
 alias ex='extract'
 
-alias ev='cd ~/dotfiles/.vim/conf.d/ ; vim'
-
 # cd
 alias cw='cd ~/work'
 alias cdf='cd ~/dotfiles'
-alias edf='cd ~/dotfiles ; vim'
+alias edf='cd ~/dotfiles ; nvim'
 
 # chrome
 alias chrome='google-chrome'
@@ -100,9 +98,6 @@ alias chrome='google-chrome'
 # history
 alias hist='history -50'
 alias hista='history 1'
-
-# memo
-alias memo='vim ~/Dropbox/tmp/memo.txt'
 
 # dhclient
 alias dc='sudo dhclient -r && sudo dhclient eth0'
