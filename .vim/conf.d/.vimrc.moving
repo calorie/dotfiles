@@ -22,20 +22,17 @@ imap <C-l> <Right>
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-" previous buffer
-nnoremap <silent> <F2> :bp<CR>
-" next buffer
-nnoremap <silent> <F3> :bn<CR>
-" delete buffer
-nnoremap <silent> <F4> :bnext \| bdelete #<CR>
+nnoremap <Space><Space> :<C-u>bp<CR>
+nnoremap <BS><BS> :<C-u>bn<CR>
+nnoremap <C-w> :bnext \| bdelete #<CR>
 
 " change flame size
-nnoremap <kPlus> <C-W>+
-nnoremap <kMinus> <C-W>-
-nnoremap <C-w><Down> <C-W>10-
-nnoremap <C-w><Up> <C-W>10+
-nnoremap <C-w><Left> <C-W>10>
-nnoremap <C-w><Right> <C-W>10<
+" nnoremap <kPlus> <C-W>+
+" nnoremap <kMinus> <C-W>-
+" nnoremap <C-w><Down> <C-W>10-
+" nnoremap <C-w><Up> <C-W>10+
+" nnoremap <C-w><Left> <C-W>10>
+" nnoremap <C-w><Right> <C-W>10<
 
 " move to ended cursor line
 augroup CursorLine
@@ -63,8 +60,8 @@ nnoremap <C-h> <C-w>h
 nnoremap tc :<C-u>tabnew \| :NERDTree<CR>
 nnoremap tx :<C-u>tabclose<CR>
 nnoremap to :<C-u>tabonly<CR>
-nnoremap <Space><Space> :<C-u>tabnext<CR>
-nnoremap <BS><BS> :<C-u>tabprevious<CR>
+nnoremap <Right> :<C-u>tabnext<CR>
+nnoremap <Left> :<C-u>tabprevious<CR>
 " nnoremap <C-t>j :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
 " nnoremap <C-t>k gT
 

@@ -5,8 +5,9 @@ let g:airline#extensions#tagbar#enabled        = 0
 let g:airline#extensions#whitespace#enabled    = 0
 let g:airline#extensions#tabline#enabled       = 1
 let g:airline#extensions#tabline#tab_nr_type   = 1
-let g:airline#extensions#tabline#show_buffers  = 0
+let g:airline#extensions#tabline#show_buffers  = 1
 let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#buffer_min_count = 2
 " let g:airline#extensions#tabline#left_sep      = '⮀'
 " let g:airline#extensions#tabline#left_alt_sep  = '⮁'
 " let g:airline#extensions#tabline#right_sep     = '⮂'
@@ -33,7 +34,8 @@ let g:airline_symbols.linenr                   = ''
 " let g:airline_theme                            = 'murmur'
 " let g:airline_theme                            = 'sol'
 " let g:airline_theme                            = 'laederon'
-let g:airline_theme                            = 'ravenpower'
+" let g:airline_theme                            = 'ravenpower'
+let g:airline_theme                            = 'minimalist'
 let g:airline_mode_map                         = {
       \ '__' : '-',
       \ 'n'  : 'N',
