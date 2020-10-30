@@ -24,10 +24,6 @@ call dein#add('Shougo/dein.vim')
 "------------------------------------
 " Buffer
 "------------------------------------
-call dein#add('kien/ctrlp.vim', {
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ctrlp.preload',
-      \ })
-
 call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
       \ })
