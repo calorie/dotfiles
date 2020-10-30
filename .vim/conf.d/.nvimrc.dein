@@ -160,14 +160,14 @@ call dein#add('tpope/vim-surround', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-surround.preload',
       \ })
 
-call dein#add('LeafCage/yankround.vim', {
+call dein#add('svermeulen/vim-yoink', {
       \ 'lazy': 1,
       \ 'on_map': [
-      \   ['nx', '<Plug>(yankround-p)'], ['n', '<Plug>(yankround-P)'],
-      \   ['nx', '<Plug>(yankround-gp)'], ['n', '<Plug>(yankround-gP)'],
-      \   ['n', '<Plug>(yankround-prev)'], ['n', '<Plug>Yssurround'],
+      \   ['n', '<Plug>(YoinkPostPasteSwapBack)'], ['n', '<Plug>(YoinkPostPasteSwapForward)'],
+      \   ['n', '<Plug>(YoinkPaste_p)'], ['n', '<Plug>(YoinkPaste_P)'],
       \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.yankround.vim.preload',
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik',
       \ })
 
 "------------------------------------
