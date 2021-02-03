@@ -22,8 +22,8 @@ imap <C-l> <Right>
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-nnoremap <Space><Space> :<C-u>bp<CR>
-nnoremap <BS><BS> :<C-u>bn<CR>
+" nnoremap <Space><Space> :<C-u>bp<CR>
+" nnoremap <BS><BS> :<C-u>bn<CR>
 nnoremap <C-w> :bnext \| bdelete #<CR>
 
 " change flame size
@@ -60,8 +60,8 @@ nnoremap <C-h> <C-w>h
 nnoremap tc :<C-u>tabnew \| :NERDTree<CR>
 nnoremap tx :<C-u>tabclose<CR>
 nnoremap to :<C-u>tabonly<CR>
-nnoremap <Right> :<C-u>tabnext<CR>
-nnoremap <Left> :<C-u>tabprevious<CR>
+nnoremap <Space><Space> :<C-u>tabnext<CR>
+nnoremap <BS><BS> :<C-u>tabprevious<CR>
 " nnoremap <C-t>j :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
 " nnoremap <C-t>k gT
 
