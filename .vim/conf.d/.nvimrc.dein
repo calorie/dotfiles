@@ -77,8 +77,9 @@ call dein#add('Shougo/deoplete.nvim', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete.nvim',
       \ })
 
-call dein#add('Shougo/deoplete-lsp', {
+call dein#add('deoplete-plugins/deoplete-lsp', {
       \ 'lazy': 1,
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete-lsp.nvim',
       \ })
 
 call dein#add('Shougo/neosnippet.vim', {
@@ -103,8 +104,8 @@ call dein#add('Shougo/context_filetype.vim', {
       \ 'lazy': 1,
       \ })
 
-call dein#add('neovim/nvim-lsp', {
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lsp.preload',
+call dein#add('neovim/nvim-lspconfig', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lspconfig.preload',
       \ })
 
 call dein#add('AndrewRadev/switch.vim', {
