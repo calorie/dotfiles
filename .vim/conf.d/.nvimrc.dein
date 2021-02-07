@@ -42,7 +42,7 @@ call dein#add('scrooloose/nerdtree', {
       \ })
 
 call dein#add('vim-airline/vim-airline', {
-      \ 'depends': ['vim-fugitive', 'vim-airline-themes'],
+      \ 'depends': ['vim-fugitive', 'vim-airline-themes', 'nvim-lspconfig'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-airline.preload',
       \ })
 
@@ -79,6 +79,7 @@ call dein#add('Shougo/deoplete.nvim', {
 
 call dein#add('deoplete-plugins/deoplete-lsp', {
       \ 'lazy': 1,
+      \ 'depends': ['nvim-lspconfig'],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete-lsp.nvim',
       \ })
 
