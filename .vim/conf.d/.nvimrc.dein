@@ -52,7 +52,7 @@ call dein#add('vim-airline/vim-airline-themes', {
 
 call dein#add('liuchengxu/vim-clap', {
       \ 'lazy': 1,
-      \ 'build': 'make -C ./pythonx/clap build',
+      \ 'build': 'make',
       \ })
 
 "------------------------------------

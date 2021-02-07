@@ -10,6 +10,9 @@ export C_INCLUDE_PATH="/usr/local/include":$C_INCLUDE_PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+# Homebrew
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # vvm-rb
 test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
 vvm_opt=(
