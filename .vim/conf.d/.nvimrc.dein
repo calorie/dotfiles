@@ -238,6 +238,14 @@ call dein#add('leafgarland/typescript-vim', {
       \ ],
       \ })
 
+call dein#add('vim-scripts/dbext.vim', {
+      \ 'lazy': 1,
+      \ 'on_ft': [
+      \   'sql'
+      \ ],
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.dbext.vim',
+      \ })
+
 call dein#add('elzr/vim-json', {
       \ 'lazy': 1,
       \ 'on_ft': [

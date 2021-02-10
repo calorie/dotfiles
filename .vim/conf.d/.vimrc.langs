@@ -17,5 +17,3 @@ if g:is_mac
 endif
 
 autocmd BufRead,BufNewFile *.slim setfiletype slim
-
-let g:omni_sql_default_compl_type = 'syntax'
