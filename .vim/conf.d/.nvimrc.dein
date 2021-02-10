@@ -238,6 +238,14 @@ call dein#add('leafgarland/typescript-vim', {
       \ ],
       \ })
 
+call dein#add('vim-scripts/dbext.vim', {
+      \ 'lazy': 1,
+      \ 'on_ft': [
+      \   'sql'
+      \ ],
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.dbext.vim',
+      \ })
+
 call dein#add('elzr/vim-json', {
       \ 'lazy': 1,
       \ 'on_ft': [
@@ -313,6 +321,15 @@ call dein#add('Shougo/neoyank.vim', {
 "------------------------------------
 " Utility
 "------------------------------------
+call dein#add('calorie/ghpr-blame.vim', {
+      \ 'rev': 'support_http2',
+      \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'GHPRBlame', 'GHPRBlameQuit',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ghpr-blame.vim',
+      \ })
+
 call dein#add('vim-scripts/sudo.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': [
