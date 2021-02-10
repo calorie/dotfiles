@@ -96,3 +96,5 @@ function! s:toggle_qf_ll_window(pfx)
 endfunction
 nnoremap <silent> tq :<C-u>call <SID>toggle_qf_ll_window('c')<CR>
 nnoremap <silent> tl :<C-u>call <SID>toggle_qf_ll_window('l')<CR>
+
+command! CB let @+ = expand('%:p')

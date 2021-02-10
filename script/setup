@@ -23,6 +23,7 @@ PKGS=(
   tmux-mem-cpu-load
   tmux-powerline
   tmuxinator
+  zsh-autocomplete
 )
 for pkg in ${PKGS[@]}
 do

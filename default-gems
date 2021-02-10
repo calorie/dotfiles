@@ -1,7 +1,8 @@
 bundler
+neovim
+nvvm
+pry
 rake
 rubygems-update
-pry
+solargraph
 tmuxinator
-vvm-rb
-refe2

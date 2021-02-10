@@ -27,7 +27,6 @@ fi
 # tmux-mem-cpu-load
 if [ -d $HOME/.tmux/tmux-mem-cpu-load ]; then
   cd $HOME/.tmux/tmux-mem-cpu-load
-  git fetch -p
   git pull --rebase origin master
   cmake .
   make
@@ -37,14 +36,12 @@ fi
 # tmux-powerline
 if [ -d $HOME/.tmux/tmux-powerline ]; then
   cd $HOME/.tmux/tmux-powerline
-  git fetch -p
   git pull --rebase origin master
 fi
 
 # auto-fu
 if [ -d $HOME/.zsh/auto-fu.zsh ]; then
   cd $HOME/.zsh/auto-fu.zsh
-  git fetch -p
   git pull --rebase origin pu
 fi
 
@@ -52,7 +49,6 @@ fi
 if [ -d $HOME/.zsh/powerline-shell ]; then
   cd $HOME/.zsh/powerline-shell
   git stash -u
-  git fetch -p
   git pull --rebase origin master
   git stash pop
   ./install.py
@@ -66,10 +62,16 @@ if [ -d $RBENV_ROOT/plugins/rbenv-update ]; then
   fi
 fi
 
-# vim plugins
-if command -v vim >/dev/null 2>&1; then
-  vim +NeoBundleUpdate +NeoBundleClearCache +qa
+# zsh-autocomplete
+if [ -d $HOME/.zsh/zsh-autocomplete ]; then
+  cd $HOME/.zsh/zsh-autocomplete
+  git pull --rebase origin master
 fi
+
+# vim plugins
+# if command -v vim >/dev/null 2>&1; then
+#   vim +NeoBundleUpdate +NeoBundleClearCache +qa
+# fi
 
 # nvim plugins
 if command -v nvim >/dev/null 2>&1; then

@@ -148,8 +148,9 @@ autoload cdr
 # ------------------------------------
 # Completion configuration
 # ------------------------------------
-autoload -Uz compinit
-compinit -C
+# autoload -Uz compinit
+# compinit -C
+source $HOME/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # ------------------------------------
 # Export configuration
