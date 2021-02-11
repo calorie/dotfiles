@@ -9,3 +9,14 @@ nnoremap <silent> [denite]gr :<C-u>Denite -vertical-preview -preview-width=100 -
 nnoremap <silent> [denite]gc :<C-u>DeniteBufferDir -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=grep grep<CR>
 nnoremap <silent> [denite]y  :<C-u>Denite -buffer-name=yank neoyank<CR>
 nnoremap <silent> [denite]o  :<C-u>Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=outline outline<CR>
+
+command! -nargs=? DG call s:Dgrep(<f-args>)
+function s:Dgrep(...)
+  let s:cmd = ':Denite -vertical-preview -preview-width=100 -auto-action=preview -buffer-name=grep grep'
+
+  if a:0 > 0
+    let s:cmd .= ' -path=' . a:1
+  endif
+
+  execute(s:cmd)
+endfunction

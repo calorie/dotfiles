@@ -321,8 +321,7 @@ call dein#add('Shougo/neoyank.vim', {
 "------------------------------------
 " Utility
 "------------------------------------
-call dein#add('calorie/ghpr-blame.vim', {
-      \ 'rev': 'support_http2',
+call dein#add('rhysd/ghpr-blame.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': [
       \   'GHPRBlame', 'GHPRBlameQuit',
