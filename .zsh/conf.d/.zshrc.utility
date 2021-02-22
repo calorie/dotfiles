@@ -18,6 +18,17 @@ function git_ignore() { curl http://www.gitignore.io/api/$@ ;}
 # }}}
 
 # ------------------------------------
+# zsh-autocomplete
+# ------------------------------------
+# {{{
+zstyle ':autocomplete:tab:*' insert-unambiguous yes
+zstyle ':autocomplete:tab:*' widget-style menu-select
+
+bindkey "^p" up-line-or-history
+bindkey "^n" down-line-or-history
+# }}}
+
+# ------------------------------------
 # auto-fu
 # ------------------------------------
 # {{{
