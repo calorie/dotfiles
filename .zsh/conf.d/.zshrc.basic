@@ -151,6 +151,8 @@ autoload cdr
 # autoload -Uz compinit
 # compinit -C
 source $HOME/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+zstyle ':completion:*' list-prompt ''
+zstyle ':completion:*' select-prompt ''
 
 # ------------------------------------
 # Export configuration
