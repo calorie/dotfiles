@@ -34,8 +34,8 @@
   rbi1 = rebase -i HEAD^
   rbi2 = rebase -i HEAD^^
   rbi3 = rebase -i HEAD^^^
-  rbi4 = rebase -i HEAD^^^^
-  rbi5 = rebase -i HEAD^^^^^
+  # rbi4 = rebase -i HEAD^^^^
+  # rbi5 = rebase -i HEAD^^^^^
   # merge
   mn  = merge --no-ff
   # comit
@@ -63,7 +63,7 @@
   gr = grep
   gn = grep -n
   sm = submodule
-  smupdate = submodule foreach "git checkout master; git pull origin master"
+  # smupdate = submodule foreach "git checkout master; git pull origin master"
   # stash
   st = stash
   sl = stash list
