@@ -48,7 +48,6 @@ alias refe='nocorrect refe'
 # git
 alias g='git'
 alias gi='git'
-alias oppai='git'
 alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
