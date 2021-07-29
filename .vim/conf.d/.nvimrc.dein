@@ -261,6 +261,13 @@ call dein#add('slim-template/vim-slim', {
       \ ],
       \ })
 
+call dein#add('hashivim/vim-terraform', {
+      \ 'lazy': 1,
+      \ 'on_ft': [
+      \   'terraform'
+      \ ],
+      \ })
+
 call dein#add('ianks/vim-tsx', {
       \ 'lazy': 1,
       \ 'on_ft': [
