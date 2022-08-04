@@ -1,15 +1,6 @@
 "---------------------------------------------------------------------
 " Language
 "---------------------------------------------------------------------
-" golang
-if !empty($GOROOT)
-  filetype off
-  filetype plugin indent off
-  set runtimepath+=$GOROOT/misc/vim
-  exe "set runtimepath+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-  filetype plugin indent on
-endif
-
 if g:is_mac
   let g:loaded_python_provider = 0
   let g:python3_host_prog = '/usr/local/bin/python3'
