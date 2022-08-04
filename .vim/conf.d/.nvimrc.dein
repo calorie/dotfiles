@@ -135,6 +135,12 @@ call dein#add('tomtom/tcomment_vim', {
 
 call dein#add('tpope/vim-endwise.git')
 
+call dein#add('brglng/vim-im-select', {
+      \ 'lazy': 1,
+      \ 'on_event': 'InsertEnter',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-im-select',
+      \ })
+
 call dein#add('osyo-manga/vim-over', {
       \ 'lazy': 1,
       \ 'on_cmd': [
