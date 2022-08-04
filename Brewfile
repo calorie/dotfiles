@@ -1,3 +1,4 @@
+tap "daipeihust/tap"
 tap "fabianishere/personal"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -21,6 +22,7 @@ brew "grep"
 brew "helm"
 brew "helmfile"
 brew "htop"
+brew "python@3.8"
 brew "imagemagick"
 brew "jq"
 brew "kubernetes-cli", link: false
@@ -31,6 +33,7 @@ brew "libxslt"
 brew "lua"
 brew "luajit"
 brew "luarocks"
+brew "mas"
 brew "mercurial"
 brew "mysql"
 brew "neovim", args: ["HEAD"]
@@ -46,6 +49,7 @@ brew "rmtrash"
 brew "ruby"
 brew "rust"
 brew "ssh-copy-id", link: true
+brew "the_silver_searcher"
 brew "tig"
 brew "tmux"
 brew "vim"
@@ -54,6 +58,7 @@ brew "wget"
 brew "yarn"
 brew "zlib"
 brew "zsh"
+brew "daipeihust/tap/im-select"
 brew "sanemat/font/ricty"
 cask "alfred"
 cask "appcleaner"
@@ -74,9 +79,10 @@ cask "vagrant"
 cask "virtualbox"
 cask "vlc"
 cask "xquartz"
-mas "1Password", id: 443987910
 mas "BetterSnapTool", id: 417375580
+mas "GarageBand", id: 682658836
 mas "Growl", id: 467939042
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
 mas "Numbers", id: 409203825
