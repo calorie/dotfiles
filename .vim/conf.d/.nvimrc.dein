@@ -24,6 +24,18 @@ call dein#add('Shougo/dein.vim')
 "------------------------------------
 " Buffer
 "------------------------------------
+call dein#add('lambdalisue/fern.vim', {
+      \ 'depends': ['FixCursorHold.nvim'],
+      \ 'on_cmd': [
+      \   'Fern',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.fern.preload',
+      \ })
+
+call dein#add('antoinemadec/FixCursorHold.nvim', {
+      \ 'lazy': 1,
+      \ })
+
 call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
       \ })
