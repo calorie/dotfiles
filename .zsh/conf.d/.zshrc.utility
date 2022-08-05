@@ -377,8 +377,8 @@ zle -N peco-git-hash
 
 # bindkey -M afu '^G' peco-git-hash
 # bindkey -M afu '^R' peco-select-history
-bindkey '^J' peco-cdr
-bindkey '^G' peco-git-hash
+bindkey '^G' peco-cdr
+# bindkey '^G' peco-git-hash
 bindkey '^R' peco-select-history
 # }}}
 
