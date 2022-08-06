@@ -4,7 +4,7 @@ let g:fern#drawer_width = 23
 let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
 
 augroup MyAutoCmd
-  autocmd VimEnter * ++nested Fern . -drawer -reveal=% -toggle
+  autocmd VimEnter * ++nested if !argc() | Fern . -drawer -reveal=% -toggle | endif
 augroup END
 
 nnoremap <Leader>nt :<C-u>Fern . -drawer -toggle<CR>
