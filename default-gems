@@ -1,6 +1,4 @@
-bundler
 neovim
-nvvm
 pry
 rake
 rubygems-update
