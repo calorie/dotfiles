@@ -27,9 +27,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('lambdalisue/fern.vim', {
       \ 'lazy': 1,
       \ 'depends': ['FixCursorHold.nvim'],
-      \ 'on_cmd': [
-      \   'Fern',
-      \ ],
+      \ 'on_cmd': ['Fern'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.fern.preload',
       \ })
 
@@ -44,10 +42,6 @@ call dein#add('antoinemadec/FixCursorHold.nvim', {
 call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
       \ })
-
-" call dein#add('camspiers/lens.vim', {
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lens.vim.preload',
-"       \ })
 
 " call dein#add('scrooloose/nerdtree', {
 "       \ 'on_cmd': [
@@ -69,9 +63,7 @@ call dein#add('vim-airline/vim-airline-themes', {
 
 call dein#add('liuchengxu/vim-clap', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'Clap',
-      \ ],
+      \ 'on_cmd': ['Clap'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-clap.preload',
       \ 'build': 'make',
       \ })
@@ -135,25 +127,19 @@ call dein#add('neovim/nvim-lspconfig', {
 
 call dein#add('AndrewRadev/switch.vim', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'Switch',
-      \ ],
+      \ 'on_cmd': ['Switch'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.switch.vim.preload',
       \ })
 
 call dein#add('godlygeek/tabular', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'Tabularize', 'AddTabularPipeline'
-      \ ],
+      \ 'on_cmd': ['Tabularize', 'AddTabularPipeline'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tabular.preload',
       \ })
 
 call dein#add('tomtom/tcomment_vim', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'TComment', 'TCommentAs', 'TCommentMaybeInline',
-      \ ],
+      \ 'on_cmd': ['TComment', 'TCommentAs', 'TCommentMaybeInline'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
       \ })
 
@@ -167,19 +153,9 @@ call dein#add('brglng/vim-im-select', {
 
 call dein#add('osyo-manga/vim-over', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'OverCommandLine',
-      \ ],
+      \ 'on_cmd': ['OverCommandLine'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-over.preload',
       \ })
-
-" call dein#add('rainerborene/vim-reek', {
-"       \ 'lazy': 1,
-"       \ 'on_cmd': [
-"       \   'RunReek',
-"       \ ],
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-reek.preload',
-"       \ })
 
 call dein#add('tpope/vim-surround', {
       \ 'lazy': 1,
@@ -249,39 +225,29 @@ call dein#add('kana/vim-smartword', {
 "------------------------------------
 call dein#add('leafgarland/typescript-vim', {
       \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'typescript'
-      \ ],
+      \ 'on_ft': ['typescript'],
       \ })
 
 call dein#add('vim-scripts/dbext.vim', {
       \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'sql'
-      \ ],
+      \ 'on_ft': ['sql'],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.dbext.vim',
       \ })
 
 call dein#add('elzr/vim-json', {
       \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'json'
-      \ ],
+      \ 'on_ft': ['json'],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-json',
       \ })
 
 call dein#add('hashivim/vim-terraform', {
       \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'terraform'
-      \ ],
+      \ 'on_ft': ['terraform'],
       \ })
 
 call dein#add('ianks/vim-tsx', {
       \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'typescript'
-      \ ],
+      \ 'on_ft': ['typescript'],
       \ })
 
 "------------------------------------
@@ -339,17 +305,13 @@ call dein#add('kana/vim-textobj-user', {
 "------------------------------------
 call dein#add('rhysd/ghpr-blame.vim', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'GHPRBlame', 'GHPRBlameQuit',
-      \ ],
+      \ 'on_cmd': ['GHPRBlame', 'GHPRBlameQuit'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ghpr-blame.vim',
       \ })
 
 call dein#add('vim-scripts/sudo.vim', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'SudoRead', 'SudoWrite',
-      \ ],
+      \ 'on_cmd': ['SudoRead', 'SudoWrite'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.sudo.vim.preload',
       \ })
 
@@ -367,19 +329,11 @@ call dein#add('tpope/vim-fugitive', {
 
 call dein#add('thinca/vim-quickrun', {
       \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'QuickRun',
-      \ ],
-      \ 'on_map': [
-      \   ['nxo', '<Plug>(quickrun)'],
-      \ ],
+      \ 'on_cmd': ['QuickRun'],
+      \ 'on_map': [['nxo', '<Plug>(quickrun)']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun',
       \ })
-
-" call dein#add('Shougo/vimproc', {
-"       \ 'build': 'make',
-"       \ })
 
 call dein#end()
 call dein#save_state()
