@@ -1,8 +1,10 @@
-let g:fern#disable_default_mappings = 0
+let g:fern#disable_default_mappings = 1
 let g:fern#default_hidden = 1
+let g:fern#drawer_width = 23
+let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
 
 " augroup MyAutoCmd
-"   autocmd VimEnter * ++nested Fern . -drawer -reveal=% -toggle -width=20
+"   autocmd VimEnter * ++nested Fern . -drawer -reveal=% -toggle
 " augroup END
 
 " nnoremap <Leader>nt :<C-u>Fern . -drawer -toggle<CR>
@@ -16,33 +18,34 @@ function! s:init_fern() abort
       \   "\<Plug>(fern-action-expand)",
       \   "\<Plug>(fern-action-collapse)",
       \ )
-  nmap <buffer><nowait> l <Plug>(fern-my-expand-or-collapse)
+  nmap <buffer><nowait> > <Plug>(fern-my-expand-or-collapse)
+  nmap <buffer><expr>
+      \ <Plug>(fern-my-open-or-expand-or-collapse)
+      \ fern#smart#leaf(
+      \   "<Plug>(fern-action-open)",
+      \   "<Plug>(fern-action-expand)",
+      \   "<Plug>(fern-action-collapse)",
+      \ )
+  nmap <buffer> o <Plug>(fern-my-open-or-expand-or-collapse)
 
   " Define NERDTree like mappings
-  nmap <buffer> o <Plug>(fern-action-open-or-expand)
-  nmap <buffer> go <Plug>(fern-action-open:edit)<C-w>p
-  nmap <buffer> t <Plug>(fern-action-open:tabedit)
-  nmap <buffer> T <Plug>(fern-action-open:tabedit)gT
-  nmap <buffer> i <Plug>(fern-action-open:split)
-  nmap <buffer> gi <Plug>(fern-action-open:split)<C-w>p
-  nmap <buffer> s <Plug>(fern-action-open:vsplit)
-  nmap <buffer> gs <Plug>(fern-action-open:vsplit)<C-w>p
-  nmap <buffer> ma <Plug>(fern-action-new-path)
-  nmap <buffer> mm <Plug>(fern-action-move)
-  nmap <buffer> c <Plug>(fern-action-copy)
-  nmap <buffer> d <Plug>(fern-action-remove)
-  nmap <buffer> P gg
+  nmap <buffer><nowait> T <Plug>(fern-action-open:tabedit)
+  nmap <buffer><nowait> i <Plug>(fern-action-open:split)
+  nmap <buffer><nowait> s <Plug>(fern-action-open:vsplit)
+  nmap <buffer><nowait> a <Plug>(fern-action-new-path)
+  nmap <buffer><nowait> m <Plug>(fern-action-move)
+  nmap <buffer><nowait> c <Plug>(fern-action-copy)
+  nmap <buffer><nowait> d <Plug>(fern-action-remove)
 
-  map <buffer> K <Plug>(fern-action-focus:parent)
+  nmap <buffer><nowait> P gg
+  nmap <buffer><nowait> K <Plug>(fern-action-focus:parent)
+  nmap <buffer><nowait> C <Plug>(fern-action-enter)
+  nmap <buffer><nowait> u <Plug>(fern-action-leave)
+  nmap <buffer><nowait> r <Plug>(fern-action-reload)
+  nmap <buffer><nowait> R gg<Plug>(fern-action-reload)<C-o>
 
-  nmap <buffer> C <Plug>(fern-action-enter)
-  nmap <buffer> u <Plug>(fern-action-leave)
-  nmap <buffer> r <Plug>(fern-action-reload)
-  nmap <buffer> R gg<Plug>(fern-action-reload)<C-o>
-  nmap <buffer> cd <Plug>(fern-action-cd)
-  nmap <buffer> CD gg<Plug>(fern-action-cd)<C-o>
-
-  nmap <buffer> I <Plug>(fern-action-hidden-toggle)
+  nmap <buffer><nowait> A <Plug>(fern-action-choice)
+  nmap <buffer><nowait> y <Plug>(fern-action-yank:path)
 
   nmap <buffer> q :<C-u>quit<CR>
 endfunction

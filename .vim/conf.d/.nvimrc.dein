@@ -109,8 +109,10 @@ call dein#add('Shougo/neosnippet-snippets', {
 "------------------------------------
 " Edit
 "------------------------------------
-call dein#add('jiangmiao/auto-pairs', {
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.auto-pairs.preload',
+call dein#add('cohama/lexima.vim', {
+      \ 'lazy': 1,
+      \ 'on_event': 'InsertEnter',
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lexima.vim.preload',
       \ })
 
 call dein#add('Shougo/context_filetype.vim', {
