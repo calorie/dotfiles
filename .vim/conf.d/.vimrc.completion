@@ -13,11 +13,3 @@ cnoremap <C-p> <Up>
 cnoremap <Up> <C-p>
 cnoremap <C-n> <Down>
 cnoremap <Down> <C-n>
-
-if !has('nvim')
-  if has('lua')
-    source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplete
-  else
-    source ~/dotfiles/.vim/conf.d/.vimrc.completion.neocomplcache
-  endif
-endif

@@ -157,7 +157,7 @@ compinit -C
 # ------------------------------------
 # Export configuration
 # ------------------------------------
-export EDITOR=vim
+export EDITOR=nvim
 export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
