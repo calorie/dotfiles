@@ -1,6 +1,5 @@
 # osx alias
 alias pbc='pbcopy'
-alias rm='rmtrash'
 alias b2d='boot2docker'
 
 # path
