@@ -1,134 +1,11 @@
 # ------------------------------------
-# color commands
+# git commands
 # ------------------------------------
-# {{{
-# function make() {
-  # LANG=C command make "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
-# }
-# function cwaf() {
-#   LANG=C command ./waf "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
-# }
-# }}}
-
-# ------------------------------------
-# color commands
-# ------------------------------------
-# {{{
 function git_ignore() { curl http://www.gitignore.io/api/$@ ;}
-# }}}
-
-# ------------------------------------
-# zsh-autocomplete
-# ------------------------------------
-# {{{
-# zstyle ':autocomplete:tab:*' insert-unambiguous yes
-# zstyle ':autocomplete:tab:*' widget-style menu-select
-#
-# bindkey "^p" up-line-or-history
-# bindkey "^n" down-line-or-history
-# }}}
-
-# ------------------------------------
-# auto-fu
-# ------------------------------------
-# {{{
-# afu-zle-aysce-install () afu-zle-force-install;
-#
-# # http://d.hatena.ne.jp/tarao/20100531/1275322620
-# function () { # precompile
-#     local A
-#     A=~/.zsh/auto-fu.zsh/auto-fu.zsh
-#     [[ -e "${A:r}.zwc" ]] && [[ "$A" -ot "${A:r}.zwc" ]] ||
-#     zsh -c "source $A; auto-fu-zcompile $A ${A:h}" >/dev/null 2>&1
-# }
-# source ~/.zsh/auto-fu.zsh/auto-fu ; auto-fu-install
-#
-# function install-auto-fu () {
-#     zstyle ':auto-fu:highlight' input bold
-#     zstyle ':auto-fu:highlight' completion fg=white,dim
-#     # zstyle ':auto-fu:highlight' completion/one fg=blue,dim
-#     zstyle ':auto-fu:var' postdisplay ''
-#     zstyle ':auto-fu:var' track-keymap-skip opp
-#
-#     function zle-line-init () { auto-fu-init }; zle -N zle-line-init
-#     # zle -N zle-keymap-select auto-fu-zle-keymap-select
-#
-#     function afu+cancel () {
-#         afu-clearing-maybe
-#         ((afu_in_p == 1)) && { afu_in_p=0; BUFFER="$buffer_cur"; }
-#     }
-#     zle -N afu+cancel
-#     function bindkey-advice-before () {
-#         local key="$1"
-#         local advice="$2"
-#         local widget="$3"
-#         [[ -z "$widget" ]] && {
-#             local -a bind
-#             bind=(`bindkey -M main "$key"`)
-#             widget=$bind[2]
-#         }
-#         local fun="$advice"
-#         if [[ "$widget" != "undefined-key" ]]; then
-#             local code=${"$(<=(cat <<"EOT"
-#                 function $advice-$widget () {
-#                     zle $advice
-#                     zle $widget
-#                 }
-#                 fun="$advice-$widget"
-# EOT
-#             ))"}
-#             eval "${${${code//\$widget/$widget}//\$key/$key}//\$advice/$advice}"
-#         fi
-#         zle -N "$fun"
-#         bindkey -M afu "$key" "$fun"
-#     }
-#     # bindkey-advice-before "^G" afu+cancel
-#     bindkey-advice-before "^[" afu+cancel
-#     bindkey-advice-before "^J" afu+cancel afu+accept-line
-#
-#     # delete unambiguous prefix when accepting line
-#     function afu+delete-unambiguous-prefix () {
-#         afu-clearing-maybe
-#         local buf; buf="$BUFFER"
-#         local bufc; bufc="$buffer_cur"
-#         [[ -z "$cursor_new" ]] && cursor_new=-1
-#         [[ "$buf[$cursor_new]" == ' ' ]] && return
-#         [[ "$buf[$cursor_new]" == '/' ]] && return
-#         ((afu_in_p == 1)) && [[ "$buf" != "$bufc" ]] && {
-#             # there are more than one completion candidates
-#             zle afu+complete-word
-#             [[ "$buf" == "$BUFFER" ]] && {
-#                 # the completion suffix was an unambiguous prefix
-#                 afu_in_p=0; buf="$bufc"
-#             }
-#             BUFFER="$buf"
-#             buffer_cur="$bufc"
-#         }
-#     }
-#     zle -N afu+delete-unambiguous-prefix
-#     function afu-ad-delete-unambiguous-prefix () {
-#         local afufun="$1"
-#         local code; code=$functions[$afufun]
-#         eval "function $afufun () { zle afu+delete-unambiguous-prefix; $code }"
-#     }
-#     afu-ad-delete-unambiguous-prefix afu+accept-line
-#     afu-ad-delete-unambiguous-prefix afu+accept-line-and-down-history
-#     afu-ad-delete-unambiguous-prefix afu+accept-and-hold
-#
-#     # run this function just once
-#     precmd_functions=("${(@)precmd_functions:#install-auto-fu}")
-# }
-#
-# # We should install auto-fu after all configuration changes since it
-# # inherits 'emacs' keymap and adding key bindings to 'emacs' keymap
-# # after installing auto-fu has no effect.
-# precmd_functions+=install-auto-fu
-# }}}
 
 # ------------------------------------
 # sudo.vim
 # ------------------------------------
-# {{{
 sudo() {
   local args
   case $1 in
@@ -149,76 +26,10 @@ sudo() {
       ;;
   esac
 }
-# }}}
-
-# ------------------------------------
-# rake command cache
-# ------------------------------------
-# {{{
-# http://qiita.com/ToQoz/items/848abdf90a0f40e70ce0
-local __stat_op="-c%Y"
-if [[ "$OSTYPE" =~ "darwin.*" ]]; then
-  __stat_op='-f %m'
-fi
-_cachefile_updated_at() {
-  echo $(stat "$__stat_op" .rake_tasks)
-}
-_rakefile_updated_at() {
-  echo $(stat "$__stat_op" Rakefile)
-}
-_gemfile_updated_at() {
-  echo $(stat "$__stat_op" Gemfile)
-}
-_generate_cachefile() {
-  [ -f .rake_tasks ] && rm .rake_tasks
-  rake --silent --tasks 2> /dev/null | cut  -f 2 -d " " > .rake_tasks
-}
-_rake() {
-  if [ -f Rakefile ]; then
-    if [ ! -f .rake_tasks ] || \
-       [ "`cat .rake_tasks | wc -l`" = "0" ] || \
-       [ `_cachefile_updated_at` -lt `_rakefile_updated_at` ]; then
-       # [ -f Gemfile -a `_cachefile_updated_at` -lt `_gemfile_updated_at` ]; then
-      _generate_cachefile
-    fi
-    compadd `cat .rake_tasks`
-  fi
-}
-compdef _rake rake
-# }}}
-
-# ------------------------------------
-# make command cache
-# ------------------------------------
-# {{{
-_makefile_cache_updated_at() {
-  echo $(stat "$__stat_op" .make_targets)
-}
-_makefile_updated_at() {
-  echo $(stat "$__stat_op" Makefile)
-}
-_generate_makefile_cache() {
-  [ -f .make_targets ] && rm .make_targets
-  make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}' > .make_targets
-}
-_make() {
-  if [ -f Makefile ]; then
-    if [ ! -f .make_targets ] || \
-       [ "`cat .make_targets | wc -l`" = "0" ] || \
-       [ `_makefile_cache_updated_at` -lt `_makefile_updated_at` ]; then
-       # [ -f Makefile -a `_makefile_cache_updated_at` -lt `_makefile_updated_at` ]; then
-      _generate_makefile_cache
-    fi
-    compadd `cat .make_targets`
-  fi
-}
-compdef _make make
-# }}}
 
 # ------------------------------------
 # notify for slow commands
 # ------------------------------------
-# {{{
 # http://qiita.com/hayamiz/items/d64730b61b7918fbb970
 autoload -U add-zsh-hook 2>/dev/null || return
 __timetrack_threshold=30 # seconds
@@ -298,7 +109,6 @@ if which growlnotify >/dev/null 2>&1 ||
   add-zsh-hook preexec __my_preexec_start_timetrack
   add-zsh-hook precmd __my_preexec_end_timetrack
 fi
-# }}}
 
 # ------------------------------------
 # direnv
@@ -308,33 +118,8 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 # ------------------------------------
-# ls && git status
-# ------------------------------------
-# {{{
-function do_enter() {
-  if [ -n "$BUFFER" ]; then
-    zle accept-line
-    return 0
-  fi
-  echo
-  ls -a
-  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-    echo
-    echo -e "\e[0;33m--- git status ---\e[0m"
-    git status -sb
-  fi
-  zle reset-prompt
-  return 0
-}
-zle -N do_enter
-# bindkey -M afu '^m' do_enter
-bindkey '^m' do_enter
-# }}}
-
-# ------------------------------------
 # peco
 # ------------------------------------
-# {{{
 function peco-select-history() {
   local tac
   if which tac > /dev/null; then
@@ -380,22 +165,8 @@ zle -N peco-git-hash
 bindkey '^G' peco-cdr
 # bindkey '^G' peco-git-hash
 bindkey '^R' peco-select-history
-# }}}
 
 # ------------------------------------
 # misc
 # ------------------------------------
-# {{{
 function mkcd() { mkdir -p $1 && cd $1; }
-
-# convert \ to ~/
-# expand-to-home-or-insert () {
-#   if [ "$LBUFFER" = "" -o "$LBUFFER[-1]" = " " ]; then
-#     LBUFFER+="~/"
-#   else
-#     zle self-insert
-#   fi
-# }
-# zle -N expand-to-home-or-insert
-# bindkey -M afu '\\' expand-to-home-or-insert
-# }}}

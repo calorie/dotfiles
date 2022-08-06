@@ -108,7 +108,7 @@ alias emacs='emacs -nw'
 alias xopen='xdg-open'
 
 # bundle
-alias bi='bundle install --path vendor/bundle --binstubs .bundle/bin --jobs=4'
+alias bi='bundle install --jobs=4'
 
 # ag
 alias ag='ag --hidden'

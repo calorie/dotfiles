@@ -1,6 +1,5 @@
 # osx alias
 alias pbc='pbcopy'
-alias b2d='boot2docker'
 
 # path
 export C_INCLUDE_PATH="/usr/local/include":$C_INCLUDE_PATH
@@ -11,63 +10,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
-
-# vvm-rb
-test -f ~/.vvm-rb/etc/login && source ~/.vvm-rb/etc/login
-vvm_opt=(
-  --disable-cscope
-  --disable-gpm
-  --disable-gtktest
-  --disable-gui
-  --disable-largefile
-  --disable-mzschemeinterp
-  --disable-netbeans
-  --disable-nls
-  --disable-python3interp
-  --disable-selinux
-  --disable-sysmouse
-  --disable-tclinterp
-  --disable-xsmp
-  --disable-xsmp-interact
-  --disable-workshop
-  --enable-fail-if-missing
-  --enable-luainterp
-  --enable-multibyte
-  --enable-pythoninterp
-  --enable-rubyinterp
-  --with-compiledby=\"Yuu Shigetani\"
-  --with-features=big
-  --with-lua-prefix=/usr/local/Homebrew
-  --with-modified-by=\"Yuu Shigetani\"
-  --without-x
-)
-export VVMOPT="${vvm_opt}"
-
-# quick-cocos2d-x
-if [ -d $HOME/src/android ]; then
-  export ANDROID_ROOT=$HOME/src/android
-  export ANDROID_NDK_ROOT=$ANDROID_ROOT/android/android-ndk-r9b
-  export ANDROID_SDK_ROOT=$ANDROID_ROOT/android/android-sdk-macosx
-  export ANDROID_HOME=${ANDROID_SDK_ROOT}
-fi
-if [ -d $HOME/work/quick-cocos2d-x ]; then
-  export QUICK_COCOS2DX_ROOT=$HOME/work/quick-cocos2d-x
-  export COCOS2DX_ROOT=${QUICK_COCOS2DX_ROOT}/lib/cocos2d-x
-fi
-
-# go
-if command -v chgo >/dev/null 2>&1; then
-  export CHGO_SKIP_AUTO_INSTALL=1
-  if [ -n "$CHGO_ROOT" ] && [ -f $CHGO_ROOT/version ]; then
-    export CHGO_VERSION="$(cat $CHGO_ROOT/version)"
-    if [ -d $CHGO_ROOT/versions/$CHGO_VERSION ]; then
-      export GOROOT=$CHGO_ROOT/versions/$CHGO_VERSION
-      export PATH=$GOROOT/bin:$PATH
-    fi
-  fi
-fi
-export GOPATH=$HOME/.go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # flutter
  export PATH="$PATH:$HOME/src/flutter/bin"
