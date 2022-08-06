@@ -3,6 +3,7 @@
 "---------------------------------------------------------------------
 if g:is_mac
   let g:loaded_python_provider = 0
+  let g:loaded_perl_provider = 0
   let g:python3_host_prog = '/usr/local/bin/python3'
   let g:ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 endif
