@@ -32,6 +32,10 @@ call dein#add('lambdalisue/fern.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.fern.preload',
       \ })
 
+call dein#add('beauwilliams/focus.nvim', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.focus.nvim.preload',
+      \ })
+
 call dein#add('antoinemadec/FixCursorHold.nvim', {
       \ 'lazy': 1,
       \ })
@@ -40,18 +44,18 @@ call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
       \ })
 
-call dein#add('camspiers/lens.vim', {
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lens.vim.preload',
-      \ })
+" call dein#add('camspiers/lens.vim', {
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lens.vim.preload',
+"       \ })
 
-call dein#add('scrooloose/nerdtree', {
-      \ 'on_cmd': [
-      \   'NERDTree',
-      \   'NERDTreeToggle',
-      \   'NERDTreeFind',
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nerdtree.preload',
-      \ })
+" call dein#add('scrooloose/nerdtree', {
+"       \ 'on_cmd': [
+"       \   'NERDTree',
+"       \   'NERDTreeToggle',
+"       \   'NERDTreeFind',
+"       \ ],
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nerdtree.preload',
+"       \ })
 
 call dein#add('vim-airline/vim-airline', {
       \ 'depends': ['vim-fugitive', 'vim-airline-themes', 'nvim-lspconfig'],
@@ -209,15 +213,6 @@ call dein#add('osyo-manga/vim-anzu', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-anzu.preload',
       \ })
 
-" call dein#add('szw/vim-tags', {
-"       \ 'lazy': 1,
-"       \ 'depends': 'vim-dispatch',
-"       \ 'on_cmd': [
-"       \   'TagsGenerate',
-"       \ ],
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-tags',
-"       \ })
-
 call dein#add('t9md/vim-textmanip', {
       \ 'lazy': 1,
       \ 'on_map': [
@@ -245,12 +240,6 @@ call dein#add('kana/vim-smartword', {
 "------------------------------------
 " Syntax
 "------------------------------------
-" call dein#add('scrooloose/syntastic', {
-"       \ 'lazy': 1,
-"       \ 'on_event': 'InsertEnter',
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.syntastic',
-"       \ })
-
 call dein#add('leafgarland/typescript-vim', {
       \ 'lazy': 1,
       \ 'on_ft': [
@@ -272,13 +261,6 @@ call dein#add('elzr/vim-json', {
       \   'json'
       \ ],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-json',
-      \ })
-
-call dein#add('slim-template/vim-slim', {
-      \ 'lazy': 1,
-      \ 'on_ft': [
-      \   'slim'
-      \ ],
       \ })
 
 call dein#add('hashivim/vim-terraform', {
@@ -368,10 +350,6 @@ call dein#add('907th/vim-auto-save', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-auto-save.preload',
       \ })
 
-" call dein#add('tpope/vim-dispatch', {
-"       \ 'lazy': 1,
-"       \ })
-
 call dein#add('tpope/vim-fugitive', {
       \ 'on_cmd': [
       \   'Git', 'Gstatus', 'Gwrite', 'Glog',
@@ -392,9 +370,9 @@ call dein#add('thinca/vim-quickrun', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun',
       \ })
 
-call dein#add('Shougo/vimproc', {
-      \ 'build': 'make',
-      \ })
+" call dein#add('Shougo/vimproc', {
+"       \ 'build': 'make',
+"       \ })
 
 call dein#end()
 call dein#save_state()
