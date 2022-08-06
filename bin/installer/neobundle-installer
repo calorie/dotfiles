@@ -1,7 +1,5 @@
 #!/bin/bash
 
-test -f $HOME/.vvm-rb/etc/login && source $HOME/.vvm-rb/etc/login
-
 if command -v vim >/dev/null 2>&1; then
   BUNDLE_PATH=$HOME/.vim/bundle
   NEOBUNDLE_PATH=$HOME/.vim/bundle/neobundle.vim

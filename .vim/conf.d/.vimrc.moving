@@ -26,14 +26,6 @@ noremap <Space>k <C-b>
 " nnoremap <BS><BS> :<C-u>bn<CR>
 nnoremap <C-w> :bnext \| bdelete #<CR>
 
-" change flame size
-" nnoremap <kPlus> <C-W>+
-" nnoremap <kMinus> <C-W>-
-" nnoremap <C-w><Down> <C-W>10-
-" nnoremap <C-w><Up> <C-W>10+
-" nnoremap <C-w><Left> <C-W>10>
-" nnoremap <C-w><Right> <C-W>10<
-
 " move to ended cursor line
 augroup CursorLine
   autocmd!

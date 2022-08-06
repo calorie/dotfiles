@@ -67,7 +67,7 @@ do
 done
 
 # NeoBundle
-. $INSTALLER_PATH/neobundle-installer
+# . $INSTALLER_PATH/neobundle-installer
 
 # dein
 $INSTALLER_PATH/dein-installer

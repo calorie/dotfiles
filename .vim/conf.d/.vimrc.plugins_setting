@@ -1,27 +1,18 @@
-"--------------------------------------------------------------------
-" Plugins
-"--------------------------------------------------------------------
-
 "------------------------------------
 " tabular
 "------------------------------------
-" {{{
 vnoremap tb :Tab /
-" }}}
 
 "------------------------------------
 " tcomment_vim
 "------------------------------------
-" {{{
 let g:tcommentmaps = 0
 nnoremap <silent>gcc :TComment<CR>
 vnoremap <silent>gc :TComment<CR>
-" }}}
 
 "------------------------------------
 " surround.vim
 "------------------------------------
-" {{{
 " select word by s, ss
 " nmap s  <Plug>Ysurround
 " nmap ss <Plug>Yssurround
@@ -32,12 +23,10 @@ xmap gS <Plug>VgSurround
 let g:surround_{char2nr('e')} = "begin \r end"
 let g:surround_{char2nr('d')} = "do \r end"
 let g:surround_{char2nr("-")} = ":\r"
-" }}}
 
 "------------------------------------
 " Fugitive.vim
 "------------------------------------
-" {{{
 nnoremap <Space>gd :<C-u>Gdiff<CR>
 nnoremap <Space>gs :<C-u>Gstatus<CR>
 nnoremap <Space>gl :<C-u>Glog<CR>
@@ -45,49 +34,39 @@ nnoremap <Space>ga :<C-u>Gwrite<CR>
 nnoremap <Space>gc :<C-u>Gcommit<CR>
 nnoremap <Space>gC :<C-u>Git commit --amend<CR>
 nnoremap <Space>gb :<C-u>Gblame<CR>
-" }}}
 
 "------------------------------------
 " gundo.Vim
 "------------------------------------
-" {{{
 nnoremap U :<C-u>GundoToggle<CR>
-" }}}
 
 "------------------------------------
 " open-blowser.vim
 "------------------------------------
-" {{{
 " open url
 nmap <Leader>o <Plug>(openbrowser-open)
 xmap <Leader>o <Plug>(openbrowser-open)
 " search word
 nnoremap <Leader>os :<C-u>OpenBrowserSearch<Space>
 nnoremap <Leader>osw :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
-" }}}
 
 "------------------------------------
 " vim-browser-reload-linux, mac
 "------------------------------------
-" {{{
 " nnoremap <Leader>rl :ChromeReloadStart<CR>
 " nnoremap <Leader>Rl :ChromeReloadStop<CR>
-" }}}
 
 "------------------------------------
 " smartword.vim
 "------------------------------------
-" {{{
 map W  <Plug>(smartword-w)
 map B  <Plug>(smartword-b)
 map E  <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
-" }}}
 
 "------------------------------------
 " unite.vim
 "------------------------------------
-" {{{
 " The prefix key.
 nnoremap [unite] <Nop>
 nmap <Space> [unite]
@@ -190,15 +169,12 @@ function! s:bundle.hooks.on_source(bundle)
     let g:unite_source_grep_default_opts = '-S --nogroup --nocolor --column --hidden'
     let g:unite_source_grep_recursive_opt = ''
   endif
-
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " quickrun.vim
 "------------------------------------
-" {{{
 nnoremap <silent><Leader>r :QuickRun<CR>
 
 let s:bundle = neobundle#get('vim-quickrun')
@@ -229,12 +205,10 @@ function! s:bundle.hooks.on_source(bundle)
         \ 'cmdopt': '-s' }
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " NERDTree.vim
 "------------------------------------
-" {{{
 augroup NERDTree
   autocmd!
   " open nerdtree when no args
@@ -251,12 +225,10 @@ let g:NERDTreeMinimalUI  = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 20
 let g:NERDTreeIgnore = ['.DS_Store', '.gitkeep', '.keep', '\.lo$', '\.o$', '.dirstamp', '.libs', '.deps', '.meta']
-" }}}
 
 "------------------------------------
 " vim-ref
 "------------------------------------
-" {{{
 augroup VimRef
   autocmd!
   autocmd FileType ruby,eruby nnoremap <buffer>K :<C-U>Ref refe <C-R><C-W><CR>
@@ -264,12 +236,10 @@ augroup END
 let g:ref_open = 'vsplit'
 let g:ref_refe_cmd = 'refe'
 let g:ref_refe_version = 2
-" }}}
 
 "------------------------------------
 " Gist
 "------------------------------------
-" {{{
 let g:gist_show_privates = 1
 nnoremap <Leader>gi :Gist<CR>
 nnoremap <Leader>gp :Gist -p<CR>
@@ -277,12 +247,10 @@ nnoremap <Leader>ge :Gist -e<CR>
 nnoremap <Leader>gs :Gist -s <Space><C-R><C-W><CR>
 nnoremap <Leader>gd :Gist -d<CR>
 nnoremap <Leader>gl :Gist -l<CR>
-" }}}
 
 "------------------------------------
 " neosnippets
 "------------------------------------
-" {{{
 imap <C-f>     <Plug>(neosnippet_expand_or_jump)
 smap <C-f>     <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -294,12 +262,10 @@ let g:neosnippet#snippets_directory = '~/.vim/bundle/snipmate-snippets/snippets,
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-" }}}
 
 "------------------------------------
 " easy-mosion
 "------------------------------------
-" {{{
 let s:bundle = neobundle#get('vim-easymotion')
 function! s:bundle.hooks.on_source(bundle)
   " use close keys
@@ -314,12 +280,10 @@ function! s:bundle.hooks.on_source(bundle)
   highlight EasyMotionShade  ctermbg=none ctermfg=blue
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " Syntastic
 "------------------------------------
-" {{{
 let s:bundle = neobundle#get('syntastic')
 function! s:bundle.hooks.on_source(bundle)
   " sign error lines
@@ -351,12 +315,10 @@ function! s:bundle.hooks.on_source(bundle)
   endif
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " vim-gitgutter
 "------------------------------------
-" {{{
 nnoremap <Leader>ggt :<C-u>GitGutterToggle<CR>
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
@@ -367,12 +329,10 @@ function! s:bundle.hooks.on_source(bundle)
   let g:gitgutter_map_keys = 0
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " vim-rails.vim
 "------------------------------------
-" {{{
 " nnoremap <Space>r :R<CR>
 " nnoremap <Space>a :A<CR>
 nnoremap <Leader>em :Emodel<CR>
@@ -392,19 +352,15 @@ function! s:bundle.hooks.on_source(bundle)
   " let g:rails_ctags_arguments = ''
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " vim-endwise
 "------------------------------------
-" {{{
 " let g:endwise_no_mappings = 1
-" }}}
 
 "------------------------------------
 " emmet
 "------------------------------------
-" {{{
 let g:zencoding_debug = 0
 let g:user_zen_settings = {
       \ 'lang' : 'ja',
@@ -416,34 +372,28 @@ let g:user_zen_settings = {
       \     'filters' : 'fc',
       \   },
       \ }
-" }}}
 
 "------------------------------------
 " vim-tags
 "------------------------------------
-" {{{
 let s:vim_tags_path_prefix = g:is_mac ? '/usr/local/' : '/usr/'
 let g:vim_tags_project_tags_command = s:vim_tags_path_prefix . "bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 let g:vim_tags_gems_tags_command = s:vim_tags_path_prefix . "bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 let g:vim_tags_auto_generate = 1
 let g:vim_tags_use_vim_dispatch = 1
 let g:vim_tags_use_ycm = 0
-" }}}
 
 "------------------------------------
 " text-manipvim
 "------------------------------------
-" {{{
 xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-l> <Plug>(textmanip-move-right)
-" }}}
 
 "------------------------------------
 " sudo.vim
 "------------------------------------
-" {{{
 augroup Sudo
   autocmd!
   autocmd BufReadCmd   sudo:*,sudo:*/* SudoRead <afile>
@@ -451,20 +401,16 @@ augroup Sudo
   autocmd BufWriteCmd  sudo:*,sudo:*/* SudoWrite <afile>
   autocmd FileWriteCmd sudo:*,sudo:*/* SudoWrite <afile>
 augroup END
-" }}}
 
 "------------------------------------
 " clever-f
 "------------------------------------
-" {{{
 map f <Plug>(clever-f-f)
 map F <Plug>(clever-f-F)
-" }}}
 
 "------------------------------------
 " vim-airline
 "------------------------------------
-" {{{
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#bufferline#enabled = 0
@@ -514,38 +460,30 @@ let g:airline_mode_map = {
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
-" }}}
 
 "------------------------------------
 " vim-textobj-entire
 "------------------------------------
-" {{{
 xmap ae <Plug>(textobj-entire-a)
 xmap ie <Plug>(textobj-entire-i)
-" }}}
 
 "------------------------------------
 " vim-textobj-indent
 "------------------------------------
-" {{{
 xmap ai <Plug>(textobj-indent-a)
 xmap ii <Plug>(textobj-indent-i)
 xmap aI <Plug>(textobj-indent-same-a)
 xmap iI <Plug>(textobj-indent-same-i)
-" }}}
 
 "------------------------------------
 " vim-textobj-function
 "------------------------------------
-" {{{
 xmap af <Plug>(textobj-function-a)
 xmap if <Plug>(textobj-function-i)
-" }}}
 
 "------------------------------------
 " vim-ruby
 "------------------------------------
-" {{{
 let s:bundle = neobundle#get('vim-ruby')
 function! s:bundle.hooks.on_source(bundle)
   " let g:ruby_path = system('echo $HOME/.rbenv/shims')
@@ -554,66 +492,52 @@ function! s:bundle.hooks.on_source(bundle)
   let g:rubycomplete_classes_in_global = 1
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " vim-swap-windows
 "------------------------------------
-" {{{
 nnoremap <silent> <leader>mw :MarkWindow<CR>
 nnoremap <silent> <leader>pw :SwapWindows<CR>
-" }}}
 
 "------------------------------------
 " vim-typing-sound
 "------------------------------------
-" {{{
 let g:vim_typing_sound = 0
 let g:vim_typing_sound_path = '~/Dropbox/program/sound/seq2_key1.wav'
 " let g:vim_typing_sound_path = '~/Dropbox/program/sound/seq6_key1.wav'
-" }}}
 
 "------------------------------------
 " vim-auto-save
 "------------------------------------
-" {{{
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
-" }}}
 
 "------------------------------------
 " vim-over
 "------------------------------------
-" {{{
 nnoremap <Leader>sb :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 vnoremap <Leader>sb "xy:OverCommandLine<CR>%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//g<Left><Left>
-" }}}
 
 "------------------------------------
 " auto-pairs
 "------------------------------------
-" {{{
 let g:AutoPairsMapBS = 0
 let g:AutoPairsMapCh = 0
-" }}}
 
 "------------------------------------
 " vim-rspec
 "------------------------------------
-" {{{
 " let g:rspec_command = 'Dispatch rspec {spec}'
 " augroup VimRspec
 "   autocmd!
 "   autocmd FileType ruby nmap <silent><Leader>c :call RunNearestSpec()<CR>
 "   " autocmd FileType ruby nmap <silent><Leader>c :call RunCurrentSpecFile()<CR>
 " augroup END
-" }}}
 
 "------------------------------------
 " switch.vim
 "------------------------------------
-" {{{
 nnoremap + :Switch<CR>
 nnoremap - :call switch#Switch(g:variable_style_switch_definitions)<cr>
 let g:switch_custom_definitions =
@@ -636,45 +560,35 @@ let g:variable_style_switch_definitions = [
       \     },
       \   }
       \ ]
-" }}}
 
 "------------------------------------
 " vim-json
 "------------------------------------
-" {{{
 let g:vim_json_syntax_conceal = 0
-" }}}
 
 "------------------------------------
 " vim-bufferline
 "------------------------------------
-" {{{
 let g:bufferline_echo = 0
-" }}}
 
 "------------------------------------
 " vim-anzu
 "------------------------------------
-" {{{
 let g:anzu_search_limit = 100
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
-" }}}
 
 "------------------------------------
 " limelight.vim
 "------------------------------------
-" {{{
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
-" }}}
 
 "------------------------------------
 " goyo.vim
 "------------------------------------
-" {{{
 let s:bundle = neobundle#get('goyo.vim')
 function! s:bundle.hooks.on_source(bundle)
   function! s:goyo_enter()
@@ -700,14 +614,11 @@ function! s:bundle.hooks.on_source(bundle)
   autocmd  User GoyoLeave nested call <SID>goyo_leave()
 endfunction
 unlet s:bundle
-" }}}
 
 "------------------------------------
 " indentLine
 "------------------------------------
-" {{{
 let g:indentLine_noConcealCursor = ''
-" }}}
 
 "------------------------------------
 " neocomple.vim

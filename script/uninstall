@@ -16,7 +16,6 @@ UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
 
 PKGS=(
   ricty
-  vvm-rb
 )
 for pkg in ${PKGS[@]}
 do
@@ -25,8 +24,6 @@ done
 
 DOTFILES=(
   .agignore
-  .ctags
-  .config/zathura/zathurarc
   .dir_colors
   .gdbinit
   .gemrc
@@ -38,12 +35,12 @@ DOTFILES=(
   .rdebugrc
   .rspec
   .rubocop.yml
-  .splintrc
   .tmux-powerlinerc
   .tmux.conf
   .vim/dict
+  .config/nvim/init.vim
+  .config/powerline-shell/config.json
   .vimrc
-  .vrapperrc
   .zshrc
 )
 for file in ${DOT_FILES[@]}

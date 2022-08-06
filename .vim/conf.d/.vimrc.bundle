@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" vim plugins
-"---------------------------------------------------------------------
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -10,8 +7,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 if neobundle#load_cache()
 
-" Unite {{{
-
+" Unite
   " unite
   NeoBundleLazy 'Shougo/unite.vim', {
         \ 'depends' : 'Shougo/neomru.vim',
@@ -52,10 +48,7 @@ if neobundle#load_cache()
         \   'unite_sources' : 'tag',
         \ }}
 
-" }}}
-
-" Edit {{{
-
+" Edit
   " comment
   NeoBundleLazy 'tomtom/tcomment_vim', {
         \ 'autoload' : {
@@ -150,12 +143,7 @@ if neobundle#load_cache()
         \ 'depends' : 'kana/vim-textobj-user',
         \ 'autoload' : { 'filetypes' : ['ruby', 'eruby'] }}
 
-  " }}}
-
-" }}}
-
-" Completion {{{
-
+" Completion
   " completion
   if has('lua')
     NeoBundleLazy 'Shougo/neocomplete.vim', {
@@ -174,10 +162,7 @@ if neobundle#load_cache()
         \     'neosnippet/runtime'],
         \ }}
 
-" }}}
-
-" Searching/Moving {{{
-
+" Searching/Moving
   " intuitive moving
   NeoBundleLazy 'Lokaltog/vim-easymotion', {
       \ 'autoload' : { 'mappings' : ',' }}
@@ -246,10 +231,7 @@ if neobundle#load_cache()
         \   ],
         \ }}
 
-" }}}
-
-" Programming {{{
-
+" Programming
   " auto create tags
   NeoBundleLazy 'szw/vim-tags', {
         \ 'depends' : 'tpope/vim-dispatch',
@@ -304,10 +286,7 @@ if neobundle#load_cache()
         \     'haml', 'css', 'scss', 'sass'],
         \ }}
 
-" }}}
-
-" Syntax {{{
-
+" Syntax
   " syntax checking plugins exist for
   " eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundleLazy 'scrooloose/syntastic', {
@@ -345,10 +324,7 @@ if neobundle#load_cache()
   " NeoBundleLazy 'evanmiller/nginx-vim-syntax', {
   "       \ 'autoload': { 'filetypes': ['nginx'] }}
 
-" }}}
-
-" Buffer {{{
-
+" Buffer
   " tree explore
   NeoBundle 'scrooloose/nerdtree'
 
@@ -362,16 +338,10 @@ if neobundle#load_cache()
         \   'commands' : 'Limelight'
         \ }}
 
-" }}}
-
-" Encording {{{
-
+" Encording
   NeoBundle 'banyan/recognize_charcode.vim'
 
-" }}}
-
-" Utility {{{
-
+" Utility
   " auto save
   NeoBundle 'vim-scripts/vim-auto-save'
 
@@ -429,14 +399,9 @@ if neobundle#load_cache()
         \ 'autoload' : {
         \   'commands' : 'Gist' }}
 
-" }}}
-
-" ColorScheme {{{
-
+" ColorScheme
   " calorie, jellybeans, wombat, railscasts
   NeoBundle 'calorie/colorschemes'
-
-" }}}
 
   NeoBundleSaveCache
 endif

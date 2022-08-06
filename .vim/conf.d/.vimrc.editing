@@ -1,7 +1,6 @@
 "---------------------------------------------------------------------
 " Edit
 "---------------------------------------------------------------------
-
 " IME off when normal mode
 set noimdisable
 set iminsert=0 imsearch=0
@@ -41,9 +40,6 @@ imap <C-b> <BS>
 nmap y9 y$
 " yank to line start
 nmap y0 y^
-
-" yank word
-" nnoremap vy vawy
 
 " remove space & tab with saving
 " function! s:remove_dust()
