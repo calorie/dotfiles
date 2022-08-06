@@ -38,6 +38,7 @@ function! s:init_fern() abort
   nmap <buffer><nowait> d <Plug>(fern-action-remove)
 
   nmap <buffer><nowait> P gg
+  nmap <buffer><nowait> p <Plug>(fern-action-focus:parent)
   nmap <buffer><nowait> K <Plug>(fern-action-focus:parent)
   nmap <buffer><nowait> C <Plug>(fern-action-enter)
   nmap <buffer><nowait> u <Plug>(fern-action-leave)
