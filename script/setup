@@ -53,6 +53,7 @@ DOTFILES=(
   .irbrc
   .pryrc
   .rdebugrc
+  .ripgreprc
   .rspec
   .rubocop.yml
   .tmux-powerlinerc

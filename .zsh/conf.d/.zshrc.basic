@@ -165,7 +165,7 @@ export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
 # ------------------------------------
 # NeoVim
 # ------------------------------------
-test -f ~/.nvvm/etc/login && source ~/.nvvm/etc/login
+# test -f ~/.nvvm/etc/login && source ~/.nvvm/etc/login
 
 # ------------------------------------
 # rbenv
@@ -182,3 +182,8 @@ if [ -d $HOME/.nodenv ]; then
   export PATH="$HOME/.nodenv/bin:$PATH"
   eval "$(nodenv init -)"
 fi
+
+# ------------------------------------
+# ripgrep
+# ------------------------------------
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc

@@ -25,6 +25,7 @@ call dein#add('Shougo/dein.vim')
 " Buffer
 "------------------------------------
 call dein#add('lambdalisue/fern.vim', {
+      \ 'lazy': 1,
       \ 'depends': ['FixCursorHold.nvim'],
       \ 'on_cmd': [
       \   'Fern',
@@ -68,6 +69,10 @@ call dein#add('vim-airline/vim-airline-themes', {
 
 call dein#add('liuchengxu/vim-clap', {
       \ 'lazy': 1,
+      \ 'on_cmd': [
+      \   'Clap',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-clap.preload',
       \ 'build': 'make',
       \ })
 
@@ -77,10 +82,6 @@ call dein#add('liuchengxu/vim-clap', {
 call dein#add('calorie/colorschemes', {
       \ 'hook_add': 'colorscheme calorie',
       \ })
-
-" call dein#add('whatyouhide/vim-gotham', {
-"       \ 'hook_add': 'colorscheme gotham256',
-"       \ })
 
 "------------------------------------
 " Completion
@@ -191,6 +192,7 @@ call dein#add('svermeulen/vim-yoink', {
       \ 'on_map': [
       \   ['n', '<Plug>(YoinkPostPasteSwapBack)'], ['n', '<Plug>(YoinkPostPasteSwapForward)'],
       \   ['n', '<Plug>(YoinkPaste_p)'], ['n', '<Plug>(YoinkPaste_P)'],
+      \   ['nx', '<Plug>(YoinkYankPreserveCursorPosition)'],
       \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik',
@@ -309,23 +311,23 @@ call dein#add('kana/vim-textobj-user', {
 "------------------------------------
 " Unite
 "------------------------------------
-call dein#add('Shougo/denite.nvim', {
-      \ 'lazy': 1,
-      \ 'on_cmd': [
-      \   'Denite',
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.denite.preload',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.denite',
-      \ 'depends': ['neomru.vim', 'neoyank.vim', 'vim-clap'],
-      \ })
-
-call dein#add('Shougo/neomru.vim', {
-      \ 'lazy': 1,
-      \ })
-
-call dein#add('Shougo/neoyank.vim', {
-      \ 'lazy': 1,
-      \ })
+" call dein#add('Shougo/denite.nvim', {
+"       \ 'lazy': 1,
+"       \ 'on_cmd': [
+"       \   'Denite',
+"       \ ],
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.denite.preload',
+"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.denite',
+"       \ 'depends': ['neomru.vim', 'neoyank.vim', 'vim-clap'],
+"       \ })
+"
+" call dein#add('Shougo/neomru.vim', {
+"       \ 'lazy': 1,
+"       \ })
+"
+" call dein#add('Shougo/neoyank.vim', {
+"       \ 'lazy': 1,
+"       \ })
 
 "------------------------------------
 " Utility

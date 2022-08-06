@@ -1,0 +1,12 @@
+let g:clap_theme = 'material_design_dark'
+let g:clap_open_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-l': 'vsplit' }
+
+nnoremap [clap] <Nop>
+nmap <Space> [clap]
+
+nnoremap <silent> [clap]f :<C-u>Clap files<CR>
+nnoremap <silent> [clap]b :<C-u>Clap buffers<CR>
+nnoremap <silent> [clap]m :<C-u>Clap recent_files<CR>
+nnoremap <silent> [clap]g :<C-u>Clap grep2<CR>
+nnoremap <silent> [clap]G :<C-u>Clap grep2 ++query=<cword><CR>
+nnoremap <silent> [clap]y :<C-u>Clap yanks<CR>
