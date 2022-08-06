@@ -3,15 +3,6 @@
 "---------------------------------------------------------------------
 syntax enable
 
-if !has('nvim')
-  if neobundle#is_installed('colorschemes') && neobundle#is_sourced('colorschemes')
-    colorscheme calorie
-    " colorscheme wombat
-    " colorscheme railscasts
-    " colorscheme jellybeans
-  endif
-endif
-
 " color config by terminal
 " 256
 set t_Co=256

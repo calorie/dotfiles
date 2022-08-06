@@ -43,7 +43,6 @@ done
 
 DOTFILES=(
   .agignore
-  .ctags
   .dir_colors
   .gdbinit
   .gemrc

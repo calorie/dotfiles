@@ -83,6 +83,11 @@ call dein#add('calorie/colorschemes', {
       \ 'hook_add': 'colorscheme calorie',
       \ })
 
+call dein#add('nvim-treesitter/nvim-treesitter', {
+      \ 'hook_post_update': 'TSUpdate',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-treesitter',
+      \ })
+
 "------------------------------------
 " Completion
 "------------------------------------
