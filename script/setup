@@ -17,7 +17,6 @@ DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
 PKGS=(
-  powerline-shell
   ricty-diminished
   tmux-256color
   tmux-powerline
