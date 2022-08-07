@@ -16,8 +16,12 @@
   quotepath = false
   preloadindex = true
   fscache = true
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [merge]
-  tool = vimdiff
+  tool = nvim
+[mergetool]
+  prompt = false
 [alias]
   s   = status
   sh  = show
@@ -34,8 +38,8 @@
   rbi1 = rebase -i HEAD^
   rbi2 = rebase -i HEAD^^
   rbi3 = rebase -i HEAD^^^
-  # rbi4 = rebase -i HEAD^^^^
-  # rbi5 = rebase -i HEAD^^^^^
+  rbi4 = rebase -i HEAD^^^^
+  rbi5 = rebase -i HEAD^^^^^
   # merge
   mn  = merge --no-ff
   # comit
@@ -91,9 +95,9 @@
 [heroku]
   account = calorie
 [hub]
-protocol = https
+  protocol = https
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

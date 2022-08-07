@@ -3,7 +3,9 @@
 ZSH_PATH=$HOME/.zsh
 POWERLINE_PATH=$ZSH_PATH/powerline-shell
 
-[ -d $ZSH_PATH ] || mkdir $ZSH_PATH
+if [ ! -d $ZSH_PATH ]; then
+  mkdir $ZSH_PATH
+fi
 git clone --single-branch https://github.com/b-ryan/powerline-shell.git $POWERLINE_PATH
 cd $POWERLINE_PATH
 

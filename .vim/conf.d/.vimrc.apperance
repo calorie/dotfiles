@@ -24,13 +24,3 @@ match ZenkakuSpace /　/
 "---------------------------------------------------------------------
 set laststatus=2 " display statusline
 set ruler        " display cursorline
-
-" hide tmux's statusline
-" if !has('gui_running') && $TMUX !=# ''
-"   augroup Tmux
-"     autocmd!
-"     autocmd VimEnter,FocusGained * silent !tmux set status off
-"     autocmd VimLeave,FocusLost * silent !tmux set status on
-"   augroup END
-" endif
-command! Tm silent :!tmux set status

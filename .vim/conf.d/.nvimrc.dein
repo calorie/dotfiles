@@ -324,7 +324,6 @@ call dein#add('tpope/vim-fugitive', {
       \   'Git', 'Gstatus', 'Gwrite', 'Glog',
       \   'Gcommit', 'Gblame', 'Ggrep', 'Gdiff',
       \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-fugitive.preload',
       \ })
 
 call dein#add('thinca/vim-quickrun', {

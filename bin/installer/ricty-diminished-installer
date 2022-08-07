@@ -4,7 +4,9 @@ RICTY_PATH=$HOME/RictyDiminished
 FONTS_PATH=$HOME/.fonts
 
 git clone --depth=1 https://github.com/mzyy94/RictyDiminished-for-Powerline.git $RICTY_PATH
-[ -d $FONTS_PATH ] || mkdir $FONTS_PATH
+if [ ! -d $FONTS_PATH ];
+  mkdir $FONTS_PATH
+fi
 cp -f $RICTY_PATH/vim-powerline-fontpatched/*.ttf $FONTS_PATH
 fc-cache -vf
 rm -rf $RICTY_PATH

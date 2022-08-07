@@ -4,7 +4,9 @@ if command -v nvim >/dev/null 2>&1; then
   PLUGIN_DIR=$HOME/.vim/dein/repos/github.com/Shougo
   INSTALL_DIR=$PLUGIN_DIR/dein.vim
 
-  [ -d $PLUGIN_DIR ] || mkdir -p $PLUGIN_DIR
+  if [ ! -d $PLUGIN_DIR ]; then
+    mkdir -p $PLUGIN_DIR
+  fi
   if [ ! -d $INSTALL_DIR ]; then
     git clone --single-branch https://github.com/Shougo/dein.vim.git $INSTALL_DIR
   fi

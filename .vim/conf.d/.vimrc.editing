@@ -33,9 +33,6 @@ inoremap <C-u> <C-g>u<C-u>
 " backspace & delete
 imap <C-b> <BS>
 
-" paste yank on insert mode
-" imap <C-o> <ESC>"*pa
-
 " yank to line end
 nmap y9 y$
 " yank to line start
@@ -68,10 +65,6 @@ augroup Fold
   autocmd!
   autocmd FileType vim,zsh :set foldmethod=marker
 augroup END
-
-" format JSON
-" http://wozozo.hatenablog.com/entry/2012/02/08/121504
-" map <Leader>j !python -m json.tool<CR>
 
 " close quickfix by q,esc
 augroup Qf

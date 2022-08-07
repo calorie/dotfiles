@@ -3,5 +3,7 @@
 TMUX_PATH=$HOME/.tmux
 TMUX_POWERLINE_PATH=$TMUX_PATH/tmux-powerline
 
-[ -d $TMUX_PATH ] || mkdir $TMUX_PATH
+if [ ! -d $TMUX_PATH ];
+  mkdir $TMUX_PATH
+fi
 git clone --single-branch https://github.com/erikw/tmux-powerline.git $TMUX_POWERLINE_PATH

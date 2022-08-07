@@ -1,9 +1,4 @@
 # ------------------------------------
-# git commands
-# ------------------------------------
-function git_ignore() { curl http://www.gitignore.io/api/$@ ;}
-
-# ------------------------------------
 # sudo.vim
 # ------------------------------------
 sudo() {
@@ -26,6 +21,67 @@ sudo() {
       ;;
   esac
 }
+
+# ------------------------------------
+# direnv
+# ------------------------------------
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+# ------------------------------------
+# peco
+# ------------------------------------
+function peco-select-history() {
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(history -n 1 | \
+    eval $tac | \
+    peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+
+function peco-cdr () {
+  local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-cdr
+
+function peco-ag () {
+  nvim $(ag -S $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
+zle -N peco-ag
+
+function peco-git-hash () {
+  local hash=$(git log --oneline --branches | peco | awk '{print $1}')
+  if [ -n "$hash" ]; then
+    BUFFER="${BUFFER} ${hash}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-git-hash
+
+# bindkey -M afu '^G' peco-git-hash
+# bindkey -M afu '^R' peco-select-history
+bindkey '^G' peco-cdr
+# bindkey '^G' peco-git-hash
+bindkey '^R' peco-select-history
+
+# ------------------------------------
+# misc
+# ------------------------------------
+function mkcd() { mkdir -p $1 && cd $1; }
 
 # ------------------------------------
 # notify for slow commands
@@ -107,64 +163,3 @@ sudo() {
 #   add-zsh-hook preexec __my_preexec_start_timetrack
 #   add-zsh-hook precmd __my_preexec_end_timetrack
 # fi
-
-# ------------------------------------
-# direnv
-# ------------------------------------
-if command -v direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-# ------------------------------------
-# peco
-# ------------------------------------
-function peco-select-history() {
-  local tac
-  if which tac > /dev/null; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-  BUFFER=$(history -n 1 | \
-    eval $tac | \
-    peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
-zle -N peco-select-history
-
-function peco-cdr () {
-  local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-cdr
-
-function peco-ag () {
-  nvim $(ag -S $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-zle -N peco-ag
-
-function peco-git-hash () {
-  local hash=$(git log --oneline --branches | peco | awk '{print $1}')
-  if [ -n "$hash" ]; then
-    BUFFER="${BUFFER} ${hash}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-git-hash
-
-# bindkey -M afu '^G' peco-git-hash
-# bindkey -M afu '^R' peco-select-history
-bindkey '^G' peco-cdr
-# bindkey '^G' peco-git-hash
-bindkey '^R' peco-select-history
-
-# ------------------------------------
-# misc
-# ------------------------------------
-function mkcd() { mkdir -p $1 && cd $1; }

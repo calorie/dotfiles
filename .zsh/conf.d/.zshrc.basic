@@ -1,15 +1,8 @@
+autoload -Uz add-zsh-hook
+
 # ------------------------------------
 # TMUX
 # ------------------------------------
-autoload -Uz add-zsh-hook
-
-function __restore_tmuxpwd() {
-  if [ -n "$TMUX" ]; then
-    tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
-    tmux refresh -S
-  fi
-}
-
 # tmux autoload
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   tmux -2 new-session -A -s main
@@ -17,9 +10,6 @@ fi
 
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-__restore_tmuxpwd
-add-zsh-hook chpwd __restore_tmuxpwd
 
 #------------------------------------
 # ENV
@@ -158,7 +148,6 @@ compinit -C
 # Export configuration
 # ------------------------------------
 export EDITOR=nvim
-export PATH=$PATH:$HOME/dotfiles/bin
 export PATH=$PATH:/sbin
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
 

@@ -23,7 +23,6 @@ if has('patch-7.4.314')
   set shortmess+=c
 endif
 
-" swap ; to :
 noremap ; :
 
 inoremap <C-c> <ESC>
