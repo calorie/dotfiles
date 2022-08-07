@@ -10,6 +10,7 @@ tap "universal-ctags/universal-ctags"
 brew "ansible"
 brew "automake"
 brew "cmake"
+brew "coreutils"
 brew "cpanminus"
 brew "direnv"
 brew "docker", link: false
