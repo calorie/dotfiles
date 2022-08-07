@@ -20,7 +20,6 @@ PKGS=(
   powerline-shell
   ricty-diminished
   tmux-256color
-  tmux-mem-cpu-load
   tmux-powerline
 )
 for pkg in ${PKGS[@]}

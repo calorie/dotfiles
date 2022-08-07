@@ -50,6 +50,7 @@ brew "ssh-copy-id", link: true
 brew "the_silver_searcher"
 brew "tig"
 brew "tmux"
+brew "tmux-mem-cpu-load"
 brew "vim"
 brew "w3m"
 brew "wget"
