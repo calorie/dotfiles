@@ -1,7 +1,0 @@
-#!/bin/bash
-
-ZSH_PATH=$HOME/.zsh
-AUTOCOMPLETE_PATH=$ZSH_PATH/zsh-autocomplete
-
-[ -d $ZSH_PATH ] || mkdir $ZSH_PATH
-git clone https://github.com/marlonrichert/zsh-autocomplete.git $AUTOCOMPLETE_PATH

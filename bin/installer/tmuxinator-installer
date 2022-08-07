@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [ ! -d $HOME/.tmuxinator ]; then
-  ln -s $HOME/dotfiles/.tmux/tmuxinator $HOME/.tmuxinator
-fi

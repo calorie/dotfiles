@@ -1,3 +1,5 @@
 #!/bin/bash
 
-tic $HOME/dotfiles/bin/installer/tmux-256color.terminfo
+/usr/local/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info
+tic -xe tmux-256color ~/tmux-256color.info
+rm ~/tmux-256color.info

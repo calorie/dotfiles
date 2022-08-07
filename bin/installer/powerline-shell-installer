@@ -2,17 +2,9 @@
 
 ZSH_PATH=$HOME/.zsh
 POWERLINE_PATH=$ZSH_PATH/powerline-shell
-DOTFILES_POWERLINE_PATH=$HOME/dotfiles/.zsh/powerline-shell
 
 [ -d $ZSH_PATH ] || mkdir $ZSH_PATH
-git clone https://github.com/milkbikis/powerline-shell.git $POWERLINE_PATH
+git clone --single-branch https://github.com/b-ryan/powerline-shell.git $POWERLINE_PATH
 cd $POWERLINE_PATH
-POWERLINE_FILES=(
-    config.py
-    powerline_shell_base.py
-)
-for file in ${POWERLINE_FILES[@]}
-do
-  ln -sf $DOTFILES_POWERLINE_PATH/$file $POWERLINE_PATH/$file
-done
-python setup.py install
+
+python3 setup.py install

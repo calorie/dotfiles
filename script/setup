@@ -40,7 +40,6 @@ done
 DOTFILES=(
   .agignore
   .dir_colors
-  .gdbinit
   .gemrc
   .gitconfig
   .gitignore
@@ -53,6 +52,7 @@ DOTFILES=(
   .rubocop.yml
   .tmux-powerlinerc
   .tmux.conf
+  .tmuxinator
   .vim/dict
   .config/nvim/init.vim
   .config/powerline-shell/config.json

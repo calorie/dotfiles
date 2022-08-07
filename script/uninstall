@@ -16,6 +16,7 @@ UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
 
 PKGS=(
   ricty
+  tmux-powerline
 )
 for pkg in ${PKGS[@]}
 do
@@ -25,7 +26,6 @@ done
 DOTFILES=(
   .agignore
   .dir_colors
-  .gdbinit
   .gemrc
   .gitconfig
   .gitignore
@@ -37,6 +37,7 @@ DOTFILES=(
   .rubocop.yml
   .tmux-powerlinerc
   .tmux.conf
+  .tmuxinator
   .vim/dict
   .config/nvim/init.vim
   .config/powerline-shell/config.json

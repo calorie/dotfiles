@@ -24,48 +24,17 @@ if command -v mux >/dev/null 2>&1; then
   gem install tmuxinator
 fi
 
-# tmux-mem-cpu-load
-if [ -d $HOME/.tmux/tmux-mem-cpu-load ]; then
-  cd $HOME/.tmux/tmux-mem-cpu-load
-  git pull --rebase origin master
-  cmake .
-  make
-  sudo make install
-fi
-
 # tmux-powerline
 if [ -d $HOME/.tmux/tmux-powerline ]; then
   cd $HOME/.tmux/tmux-powerline
-  git pull --rebase origin master
-fi
-
-# auto-fu
-if [ -d $HOME/.zsh/auto-fu.zsh ]; then
-  cd $HOME/.zsh/auto-fu.zsh
-  git pull --rebase origin pu
+  git pull --rebase origin main
 fi
 
 # powerline-shell
 if [ -d $HOME/.zsh/powerline-shell ]; then
   cd $HOME/.zsh/powerline-shell
-  git stash -u
   git pull --rebase origin master
-  git stash pop
-  ./install.py
-fi
-
-# rbenv
-if [ -d $RBENV_ROOT/plugins/rbenv-update ]; then
-  if [[ $OSTYPE != darwin* ]]; then
-    rbenv update
-    rbenv rehash
-  fi
-fi
-
-# zsh-autocomplete
-if [ -d $HOME/.zsh/zsh-autocomplete ]; then
-  cd $HOME/.zsh/zsh-autocomplete
-  git pull --rebase origin master
+  python3 setup.py install
 fi
 
 # vim plugins

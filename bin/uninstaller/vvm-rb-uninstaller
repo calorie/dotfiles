@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ -z "$VVMROOT" ]; then
-  [ -d $HOME/.vvm-rb ] && rm -rf $HOME/.vvm-rb
-else
-  [ -d $VVMROOT ] && rm -rf $VVMROOT
-fi

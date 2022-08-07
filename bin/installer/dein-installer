@@ -6,7 +6,7 @@ if command -v nvim >/dev/null 2>&1; then
 
   [ -d $PLUGIN_DIR ] || mkdir -p $PLUGIN_DIR
   if [ ! -d $INSTALL_DIR ]; then
-    git clone https://github.com/Shougo/dein.vim.git $INSTALL_DIR
+    git clone --single-branch https://github.com/Shougo/dein.vim.git $INSTALL_DIR
   fi
 
   nvim +':silent call dein#install()' +qa

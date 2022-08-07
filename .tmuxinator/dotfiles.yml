@@ -1,0 +1,6 @@
+# ~/.tmuxinator/dotfiles.yml
+
+project_name: dotfiles
+project_root: ~/dotfiles
+windows:
+  - editor: nvim

@@ -1,4 +1,1 @@
-npm install -g neovim
-npm install -g typescript
-npm install -g typescript-language-server
-npm install -g yaml-language-server
+npm install -g neovim typescript typescript-language-server yaml-language-server

@@ -6,7 +6,7 @@ if command -v vim >/dev/null 2>&1; then
 
   [ -d $BUNDLE_PATH ] || mkdir -p $BUNDLE_PATH
   if [ ! -d $NEOBUNDLE_PATH ]; then
-    git clone https://github.com/Shougo/neobundle.vim.git $NEOBUNDLE_PATH
+    git clone --single-branch https://github.com/Shougo/neobundle.vim.git $NEOBUNDLE_PATH
   fi
   . $NEOBUNDLE_PATH/bin/neoinstall
 fi
