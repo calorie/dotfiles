@@ -49,3 +49,6 @@ let g:airline_mode_map                         = {
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
+  let g:airline_filetype_overrides = {
+      \ 'fern':  [ 'Fern', '' ],
+      \ }
