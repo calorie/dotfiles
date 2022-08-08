@@ -6,7 +6,8 @@ set wildchar=<tab>         " command completion start key
 set wildmode=list:full     " show list
 set history=1000           " history length
 set complete+=k            " add dictionary
-set completeopt=menuone
+" set completeopt=menuone
+set completeopt=menu,menuone,noselect
 
 " history completion by c-p,c-n
 cnoremap <C-p> <Up>

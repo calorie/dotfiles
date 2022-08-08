@@ -31,14 +31,11 @@ else
 endif
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 
-let s:is_auto_pairs = dein#is_sourced('auto-pairs')
-
 inoremap <expr><CR> deoplete#smart_close_popup()."\<CR>"
 
 inoremap <silent> <BS> <C-r>=<SID>my_bs_function()<CR>
 function! s:my_bs_function() abort
-  let s:bs = s:is_auto_pairs ? AutoPairsDelete() : "\<BS>"
-  return deoplete#close_popup() . s:bs
+  return deoplete#close_popup() . "\<BS>"
 endfunction
 
 inoremap <expr><HOME>  deoplete#close_popup() . "\<HOME>"

@@ -1,0 +1,23 @@
+lua << END
+  local lspconfig = require'lspconfig'
+  local util = require "lspconfig/util"
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+  lspconfig.solargraph.setup{ init_options = { diagnostics = true }, capabilities = capabilities }
+  lspconfig.yamlls.setup{ capabilities = capabilities }
+  lspconfig.tsserver.setup{ capabilities = capabilities }
+  lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+    capabilities = capabilities,
+  }
+END
