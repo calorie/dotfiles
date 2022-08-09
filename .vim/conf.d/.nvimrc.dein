@@ -66,6 +66,9 @@ call dein#add('calorie/colorschemes', {
       \ })
 
 call dein#add('nvim-treesitter/nvim-treesitter', {
+      \ 'lazy': 1,
+      \ 'merged': 0,
+      \ 'on_event': 'BufRead',
       \ 'hook_post_update': 'TSUpdate',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-treesitter',
       \ })
