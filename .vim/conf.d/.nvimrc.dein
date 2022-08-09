@@ -303,27 +303,6 @@ call dein#add('kana/vim-textobj-user', {
       \ })
 
 "------------------------------------
-" Unite
-"------------------------------------
-" call dein#add('Shougo/denite.nvim', {
-"       \ 'lazy': 1,
-"       \ 'on_cmd': [
-"       \   'Denite',
-"       \ ],
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.denite.preload',
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.denite',
-"       \ 'depends': ['neomru.vim', 'neoyank.vim', 'vim-clap'],
-"       \ })
-"
-" call dein#add('Shougo/neomru.vim', {
-"       \ 'lazy': 1,
-"       \ })
-"
-" call dein#add('Shougo/neoyank.vim', {
-"       \ 'lazy': 1,
-"       \ })
-
-"------------------------------------
 " Utility
 "------------------------------------
 call dein#add('rhysd/ghpr-blame.vim', {
