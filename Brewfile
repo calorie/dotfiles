@@ -35,7 +35,6 @@ brew "lua"
 brew "luajit"
 brew "luarocks"
 brew "mas"
-brew "mercurial"
 brew "zlib"
 brew "mysql"
 brew "neovim"
@@ -44,13 +43,10 @@ brew "peco"
 brew "pstree"
 brew "ruby-build"
 brew "rbenv"
-brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "rust"
-brew "ssh-copy-id", link: true
 brew "stern"
 brew "telnet"
-brew "the_silver_searcher"
 brew "tig"
 brew "tmux"
 brew "tmux-mem-cpu-load"
@@ -72,7 +68,6 @@ cask "dropbox"
 cask "fig"
 cask "firefox"
 cask "flux"
-cask "gimp"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "growlnotify"
@@ -82,7 +77,6 @@ cask "keyboardcleantool"
 cask "slack"
 cask "the-unarchiver"
 cask "vagrant"
-cask "virtualbox"
 cask "vlc"
 cask "xquartz"
 mas "BetterSnapTool", id: 417375580
@@ -93,5 +87,4 @@ mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "PicGIF Lite", id: 844918735
 mas "Xcode", id: 497799835
