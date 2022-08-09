@@ -40,15 +40,6 @@ call dein#add('Yggdroot/indentLine', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
       \ })
 
-" call dein#add('scrooloose/nerdtree', {
-"       \ 'on_cmd': [
-"       \   'NERDTree',
-"       \   'NERDTreeToggle',
-"       \   'NERDTreeFind',
-"       \ ],
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nerdtree.preload',
-"       \ })
-
 call dein#add('vim-airline/vim-airline', {
       \ 'depends': ['vim-fugitive', 'vim-airline-themes', 'nvim-lspconfig'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-airline.preload',
