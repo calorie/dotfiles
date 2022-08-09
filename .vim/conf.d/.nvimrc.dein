@@ -61,8 +61,11 @@ call dein#add('liuchengxu/vim-clap', {
 "------------------------------------
 " Color
 "------------------------------------
-call dein#add('calorie/colorschemes', {
-      \ 'hook_add': 'colorscheme calorie',
+" call dein#add('calorie/colorschemes', {
+"       \ 'hook_add': 'colorscheme calorie',
+"       \ })
+call dein#add('rose-pine/neovim', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.rose-pine.preload',
       \ })
 
 call dein#add('nvim-treesitter/nvim-treesitter', {
