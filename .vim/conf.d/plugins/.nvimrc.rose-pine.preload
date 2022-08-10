@@ -1,6 +1,9 @@
 lua << EOT
   require('rose-pine').setup({
     disable_italics = true,
+    highlight_groups = {
+      String = { fg = 'text' },
+    }
   })
 
   vim.cmd('colorscheme rose-pine')
