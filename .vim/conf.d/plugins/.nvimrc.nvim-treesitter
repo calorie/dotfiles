@@ -2,7 +2,7 @@ lua << EOT
   require'nvim-treesitter.configs'.setup {
     ensure_installed = { "go", "hcl", "html", "javascript", "json", "lua", "markdown", "ruby", "rust", "sql", "vim", "yaml" },
     highlight = {
-      enable = false,
+      enable = true,
       -- disable = { "ruby" },
     },
     indent = {
@@ -10,3 +10,6 @@ lua << EOT
     },
   }
 EOT
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
