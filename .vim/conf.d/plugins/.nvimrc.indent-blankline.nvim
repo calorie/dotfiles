@@ -1,0 +1,5 @@
+let g:indent_blankline_char = '┊'
+
+lua << EOT
+  require("indent_blankline").setup {}
+EOT

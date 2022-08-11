@@ -36,10 +36,10 @@ call dein#add('antoinemadec/FixCursorHold.nvim', {
       \ 'lazy': 1,
       \ })
 
-call dein#add('Yggdroot/indentLine', {
+call dein#add('lukas-reineke/indent-blankline.nvim', {
       \ 'lazy': 1,
       \ 'on_event': 'BufRead',
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.indentLine.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.indent-blankline.nvim',
       \ })
 
 call dein#add('vim-airline/vim-airline', {
