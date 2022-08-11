@@ -83,7 +83,7 @@ call dein#add('nvim-treesitter/nvim-treesitter', {
 call dein#add('hrsh7th/nvim-cmp', {
       \ 'lazy': 1,
       \ 'depends': ['nvim-lspconfig', 'cmp-buffer', 'LuaSnip', 'cmp_luasnip'],
-      \ 'on_event': 'InsertEnter',
+      \ 'on_event': 'BufRead',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-cmp',
       \ })
 call dein#add('hrsh7th/cmp-buffer', {
@@ -166,8 +166,6 @@ call dein#add('tomtom/tcomment_vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
       \ })
 
-call dein#add('tpope/vim-endwise.git')
-
 call dein#add('brglng/vim-im-select', {
       \ 'lazy': 1,
       \ 'on_event': 'InsertEnter',
@@ -206,6 +204,7 @@ call dein#add('svermeulen/vim-yoink', {
 " Search/Move
 "------------------------------------
 call dein#add('rhysd/clever-f.vim', {
+      \ 'lazy': 1,
       \ 'on_map': ['<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
       \ })
@@ -308,7 +307,7 @@ call dein#add('kana/vim-textobj-user', {
 call dein#add('rhysd/ghpr-blame.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': ['GHPRBlame', 'GHPRBlameQuit'],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ghpr-blame.vim',
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ghpr-blame.vim.preload',
       \ })
 
 call dein#add('iamcco/markdown-preview.nvim', {
@@ -323,11 +322,19 @@ call dein#add('vim-scripts/sudo.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.sudo.vim.preload',
       \ })
 
+call dein#add('glepnir/lspsaga.nvim', {
+      \ 'lazy': 1,
+      \ 'on_event': 'BufRead',
+      \ 'on_cmd': ['Lspsaga', 'LSoutlineToggle'],
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim',
+      \ })
+
 call dein#add('907th/vim-auto-save', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-auto-save.preload',
       \ })
 
 call dein#add('tpope/vim-fugitive', {
+      \ 'lazy': 1,
       \ 'on_cmd': [
       \   'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gdiffsplit',
       \   'Gcommit', 'Gblame', 'Ggrep', 'Gdiff',

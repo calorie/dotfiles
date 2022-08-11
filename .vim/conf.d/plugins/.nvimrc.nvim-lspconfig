@@ -5,7 +5,7 @@ lua << END
 
   lspconfig.solargraph.setup{ init_options = { diagnostics = true }, capabilities = capabilities }
   lspconfig.yamlls.setup{ capabilities = capabilities }
-  lspconfig.tsserver.setup{ capabilities = capabilities }
+  -- lspconfig.tsserver.setup{ capabilities = capabilities }
   lspconfig.gopls.setup {
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
