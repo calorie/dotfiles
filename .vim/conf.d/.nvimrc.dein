@@ -28,12 +28,12 @@ call dein#add('lambdalisue/fern.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.fern.preload',
       \ })
 
-call dein#add('beauwilliams/focus.nvim', {
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.focus.nvim.preload',
-      \ })
-
 call dein#add('antoinemadec/FixCursorHold.nvim', {
       \ 'lazy': 1,
+      \ })
+
+call dein#add('beauwilliams/focus.nvim', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.focus.nvim.preload',
       \ })
 
 call dein#add('lukas-reineke/indent-blankline.nvim', {
@@ -61,13 +61,15 @@ call dein#add('liuchengxu/vim-clap', {
 "------------------------------------
 " Color
 "------------------------------------
-" call dein#add('rose-pine/neovim', {
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.rose-pine.preload',
-"       \ })
-call dein#add('rktjmp/lush.nvim', { 'lazy': 1 })
 call dein#add('calorie/calorie.nvim', {
       \ 'depends': ['lush.nvim'],
       \ })
+
+call dein#add('rktjmp/lush.nvim', { 'lazy': 1 })
+
+" call dein#add('rose-pine/neovim', {
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.rose-pine.preload',
+"       \ })
 
 call dein#add('nvim-treesitter/nvim-treesitter', {
       \ 'lazy': 1,
@@ -80,28 +82,33 @@ call dein#add('nvim-treesitter/nvim-treesitter', {
 "------------------------------------
 " Completion
 "------------------------------------
-call dein#add('hrsh7th/nvim-cmp', {
-      \ 'lazy': 1,
-      \ 'depends': ['nvim-lspconfig', 'cmp-buffer', 'LuaSnip', 'cmp_luasnip'],
-      \ 'on_event': 'BufRead',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-cmp',
-      \ })
 call dein#add('hrsh7th/cmp-buffer', {
       \ 'lazy': 1,
       \ })
+
+call dein#add('saadparwaiz1/cmp_luasnip', {
+      \ 'lazy': 1,
+      \ })
+
 call dein#add('hrsh7th/cmp-nvim-lsp', {
       \ 'lazy': 1,
       \ })
+
+call dein#add('rafamadriz/friendly-snippets', {
+      \ 'lazy': 1,
+      \ })
+
 call dein#add('L3MON4D3/LuaSnip', {
       \ 'lazy': 1,
       \ 'depends': ['friendly-snippets'],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.luasnip',
       \ })
-call dein#add('rafamadriz/friendly-snippets', {
+
+call dein#add('hrsh7th/nvim-cmp', {
       \ 'lazy': 1,
-      \ })
-call dein#add('saadparwaiz1/cmp_luasnip', {
-      \ 'lazy': 1,
+      \ 'depends': ['nvim-lspconfig', 'cmp-buffer', 'LuaSnip', 'cmp_luasnip'],
+      \ 'on_event': 'BufRead',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-cmp',
       \ })
 
 "------------------------------------
@@ -181,15 +188,6 @@ call dein#add('rhysd/clever-f.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
       \ })
 
-call dein#add('t9md/vim-textmanip', {
-      \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['x', '<Plug>(textmanip-move-down)'], ['x', '<Plug>(textmanip-move-left)'],
-      \   ['x', '<Plug>(textmanip-move-right)'], ['x', '<Plug>(textmanip-move-up)'],
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
-      \ })
-
 call dein#add('Lokaltog/vim-easymotion', {
       \ 'lazy': 1,
       \ 'on_map': ',',
@@ -205,18 +203,27 @@ call dein#add('kana/vim-smartword', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-smartword.preload',
       \ })
 
+call dein#add('t9md/vim-textmanip', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['x', '<Plug>(textmanip-move-down)'], ['x', '<Plug>(textmanip-move-left)'],
+      \   ['x', '<Plug>(textmanip-move-right)'], ['x', '<Plug>(textmanip-move-up)'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
+      \ })
+
 "------------------------------------
 " Syntax
 "------------------------------------
-call dein#add('leafgarland/typescript-vim', {
-      \ 'lazy': 1,
-      \ 'on_ft': ['typescript'],
-      \ })
-
 call dein#add('vim-scripts/dbext.vim', {
       \ 'lazy': 1,
       \ 'on_ft': ['sql'],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.dbext.vim',
+      \ })
+
+call dein#add('leafgarland/typescript-vim', {
+      \ 'lazy': 1,
+      \ 'on_ft': ['typescript'],
       \ })
 
 call dein#add('elzr/vim-json', {
@@ -273,6 +280,13 @@ call dein#add('rhysd/ghpr-blame.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.ghpr-blame.vim.preload',
       \ })
 
+call dein#add('glepnir/lspsaga.nvim', {
+      \ 'lazy': 1,
+      \ 'on_event': 'BufRead',
+      \ 'on_cmd': ['Lspsaga', 'LSoutlineToggle'],
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim',
+      \ })
+
 call dein#add('iamcco/markdown-preview.nvim', {
       \ 'lazy': 1,
       \ 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
@@ -283,13 +297,6 @@ call dein#add('vim-scripts/sudo.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': ['SudoRead', 'SudoWrite'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.sudo.vim.preload',
-      \ })
-
-call dein#add('glepnir/lspsaga.nvim', {
-      \ 'lazy': 1,
-      \ 'on_event': 'BufRead',
-      \ 'on_cmd': ['Lspsaga', 'LSoutlineToggle'],
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim',
       \ })
 
 call dein#add('907th/vim-auto-save', {
