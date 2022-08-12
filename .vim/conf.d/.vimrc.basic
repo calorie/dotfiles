@@ -18,22 +18,15 @@ set noshowmode                   " not display current mode
 set viminfo='50,<1000,s100,\"50  " viminfo's file conf
 set modelines=0                  " disable modeline
 set clipboard=unnamedplus        " use os's clipboard
-set shortmess+=I                 " hidden start messages
-if has('patch-7.4.314')
-  set shortmess+=c
-endif
+set shortmess+=Ic                " hidden start messages
+set helpfile=$VIMRUNTIME/doc/help.txt
 
 noremap ; :
 
 inoremap <C-c> <ESC>
 
-" edit & reload .vimrc
 " command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 command! Path echo expand("%:p")
 
-set helpfile=$VIMRUNTIME/doc/help.txt
-
-let g:is_mac = (has('mac') || has('macunix') || has('gui_macvim') ||
-      \ (!executable('xdg-open') && system('uname') =~? '^darwin'))
-let g:is_windows = has('win16') || has('win32') || has('win64')
+let g:is_mac = (has('mac') || has('macunix') || has('gui_macvim'))

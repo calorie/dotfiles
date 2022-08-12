@@ -3,22 +3,10 @@ let g:fern#default_hidden = 1
 let g:fern#drawer_width = 23
 let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
 
-augroup MyAutoCmd
-  autocmd VimEnter * ++nested if !argc() | Fern . -drawer -reveal=% -toggle | endif
-augroup END
-
 nnoremap <Leader>nt :<C-u>Fern . -drawer -toggle<CR>
 nnoremap <Leader>nf :<C-u>Fern . -drawer -reveal=%<CR>
 
 function! s:init_fern() abort
-  nmap <buffer><expr>
-      \ <Plug>(fern-my-expand-or-collapse)
-      \ fern#smart#leaf(
-      \   "\<Plug>(fern-action-collapse)",
-      \   "\<Plug>(fern-action-expand)",
-      \   "\<Plug>(fern-action-collapse)",
-      \ )
-  nmap <buffer><nowait> > <Plug>(fern-my-expand-or-collapse)
   nmap <buffer><expr>
       \ <Plug>(fern-my-open-or-expand-or-collapse)
       \ fern#smart#leaf(
@@ -52,5 +40,6 @@ function! s:init_fern() abort
 endfunction
 
 augroup MyAutoCmd
+  autocmd VimEnter * ++nested if !argc() | Fern . -drawer -reveal=% -toggle | endif
   autocmd FileType fern setlocal norelativenumber | setlocal nonumber | call s:init_fern()
 augroup END

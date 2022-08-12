@@ -9,6 +9,3 @@ set hlsearch   " highlight search word
 " disable highlight by esc*2
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <C-c><C-c> :nohlsearch<CR>
-
-" search selected word
-vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>

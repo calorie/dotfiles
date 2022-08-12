@@ -5,21 +5,9 @@
 set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
-if executable('ibus')
-  augroup Ibus
-    autocmd!
-    autocmd InsertLeave * call system('ibus engine "xkb:us::eng"')
-  augroup END
-endif
 
 " add selected word to register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
-
-" copy & paste by xsel
-if executable('xsel')
-  vmap <silent> <C-\> :w !xsel -ib<CR><CR>
-  nmap <silent> <C-\> :r !xsel -ob<CR>
-endif
 
 " convert tab to space
 set expandtab
@@ -38,52 +26,20 @@ nmap y9 y$
 " yank to line start
 nmap y0 y^
 
-" remove space & tab with saving
-" function! s:remove_dust()
-"     let cursor = getpos(".")
-"     %s/\s\+$//ge
-"     if &ft !~ 'make'
-"       %s/\t/  /ge
-"     endif
-"     call setpos(".", cursor)
-"     unlet cursor
-" endfunction
+" expand fold
+set foldlevelstart=99
+
+function! s:remove_dust()
+  let cursor = getpos(".")
+  %s/\s\+$//ge
+  if &ft !~ 'make'
+    %s/\t/  /ge
+  endif
+  call setpos(".", cursor)
+  unlet cursor
+endfunction
+command! RemoveDust call <SID>remove_dust()
 " augroup RemoveDust
 "   autocmd!
 "   autocmd BufWritePre * call <SID>remove_dust()
 " augroup END
-
-" date completion
-" inoremap <expr> <Leader>df strftime('%Y/%m/%d %H:%M:%S')
-" inoremap <expr> <Leader>dd strftime('%Y/%m/%d')
-" inoremap <expr> <Leader>dt strftime('%H:%M:%S')
-
-" expand fold
-set foldlevelstart=99
-" .vimはmarker
-augroup Fold
-  autocmd!
-  autocmd FileType vim,zsh :set foldmethod=marker
-augroup END
-
-" close quickfix by q,esc
-augroup Qf
-  autocmd!
-  autocmd FileType qf nnoremap <buffer> q :ccl<CR>
-  autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
-augroup END
-
-" toggle quickfix & location list
-function! s:toggle_qf_ll_window(pfx)
-  for bufnr in range(1,  winnr('$'))
-    if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
-      execute a:pfx.'cl'
-      return
-    endif
-  endfor
-  execute a:pfx.'ope'
-endfunction
-nnoremap <silent> tq :<C-u>call <SID>toggle_qf_ll_window('c')<CR>
-nnoremap <silent> tl :<C-u>call <SID>toggle_qf_ll_window('l')<CR>
-
-command! CB let @+ = expand('%:p')
