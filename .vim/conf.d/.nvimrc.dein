@@ -113,10 +113,6 @@ call dein#add('cohama/lexima.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lexima.vim.preload',
       \ })
 
-call dein#add('Shougo/context_filetype.vim', {
-      \ 'lazy': 1,
-      \ })
-
 call dein#add('neovim/nvim-lspconfig', {
       \ 'lazy': 1,
       \ 'depends': ['cmp-nvim-lsp'],
