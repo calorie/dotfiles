@@ -9,8 +9,7 @@ let &runtimepath = &runtimepath . ',' . s:dein_dir . '/repos/github.com/Shougo/d
 let s:plugins_dir = expand('~/dotfiles/.vim/conf.d/plugins')
 
 let g:dein#lazy_rplugins = v:true
-let s:cache_path = expand('~/.cache/dein')
-if !dein#min#load_state(s:cache_path)
+if !dein#min#load_state(s:dein_dir)
   finish
 endif
 
@@ -329,3 +328,5 @@ if !has('vim_starting')
   syntax enable
   filetype plugin indent on
 endif
+
+set secure
