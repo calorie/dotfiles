@@ -7,6 +7,7 @@ let &runtimepath = &runtimepath . ',' . g:dein_dir . '/repos/github.com/Shougo/d
 
 let s:plugins_dir = expand('~/dotfiles/.vim/conf.d/plugins')
 
+" let g:dein#auto_recache = v:true
 let g:dein#lazy_rplugins = v:true
 if !dein#min#load_state(g:dein_dir)
   finish
@@ -186,10 +187,14 @@ call dein#add('rhysd/clever-f.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
       \ })
 
-call dein#add('Lokaltog/vim-easymotion', {
+call dein#add('phaazon/hop.nvim', {
       \ 'lazy': 1,
-      \ 'on_map': ',',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-easymotion',
+      \ 'on_cmd': [
+      \   'HopWord', 'HopWordMW', 'HopLineStart',
+      \   'HopLineStartMW', 'HopVertical', 'HopVerticalMW',
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.hop.nvim.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.hop.nvim',
       \ })
 
 call dein#add('t9md/vim-textmanip', {

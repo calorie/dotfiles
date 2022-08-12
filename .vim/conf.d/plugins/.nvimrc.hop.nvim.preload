@@ -1,0 +1,4 @@
+nnoremap <silent> <Leader>j :HopWord<CR>
+nnoremap <silent> <Leader>h :HopWordMW<CR>
+nnoremap <silent> <Leader>k :HopVertical<CR>
+nnoremap <silent> <Leader>l :HopLineStartMW<CR>
