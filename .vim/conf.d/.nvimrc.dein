@@ -43,7 +43,7 @@ call dein#add('lukas-reineke/indent-blankline.nvim', {
       \ })
 
 call dein#add('vim-airline/vim-airline', {
-      \ 'depends': ['vim-airline-themes', 'nvim-lspconfig'],
+      \ 'depends': ['vim-airline-themes'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-airline.preload',
       \ })
 
@@ -143,6 +143,7 @@ call dein#add('Shougo/context_filetype.vim', {
       \ })
 
 call dein#add('neovim/nvim-lspconfig', {
+      \ 'lazy': 1,
       \ 'depends': ['cmp-nvim-lsp'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lspconfig.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lspconfig',
@@ -207,15 +208,6 @@ call dein#add('rhysd/clever-f.vim', {
       \ 'lazy': 1,
       \ 'on_map': ['<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
-      \ })
-
-call dein#add('osyo-manga/vim-anzu', {
-      \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['n', '<Plug>(anzu-n-with-echo)'], ['n', '<Plug>(anzu-N-with-echo)'],
-      \   ['n', '<Plug>(anzu-star-with-echo)'], ['n', '<Plug>(anzu-sharp-with-echo)'],
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-anzu.preload',
       \ })
 
 call dein#add('t9md/vim-textmanip', {

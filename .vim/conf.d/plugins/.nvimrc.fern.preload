@@ -1,4 +1,5 @@
 let g:fern#disable_default_mappings = 1
+let g:fern#disable_viewer_spinner = 1
 let g:fern#default_hidden = 1
 let g:fern#drawer_width = 23
 let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
