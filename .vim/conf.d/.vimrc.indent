@@ -1,11 +1,11 @@
 "---------------------------------------------------------------------
 " Indent
 "---------------------------------------------------------------------
-set autoindent   " auto indent
-set smartindent  " same indent num when newline
-set cindent      " indent for C
+set autoindent  " auto indent
+set smartindent " same indent num when newline
+set cindent     " indent for C
 set tabstop=2 shiftwidth=2 softtabstop=0 " softtabstop is tab & bs space num
-" set paste        " eable auto indent when paste
+" set paste " eable auto indent when paste
 
 augroup Indent
   autocmd!

@@ -1,3 +1,3 @@
 lua << EOT
-  require('luasnip/loaders/from_vscode').lazy_load({ paths = { "~/.vim/dein/repos/github.com/rafamadriz/friendly-snippets" } })
+  require('luasnip/loaders/from_vscode').lazy_load({ paths = { vim.g.dein_dir .. '/repos/github.com/rafamadriz/friendly-snippets' } })
 EOT

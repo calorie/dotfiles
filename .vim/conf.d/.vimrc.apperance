@@ -1,19 +1,18 @@
 "---------------------------------------------------------------------
 " Apperance
 "---------------------------------------------------------------------
-set showmatch         " highlight parenthesis
-set matchtime=1       " matching time
-set number            " display line number
-set display=uhex      " display unprintable character by hex
-set previewheight=15  " size of preview
-set cmdheight=1       " command line height
-set lazyredraw        " dont redraw when command is running
-set ttyfast           " fast terminal connect
-set cursorline        " highlight cursor
-set list              " display unvisible character
-set listchars=tab:>.,trail:_,extends:>,precedes:< " unvisible character's format
-
+set showmatch        " highlight parenthesis
+set matchtime=1      " matching time
+set number           " display line number
+set display=uhex     " display unprintable character by hex
+set previewheight=15 " size of preview
+set cmdheight=1      " command line height
+set lazyredraw       " dont redraw when command is running
+set ttyfast          " fast terminal connect
+set cursorline       " highlight cursor
+set list             " display unvisible character
 set redrawtime=10000 " https://github.com/prabirshrestha/vim-lsp/issues/786
+set listchars=tab:>.,trail:_,extends:>,precedes:< " unvisible character's format
 
 " display zenkakuspace
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray

@@ -2,18 +2,17 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" Set dein paths
-let s:dein_dir   = expand('~/.vim/dein')
-let &runtimepath = &runtimepath . ',' . s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let g:dein_dir   = expand('~/.vim/dein')
+let &runtimepath = &runtimepath . ',' . g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 let s:plugins_dir = expand('~/dotfiles/.vim/conf.d/plugins')
 
 let g:dein#lazy_rplugins = v:true
-if !dein#min#load_state(s:dein_dir)
+if !dein#min#load_state(g:dein_dir)
   finish
 endif
 
-call dein#begin(s:dein_dir)
+call dein#begin(g:dein_dir)
 
 call dein#add('Shougo/dein.vim')
 
@@ -193,15 +192,6 @@ call dein#add('Lokaltog/vim-easymotion', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-easymotion',
       \ })
 
-call dein#add('kana/vim-smartword', {
-      \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['nx', '<Plug>(smartword-b)'], ['nx', '<Plug>(smartword-e)'],
-      \   ['nx', '<Plug>(smartword-ge)'], ['nx', '<Plug>(smartword-w)'],
-      \ ],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-smartword.preload',
-      \ })
-
 call dein#add('t9md/vim-textmanip', {
       \ 'lazy': 1,
       \ 'on_map': [
@@ -209,6 +199,15 @@ call dein#add('t9md/vim-textmanip', {
       \   ['x', '<Plug>(textmanip-move-right)'], ['x', '<Plug>(textmanip-move-up)'],
       \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
+      \ })
+
+call dein#add('chaoren/vim-wordmotion', {
+      \ 'lazy': 1,
+      \ 'on_event': 'BufRead',
+      \ 'on_map': [
+      \   ['nxo', '<Plug>WordMotion_w'], ['nxo', '<Plug>WordMotion_e'],
+      \   ['nxo', '<Plug>WordMotion_b'],
+      \ ],
       \ })
 
 "------------------------------------

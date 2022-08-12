@@ -1,24 +1,24 @@
 "---------------------------------------------------------------------
 " Basics
 "---------------------------------------------------------------------
-let mapleader = ","              " key map leader
-set scrolloff=5                  " scroll margin
-set textwidth=0                  " disable auto newline
-set nobackup                     " no backup
-set autoread                     " auto re-read when other writes
-set noswapfile                   " no swap file
-set hidden                       " open other when editting
-set backspace=indent,eol,start   " backspace can delete everything
-set formatoptions=lmoq           " text align, multibyte
-set vb t_vb=                     " no beep
-set browsedir=buffer             " Explore's init dir
-set whichwrap=b,s,h,l,<,>,[,]    " isnt stopped cursor
-set showcmd                      " display command
-set noshowmode                   " not display current mode
-set viminfo='50,<1000,s100,\"50  " viminfo's file conf
-set modelines=0                  " disable modeline
-set clipboard=unnamedplus        " use os's clipboard
-set shortmess+=Ic                " hidden start messages
+let mapleader = ","             " key map leader
+set scrolloff=5                 " scroll margin
+set textwidth=0                 " disable auto newline
+set nobackup                    " no backup
+set autoread                    " auto re-read when other writes
+set noswapfile                  " no swap file
+set hidden                      " open other when editting
+set backspace=indent,eol,start  " backspace can delete everything
+set formatoptions=lmoq          " text align, multibyte
+set vb t_vb=                    " no beep
+set browsedir=buffer            " Explore's init dir
+set whichwrap=b,s,h,l,<,>,[,]   " isnt stopped cursor
+set showcmd                     " display command
+set noshowmode                  " not display current mode
+set viminfo='50,<1000,s100,\"50 " viminfo's file conf
+set modelines=0                 " disable modeline
+set clipboard=unnamedplus       " use os's clipboard
+set shortmess+=Ic               " hidden start messages
 set helpfile=$VIMRUNTIME/doc/help.txt
 
 noremap ; :
