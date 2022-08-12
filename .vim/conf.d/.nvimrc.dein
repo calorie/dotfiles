@@ -104,31 +104,6 @@ call dein#add('saadparwaiz1/cmp_luasnip', {
       \ 'lazy': 1,
       \ })
 
-" call dein#add('Shougo/deoplete.nvim', {
-"       \ 'lazy': 1,
-"       \ 'depends': ['context_filetype.vim', 'deoplete-lsp'],
-"       \ 'if': 'has("python3")',
-"       \ 'on_event': 'InsertEnter',
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete.nvim',
-"       \ })
-"
-" call dein#add('deoplete-plugins/deoplete-lsp', {
-"       \ 'lazy': 1,
-"       \ 'depends': ['nvim-lspconfig'],
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.deoplete-lsp.nvim',
-"       \ })
-"
-" call dein#add('Shougo/neosnippet.vim', {
-"       \ 'lazy': 1,
-"       \ 'depends': ['context_filetype.vim', 'neosnippet-snippets'],
-"       \ 'on_event': 'InsertCharPre',
-"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.neosnippet.vim',
-"       \ })
-"
-" call dein#add('Shougo/neosnippet-snippets', {
-"       \ 'lazy': 1,
-"       \ })
-
 "------------------------------------
 " Edit
 "------------------------------------

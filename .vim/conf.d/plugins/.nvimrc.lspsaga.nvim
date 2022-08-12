@@ -20,4 +20,6 @@ lua << EOT
   vim.keymap.set("n", "gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 
   vim.keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+
+  vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 EOT
