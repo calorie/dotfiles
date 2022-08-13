@@ -126,15 +126,6 @@ call dein#add('neovim/nvim-lspconfig', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lspconfig',
       \ })
 
-call dein#add('kylechui/nvim-surround', {
-      \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['n', 'ys'], ['x', 'S'],
-      \   ['n', 'ds'], ['n', 'cs'],
-      \ ],
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-surround',
-      \ })
-
 call dein#add('AndrewRadev/switch.vim', {
       \ 'lazy': 1,
       \ 'on_cmd': ['Switch'],
@@ -163,6 +154,17 @@ call dein#add('osyo-manga/vim-over', {
       \ 'lazy': 1,
       \ 'on_cmd': ['OverCommandLine'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-over.preload',
+      \ })
+
+call dein#add('tpope/vim-surround', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['nx', '<Plug>Csurround'], ['nx', '<Plug>Dsurround'],
+      \   ['nx', '<Plug>VgSurround'], ['nx', '<Plug>VSurround'],
+      \   ['nx', '<Plug>Yssurround'], ['nx', '<Plug>YSsurround'],
+      \   ['nx', '<Plug>Ysurround'], ['nx', '<Plug>YSurround'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-surround.preload',
       \ })
 
 call dein#add('svermeulen/vim-yoink', {
@@ -204,14 +206,14 @@ call dein#add('t9md/vim-textmanip', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
-" call dein#add('chaoren/vim-wordmotion', {
-"       \ 'lazy': 1,
-"       \ 'on_event': 'BufRead',
-"       \ 'on_map': [
-"       \   ['nxo', '<Plug>WordMotion_w'], ['nxo', '<Plug>WordMotion_e'],
-"       \   ['nxo', '<Plug>WordMotion_b'],
-"       \ ],
-"       \ })
+call dein#add('chaoren/vim-wordmotion', {
+      \ 'lazy': 1,
+      \ 'on_event': 'BufRead',
+      \ 'on_map': [
+      \   ['nxo', '<Plug>WordMotion_w'], ['nxo', '<Plug>WordMotion_e'],
+      \   ['nxo', '<Plug>WordMotion_b'],
+      \ ],
+      \ })
 
 "------------------------------------
 " Syntax
