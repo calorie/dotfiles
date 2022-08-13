@@ -7,6 +7,6 @@ nmap <Space> [clap]
 nnoremap <silent> [clap]f :<C-u>Clap files<CR>
 nnoremap <silent> [clap]b :<C-u>Clap buffers<CR>
 nnoremap <silent> [clap]m :<C-u>Clap recent_files<CR>
-nnoremap <silent> [clap]g :<C-u>Clap grep<CR>
-nnoremap <silent> [clap]G :<C-u>Clap grep ++query=<cword><CR>
+nnoremap <silent> [clap]g :<C-u>Clap grep2<CR>
+nnoremap <silent> [clap]G :<C-u>Clap grep2 ++query=<cword><CR>
 nnoremap <silent> [clap]y :<C-u>Clap yanks<CR>
