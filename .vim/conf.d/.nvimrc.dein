@@ -206,14 +206,14 @@ call dein#add('t9md/vim-textmanip', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
-call dein#add('chaoren/vim-wordmotion', {
-      \ 'lazy': 1,
-      \ 'on_event': 'BufRead',
-      \ 'on_map': [
-      \   ['nxo', '<Plug>WordMotion_w'], ['nxo', '<Plug>WordMotion_e'],
-      \   ['nxo', '<Plug>WordMotion_b'],
-      \ ],
-      \ })
+" call dein#add('chaoren/vim-wordmotion', {
+"       \ 'lazy': 1,
+"       \ 'on_event': 'BufRead',
+"       \ 'on_map': [
+"       \   ['nxo', '<Plug>WordMotion_w'], ['nxo', '<Plug>WordMotion_e'],
+"       \   ['nxo', '<Plug>WordMotion_b'],
+"       \ ],
+"       \ })
 
 "------------------------------------
 " Syntax
