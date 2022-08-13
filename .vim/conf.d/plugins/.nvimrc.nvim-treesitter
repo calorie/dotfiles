@@ -1,9 +1,9 @@
 lua << EOT
   require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "go", "hcl", "html", "javascript", "json", "lua", "markdown", "ruby", "rust", "sql", "vim", "yaml" },
+    ensure_installed = { 'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'markdown', 'ruby', 'rust', 'sql', 'vim', 'yaml' },
     highlight = {
       enable = true,
-      disable = { "ruby" },
+      disable = { 'ruby' },
     },
     indent = {
       enable = true,

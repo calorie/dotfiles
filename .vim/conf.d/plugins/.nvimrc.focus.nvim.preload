@@ -1,1 +1,1 @@
-lua require("focus").setup({excluded_filetypes = {"fzf", "fern"}})
+lua require('focus').setup({ excluded_filetypes = { 'fzf', 'fern' } })

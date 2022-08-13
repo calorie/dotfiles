@@ -30,12 +30,12 @@ nmap y0 y^
 set foldlevelstart=99
 
 function! s:remove_dust()
-  let cursor = getpos(".")
+  let cursor = getpos('.')
   %s/\s\+$//ge
   if &ft !~ 'make'
     %s/\t/  /ge
   endif
-  call setpos(".", cursor)
+  call setpos('.', cursor)
   unlet cursor
 endfunction
 command! RemoveDust call <SID>remove_dust()

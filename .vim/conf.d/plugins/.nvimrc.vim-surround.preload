@@ -5,4 +5,4 @@ xmap gS <Plug>VgSurround
 
 let g:surround_{char2nr('e')} = "begin \r end"
 let g:surround_{char2nr('d')} = "do \r end"
-let g:surround_{char2nr("-")} = ":\r"
+let g:surround_{char2nr('-')} = ":\r"

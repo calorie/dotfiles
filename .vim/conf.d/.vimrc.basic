@@ -1,7 +1,7 @@
 "---------------------------------------------------------------------
 " Basics
 "---------------------------------------------------------------------
-let mapleader = ","             " key map leader
+let mapleader = ','             " key map leader
 set scrolloff=5                 " scroll margin
 set textwidth=0                 " disable auto newline
 set nobackup                    " no backup
@@ -27,6 +27,6 @@ inoremap <C-c> <ESC>
 
 " command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
-command! Path echo expand("%:p")
+command! Path echo expand('%:p')
 
 let g:is_mac = (has('mac') || has('macunix') || has('gui_macvim'))
