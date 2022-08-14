@@ -122,10 +122,10 @@ call dein#add('numToStr/Comment.nvim', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim',
       \ })
 
-call dein#add('cohama/lexima.vim', {
+call dein#add('windwp/nvim-autopairs', {
       \ 'lazy': 1,
       \ 'on_event': 'InsertEnter',
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lexima.vim.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-autopairs',
       \ })
 
 call dein#add('neovim/nvim-lspconfig', {
