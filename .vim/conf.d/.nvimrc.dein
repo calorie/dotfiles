@@ -218,25 +218,10 @@ call dein#add('vim-scripts/dbext.vim', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.dbext.vim',
       \ })
 
-call dein#add('leafgarland/typescript-vim', {
-      \ 'lazy': 1,
-      \ 'on_ft': ['typescript'],
-      \ })
-
 call dein#add('elzr/vim-json', {
       \ 'lazy': 1,
       \ 'on_ft': ['json'],
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-json',
-      \ })
-
-call dein#add('hashivim/vim-terraform', {
-      \ 'lazy': 1,
-      \ 'on_ft': ['terraform'],
-      \ })
-
-call dein#add('ianks/vim-tsx', {
-      \ 'lazy': 1,
-      \ 'on_ft': ['typescript'],
       \ })
 
 "------------------------------------
@@ -286,7 +271,7 @@ call dein#add('glepnir/lspsaga.nvim', {
 
 call dein#add('iamcco/markdown-preview.nvim', {
       \ 'lazy': 1,
-      \ 'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+      \ 'on_ft': ['markdown'],
       \ 'build': 'sh -c "cd app && yarn install"',
       \ })
 
