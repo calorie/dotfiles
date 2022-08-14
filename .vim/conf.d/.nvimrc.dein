@@ -13,6 +13,24 @@ if !dein#min#load_state(g:dein_dir)
   finish
 endif
 
+let g:dein#inline_vimrcs = []
+let s:rc_base_path = expand('~/dotfiles/.vim/conf.d/.vimrc.')
+let s:rcs = [
+      \ 'basic',
+      \ 'indent',
+      \ 'apperance',
+      \ 'completion',
+      \ 'search',
+      \ 'moving',
+      \ 'colors',
+      \ 'editing',
+      \ 'encoding',
+      \ 'langs',
+      \ ]
+for s:rc in s:rcs
+  call add(g:dein#inline_vimrcs, s:rc_base_path . s:rc)
+endfor
+
 call dein#begin(g:dein_dir)
 
 call dein#add('Shougo/dein.vim')
