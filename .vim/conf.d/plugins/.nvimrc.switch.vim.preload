@@ -19,5 +19,5 @@ let g:variable_style_switch_definitions = [
       \   }
       \ ]
 
-nnoremap + :Switch<CR>
-nnoremap - :call switch#Switch({'definitions': g:variable_style_switch_definitions})<CR>
+nnoremap <silent> + :Switch<CR>
+nnoremap <silent> - :call switch#Switch({'definitions': g:variable_style_switch_definitions})<CR>

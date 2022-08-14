@@ -150,12 +150,6 @@ call dein#add('brglng/vim-im-select', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-im-select',
       \ })
 
-call dein#add('osyo-manga/vim-over', {
-      \ 'lazy': 1,
-      \ 'on_cmd': ['OverCommandLine'],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-over.preload',
-      \ })
-
 call dein#add('tpope/vim-surround', {
       \ 'lazy': 1,
       \ 'on_map': [

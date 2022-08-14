@@ -4,8 +4,8 @@ let g:fern#default_hidden = 1
 let g:fern#drawer_width = 23
 let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
 
-nnoremap <Leader>nt :<C-u>Fern . -drawer -toggle<CR>
-nnoremap <Leader>nf :<C-u>Fern . -drawer -reveal=%<CR>
+nnoremap <silent> <Leader>nt :<C-u>Fern . -drawer -toggle<CR>
+nnoremap <silent> <Leader>nf :<C-u>Fern . -drawer -reveal=%<CR>
 
 function! s:init_fern() abort
   nmap <buffer><expr>
@@ -37,7 +37,7 @@ function! s:init_fern() abort
   nmap <buffer><nowait> A <Plug>(fern-action-choice)
   nmap <buffer><nowait> y <Plug>(fern-action-yank:path)
 
-  nmap <buffer> q :<C-u>quit<CR>
+  nmap <silent><buffer> q :<C-u>quit<CR>
 endfunction
 
 augroup MyAutoCmd

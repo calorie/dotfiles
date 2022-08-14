@@ -7,5 +7,8 @@ set smartcase  " case sensitive
 set incsearch  " incremental search
 set hlsearch   " highlight search word
 " disable highlight by esc*2
-nnoremap <ESC><ESC> :nohlsearch<CR>
-nnoremap <C-c><C-c> :nohlsearch<CR>
+nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
+nnoremap <silent> <C-c><C-c> :nohlsearch<CR>
+
+nnoremap <Leader>sb :%s/<C-r><C-w>//g<Left><Left>
+vnoremap <Leader>sb "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//g<Left><Left>
