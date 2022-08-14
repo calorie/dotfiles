@@ -117,13 +117,13 @@ call dein#add('numToStr/Comment.nvim', {
       \ 'lazy': 1,
       \ 'on_map': [['nx', '<Plug>(comment_toggle']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim.preload',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim',
+      \ 'hook_source': 'lua require("Comment").setup {}',
       \ })
 
 call dein#add('windwp/nvim-autopairs', {
       \ 'lazy': 1,
       \ 'on_event': 'InsertEnter',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-autopairs',
+      \ 'hook_source': 'lua require("nvim-autopairs").setup {}',
       \ })
 
 call dein#add('neovim/nvim-lspconfig', {
@@ -185,7 +185,7 @@ call dein#add('phaazon/hop.nvim', {
       \   'HopLineStartMW', 'HopVertical', 'HopVerticalMW',
       \ ],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.hop.nvim.preload',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.hop.nvim',
+      \ 'hook_source': 'lua require("hop").setup {}',
       \ })
 
 call dein#add('t9md/vim-textmanip', {
