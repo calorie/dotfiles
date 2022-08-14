@@ -1,0 +1,2 @@
+nnoremap <silent> gcc <Plug>(comment_toggle_linewise_current)
+vnoremap <silent> gc  <Plug>(comment_toggle_linewise_visual)

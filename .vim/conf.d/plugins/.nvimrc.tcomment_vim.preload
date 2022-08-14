@@ -1,3 +1,0 @@
-let g:tcommentmaps = 0
-nnoremap <silent>gcc :TComment<CR>
-vnoremap <silent>gc  :TComment<CR>

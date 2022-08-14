@@ -113,6 +113,15 @@ call dein#add('hrsh7th/nvim-cmp', {
 "------------------------------------
 " Edit
 "------------------------------------
+call dein#add('numToStr/Comment.nvim', {
+      \ 'lazy': 1,
+      \ 'on_map': [
+      \   ['nx', '<Plug>(comment_toggle'],
+      \ ],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim',
+      \ })
+
 call dein#add('cohama/lexima.vim', {
       \ 'lazy': 1,
       \ 'on_event': 'InsertEnter',
@@ -136,12 +145,6 @@ call dein#add('godlygeek/tabular', {
       \ 'lazy': 1,
       \ 'on_cmd': ['Tabularize', 'AddTabularPipeline'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tabular.preload',
-      \ })
-
-call dein#add('tomtom/tcomment_vim', {
-      \ 'lazy': 1,
-      \ 'on_cmd': ['TComment', 'TCommentAs', 'TCommentMaybeInline'],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.tcomment_vim.preload',
       \ })
 
 call dein#add('brglng/vim-im-select', {
