@@ -115,9 +115,7 @@ call dein#add('hrsh7th/nvim-cmp', {
 "------------------------------------
 call dein#add('numToStr/Comment.nvim', {
       \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['nx', '<Plug>(comment_toggle'],
-      \ ],
+      \ 'on_map': [['nx', '<Plug>(comment_toggle']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.comment.nvim',
       \ })
@@ -166,11 +164,7 @@ call dein#add('tpope/vim-surround', {
 
 call dein#add('svermeulen/vim-yoink', {
       \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['n', '<Plug>(YoinkPostPasteSwapBack)'], ['n', '<Plug>(YoinkPostPasteSwapForward)'],
-      \   ['n', '<Plug>(YoinkPaste_p)'], ['n', '<Plug>(YoinkPaste_P)'],
-      \   ['nx', '<Plug>(YoinkYankPreserveCursorPosition)'],
-      \ ],
+      \ 'on_map': [['nx', '<Plug>(Yoink']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik',
       \ })
@@ -180,7 +174,7 @@ call dein#add('svermeulen/vim-yoink', {
 "------------------------------------
 call dein#add('rhysd/clever-f.vim', {
       \ 'lazy': 1,
-      \ 'on_map': ['<Plug>(clever-f-f)', '<Plug>(clever-f-F)'],
+      \ 'on_map': ['<Plug>(clever-f',],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.clever-f.vim.preload',
       \ })
 
@@ -196,20 +190,14 @@ call dein#add('phaazon/hop.nvim', {
 
 call dein#add('t9md/vim-textmanip', {
       \ 'lazy': 1,
-      \ 'on_map': [
-      \   ['x', '<Plug>(textmanip-move-down)'], ['x', '<Plug>(textmanip-move-left)'],
-      \   ['x', '<Plug>(textmanip-move-right)'], ['x', '<Plug>(textmanip-move-up)'],
-      \ ],
+      \ 'on_map': [['x', '<Plug>(textmanip-move']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
 " call dein#add('chaoren/vim-wordmotion', {
 "       \ 'lazy': 1,
 "       \ 'on_event': 'BufRead',
-"       \ 'on_map': [
-"       \   ['nxo', '<Plug>WordMotion_w'], ['nxo', '<Plug>WordMotion_e'],
-"       \   ['nxo', '<Plug>WordMotion_b'],
-"       \ ],
+"       \ 'on_map': [['nxo', '<Plug>WordMotion']],
 "       \ })
 
 "------------------------------------
@@ -233,22 +221,14 @@ call dein#add('elzr/vim-json', {
 call dein#add('kana/vim-textobj-entire', {
       \ 'lazy': 1,
       \ 'depends': 'vim-textobj-user',
-      \ 'on_map': [
-      \   ['nx', '<Plug>(textobj-entire-a)'],
-      \   ['nx', '<Plug>(textobj-entire-i)'],
-      \ ],
+      \ 'on_map': [['nx', '<Plug>(textobj-entire']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textobj-entire.preload',
       \ })
 
 call dein#add('kana/vim-textobj-indent', {
       \ 'lazy': 1,
       \ 'depends': 'vim-textobj-user',
-      \ 'on_map': [
-      \   ['nx', '<Plug>(textobj-indent-a)'],
-      \   ['nx', '<Plug>(textobj-indent-i)'],
-      \   ['nx', '<Plug>(textobj-indent-same-a)'],
-      \   ['nx', '<Plug>(textobj-indent-same-i)'],
-      \ ],
+      \ 'on_map': [['nx', '<Plug>(textobj-indent']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textobj-indent.preload',
       \ })
 
