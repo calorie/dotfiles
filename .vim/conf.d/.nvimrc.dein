@@ -16,7 +16,6 @@ endif
 let g:dein#inline_vimrcs = []
 let s:rc_base_path = expand('~/dotfiles/.vim/conf.d/.vimrc.')
 let s:rcs = [
-      \ 'basic',
       \ 'indent',
       \ 'apperance',
       \ 'completion',
