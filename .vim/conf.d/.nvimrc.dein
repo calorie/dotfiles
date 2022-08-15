@@ -5,7 +5,8 @@ augroup END
 let g:dein_dir   = expand('~/.vim/dein')
 let &runtimepath = &runtimepath . ',' . g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-let s:plugins_dir = expand('~/dotfiles/.vim/conf.d/plugins')
+let s:conf_dir = expand('~/dotfiles/.vim/conf.d')
+let s:plugins_dir = s:conf_dir . '/plugins'
 
 " let g:dein#auto_recache = v:true
 let g:dein#lazy_rplugins = v:true
@@ -14,7 +15,7 @@ if !dein#min#load_state(g:dein_dir)
 endif
 
 let g:dein#inline_vimrcs = []
-let s:rc_base_path = expand('~/dotfiles/.vim/conf.d/.vimrc.')
+let s:rc_path = s:conf_dir . '/.vimrc.'
 let s:rcs = [
       \ 'indent',
       \ 'apperance',
@@ -27,7 +28,7 @@ let s:rcs = [
       \ 'langs',
       \ ]
 for s:rc in s:rcs
-  call add(g:dein#inline_vimrcs, s:rc_base_path . s:rc)
+  call add(g:dein#inline_vimrcs, s:rc_path . s:rc)
 endfor
 
 call dein#begin(g:dein_dir)
