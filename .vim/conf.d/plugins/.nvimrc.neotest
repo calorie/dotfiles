@@ -1,0 +1,7 @@
+lua << EOT
+  require('neotest').setup({
+    adapters = {
+      require('neotest-rspec'),
+    },
+  })
+EOT

@@ -233,6 +233,28 @@ call dein#add('elzr/vim-json', {
       \ })
 
 "------------------------------------
+" Test
+"------------------------------------
+" call dein#add('nvim-neotest/neotest', {
+"       \ 'lazy': 1,
+"       \ 'depends': [
+"       \   'nvim-treesitter', 'FixCursorHold.nvim', 'plenary.nvim',
+"       \   'neotest-rspec',
+"       \ ],
+"       \ 'on_ft': ['ruby'],
+"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.neotest.preload',
+"       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.neotest',
+"       \ })
+"
+" call dein#add('olimorris/neotest-rspec', {
+"       \ 'lazy': 1,
+"       \ })
+"
+" call dein#add('nvim-lua/plenary.nvim', {
+"       \ 'lazy': 1,
+"       \ })
+
+"------------------------------------
 " textobj
 "------------------------------------
 call dein#add('kana/vim-textobj-entire', {

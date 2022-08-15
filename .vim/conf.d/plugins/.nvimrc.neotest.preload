@@ -1,0 +1,11 @@
+command! NeotestSummary lua require('neotest').summary.toggle()
+command! NeotestFile lua require('neotest').run.run(vim.fn.expand('%'))
+command! Neotest lua require('neotest').run.run(vim.fn.getcwd())
+command! NeotestNearest lua require('neotest').run.run()
+command! NeotestAttach lua require('neotest').run.attach()
+command! NeotestOutput lua require('neotest').output.open()
+
+nnoremap <silent> <Leader>tr :NeotestNearest<CR>
+nnoremap <silent> <Leader>tf :NeotestFile<CR>
+nnoremap <silent> <Leader>to :NeotestOutput<CR>
+nnoremap <silent> <Leader>ts :NeotestSummary<CR>
