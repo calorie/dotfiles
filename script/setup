@@ -49,6 +49,7 @@ DOTFILES=(
   .ripgreprc
   .rspec
   .rubocop.yml
+  .solargraph.yml
   .tmux-powerlinerc
   .tmux.conf
   .tmuxinator
