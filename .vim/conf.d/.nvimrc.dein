@@ -147,7 +147,7 @@ call dein#add('windwp/nvim-autopairs', {
 call dein#add('neovim/nvim-lspconfig', {
       \ 'lazy': 1,
       \ 'depends': ['cmp-nvim-lsp'],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lspconfig.preload',
+      \ 'on_event': 'BufRead',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.nvim-lspconfig',
       \ })
 
@@ -281,8 +281,9 @@ call dein#add('rhysd/ghpr-blame.vim', {
 
 call dein#add('glepnir/lspsaga.nvim', {
       \ 'lazy': 1,
-      \ 'on_event': 'BufRead',
+      \ 'depends': ['nvim-lspconfig'],
       \ 'on_cmd': ['Lspsaga', 'LSoutlineToggle'],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim',
       \ })
 

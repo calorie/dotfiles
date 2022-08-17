@@ -3,10 +3,27 @@ lua << END
   local util = require 'lspconfig/util'
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-  lspconfig.solargraph.setup{ init_options = { diagnostics = true }, capabilities = capabilities }
-  lspconfig.yamlls.setup{ capabilities = capabilities }
-  lspconfig.rust_analyzer.setup{ capabilities = capabilities }
-  -- lspconfig.tsserver.setup{ capabilities = capabilities }
+  local on_attach = function(client, bufnr)
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gj', vim.lsp.buf.definition, bufopts)
+    -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  end
+
+  lspconfig.solargraph.setup {
+    init_options = { diagnostics = true },
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  lspconfig.yamlls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  lspconfig.rust_analyzer.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
   lspconfig.gopls.setup {
     cmd = { 'gopls', 'serve' },
     filetypes = { 'go', 'gomod' },
@@ -20,5 +37,10 @@ lua << END
       },
     },
     capabilities = capabilities,
+    on_attach = on_attach,
   }
+  -- lspconfig.tsserver.setup {
+  --   capabilities = capabilities,
+  --   on_attach = on_attach,
+  -- }
 END
