@@ -21,6 +21,16 @@ set clipboard=unnamedplus       " use os's clipboard
 set shortmess+=Ic               " hidden start messages
 set helpfile=$VIMRUNTIME/doc/help.txt
 
+let g:loaded_2html_plugin       = 1
+let g:loaded_gzip               = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
+let g:skip_loading_mswin        = 1
+
 noremap ; :
 
 inoremap <C-c> <ESC>

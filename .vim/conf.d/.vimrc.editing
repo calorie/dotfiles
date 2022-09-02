@@ -39,7 +39,4 @@ function! s:remove_dust()
   unlet cursor
 endfunction
 command! RemoveDust call <SID>remove_dust()
-" augroup RemoveDust
-"   autocmd!
-"   autocmd BufWritePre * call <SID>remove_dust()
-" augroup END
+" autocmd MyAutoCmd BufWritePre * call <SID>remove_dust()
