@@ -21,19 +21,11 @@ imap <C-l> <Right>
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
 
-" nnoremap <Space><Space> :<C-u>bp<CR>
-" nnoremap <BS><BS> :<C-u>bn<CR>
-nnoremap <C-w> :bnext \| bdelete #<CR>
-
 " move to ended cursor line
 augroup CursorLine
   autocmd!
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line('$') | exe 'normal g`"' | endif
 augroup END
-
-" move parenthesis
-nnoremap ( %
-nnoremap ) %
 
 " moving on visual block mode
 set virtualedit+=block
@@ -58,14 +50,3 @@ nnoremap <silent> <BS><BS> :<C-u>tabprevious<CR>
 " Tags
 "---------------------------------------------------------------------
 set notagbsearch
-
-" tags-and-searches
-" nnoremap t <Nop>
-" " jump
-" nnoremap tt <C-]>
-" " next
-" nnoremap tj :<C-u>tag<CR>
-" " back
-" nnoremap tk :<C-u>pop<CR>
-" " list
-" nnoremap tl :<C-u>tags<CR>
