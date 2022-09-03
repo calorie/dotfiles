@@ -30,8 +30,8 @@ augroup END
 " moving on visual block mode
 set virtualedit+=block
 
-" select to line end by vv
-vnoremap v $h
+" select to line end by v9
+vnoremap 9 $h
 
 " move windows
 nnoremap <C-j> <C-w>j

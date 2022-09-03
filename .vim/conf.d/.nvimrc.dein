@@ -196,6 +196,12 @@ call dein#add('t9md/vim-textmanip', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
+call dein#add('terryma/vim-expand-region', {
+      \ 'lazy': 1,
+      \ 'on_map': [['x', '<Plug>(expand_region']],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-expand-region.preload',
+      \ })
+
 "------------------------------------
 " Syntax
 "------------------------------------
