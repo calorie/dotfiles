@@ -194,6 +194,12 @@ call dein#add('t9md/vim-textmanip', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
+call dein#add('t9md/vim-quickhl', {
+      \ 'lazy': 1,
+      \ 'on_event': 'BufRead',
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickhl.preload',
+      \ })
+
 "------------------------------------
 " Syntax
 "------------------------------------
