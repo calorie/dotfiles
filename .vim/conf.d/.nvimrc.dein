@@ -51,9 +51,7 @@ call dein#add('lambdalisue/fern.vim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.fern.preload',
       \ })
 
-call dein#add('antoinemadec/FixCursorHold.nvim', {
-      \ 'lazy': 1,
-      \ })
+call dein#add('antoinemadec/FixCursorHold.nvim', { 'lazy': 1 })
 
 call dein#add('beauwilliams/focus.nvim', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.focus.nvim.preload',
@@ -96,21 +94,10 @@ call dein#add('nvim-treesitter/nvim-treesitter', {
 "------------------------------------
 " Completion
 "------------------------------------
-call dein#add('hrsh7th/cmp-buffer', {
-      \ 'lazy': 1,
-      \ })
-
-call dein#add('saadparwaiz1/cmp_luasnip', {
-      \ 'lazy': 1,
-      \ })
-
-call dein#add('hrsh7th/cmp-nvim-lsp', {
-      \ 'lazy': 1,
-      \ })
-
-call dein#add('rafamadriz/friendly-snippets', {
-      \ 'lazy': 1,
-      \ })
+call dein#add('hrsh7th/cmp-buffer', { 'lazy': 1 })
+call dein#add('saadparwaiz1/cmp_luasnip', { 'lazy': 1 })
+call dein#add('hrsh7th/cmp-nvim-lsp', { 'lazy': 1 })
+call dein#add('rafamadriz/friendly-snippets', { 'lazy': 1 })
 
 call dein#add('L3MON4D3/LuaSnip', {
       \ 'lazy': 1,
@@ -238,13 +225,8 @@ call dein#add('elzr/vim-json', {
 "       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.neotest',
 "       \ })
 "
-" call dein#add('olimorris/neotest-rspec', {
-"       \ 'lazy': 1,
-"       \ })
-"
-" call dein#add('nvim-lua/plenary.nvim', {
-"       \ 'lazy': 1,
-"       \ })
+" call dein#add('olimorris/neotest-rspec', { 'lazy': 1 })
+" call dein#add('nvim-lua/plenary.nvim', { 'lazy': 1 })
 
 "------------------------------------
 " textobj
@@ -263,9 +245,7 @@ call dein#add('kana/vim-textobj-indent', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textobj-indent.preload',
       \ })
 
-call dein#add('kana/vim-textobj-user', {
-      \ 'lazy': 1,
-      \ })
+call dein#add('kana/vim-textobj-user', { 'lazy': 1 })
 
 "------------------------------------
 " Utility
