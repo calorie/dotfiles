@@ -1,7 +1,3 @@
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
 let g:dein_dir   = expand('~/.vim/dein')
 let &runtimepath = &runtimepath . ',' . g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 

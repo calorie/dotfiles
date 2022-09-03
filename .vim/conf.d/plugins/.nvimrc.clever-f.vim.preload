@@ -1,2 +1,2 @@
-map f <Plug>(clever-f-f)
-map F <Plug>(clever-f-F)
+nnoremap f <Plug>(clever-f-f)
+nnoremap F <Plug>(clever-f-F)

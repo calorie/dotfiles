@@ -31,6 +31,10 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_zipPlugin         = 1
 let g:skip_loading_mswin       = 1
 
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 noremap ; :
 
 inoremap <C-c> <ESC>
