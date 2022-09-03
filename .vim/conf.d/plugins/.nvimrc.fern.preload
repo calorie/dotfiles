@@ -4,7 +4,7 @@ let g:fern#default_hidden = 1
 let g:fern#drawer_width = 23
 let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
 
-nnoremap <silent> <Leader>nt :<C-u>Fern . -drawer -toggle<CR>
+nnoremap <silent> <Leader>nt :<C-u>Fern . -drawer -reveal=% -toggle<CR>
 nnoremap <silent> <Leader>nf :<C-u>Fern . -drawer -reveal=%<CR>
 
 function! s:init_fern() abort
