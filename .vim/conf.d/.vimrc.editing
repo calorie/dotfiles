@@ -7,7 +7,7 @@ set iminsert=0 imsearch=0
 set noimcmdline
 
 " add selected word to register
-vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+" vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " convert tab to space
 set expandtab
@@ -19,7 +19,7 @@ inoremap , ,<Space>
 inoremap <C-u> <C-g>u<C-u>
 
 " backspace & delete
-imap <C-b> <BS>
+inoremap <C-b> <BS>
 
 " yank to line end
 nmap y9 y$
@@ -32,9 +32,7 @@ set foldlevelstart=99
 function! s:remove_dust()
   let cursor = getpos('.')
   %s/\s\+$//ge
-  if &ft !~ 'make'
-    %s/\t/  /ge
-  endif
+  %s/\t/  /ge
   call setpos('.', cursor)
   unlet cursor
 endfunction

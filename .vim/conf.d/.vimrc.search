@@ -6,6 +6,7 @@ set ignorecase " ignore lower & upper
 set smartcase  " case sensitive
 set incsearch  " incremental search
 set hlsearch   " highlight search word
+
 " disable highlight by esc*2
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 nnoremap <silent> <C-c><C-c> :nohlsearch<CR>

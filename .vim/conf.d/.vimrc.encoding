@@ -4,18 +4,6 @@
 set ffs=unix       " newline character
 set encoding=utf-8 " default encoding
 
-augroup Encoding
-  autocmd!
-  autocmd FileType cvs   :set fileencoding=utf-8
-  autocmd FileType svn   :set fileencoding=utf-8
-  autocmd FileType js    :set fileencoding=utf-8
-  autocmd FileType css   :set fileencoding=utf-8
-  autocmd FileType html  :set fileencoding=utf-8
-  autocmd FileType xml   :set fileencoding=utf-8
-  autocmd FileType java  :set fileencoding=utf-8
-  autocmd FileType scala :set fileencoding=utf-8
-augroup END
-
 " lower priority extension
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
