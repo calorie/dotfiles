@@ -41,6 +41,6 @@ function! s:init_fern() abort
 endfunction
 
 augroup MyAutoCmd
-  autocmd VimEnter * ++nested if !argc() | Fern . -drawer -reveal=% -toggle | endif
+  autocmd VimEnter * ++nested if !argc() | Fern . -drawer -reveal=% | endif
   autocmd FileType fern setlocal norelativenumber | setlocal nonumber | call s:init_fern()
 augroup END
