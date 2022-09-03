@@ -190,16 +190,16 @@ call dein#add('phaazon/hop.nvim', {
       \ 'hook_source': 'lua require("hop").setup {}',
       \ })
 
-call dein#add('t9md/vim-textmanip', {
-      \ 'lazy': 1,
-      \ 'on_map': [['x', '<Plug>(textmanip-move']],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
-      \ })
-
 call dein#add('terryma/vim-expand-region', {
       \ 'lazy': 1,
       \ 'on_map': [['x', '<Plug>(expand_region']],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-expand-region.preload',
+      \ })
+
+call dein#add('t9md/vim-textmanip', {
+      \ 'lazy': 1,
+      \ 'on_map': [['x', '<Plug>(textmanip-move']],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-textmanip.preload',
       \ })
 
 "------------------------------------
