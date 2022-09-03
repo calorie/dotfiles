@@ -113,6 +113,7 @@ lua << EOT
               opts = {
                 type = 'relative',
                 file_modified_icon = '',
+                file_readonly_icon = '🔒 ',
               },
             },
             hl = {
@@ -153,14 +154,20 @@ lua << EOT
       inactive = {
         {
           {
-            provider = function()
-              return vim.fn.expand('%:F')
-            end,
+            provider = {
+              name = 'file_info',
+              opts = {
+                type = 'relative',
+                file_modified_icon = '',
+                file_readonly_icon = '',
+              },
+            },
             hl = {
               fg = 'muted',
               bg = 'bg',
             },
             left_sep = ' ',
+            icon = '',
           },
         },
         {},
