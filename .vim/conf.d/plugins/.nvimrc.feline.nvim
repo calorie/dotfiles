@@ -36,9 +36,10 @@ lua << EOT
 
   local inactive_filetypes = {
     '^fern$',
-    '^fugitive$',
     '^fugitiveblame$',
     '^qf$',
+    '^git$',
+    '^fugitive$',
     '^help$',
   }
 
