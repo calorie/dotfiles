@@ -1,4 +1,0 @@
-autocmd MyAutoCmd BufReadCmd   sudo:*,sudo:*/* SudoRead <afile>
-autocmd MyAutoCmd FileReadCmd  sudo:*,sudo:*/* SudoRead <afile>
-autocmd MyAutoCmd BufWriteCmd  sudo:*,sudo:*/* SudoWrite <afile>
-autocmd MyAutoCmd FileWriteCmd sudo:*,sudo:*/* SudoWrite <afile>
