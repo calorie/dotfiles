@@ -38,6 +38,12 @@ call dein#add('Shougo/dein.vim')
 "------------------------------------
 " Buffer
 "------------------------------------
+call dein#add('feline-nvim/feline.nvim', {
+      \ 'lazy': 1,
+      \ 'on_event': 'VimEnter',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.feline.nvim',
+      \ })
+
 call dein#add('lambdalisue/fern.vim', {
       \ 'lazy': 1,
       \ 'depends': ['FixCursorHold.nvim'],
@@ -57,15 +63,6 @@ call dein#add('lukas-reineke/indent-blankline.nvim', {
       \ 'lazy': 1,
       \ 'on_event': 'BufRead',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.indent-blankline.nvim',
-      \ })
-
-call dein#add('vim-airline/vim-airline', {
-      \ 'depends': ['vim-airline-themes'],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-airline.preload',
-      \ })
-
-call dein#add('vim-airline/vim-airline-themes', {
-      \ 'lazy': 1,
       \ })
 
 call dein#add('liuchengxu/vim-clap', {
