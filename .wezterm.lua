@@ -9,6 +9,7 @@ return {
   enable_tab_bar = false,
   use_ime = true,
   adjust_window_size_when_changing_font_size = false,
+  window_close_confirmation = 'NeverPrompt',
 
   colors = {
     cursor_bg = '#c9c8db',
