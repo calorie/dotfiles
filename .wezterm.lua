@@ -17,14 +17,13 @@ return {
   font_size = 15.0,
   freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
-  color_scheme = 'Rosé Pine (base16)',
-  window_decorations = 'NONE',
+  adjust_window_size_when_changing_font_size = false,
   enable_tab_bar = false,
   enable_scroll_bar = false,
   use_ime = true,
-  adjust_window_size_when_changing_font_size = false,
-  window_close_confirmation = 'NeverPrompt',
 
+  window_decorations = 'NONE',
+  window_close_confirmation = 'NeverPrompt',
   window_padding = {
     left = 0,
     right = 0,
@@ -32,6 +31,7 @@ return {
     bottom = 0,
   },
 
+  color_scheme = 'Rosé Pine (base16)',
   colors = {
     foreground = palette.text,
     cursor_bg = palette.text,
