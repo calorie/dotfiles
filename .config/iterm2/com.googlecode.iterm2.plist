@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ActiveUpdateCadence</key>
+	<real>120</real>
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>BootstrapDaemon</key>
@@ -122,6 +124,8 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>MetalSlowFrameRate</key>
+	<real>60</real>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -354,6 +358,8 @@
 			<real>1</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Use Transparency</key>
+			<false/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -701,7 +707,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.13459311548223354</real>
+			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -761,10 +767,18 @@
 	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
+	<key>ShowMetalFPSmeter</key>
+	<false/>
+	<key>SlowFrameRate</key>
+	<real>30</real>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>UseAdaptiveFrameRate</key>
+	<true/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
+	<key>UseMetal</key>
+	<true/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>findMode_iTerm</key>
