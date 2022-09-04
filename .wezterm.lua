@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 return {
-  font = wezterm.font('Ricty Diminished for Powerline'),
+  font = wezterm.font('HackGen'),
   font_size = 16.0,
   freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
