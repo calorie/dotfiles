@@ -6,10 +6,10 @@ local palette = {
   text = '#c9c8db',
   love = '#d66B7f',
   gold = '#f3cc95',
-  rose = '#ebbcba',
   pine = '#31748f',
   foam = '#9ccfd8',
   iris = '#c4a7e7',
+  blue_gray = '#8ac6f2',
 }
 
 return {
@@ -42,9 +42,9 @@ return {
       palette.love,
       palette.pine,
       palette.gold,
-      palette.foam,
+      palette.blue_gray,
       palette.iris,
-      palette.rose,
+      palette.foam,
       palette.text,
     },
   },
