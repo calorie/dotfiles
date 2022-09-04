@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 return {
   font = wezterm.font('HackGen'),
-  font_size = 16.0,
+  font_size = 15.0,
   freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   color_scheme = 'Rosé Pine (base16)',

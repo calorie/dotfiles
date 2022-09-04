@@ -58,6 +58,7 @@ DOTFILES=(
   .config/powerline-shell/config.json
   .vimrc
   .zshrc
+  .wezterm.lua
 )
 for file in ${DOTFILES[@]}
 do
