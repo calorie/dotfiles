@@ -32,6 +32,7 @@ set virtualedit+=block
 
 " select to line end by v9
 vnoremap 9 $h
+vnoremap $ $h
 
 " move windows
 nnoremap <C-j> <C-w>j
