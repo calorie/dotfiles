@@ -28,7 +28,9 @@ done
 
 DIRS=(
   .cache
+  .config/alacritty
   .config/nvim
+  .config/peco
   .config/powerline-shell
   .vim
 )
@@ -54,7 +56,9 @@ DOTFILES=(
   .tmux.conf
   .tmuxinator
   .vim/dict
+  .config/alacritty/alacritty.yml
   .config/nvim/init.vim
+  .config/peco/config.json
   .config/powerline-shell/config.json
   .vimrc
   .zshrc
