@@ -67,6 +67,7 @@ brew "harelba/q/q"
 brew "hashicorp/tap/terraform"
 brew "sanemat/font/ricty"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "alacritty"
 cask "alfred"
 cask "appcleaner"
 cask "caffeine"
