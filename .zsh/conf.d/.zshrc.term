@@ -1,5 +1,5 @@
 function powerline_precmd() {
-  eval "$(/usr/local/bin/powerline-go -error $? -shell zsh -eval)"
+  eval "$(/usr/local/bin/powerline-go -error $? -shell zsh -eval -modules user,cwd,root)"
 }
 
 function install_powerline_precmd() {
