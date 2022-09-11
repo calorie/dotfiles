@@ -3,7 +3,6 @@ autoload -Uz add-zsh-hook
 # ------------------------------------
 # TMUX
 # ------------------------------------
-# tmux autoload
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   tmux -2 new-session -A -s main
 fi
@@ -14,7 +13,6 @@ fi
 #------------------------------------
 # ENV
 #------------------------------------
-## Command history configuration
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
@@ -95,17 +93,16 @@ zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate
 # ------------------------------------
 # Keybind configuration
 # ------------------------------------
-# emacs like keybind
-# (e.x. Ctrl-a goes to head of a line and Ctrl-e goes to end of it)
+# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes to end of it)
 bindkey -e
 # Backspace key
-bindkey "^?" backward-delete-char
+bindkey '^?' backward-delete-char
 # historical backward/forward search with linehead string binded to ^P/^N
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^p" history-beginning-search-backward-end
-bindkey "^n" history-beginning-search-forward-end
+bindkey '^p' history-beginning-search-backward-end
+bindkey '^n' history-beginning-search-forward-end
 
 # ------------------------------------
 # Autoload configuration
@@ -115,7 +112,7 @@ autoload zed
 # back-word
 autoload -Uz select-word-style
 select-word-style default
-zstyle ':zle:*' word-chars " _-./;@"
+zstyle ':zle:*' word-chars ' _-./;@'
 zstyle ':zle:*' word-style unspecified
 # escape copied word
 autoload -Uz url-quote-magic

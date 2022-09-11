@@ -23,7 +23,6 @@ do
 done
 
 DOTFILES=(
-  .agignore
   .dir_colors
   .gemrc
   .gitconfig

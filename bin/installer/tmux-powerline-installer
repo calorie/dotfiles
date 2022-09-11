@@ -1,9 +1,9 @@
 #!/bin/bash
 
 TMUX_PATH=$HOME/.tmux
-TMUX_POWERLINE_PATH=$TMUX_PATH/tmux-powerline
-
 if [ ! -d $TMUX_PATH ];
   mkdir $TMUX_PATH
 fi
+
+TMUX_POWERLINE_PATH=$TMUX_PATH/tmux-powerline
 git clone --single-branch https://github.com/erikw/tmux-powerline.git $TMUX_POWERLINE_PATH

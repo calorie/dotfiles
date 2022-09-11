@@ -38,7 +38,6 @@ do
 done
 
 DOTFILES=(
-  .agignore
   .gemrc
   .gitconfig
   .gitignore

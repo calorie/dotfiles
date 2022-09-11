@@ -1,1 +1,3 @@
+#!/bin/bash
+
 npm install -g neovim typescript typescript-language-server yaml-language-server
