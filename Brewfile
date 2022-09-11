@@ -23,16 +23,13 @@ brew "go"
 brew "gopls"
 brew "grep"
 brew "helm"
-brew "helmfile"
 brew "ncurses"
 brew "htop"
 brew "python@3.8"
 brew "imagemagick"
 brew "jq"
 brew "libevent"
-brew "libiconv"
 brew "libxml2"
-brew "libxslt"
 brew "lua"
 brew "luajit"
 brew "luarocks"
@@ -87,7 +84,6 @@ cask "vlc"
 cask "wezterm"
 cask "xquartz"
 mas "BetterSnapTool", id: 417375580
-mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
