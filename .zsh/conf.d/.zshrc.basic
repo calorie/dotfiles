@@ -9,7 +9,7 @@ if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
 fi
 
 # tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+# [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 #------------------------------------
 # ENV
@@ -85,6 +85,7 @@ unsetopt list_beep          # no beep
 # ------------------------------------
 # sudo completion
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+
 # color completion
 zstyle ':completion:*' list-colors di=34 fi=0
 zstyle ':completion:*' keep-prefix
@@ -105,16 +106,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
 bindkey "^n" history-beginning-search-forward-end
-bindkey "\\ep" history-beginning-search-backward-end
-bindkey "\\en" history-beginning-search-forward-end
-# glob(*) incremental search
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey '^S' history-incremental-pattern-search-forward
-# Command Line Stack [Esc]-[q]
-bindkey -a 'q' push-line
-# move word by ctrl-w, ctrl-b
-# bindkey "^W" forward-word
-# bindkey "^B" backward-word
 
 # ------------------------------------
 # Autoload configuration

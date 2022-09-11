@@ -22,43 +22,28 @@ alias su="su -l"
 
 # vim
 alias vi="nvim"
+alias v="nvim"
 
 # grep
 alias 'gr'='grep --color=auto -ERUIn --exclude-dir=.git --exclude-dir=.svn --exclude-dir=log --exclude-dir=vendor --exclude=tags'
 
-#make
-alias 'm'='make'
-alias 'mn'='make native-code'
-alias 'mc'='make clean'
-
-# tmux
-alias tm='tmux'
-alias tma='tmux attach'
-alias tml='tmux list-window'
-alias tkwa='tmux kill-window -a'
-alias tkpa='tmux kill-pane -a'
-
-alias pon='predict-on'
-alias poff='predict-off'
 alias p='ping -c 4'
 
 alias cp='nocorrect cp -irp'
-alias refe='nocorrect refe'
 
 # git
 alias g='git'
 alias gi='git'
+alias gd='git diff'
+alias gdc='git diff --cached'
 alias gs='git status'
+alias ga='git add -A'
 alias gc='git commit'
-alias gci='git commit -a'
+alias gca='git commit -a'
 # compdef g=git
 
 alias java='nocorrect java'
-alias erl='nocorrect erl'
-alias sbcl='nocorrect sbcl'
-alias gosh='nocorrect gosh'
 alias node='nocorrect node'
-alias hg='nocorrect hg --encoding=utf-8'
 
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
@@ -98,17 +83,5 @@ alias chrome='google-chrome'
 alias hist='history -50'
 alias hista='history 1'
 
-# dhclient
-alias dc='sudo dhclient -r && sudo dhclient eth0'
-
-# emacs
-alias emacs='emacs -nw'
-
-# xdg
-alias xopen='xdg-open'
-
 # bundle
 alias bi='bundle install --jobs=4'
-
-# ag
-alias ag='ag --hidden'
