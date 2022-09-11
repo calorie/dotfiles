@@ -78,7 +78,6 @@ cask "flux"
 cask "font-hackgen"
 cask "google-chrome"
 cask "google-japanese-ime"
-cask "growlnotify"
 cask "iterm2"
 cask "karabiner-elements"
 cask "keyboardcleantool"
@@ -89,7 +88,6 @@ cask "wezterm"
 cask "xquartz"
 mas "BetterSnapTool", id: 417375580
 mas "GarageBand", id: 682658836
-mas "Growl", id: 467939042
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194

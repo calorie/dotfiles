@@ -10,8 +10,3 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
-
-# flutter
-if [ -d $HOME/src/flutter ]; then
-  export PATH="$PATH:$HOME/src/flutter/bin"
-fi

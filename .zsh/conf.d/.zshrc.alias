@@ -51,7 +51,7 @@ alias gi='git'
 alias gs='git status'
 alias gc='git commit'
 alias gci='git commit -a'
-compdef g=git
+# compdef g=git
 
 alias java='nocorrect java'
 alias erl='nocorrect erl'
