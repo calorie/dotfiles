@@ -2,10 +2,10 @@
 
 while :
 do
-  read -p "install dotfiles? y/n " yn
-  if [ $yn = "n" -o $yn = "N" ]; then
+  read -p 'install dotfiles? y/n ' yn
+  if [ $yn = 'n' -o $yn = 'N' ]; then
     exit
-  elif [ $yn = "y" -o $yn = "Y" ]; then
+  elif [ $yn = 'y' -o $yn = 'Y' ]; then
     break
   else
     continue
@@ -17,7 +17,6 @@ DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
 PKGS=(
-  ricty-diminished
   tmux-256color
   tmux-powerline
 )
@@ -31,7 +30,6 @@ DIRS=(
   .config/alacritty
   .config/nvim
   .config/peco
-  .config/powerline-shell
   .vim
 )
 for dir in ${DIRS[@]}
@@ -59,7 +57,6 @@ DOTFILES=(
   .config/alacritty/alacritty.yml
   .config/nvim/init.vim
   .config/peco/config.json
-  .config/powerline-shell/config.json
   .vimrc
   .zshrc
   .wezterm.lua

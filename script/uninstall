@@ -2,10 +2,10 @@
 
 while :
 do
-  read -p "uninstall dotfiles? y/n " yn
-  if [ $yn = "n" -o $yn = "N" ]; then
+  read -p 'uninstall dotfiles? y/n ' yn
+  if [ $yn = 'n' -o $yn = 'N' ]; then
     exit
-  elif [ $yn = "y" -o $yn = "Y" ]; then
+  elif [ $yn = 'y' -o $yn = 'Y' ]; then
     break
   else
     continue
@@ -15,7 +15,6 @@ done
 UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
 
 PKGS=(
-  ricty
   tmux-powerline
 )
 for pkg in ${PKGS[@]}
@@ -39,8 +38,9 @@ DOTFILES=(
   .tmux.conf
   .tmuxinator
   .vim/dict
+  .config/alacritty/alacritty.yml
   .config/nvim/init.vim
-  .config/powerline-shell/config.json
+  .config/peco/config.json
   .vimrc
   .zshrc
 )

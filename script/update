@@ -2,10 +2,10 @@
 
 while :
 do
-  read -p "update? y/n " yn
-  if [ $yn = "n" -o $yn = "N" ]; then
+  read -p 'update? y/n ' yn
+  if [ $yn = 'n' -o $yn = 'N' ]; then
     exit
-  elif [ $yn = "y" -o $yn = "Y" ]; then
+  elif [ $yn = 'y' -o $yn = 'Y' ]; then
     break
   else
     continue
@@ -28,13 +28,6 @@ fi
 if [ -d $HOME/.tmux/tmux-powerline ]; then
   cd $HOME/.tmux/tmux-powerline
   git pull --rebase origin main
-fi
-
-# powerline-shell
-if [ -d $HOME/.zsh/powerline-shell ]; then
-  cd $HOME/.zsh/powerline-shell
-  git pull --rebase origin master
-  python3 setup.py install
 fi
 
 # vim plugins
