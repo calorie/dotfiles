@@ -65,9 +65,6 @@ do
   ln -sf $DOTFILES_PATH/$file $HOME/$file
 done
 
-# NeoBundle
-# . $INSTALLER_PATH/neobundle-installer
-
 # dein
 $INSTALLER_PATH/dein-installer
 

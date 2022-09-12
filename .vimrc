@@ -1,25 +1,23 @@
-" display startup time
-if has('vim_starting') && has('reltime')
-  let g:startuptime = reltime()
-  augroup vimrc-startuptime
-    autocmd! VimEnter * let g:startuptime = reltime(g:startuptime) | redraw
-          \ | echomsg 'startuptime: ' . reltimestr(g:startuptime)
-  augroup END
-endif
-
-" load vimrc
 let s:rcs = [
-      \ 'bundle',
       \ 'basic',
       \ 'indent',
       \ 'apperance',
       \ 'completion',
       \ 'search',
       \ 'moving',
-      \ 'colors',
       \ 'editing',
-      \ 'encoding',
-      \ 'plugins_setting']
+      \ 'encoding']
 for s:rc in s:rcs
   execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . s:rc
 endfor
+
+filetype plugin indent on
+syntax on
+
+set t_Co=256
+set t_Sf=[3%dm
+set t_Sb=[4%dm
+
+colorscheme habamax
+
+highlight EndOfBuffer ctermfg=bg

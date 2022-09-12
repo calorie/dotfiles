@@ -30,11 +30,6 @@ if [ -d $HOME/.tmux/tmux-powerline ]; then
   git pull --rebase origin main
 fi
 
-# vim plugins
-# if command -v vim >/dev/null 2>&1; then
-#   vim +NeoBundleUpdate +NeoBundleClearCache +qa
-# fi
-
 # nvim plugins
 if command -v nvim >/dev/null 2>&1; then
   nvim +':silent call dein#update()' +qa
