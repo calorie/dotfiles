@@ -26,7 +26,7 @@ $ ./script/setup
 ~/dotfiles/.config/GoogleJapaneseInput/dictionary.txt
 ```
 
-## Uninstall
+# Uninstall
 
 ```
 $ cd ~/dotfiles
