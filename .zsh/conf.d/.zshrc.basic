@@ -152,7 +152,7 @@ fi
 # nodenv
 # ------------------------------------
 if [ -d $HOME/.nodenv ]; then
-  export PATH="$HOME/.nodenv/bin:$PATH"
+  export PATH="$HOME/.nodenv/shims:$PATH"
   eval "$(nodenv init -)"
 fi
 

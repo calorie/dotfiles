@@ -19,10 +19,9 @@ if command -v update_rubygems >/dev/null 2>&1; then
   update_rubygems
 fi
 
-# tmuxinator
-if command -v mux >/dev/null 2>&1; then
-  gem install tmuxinator
-fi
+gem update
+npm update -g
+pip install -r $HOME/dotfiles/requirements.txt --upgrade
 
 # tmux-powerline
 if [ -d $HOME/.tmux/tmux-powerline ]; then

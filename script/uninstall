@@ -28,7 +28,9 @@ DOTFILES=(
   .gitignore
   .inputrc
   .irbrc
+  .nodenv/default-packages
   .pryrc
+  .rbenv/default-gems
   .rdebugrc
   .ripgreprc
   .rspec

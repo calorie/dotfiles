@@ -1,3 +1,5 @@
-msgpack==1.0.2
-pynvim==0.4.2
-six==1.16.0
+greenlet>=1.0.0
+msgpack>=1.0.4
+protobuf>=4.21.5
+pynvim>=0.4.3
+six>=1.16.0
