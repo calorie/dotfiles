@@ -201,21 +201,6 @@ call dein#add('t9md/vim-textmanip', {
       \ })
 
 "------------------------------------
-" Syntax
-"------------------------------------
-call dein#add('vim-scripts/dbext.vim', {
-      \ 'lazy': 1,
-      \ 'on_ft': ['sql'],
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.dbext.vim',
-      \ })
-
-call dein#add('elzr/vim-json', {
-      \ 'lazy': 1,
-      \ 'on_ft': ['json'],
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-json',
-      \ })
-
-"------------------------------------
 " Test
 "------------------------------------
 " call dein#add('nvim-neotest/neotest', {

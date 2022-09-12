@@ -11,19 +11,6 @@ lua << END
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   end
 
-  lspconfig.solargraph.setup {
-    init_options = { diagnostics = true },
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-  lspconfig.yamlls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-  lspconfig.rust_analyzer.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
   lspconfig.gopls.setup {
     cmd = { 'gopls', 'serve' },
     filetypes = { 'go', 'gomod' },
@@ -39,8 +26,39 @@ lua << END
     capabilities = capabilities,
     on_attach = on_attach,
   }
+  lspconfig.jsonls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  lspconfig.rust_analyzer.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  lspconfig.sqls.setup {
+    settings = {
+      sqls = {
+        connections = {
+          -- {
+          --   driver = 'mysql',
+          --   dataSourceName = 'root:root@tcp(127.0.0.1:13306)/world',
+          -- },
+        },
+      },
+    },
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  lspconfig.solargraph.setup {
+    init_options = { diagnostics = true },
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
   -- lspconfig.tsserver.setup {
   --   capabilities = capabilities,
   --   on_attach = on_attach,
   -- }
+  lspconfig.yamlls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
 END
