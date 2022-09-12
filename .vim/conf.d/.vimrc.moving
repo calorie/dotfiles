@@ -18,8 +18,8 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 " scroll
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
+nnoremap <Space>j <C-f>
+nnoremap <Space>k <C-b>
 
 " move to ended cursor line
 augroup CursorLine
