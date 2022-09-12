@@ -1,4 +1,3 @@
-" display startup time
 if has('vim_starting') && has('reltime')
   let g:startuptime = reltime()
   augroup vimrc-startuptime
