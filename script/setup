@@ -30,7 +30,6 @@ DIRS=(
   .config/alacritty
   .config/nvim
   .config/peco
-  .vim
 )
 for dir in ${DIRS[@]}
 do
@@ -53,7 +52,6 @@ DOTFILES=(
   .tmux-powerlinerc
   .tmux.conf
   .tmuxinator
-  .vim/dict
   .config/alacritty/alacritty.yml
   .config/nvim/init.vim
   .config/peco/config.json
