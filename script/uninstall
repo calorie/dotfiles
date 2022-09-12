@@ -30,6 +30,7 @@ DOTFILES=(
   .irbrc
   .pryrc
   .rdebugrc
+  .ripgreprc
   .rspec
   .rubocop.yml
   .tmux-powerlinerc
@@ -41,6 +42,7 @@ DOTFILES=(
   .config/peco/config.json
   .vimrc
   .zshrc
+  .wezterm.lua
 )
 for file in ${DOT_FILES[@]}
 do
