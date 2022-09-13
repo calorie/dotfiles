@@ -264,8 +264,10 @@ call dein#add('lambdalisue/suda.vim', {
       \ 'on_cmd': ['SudaRead', 'SudaWrite'],
       \ })
 
-call dein#add('907th/vim-auto-save', {
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-auto-save.preload',
+call dein#add('Pocco81/auto-save.nvim', {
+      \ 'lazy': 1,
+      \ 'on_event': 'BufRead',
+      \ 'hook_source': 'lua require("auto-save").setup { enable = true }',
       \ })
 
 call dein#add('tpope/vim-fugitive', {
