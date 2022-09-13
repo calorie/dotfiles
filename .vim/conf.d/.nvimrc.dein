@@ -267,7 +267,7 @@ call dein#add('lambdalisue/suda.vim', {
 call dein#add('Pocco81/auto-save.nvim', {
       \ 'lazy': 1,
       \ 'on_event': 'BufRead',
-      \ 'hook_source': 'lua require("auto-save").setup { enable = true }',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.auto-save.nvim',
       \ })
 
 call dein#add('tpope/vim-fugitive', {

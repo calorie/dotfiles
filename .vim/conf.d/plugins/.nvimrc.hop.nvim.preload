@@ -2,3 +2,6 @@ nnoremap <silent> <Leader>j :HopVerticalAC<CR>
 nnoremap <silent> <Leader>k :HopVerticalBC<CR>
 nnoremap <silent> <Leader>h :HopWord<CR>
 nnoremap <silent> <Leader>l :HopWordMW<CR>
+
+autocmd FileType fern nnoremap <buffer><silent> J :HopVerticalAC<CR>
+autocmd FileType fern nnoremap <buffer><silent> K :HopVerticalBC<CR>

@@ -18,7 +18,7 @@ set noshowmode                  " not display current mode
 set viminfo='50,<1000,s100,\"50 " viminfo's file conf
 set modelines=0                 " disable modeline
 set clipboard=unnamedplus       " use os's clipboard
-set shortmess+=Ic               " hidden start messages
+set shortmess+=IcW              " hidden start messages
 set helpfile=$VIMRUNTIME/doc/help.txt
 
 let g:loaded_2html_plugin      = 1
