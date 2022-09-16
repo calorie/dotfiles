@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $(uname -m) == 'arm64' ]]; then
+if [[ "$(uname -m)" == 'arm64' ]]; then
   /opt/homebrew/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info
 else
   /usr/local/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info

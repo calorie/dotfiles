@@ -1,5 +1,7 @@
 autoload -Uz add-zsh-hook
 
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+
 # ------------------------------------
 # TMUX
 # ------------------------------------
