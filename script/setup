@@ -30,6 +30,8 @@ DIRS=(
   .config/alacritty
   .config/nvim
   .config/peco
+  .nodenv
+  .rbenv
 )
 for dir in ${DIRS[@]}
 do
