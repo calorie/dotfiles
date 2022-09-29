@@ -15,8 +15,6 @@ local palette = {
 return {
   font = wezterm.font('HackGen'),
   font_size = 15.0,
-  freetype_load_target = 'Light',
-  freetype_render_target = 'HorizontalLcd',
   adjust_window_size_when_changing_font_size = false,
   enable_tab_bar = false,
   enable_scroll_bar = false,
