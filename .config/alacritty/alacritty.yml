@@ -15,3 +15,9 @@ window:
 
 mouse:
   hide_when_typing: true
+
+key_bindings:
+  - { key: Key0, mods: Command,  action: ResetFontSize }
+  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Plus, mods: Command,  action: IncreaseFontSize }
+  - { key: Minus, mods: Command, action: DecreaseFontSize }
