@@ -42,8 +42,8 @@ alias gc='git commit'
 alias gca='git commit -a'
 # compdef g=git
 
-alias java='nocorrect java'
-alias node='nocorrect node'
+# alias java='nocorrect java'
+# alias node='nocorrect node'
 
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
