@@ -3,11 +3,11 @@ lua << EOT
     defaults = {
       mappings = {
         i = {
-          ["<C-o>"] = 'file_edit',
-          ["<C-s>"] = 'file_split',
-          ["<C-l>"] = 'file_vsplit',
-          ["<C-j>"] = 'move_selection_next',
-          ["<C-k>"] = 'move_selection_previous',
+          ['<C-o>'] = 'file_edit',
+          ['<C-s>'] = 'file_split',
+          ['<C-l>'] = 'file_vsplit',
+          ['<C-j>'] = 'move_selection_next',
+          ['<C-k>'] = 'move_selection_previous',
         }
       }
     }
