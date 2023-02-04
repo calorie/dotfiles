@@ -6,7 +6,9 @@ let s:rcs = [
       \ 'search',
       \ 'moving',
       \ 'editing',
-      \ 'encoding']
+      \ 'encoding',
+      \ 'langs',
+      \ ]
 for s:rc in s:rcs
   execute 'source ~/dotfiles/.vim/.vimrc.' . s:rc
 endfor
