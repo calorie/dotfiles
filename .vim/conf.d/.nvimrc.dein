@@ -160,11 +160,11 @@ call dein#add('tpope/vim-surround', {
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-surround.preload',
       \ })
 
-call dein#add('svermeulen/vim-yoink', {
+call dein#add('gbprod/yanky.nvim', {
       \ 'lazy': 1,
-      \ 'on_map': [['nx', '<Plug>(Yoink']],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik.preload',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-yonik',
+      \ 'on_map': [['nx', '<Plug>(Yanky']],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.yanky.nvim.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.yanky.nvim',
       \ })
 
 "------------------------------------
