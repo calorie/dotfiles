@@ -1,31 +1,23 @@
 autoload -Uz add-zsh-hook
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 
-# ------------------------------------
-# TMUX
-# ------------------------------------
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   tmux -2 new-session -A -s main
 fi
 
-#------------------------------------
-# ENV
-#------------------------------------
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
 typeset -U path PATH
-
-#------------------------------------
-# LANG
-#------------------------------------
+export PATH=/opt/homebrew/bin:/usr/local/bin:/sbin:$PATH
+export PATH=$PATH:/sbin
 export LANG=en_US.UTF-8
 export LESSCHARSET=utf-8
+export EDITOR=nvim
+export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=1000
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
-#------------------------------------
-# options configuration
-# ------------------------------------
 setopt auto_cd              # cd by dirctory name
 setopt auto_pushd           # display dir list
 setopt pushd_ignore_dups    # push ignore duplicate dir on dir stack
@@ -77,85 +69,45 @@ unsetopt list_beep          # no beep
 # setopt single_line_zle      # single line mode
 # setopt xtrace               # trace command line
 
-# ------------------------------------
-# Style configuration
-# ------------------------------------
-# sudo completion
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+bindkey -e
+autoload zed
+autoload predict-on
+autoload cdr
 
-# color completion
+autoload -Uz compinit
+compinit -C
+
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*' list-colors di=34 fi=0
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' remote-access false
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _approximate _list _history
 
-# ------------------------------------
-# Keybind configuration
-# ------------------------------------
-# emacs like keybind (e.x. Ctrl-a goes to head of a line and Ctrl-e goes to end of it)
-bindkey -e
-# Backspace key
-bindkey '^?' backward-delete-char
-# historical backward/forward search with linehead string binded to ^P/^N
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey '^p' history-beginning-search-backward-end
 bindkey '^n' history-beginning-search-forward-end
 
-# ------------------------------------
-# Autoload configuration
-# ------------------------------------
-# zsh editor
-autoload zed
-# back-word
 autoload -Uz select-word-style
 select-word-style default
 zstyle ':zle:*' word-chars ' _-./;@'
 zstyle ':zle:*' word-style unspecified
-# escape copied word
+
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
-# Prediction configuration
-autoload predict-on
-# predict-off
-autoload cdr
 
-# ------------------------------------
-# Completion configuration
-# ------------------------------------
-autoload -Uz compinit
-compinit -C
-
-# ------------------------------------
-# Export configuration
-# ------------------------------------
-export EDITOR=nvim
-export PATH=$PATH:/sbin
-export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
-
-# ------------------------------------
-# NeoVim
-# ------------------------------------
-# test -f ~/.nvvm/etc/login && source ~/.nvvm/etc/login
-
-# ------------------------------------
 # rbenv
-# ------------------------------------
 if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/shims:$PATH"
   eval "$(rbenv init - --no-rehash zsh)"
 fi
 
-# ------------------------------------
 # nodenv
-# ------------------------------------
 if [ -d $HOME/.nodenv ]; then
   export PATH="$HOME/.nodenv/shims:$PATH"
   eval "$(nodenv init -)"
 fi
 
-# ------------------------------------
 # ripgrep
-# ------------------------------------
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc

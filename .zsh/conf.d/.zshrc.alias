@@ -1,37 +1,29 @@
 alias where='command -v'
 
-# ls
 alias la='ls -a'
 alias lf='ls -F'
 alias ll='ls -la'
 
-# reload
 alias rl='exec $SHELL -l'
 
-# process
 alias 'ps?'='pgrep -l -f'
 alias pk='pkill -f'
 
-# du/df
 alias du='du -h'
 alias df='df -h'
 alias duh='du -h ./ --max-depth=1'
 
-# su
 alias su='su -l'
 
-# vim
 alias vi='nvim'
 alias v='nvim'
 
-# grep
 alias 'gr'='grep --color=auto -ERUIn --exclude-dir=.git --exclude-dir=.svn --exclude-dir=log --exclude-dir=vendor --exclude=tags'
 
 alias p='ping -c 4'
 
 alias cp='nocorrect cp -irp'
 
-# git
 alias g='git'
 alias gi='git'
 alias gd='git diff'
@@ -42,14 +34,11 @@ alias gc='git commit'
 alias gca='git commit -a'
 # compdef g=git
 
-# cd
 alias cw='cd ~/work'
 alias cdf='cd ~/dotfiles'
 alias edf='cd ~/dotfiles ; nvim'
 
-# history
 alias hist='history -50'
 alias hista='history 1'
 
-# bundle
 alias bi='bundle install --jobs=4'

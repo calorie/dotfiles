@@ -1,13 +1,9 @@
-# ------------------------------------
 # direnv
-# ------------------------------------
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-# ------------------------------------
 # peco
-# ------------------------------------
 function peco-select-history() {
   local tac
   if which tac > /dev/null; then
@@ -34,15 +30,11 @@ zle -N peco-cdr
 bindkey '^G' peco-cdr
 bindkey '^R' peco-select-history
 
-# ------------------------------------
 # enhancd
-# ------------------------------------
 export ENHANCD_FILTER=peco
 if [ -d $HOME/enhancd ]; then
   source $HOME/enhancd/init.sh
 fi
 
-# ------------------------------------
 # misc
-# ------------------------------------
 function mkcd() { mkdir -p $1 && cd $1; }
