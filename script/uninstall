@@ -38,7 +38,6 @@ DOTFILES=(
   .rubocop.yml
   .tmux-powerlinerc
   .tmux.conf
-  .tmuxinator
   .config/alacritty/alacritty.yml
   .config/nvim/init.vim
   .config/peco/config.json
