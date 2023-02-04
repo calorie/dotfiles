@@ -8,7 +8,7 @@ let s:rcs = [
       \ 'editing',
       \ 'encoding']
 for s:rc in s:rcs
-  execute 'source ~/dotfiles/.vim/conf.d/.vimrc.' . s:rc
+  execute 'source ~/dotfiles/.vim/.vimrc.' . s:rc
 endfor
 
 filetype plugin indent on

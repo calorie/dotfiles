@@ -3,7 +3,7 @@
 
 rcs=( basic alias utility osx )
 for rc in $rcs; do
-  source $HOME/dotfiles/.zsh/conf.d/.zshrc.$rc
+  source $HOME/dotfiles/.zsh/.zshrc.$rc
 done
 
 if [ -f ~/.zshrc.local ]; then

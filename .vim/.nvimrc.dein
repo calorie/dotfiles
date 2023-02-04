@@ -1,7 +1,7 @@
 let g:dein_dir   = expand('~/.vim/dein')
 let &runtimepath = &runtimepath . ',' . g:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-let s:conf_dir = expand('~/dotfiles/.vim/conf.d')
+let s:conf_dir = expand('~/dotfiles/.vim')
 let s:plugins_dir = s:conf_dir . '/plugins'
 
 " let g:dein#auto_recache = v:true

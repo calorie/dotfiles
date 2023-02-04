@@ -6,5 +6,5 @@ if has('vim_starting') && has('reltime')
   augroup END
 endif
 
-source ~/dotfiles/.vim/conf.d/.vimrc.basic
-source ~/dotfiles/.vim/conf.d/.nvimrc.dein
+source ~/dotfiles/.vim/.vimrc.basic
+source ~/dotfiles/.vim/.nvimrc.dein
