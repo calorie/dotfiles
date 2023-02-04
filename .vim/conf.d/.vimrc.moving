@@ -1,15 +1,29 @@
 "---------------------------------------------------------------------
 " Move
 "---------------------------------------------------------------------
-" display lines moving
+set notagbsearch
+set virtualedit+=block " moving on visual block mode
+
 nnoremap j gj
 nnoremap k gk
 
-" move to start,end by 0,9
 nnoremap 0 ^
 " nnoremap 9 $
 
-" moving on insert mode
+nnoremap <Space>j <C-f>
+nnoremap <Space>k <C-b>
+
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+nnoremap <silent> tc :<C-u>tabnew \| :Fern . -drawer -toggle<CR>
+nnoremap <silent> tx :<C-u>tabclose<CR>
+nnoremap <silent> to :<C-u>tabonly<CR>
+nnoremap <silent> <Space><Space> :<C-u>tabnext<CR>
+nnoremap <silent> <BS><BS> :<C-u>tabprevious<CR>
+
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 inoremap <C-j> <Down>
@@ -17,37 +31,11 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-" scroll
-nnoremap <Space>j <C-f>
-nnoremap <Space>k <C-b>
+vnoremap v $h
+vnoremap 1 ^
 
 " move to ended cursor line
 augroup CursorLine
   autocmd!
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line('$') | exe 'normal g`"' | endif
 augroup END
-
-" moving on visual block mode
-set virtualedit+=block
-
-" select to line end by v
-vnoremap v $h
-vnoremap 1 ^
-
-" move windows
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-
-" tab pages
-nnoremap <silent> tc :<C-u>tabnew \| :Fern . -drawer -toggle<CR>
-nnoremap <silent> tx :<C-u>tabclose<CR>
-nnoremap <silent> to :<C-u>tabonly<CR>
-nnoremap <silent> <Space><Space> :<C-u>tabnext<CR>
-nnoremap <silent> <BS><BS> :<C-u>tabprevious<CR>
-
-"---------------------------------------------------------------------
-" Tags
-"---------------------------------------------------------------------
-set notagbsearch

@@ -1,33 +1,18 @@
 "---------------------------------------------------------------------
 " Edit
 "---------------------------------------------------------------------
-" IME off when normal mode
 set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
-
-" add selected word to register
-" vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
-
-" convert tab to space
 set expandtab
+set foldlevelstart=99
 
-" add space after comma
 inoremap , ,<Space>
-
-" undo on insert mode
 inoremap <C-u> <C-g>u<C-u>
-
-" backspace & delete
 inoremap <C-b> <BS>
 
-" yank to line end
-nmap y9 y$
-" yank to line start
-nmap y0 y^
-
-" expand fold
-set foldlevelstart=99
+nnoremap y9 y$
+nnoremap y0 y^
 
 function! s:remove_dust()
   let cursor = getpos('.')

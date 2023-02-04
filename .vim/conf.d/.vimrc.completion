@@ -8,7 +8,6 @@ set history=1000       " history length
 set complete+=k        " add dictionary
 set completeopt=menu,menuone,noselect
 
-" history completion by c-p,c-n
 cnoremap <C-p> <Up>
 cnoremap <Up> <C-p>
 cnoremap <C-n> <Down>

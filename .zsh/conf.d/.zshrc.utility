@@ -31,16 +31,6 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 
-function peco-git-hash () {
-  local hash=$(git log --oneline --branches | peco | awk '{print $1}')
-  if [ -n "$hash" ]; then
-    BUFFER="${BUFFER} ${hash}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-git-hash
-
 bindkey '^G' peco-cdr
 bindkey '^R' peco-select-history
 

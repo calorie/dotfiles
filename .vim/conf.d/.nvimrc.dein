@@ -219,7 +219,6 @@ call dein#add('t9md/vim-textmanip', {
 "       \ })
 "
 " call dein#add('olimorris/neotest-rspec', { 'lazy': 1 })
-" call dein#add('nvim-lua/plenary.nvim', { 'lazy': 1 })
 
 "------------------------------------
 " textobj

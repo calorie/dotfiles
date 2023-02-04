@@ -3,11 +3,8 @@
 "---------------------------------------------------------------------
 set ffs=unix       " newline character
 set encoding=utf-8 " default encoding
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc " lower priority extension
 
-" lower priority extension
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-" force encoding
 command! Cp932     edit ++enc=cp932
 command! Eucjp     edit ++enc=euc-jp
 command! Iso2022jp edit ++enc=iso-2022-jp
