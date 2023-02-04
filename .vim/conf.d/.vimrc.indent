@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" Indent
-"---------------------------------------------------------------------
 set autoindent  " auto indent
 set smartindent " same indent num when newline
 set cindent     " indent for C

@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" Complete
-"---------------------------------------------------------------------
 set wildmenu           " enhance command completion
 set wildchar=<tab>     " command completion start key
 set wildmode=list:full " show list

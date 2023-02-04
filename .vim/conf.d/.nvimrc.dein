@@ -285,8 +285,7 @@ call dein#add('thinca/vim-quickrun', {
       \ 'lazy': 1,
       \ 'on_cmd': ['QuickRun'],
       \ 'on_map': [['nxo', '<Plug>(quickrun)']],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun.preload',
-      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.vim-quickrun',
+      \ 'hook_add': 'nnoremap <silent><Leader>r :QuickRun<CR>',
       \ })
 
 call dein#end()

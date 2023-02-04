@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" Encoding
-"---------------------------------------------------------------------
 set ffs=unix       " newline character
 set encoding=utf-8 " default encoding
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc " lower priority extension

@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" Basics
-"---------------------------------------------------------------------
 let mapleader = ','             " key map leader
 set scrolloff=5                 " scroll margin
 set textwidth=0                 " disable auto newline

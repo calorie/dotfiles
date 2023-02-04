@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" Apperance
-"---------------------------------------------------------------------
 set showmatch        " highlight parenthesis
 set matchtime=1      " matching time
 set number           " display line number
@@ -12,13 +9,9 @@ set ttyfast          " fast terminal connect
 set cursorline       " highlight cursor
 set list             " display unvisible character
 set redrawtime=10000 " https://github.com/prabirshrestha/vim-lsp/issues/786
+set laststatus=2     " display statusline
+set ruler            " display cursorline
 set listchars=tab:>.,trail:_,extends:>,precedes:< " unvisible character's format
 
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
-
-"---------------------------------------------------------------------
-" StatusLine
-"---------------------------------------------------------------------
-set laststatus=2 " display statusline
-set ruler        " display cursorline

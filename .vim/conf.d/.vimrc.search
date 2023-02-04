@@ -1,6 +1,3 @@
-"---------------------------------------------------------------------
-" Search
-"---------------------------------------------------------------------
 set wrapscan   " loop search
 set ignorecase " ignore lower & upper
 set smartcase  " case sensitive
