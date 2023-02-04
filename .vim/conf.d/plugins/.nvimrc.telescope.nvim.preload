@@ -1,6 +1,6 @@
-nnoremap [telescope] <Nop>
-nmap <Space> [telescope]
-
-nnoremap [telescope]f <cmd>Telescope find_files<cr>
-nnoremap [telescope]g <cmd>Telescope live_grep<cr>
-nnoremap [telescope]b <cmd>Telescope buffers<cr>
+lua << EOT
+  local builtin = require('telescope.builtin')
+  vim.keymap.set('n', '<space>f', builtin.find_files, {})
+  vim.keymap.set('n', '<space>g', builtin.live_grep, {})
+  vim.keymap.set('n', '<space>b', builtin.buffers, {})
+EOT

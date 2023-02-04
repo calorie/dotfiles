@@ -65,7 +65,7 @@ call dein#add('nvim-telescope/telescope.nvim', {
       \ 'rev': '0.1.x',
       \ 'lazy': 1,
       \ 'depends': ['plenary.nvim'],
-      \ 'on_cmd': ['Telescope'],
+      \ 'on_lua': 'telescope.builtin',
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.telescope.nvim.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.telescope.nvim',
       \ })
