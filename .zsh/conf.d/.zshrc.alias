@@ -18,7 +18,7 @@ alias su='su -l'
 alias vi='nvim'
 alias v='nvim'
 
-alias 'gr'='grep --color=auto -ERUIn --exclude-dir=.git --exclude-dir=.svn --exclude-dir=log --exclude-dir=vendor --exclude=tags'
+alias gr='grep --color=auto -ERUIn --exclude-dir=.git --exclude-dir=.svn --exclude-dir=log --exclude-dir=vendor --exclude=tags'
 
 alias p='ping -c 4'
 

@@ -1,12 +1,9 @@
-autoload -Uz add-zsh-hook
-
-
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   tmux -2 new-session -A -s main
 fi
 
 typeset -U path PATH
-export PATH=/opt/homebrew/bin:/usr/local/bin:/sbin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/sbin
 export LANG=en_US.UTF-8
 export LESSCHARSET=utf-8
@@ -73,6 +70,7 @@ bindkey -e
 autoload zed
 autoload predict-on
 autoload cdr
+autoload -Uz add-zsh-hook
 
 autoload -Uz compinit
 compinit -C
@@ -96,18 +94,3 @@ zstyle ':zle:*' word-style unspecified
 
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
-
-# rbenv
-if [ -d $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init - --no-rehash zsh)"
-fi
-
-# nodenv
-if [ -d $HOME/.nodenv ]; then
-  export PATH="$HOME/.nodenv/shims:$PATH"
-  eval "$(nodenv init -)"
-fi
-
-# ripgrep
-export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc

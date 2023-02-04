@@ -1,7 +1,40 @@
+# powerline
+function powerline_precmd() {
+  eval "$(powerline-go -error $? -shell zsh -eval -modules user,cwd,root)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = 'powerline_precmd' ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != 'linux' ] && command -v powerline-go >/dev/null 2>&1; then
+  install_powerline_precmd
+fi
+
 # direnv
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+
+# rbenv
+if [ -d $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/shims:$PATH"
+  eval "$(rbenv init - --no-rehash zsh)"
+fi
+
+# nodenv
+if [ -d $HOME/.nodenv ]; then
+  export PATH="$HOME/.nodenv/shims:$PATH"
+  eval "$(nodenv init -)"
+fi
+
+# ripgrep
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # peco
 function peco-select-history() {
@@ -17,17 +50,6 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 
-function peco-cdr () {
-  local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-cdr
-
-bindkey '^G' peco-cdr
 bindkey '^R' peco-select-history
 
 # enhancd
