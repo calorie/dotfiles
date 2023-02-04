@@ -1,0 +1,6 @@
+nnoremap [telescope] <Nop>
+nmap <Space> [telescope]
+
+nnoremap [telescope]f <cmd>Telescope find_files<cr>
+nnoremap [telescope]g <cmd>Telescope live_grep<cr>
+nnoremap [telescope]b <cmd>Telescope buffers<cr>

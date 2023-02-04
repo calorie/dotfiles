@@ -49,9 +49,9 @@ call dein#add('lambdalisue/fern.vim', {
 
 call dein#add('antoinemadec/FixCursorHold.nvim', { 'lazy': 1 })
 
-" call dein#add('beauwilliams/focus.nvim', {
-"       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.focus.nvim.preload',
-"       \ })
+call dein#add('beauwilliams/focus.nvim', {
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.focus.nvim.preload',
+      \ })
 
 call dein#add('lukas-reineke/indent-blankline.nvim', {
       \ 'lazy': 1,
@@ -59,11 +59,15 @@ call dein#add('lukas-reineke/indent-blankline.nvim', {
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.indent-blankline.nvim',
       \ })
 
-call dein#add('liuchengxu/vim-clap', {
+call dein#add('nvim-lua/plenary.nvim', { 'lazy': 1 })
+
+call dein#add('nvim-telescope/telescope.nvim', {
+      \ 'rev': '0.1.x',
       \ 'lazy': 1,
-      \ 'on_cmd': ['Clap'],
-      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.vim-clap.preload',
-      \ 'build': 'make',
+      \ 'depends': ['plenary.nvim'],
+      \ 'on_cmd': ['Telescope'],
+      \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.telescope.nvim.preload',
+      \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.telescope.nvim',
       \ })
 
 "------------------------------------
