@@ -127,8 +127,8 @@ autoload cdr
 # ------------------------------------
 # Completion configuration
 # ------------------------------------
-# autoload -Uz compinit
-# compinit -C
+autoload -Uz compinit
+compinit -C
 
 # ------------------------------------
 # Export configuration

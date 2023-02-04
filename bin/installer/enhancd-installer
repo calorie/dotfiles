@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ENHANCD_PATH=$HOME/enhancd
+if [ -d $ENHANCD_PATH ]; then
+  exit
+fi
+
+git clone --single-branch https://github.com/b4b4r07/enhancd $ENHANCD_PATH

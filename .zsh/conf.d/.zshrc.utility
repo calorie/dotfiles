@@ -53,6 +53,14 @@ bindkey '^R' peco-select-history
 # bindkey -M afu '^R' peco-select-history
 
 # ------------------------------------
+# enhancd
+# ------------------------------------
+export ENHANCD_FILTER=peco
+if [ -d $HOME/enhancd ]; then
+  source $HOME/enhancd/init.sh
+fi
+
+# ------------------------------------
 # misc
 # ------------------------------------
 function mkcd() { mkdir -p $1 && cd $1; }

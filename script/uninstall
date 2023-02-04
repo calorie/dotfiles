@@ -15,6 +15,7 @@ done
 UNINSTALLER_PATH=$HOME/dotfiles/bin/uninstaller
 
 PKGS=(
+  enhancd
   tmux-powerline
 )
 for pkg in ${PKGS[@]}

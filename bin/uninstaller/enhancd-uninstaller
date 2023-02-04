@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d $HOME/enhancd ]; then
+  rm -rf $HOME/enhancd
+fi
