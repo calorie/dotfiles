@@ -259,7 +259,7 @@ call dein#add('glepnir/lspsaga.nvim', {
 call dein#add('iamcco/markdown-preview.nvim', {
       \ 'lazy': 1,
       \ 'on_ft': ['markdown'],
-      \ 'build': 'sh -c "cd app && yarn install"',
+      \ 'build': 'sh -c "if command -v yarn >/dev/null 2>&1; then cd app && yarn install; fi"',
       \ })
 
 call dein#add('lambdalisue/suda.vim', {

@@ -34,7 +34,7 @@ lua << END
     capabilities = capabilities,
     on_attach = on_attach,
   }
-  lspconfig.sqls.setup {
+  lspconfig.sqlls.setup {
     settings = {
       sqls = {
         connections = {
