@@ -23,7 +23,8 @@ fi
 
 # rbenv
 if [ -d $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/shims:$PATH"
+  export RBENV_ROOT=$HOME/.rbenv
+  export PATH="$RBENV_ROOT/shims:$PATH"
   eval "$(rbenv init - --no-rehash zsh)"
 fi
 
