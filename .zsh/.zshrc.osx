@@ -2,20 +2,40 @@ alias pbc='pbcopy'
 
 export C_INCLUDE_PATH=/opt/homebrew/include:/usr/local/include:$C_INCLUDE_PATH
 
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libxml2/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/libxml2/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+if [[ "$(uname -m)" == 'arm64' ]]; then
+  export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib $LDFLAGS"
+  export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include $CPPFLAGS"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/curl/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/curl/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig:$PKG_CONFIG_PATH"
+  export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/curl/lib $LDFLAGS"
+  export CPPFLAGS="-I/opt/homebrew/opt/curl/include $CPPFLAGS"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig:$PKG_CONFIG_PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/zlib/lib $LDFLAGS"
+  export CPPFLAGS="-I/opt/homebrew/opt/zlib/include $CPPFLAGS"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-# export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+  # export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+else
+  export PATH="/usr/local/opt/libxml2/bin:$PATH"
+  export LDFLAGS="-L/usr/local/opt/libxml2/lib $LDFLAGS"
+  export CPPFLAGS="-I/usr/local/opt/libxml2/include $CPPFLAGS"
+  export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+  export PATH="/usr/local/opt/curl/bin:$PATH"
+  export LDFLAGS="-L/usr/local/opt/curl/lib $LDFLAGS"
+  export CPPFLAGS="-I/usr/local/opt/curl/include $CPPFLAGS"
+  export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+  export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
+  export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
+  export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+  # export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+fi
+
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 export HOMEBREW_NO_AUTO_UPDATE=1
