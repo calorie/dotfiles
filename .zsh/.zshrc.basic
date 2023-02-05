@@ -3,7 +3,7 @@ if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
 fi
 
 typeset -U path PATH
-export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 export PATH=$PATH:/sbin
 export LANG=en_US.UTF-8
 export LESSCHARSET=utf-8
