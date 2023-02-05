@@ -69,5 +69,7 @@ done
 # dein
 $INSTALLER_PATH/dein-installer
 
+defaults write -g KeyRepeat -int 1
+
 cd ${ORIGIN}
 exec $SHELL
