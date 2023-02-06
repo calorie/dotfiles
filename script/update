@@ -29,6 +29,12 @@ if [ -d $HOME/.tmux/tmux-powerline ]; then
   git pull --rebase origin main
 fi
 
+# enhancd
+if [ -d $HOME/enhancd ]; then
+  cd $HOME/enhancd
+  git pull --rebase origin master
+fi
+
 # nvim plugins
 if command -v nvim >/dev/null 2>&1; then
   nvim +':silent call dein#update()' +qa
