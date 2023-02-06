@@ -251,6 +251,7 @@ call dein#add('rhysd/ghpr-blame.vim', {
 call dein#add('glepnir/lspsaga.nvim', {
       \ 'lazy': 1,
       \ 'depends': ['nvim-lspconfig'],
+      \ 'on_event': 'BufRead',
       \ 'on_cmd': ['Lspsaga', 'LSoutlineToggle'],
       \ 'hook_add': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim.preload',
       \ 'hook_source': 'source ' . s:plugins_dir . '/.nvimrc.lspsaga.nvim',
