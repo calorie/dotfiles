@@ -16,6 +16,7 @@ alias duh='du -h ./ --max-depth=1'
 alias su='su -l'
 
 alias vi='nvim'
+alias ci='nvim'
 alias v='nvim'
 
 alias gr='grep --color=auto -ERUIn --exclude-dir=.git --exclude-dir=.svn --exclude-dir=log --exclude-dir=vendor --exclude=tags'
