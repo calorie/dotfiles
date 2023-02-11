@@ -841,6 +841,7 @@ require('lazy').setup({
       { '<leader>r', '<cmd>QuickRun<cr>', mode = 'n', noremap = true, silent = true },
     },
   },
+
   {
     'dstein64/vim-startuptime',
     cmd = 'StartupTime',
