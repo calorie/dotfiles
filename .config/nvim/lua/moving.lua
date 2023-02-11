@@ -15,7 +15,6 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
 
--- vim.keymap.set('n', 'tc', ':<C-u>tabnew | :Fern . -drawer -toggle<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', 'tc', ':<C-u>tabnew<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', 'tx', ':<C-u>tabclose<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', 'to', ':<C-u>tabonly<cr>', { noremap = true, silent = true })
