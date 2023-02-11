@@ -235,6 +235,10 @@ require('lazy').setup({
     'lambdalisue/fern.vim',
     dependencies = 'antoinemadec/FixCursorHold.nvim',
     cmd = 'Fern',
+    keys = {
+      { '<leader>nt', '<cmd><C-u>Fern . -drawer -toggle<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>nf', '<cmd><C-u>Fern . -drawer -reveal=%<cr>', mode = 'n', noremap = true, silent = true },
+    },
     init = function()
       vim.g['fern#disable_default_mappings'] = 1
       vim.g['fern#disable_viewer_spinner'] = 1
@@ -242,9 +246,6 @@ require('lazy').setup({
       vim.g['fern#default_hidden'] = 1
       vim.g['fern#drawer_width'] = 23
       vim.g['fern#default_exclude'] = '^\%(\.git\|\.DS_Store\)$'
-
-      vim.keymap.set('n', '<Leader>nt', '<cmd><C-u>Fern . -drawer -toggle<cr>', { noremap = true, silent = true })
-      vim.keymap.set('n', '<Leader>nf', '<cmd><C-u>Fern . -drawer -reveal=%<cr>', { noremap = true, silent = true })
 
       local function init_fern()
         vim.keymap.set('n', '<Plug>(fern-my-open-or-expand-or-collapse)', function() vim.fn['fern#smart#leaf']('<Plug>(fern-action-open)', '<Plug>(fern-action-expand)', '<Plug>(fern-action-collapse)') end, { buffer = true, expr = true })
@@ -315,11 +316,11 @@ require('lazy').setup({
     branch = '0.1.x',
     dependencies = 'nvim-lua/plenary.nvim',
     cmd = 'Telescope',
-    init = function()
-      vim.keymap.set('n', '<space>f', '<cmd>Telescope find_files<cr>', { noremap = true })
-      vim.keymap.set('n', '<space>g', '<cmd>Telescope live_grep<cr>', { noremap = true })
-      vim.keymap.set('n', '<space>b', '<cmd>Telescope buffers<cr>', { noremap = true })
-    end,
+    keys = {
+      { '<space>f', '<cmd>Telescope find_files<cr>', mode = 'n', noremap = true },
+      { '<space>g', '<cmd>Telescope live_grep<cr>', mode = 'n', noremap = true },
+      { '<space>b', '<cmd>Telescope buffers<cr>', mode = 'n', noremap = true },
+    },
     config = function()
       require('telescope').setup {
         defaults = {
@@ -557,6 +558,10 @@ require('lazy').setup({
   {
     'AndrewRadev/switch.vim',
     cmd = 'Switch',
+    keys = {
+      { '+', '<cmd>Switch<cr>', mode = 'n', noremap = true, silent = true },
+      { '-', function() vim.fn['switch#Switch']({ definitions = vim.g.variable_style_switch_definitions }) end, mode = 'n', noremap = true, silent = true },
+    },
     init = function()
       vim.g.switch_custom_definitions = {
         { '+', '-' },
@@ -579,18 +584,15 @@ require('lazy').setup({
           },
         },
       },
-
-      vim.keymap.set('n', '+', '<cmd>Switch<cr>', { noremap = true, silent = true })
-      vim.keymap.set('n', '-', function() vim.fn['switch#Switch']({ definitions = vim.g.variable_style_switch_definitions }) end, { noremap = true, silent = true })
     end,
   },
 
   {
     'godlygeek/tabular',
     cmd = { 'Tabularize', 'AddTabularPipeline' },
-    init = function()
-      vim.keymap.set('v', 'tb', '<cmd>Tabularize /', { noremap = true })
-    end,
+    keys = {
+      { 'tb', '<cmd>Tabularize /', mode = 'v', noremap = true },
+    },
   },
 
   {
@@ -604,17 +606,14 @@ require('lazy').setup({
   {
     'tpope/vim-surround',
     keys = {
-      '<Plug>Dsurround', '<Plug>Dsurround',
-      '<Plug>VgSurround', '<Plug>VSurround',
+      { 'ds', '<Plug>Dsurround', mode = 'n', noremap = true },
+      { 'cs', '<Plug>Csurround', mode = 'n', noremap = true },
+      { 'S', '<Plug>VSurround', mode = 'x', noremap = true },
+      { 'gS', '<Plug>VgSurround', mode = 'x', noremap = true },
       '<Plug>Yssurround', '<Plug>YSsurround',
       '<Plug>Ysurround', '<Plug>YSurround',
     },
     init = function()
-      vim.keymap.set('n', 'ds', '<Plug>Dsurround')
-      vim.keymap.set('n', 'cs', '<Plug>Csurround')
-      vim.keymap.set('x', 'S', '<Plug>VSurround')
-      vim.keymap.set('x', 'gS', '<Plug>VgSurround')
-
       local char2nr = vim.fn.char2nr
       vim.g['surround_' .. char2nr('e')] = "begin \r end"
       vim.g['surround_' .. char2nr('d')] = "do \r end"
@@ -625,20 +624,14 @@ require('lazy').setup({
   {
     'gbprod/yanky.nvim',
     keys = {
-      '<Plug>(YankyPutAfter)', '<Plug>(YankyPutBefore)',
-      '<Plug>(YankyGPutAfter)', '<Plug>(YankyGPutBefore)',
-      '<Plug>(YankyCycleForward)', '<Plug>(YankyCycleBackward)',
-      '<Plug>(YankyYank)',
+      { 'p', '<Plug>(YankyPutAfter)', mode = {'n', 'x'}, noremap = true },
+      { 'P', '<Plug>(YankyPutBefore)', mode = {'n', 'x'}, noremap = true },
+      { 'gp', '<Plug>(YankyGPutAfter)', mode = {'n', 'x'}, noremap = true },
+      { 'gP', '<Plug>(YankyGPutBefore)', mode = {'n', 'x'}, noremap = true },
+      { '<C-p>', '<Plug>(YankyCycleForward)', mode = 'n', noremap = true },
+      { '<C-n>', '<Plug>(YankyCycleBackward)', mode = 'n', noremap = true },
+      { 'y', '<Plug>(YankyYank)', mode = {'n', 'x'}, noremap = true },
     },
-    init = function()
-      vim.keymap.set({'n', 'x'}, 'p', '<Plug>(YankyPutAfter)')
-      vim.keymap.set({'n', 'x'}, 'P', '<Plug>(YankyPutBefore)')
-      vim.keymap.set({'n', 'x'}, 'gp', '<Plug>(YankyGPutAfter)')
-      vim.keymap.set({'n', 'x'}, 'gP', '<Plug>(YankyGPutBefore)')
-      vim.keymap.set('n', '<c-p>', '<Plug>(YankyCycleForward)')
-      vim.keymap.set('n', '<c-n>', '<Plug>(YankyCycleBackward)')
-      vim.keymap.set({'n', 'x'}, 'y', '<Plug>(YankyYank)')
-    end,
     config = function()
       require('yanky').setup({
         highlight = {
@@ -654,25 +647,22 @@ require('lazy').setup({
   -- ------------------------------------
   {
     'rhysd/clever-f.vim',
-    keys = { '<Plug>(clever-f-f)', '<Plug>(clever-f-F)' },
-    init = function()
-      vim.keymap.set('n', 'f', '<Plug>(clever-f-f)', { noremap = true })
-      vim.keymap.set('n', 'F', '<Plug>(clever-f-F)', { noremap = true })
-    end,
+    keys = {
+      { 'f', '<Plug>(clever-f-f)', mode = 'n', noremap = true },
+      { 'F', '<Plug>(clever-f-F)', mode = 'n', noremap = true },
+    },
   },
 
   {
     'phaazon/hop.nvim',
-    cmd = {
-      'HopWord', 'HopWordMW', 'HopLineStart',
-      'HopLineStartMW', 'HopVertical', 'HopVerticalMW',
+    cmd = { 'HopVerticalAC', 'HopVerticalBC' },
+    keys = {
+      { '<leader>j', '<cmd>HopVerticalAC<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>k', '<cmd>HopVerticalBC<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>h', '<cmd>HopWord<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>l', '<cmd>HopWordMW<cr>', mode = 'n', noremap = true, silent = true },
     },
     init = function()
-      vim.keymap.set('n', '<Leader>j', '<cmd>HopVerticalAC<cr>', { noremap = true, silent = true })
-      vim.keymap.set('n', '<Leader>k', '<cmd>HopVerticalBC<cr>', { noremap = true, silent = true })
-      vim.keymap.set('n', '<Leader>h', '<cmd>HopWord<cr>', { noremap = true, silent = true })
-      vim.keymap.set('n', '<Leader>l', '<cmd>HopWordMW<cr>', { noremap = true, silent = true })
-
       vim.api.nvim_create_autocmd('FileType', {
         group = 'MyAutoCmd',
         pattern = 'fern',
