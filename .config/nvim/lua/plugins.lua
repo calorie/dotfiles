@@ -307,21 +307,39 @@ require('lazy').setup({
       vim.g.loaded_netrwPlugin = 1
 
       local function open_nvim_tree(data)
-        local real_file = vim.fn.filereadable(data.file) == 1
-
-        local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-
-        if not real_file and not no_name then
+        if vim.fn.filereadable(data.file) == 1 then
           return
         end
 
-        require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
+        require('nvim-tree.api').tree.open()
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
-        nested = true,
         group = 'MyAutoCmd',
+        nested = true,
         callback = open_nvim_tree,
+      })
+
+      local modifiedBufs = function(bufs)
+        local t = 0
+        for k,v in pairs(bufs) do
+          if v.name:match('NvimTree_') == nil then
+            t = t + 1
+          end
+        end
+        return t
+      end
+
+      vim.api.nvim_create_autocmd('BufEnter', {
+        group = 'MyAutoCmd',
+        nested = true,
+        callback = function()
+          if #vim.api.nvim_list_wins() == 1 and
+            vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil and
+            modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+            vim.cmd 'quit'
+          end
+        end
       })
     end,
     config = function()
