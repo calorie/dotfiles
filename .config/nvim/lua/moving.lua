@@ -34,5 +34,5 @@ vim.keymap.set('v', '1', '^', { noremap = true })
 vim.api.nvim_create_augroup('CursorLine', { clear = true })
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = 'CursorLine',
-  command = [[ if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif ]],
+  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
 })

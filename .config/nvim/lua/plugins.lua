@@ -233,6 +233,7 @@ require('lazy').setup({
 
   {
     'nvim-tree/nvim-tree.lua',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     cmd = { 'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFocus' },
     event = 'VimEnter',
     keys = {
@@ -287,6 +288,9 @@ require('lazy').setup({
         diagnostics = {
           enable = false,
         },
+        modified = {
+          enable = false,
+        },
         tab = {
           sync = {
             open = true,
@@ -318,9 +322,11 @@ require('lazy').setup({
               folder = false,
               folder_arrow = false,
               git = false,
+              modified = false,
             },
             glyphs = {
               default = '',
+              symlink = '',
             },
           },
           special_files = {},
@@ -647,7 +653,7 @@ require('lazy').setup({
   {
     'brglng/vim-im-select',
     event = 'InsertEnter',
-    config = function()
+    init = function()
       vim.g.im_select_default = 'com.google.inputmethod.Japanese.Roman'
     end,
   },
@@ -786,7 +792,7 @@ require('lazy').setup({
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
       { 'gd', '<cmd>Lspsaga peek_definition<cr>', mode = 'n', noremap = true, silent = true },
-      { '<leader>o', '<cmd>LSoutlineToggle<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>o', '<cmd>Lspsaga outline<cr>', mode = 'n', noremap = true, silent = true },
       { 'K', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
     },
     config = function()
@@ -829,7 +835,6 @@ require('lazy').setup({
 
   {
     'thinca/vim-quickrun',
-    cmd = 'QuickRun',
     keys = {
       { '<leader>r', '<cmd>QuickRun<cr>', mode = 'n', noremap = true, silent = true },
     },

@@ -8,4 +8,4 @@ vim.keymap.set('n', '<ESC><ESC>', '<cmd>nohlsearch<cr>', { noremap = true, silen
 vim.keymap.set('n', '<C-c><C-c>', '<cmd>nohlsearch<cr>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<Leader>sb', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true })
-vim.keymap.set('v', '<Leader>sb', [["xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//g<Left><Left>]], { noremap = true })
+vim.keymap.set('v', '<Leader>sb', [["xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<cr>//g<Left><Left>]], { noremap = true })
