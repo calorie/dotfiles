@@ -55,7 +55,8 @@ DOTFILES=(
   .tmux-powerlinerc
   .tmux.conf
   .config/alacritty/alacritty.yml
-  .config/nvim/init.vim
+  .config/nvim/init.lua
+  .config/nvim/lua
   .config/peco/config.json
   .vimrc
   .zshrc
