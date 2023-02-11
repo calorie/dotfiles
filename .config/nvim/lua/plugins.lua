@@ -231,74 +231,158 @@ require('lazy').setup({
     end,
   },
 
+  -- {
+  --   'lambdalisue/fern.vim',
+  --   dependencies = 'antoinemadec/FixCursorHold.nvim',
+  --   cmd = 'Fern',
+  --   keys = {
+  --     { '<leader>nt', '<cmd>Fern . -drawer -toggle<cr>', mode = 'n', noremap = true, silent = true },
+  --     { '<leader>nf', '<cmd>Fern . -drawer -reveal=%<cr>', mode = 'n', noremap = true, silent = true },
+  --   },
+  --   init = function()
+  --     vim.g['fern#disable_default_mappings'] = 1
+  --     vim.g['fern#disable_viewer_spinner'] = 1
+  --     vim.g["fern#default_hidden"] = 1
+  --     vim.g['fern#default_hidden'] = 1
+  --     vim.g['fern#drawer_width'] = 23
+  --     vim.g['fern#default_exclude'] = [[^\%(\.git\|\.DS_Store\)$]]
+  --
+  --     vim.api.nvim_create_autocmd('VimEnter', {
+  --       group = 'MyAutoCmd',
+  --       nested = true,
+  --       callback = function()
+  --         if vim.fn.argc() == 0 then
+  --           vim.cmd([[Fern . -drawer -reveal=%]])
+  --         end
+  --       end,
+  --     })
+  --   end,
+  --   config = function()
+  --     local function init_fern()
+  --       vim.opt_local.relativenumber = false
+  --       vim.opt_local.number = false
+  --
+  --       vim.keymap.set('n', '<Plug>(fern-my-open-or-expand-or-collapse)', function() return vim.fn['fern#smart#leaf']('<Plug>(fern-action-open)', '<Plug>(fern-action-expand)', '<Plug>(fern-action-collapse)') end, { buffer = true, expr = true })
+  --       vim.keymap.set('n', 'o', '<Plug>(fern-my-open-or-expand-or-collapse)', { buffer = true })
+  --
+  --       vim.keymap.set('n', 'T', '<Plug>(fern-action-open:tabedit)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'i', '<Plug>(fern-action-open:split)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 's', '<Plug>(fern-action-open:vsplit)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'a', '<Plug>(fern-action-new-path)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'm', '<Plug>(fern-action-move)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'c', '<Plug>(fern-action-copy)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'd', '<Plug>(fern-action-remove)', { buffer = true, nowait = true })
+  --
+  --       vim.keymap.set('n', 'P', 'gg', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'p', '<Plug>(fern-action-focus:parent)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'K', '<Plug>(fern-action-focus:parent)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'C', '<Plug>(fern-action-enter)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'u', '<Plug>(fern-action-leave)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'r', '<Plug>(fern-action-reload)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'R', 'gg<Plug>(fern-action-reload)<C-o>', { buffer = true, nowait = true })
+  --
+  --       vim.keymap.set('n', 'A', '<Plug>(fern-action-choice)', { buffer = true, nowait = true })
+  --       vim.keymap.set('n', 'y', '<Plug>(fern-action-yank:path)', { buffer = true, nowait = true })
+  --
+  --       vim.keymap.set('n', 'q', '<cmd><C-u>quit<cr>', { buffer = true, nowait = true })
+  --     end
+  --
+  --     vim.api.nvim_create_autocmd('FileType', {
+  --       group = 'MyAutoCmd',
+  --       pattern = 'fern',
+  --       callback = function() pcall(init_fern) end,
+  --     })
+  --   end,
+  -- },
+
   {
-    'lambdalisue/fern.vim',
-    dependencies = 'antoinemadec/FixCursorHold.nvim',
-    cmd = 'Fern',
+    'nvim-tree/nvim-tree.lua',
+    cmd = { 'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFocus' },
     keys = {
-      { '<leader>nt', '<cmd><C-u>Fern . -drawer -toggle<cr>', mode = 'n', noremap = true, silent = true },
-      { '<leader>nf', '<cmd><C-u>Fern . -drawer -reveal=%<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>nt', '<cmd>NvimTreeToggle<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>nf', '<cmd>NvimTreeFocus<cr>', mode = 'n', noremap = true, silent = true },
     },
     init = function()
-      vim.g['fern#disable_default_mappings'] = 1
-      vim.g['fern#disable_viewer_spinner'] = 1
-      vim.g["fern#default_hidden"] = 1
-      vim.g['fern#default_hidden'] = 1
-      vim.g['fern#drawer_width'] = 23
-      vim.g['fern#default_exclude'] = '^\%(\.git\|\.DS_Store\)$'
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
 
-      local function init_fern()
-        vim.keymap.set('n', '<Plug>(fern-my-open-or-expand-or-collapse)', function() vim.fn['fern#smart#leaf']('<Plug>(fern-action-open)', '<Plug>(fern-action-expand)', '<Plug>(fern-action-collapse)') end, { buffer = true, expr = true })
-        vim.keymap.set('n', 'o', '<Plug>(fern-my-open-or-expand-or-collapse)', { buffer = true })
-
-        vim.keymap.set('n', 'T', '<Plug>(fern-action-open:tabedit)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'i', '<Plug>(fern-action-open:split)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 's', '<Plug>(fern-action-open:vsplit)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'a', '<Plug>(fern-action-new-path)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'm', '<Plug>(fern-action-move)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'c', '<Plug>(fern-action-copy)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'd', '<Plug>(fern-action-remove)', { buffer = true, nowait = true })
-
-        vim.keymap.set('n', 'P', 'gg', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'p', '<Plug>(fern-action-focus:parent)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'K', '<Plug>(fern-action-focus:parent)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'C', '<Plug>(fern-action-enter)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'u', '<Plug>(fern-action-leave)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'r', '<Plug>(fern-action-reload)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'R', 'gg<Plug>(fern-action-reload)<C-o>', { buffer = true, nowait = true })
-
-        vim.keymap.set('n', 'A', '<Plug>(fern-action-choice)', { buffer = true, nowait = true })
-        vim.keymap.set('n', 'y', '<Plug>(fern-action-yank:path)', { buffer = true, nowait = true })
-
-        vim.keymap.set('n', 'q', '<cmd><C-u>quit<cr>', { buffer = true, nowait = true })
+      local function open_nvim_tree()
+        require('nvim-tree.api').tree.open()
       end
-
       vim.api.nvim_create_autocmd('VimEnter', {
-        group = 'MyAutoCmd',
         nested = true,
-        callback = function()
-          if vim.fn.argc() == 0 then
-            vim.cmd.Fern('. -drawer -reveal=%')
-          end
-        end,
-      })
-      vim.api.nvim_create_autocmd('FileType', {
         group = 'MyAutoCmd',
-        pattern = 'fern',
-        callback = function()
-          vim.opt_local.relativenumber = false
-          vim.opt_local.number = false
-          pcall(init_fern)
-        end
+        callback = open_nvim_tree,
+      })
+    end,
+    config = function()
+      require('nvim-tree').setup({
+        git = {
+          enable = false,
+        },
+        diagnostics = {
+          enable = false,
+        },
+        tab = {
+          sync = {
+            open = true,
+          },
+        },
+        view = {
+          width = 23,
+          hide_root_folder = true,
+          mappings = {
+            list = {
+              { key = 'i', action = 'split' },
+              { key = 's', action = 'vsplit' },
+              { key = 'T', action = 'tabnew' },
+              { key = 'r', action = 'refresh' },
+              { key = 'R', action = 'rename' },
+              { key = 'C', action = 'cd' },
+              { key = 'u', action = 'dir_up' },
+              { key = 'p', action = 'first_sibling' },
+              { key = '<C-v>', action = 'paste' },
+              { key = 'y', action = 'copy_path' },
+              { key = 'Y', action = 'copy_name' },
+            },
+          },
+        },
+        renderer = {
+          icons = {
+            show = {
+              file = false,
+              folder = false,
+              folder_arrow = false,
+              git = false,
+            },
+            glyphs = {
+              default = '',
+            },
+          },
+          special_files = {},
+        },
+        filters = {
+          custom = { '^\\.git', '.DS_Store' },
+        },
+        actions = {
+          open_file = {
+            resize_window = false,
+            window_picker = {
+              enable = false,
+            },
+          },
+        },
       })
     end,
   },
 
   {
     'beauwilliams/focus.nvim',
-    event = 'VeryLazy',
     config = function()
-      require('focus').setup({ excluded_filetypes = { 'fern' } })
+      require('focus').setup({
+        treewidth = 23,
+        excluded_filetypes = { 'nvimtree', 'fern' },
+      })
     end,
   },
 
@@ -428,11 +512,10 @@ require('lazy').setup({
   -- ------------------------------------
   {
     'numToStr/Comment.nvim',
-    keys = { '<Plug>(comment_toggle_linewise_current)', '<Plug>(comment_toggle_linewise_visual)' },
-    init = function()
-      vim.keymap.set('n', 'gcc', '<Plug>(comment_toggle_linewise_current)', { noremap = true, silent = true })
-      vim.keymap.set('v', 'gc', '<Plug>(comment_toggle_linewise_visual)', { noremap = true, silent = true })
-    end,
+    keys = {
+      { 'gcc', '<Plug>(comment_toggle_linewise_current)', mode = 'n', noremap = true, silent = true },
+      { 'gc', '<Plug>(comment_toggle_linewise_visual)', mode = 'v', noremap = true, silent = true },
+    },
     config = function()
       require('Comment').setup {}
     end,
@@ -583,7 +666,7 @@ require('lazy').setup({
             ["\\([A-Z]\\)"] = "_\\l\\1",
           },
         },
-      },
+      }
     end,
   },
 
@@ -671,6 +754,9 @@ require('lazy').setup({
           vim.keymap.set('n', 'K', '<cmd>HopVerticalBC<cr>', { noremap = true, silent = true })
         end
       })
+    end,
+    config = function()
+      require('hop').setup {}
     end,
   },
 
@@ -802,21 +888,15 @@ require('lazy').setup({
       { '<leader>r', '<cmd>QuickRun<cr>', mode = 'n', noremap = true, silent = true },
     },
   },
+  {
+    'dstein64/vim-startuptime',
+    cmd = 'StartupTime',
+  },
 })
 
-vim.cmd([[syntax enable]])
-vim.cmd([[filetype plugin indent on]])
+vim.cmd([[
+  syntax enable
+  filetype plugin indent on
+]])
 
 vim.opt.secure = true
-
-vim.cmd([[
-  source ~/dotfiles/.vim/.vimrc.indent
-  source ~/dotfiles/.vim/.vimrc.apperance
-  source ~/dotfiles/.vim/.vimrc.completion
-  source ~/dotfiles/.vim/.vimrc.search
-  source ~/dotfiles/.vim/.vimrc.moving
-  source ~/dotfiles/.vim/.vimrc.colors
-  source ~/dotfiles/.vim/.vimrc.editing
-  source ~/dotfiles/.vim/.vimrc.encoding
-  source ~/dotfiles/.vim/.vimrc.langs
-]])
