@@ -407,7 +407,10 @@ require('lazy').setup({
     end,
     config = function()
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = { 'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'markdown', 'ruby', 'rust', 'sql', 'vim', 'yaml' },
+        ensure_installed = {
+          'go', 'hcl', 'html', 'javascript', 'json', 'lua',
+          'markdown', 'ruby', 'rust', 'sql', 'vim', 'yaml',
+        },
         highlight = {
           enable = true,
           disable = { 'ruby' },
@@ -637,7 +640,7 @@ require('lazy').setup({
     'godlygeek/tabular',
     cmd = { 'Tabularize', 'AddTabularPipeline' },
     keys = {
-      { 'tb', '<cmd>Tabularize /', mode = 'v', noremap = true },
+      { 'tb', ':Tabularize /', mode = 'v', noremap = true },
     },
   },
 
@@ -727,16 +730,6 @@ require('lazy').setup({
       { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
     },
     config = function()
-      vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
-    end,
-  },
-
-  {
-    't9md/vim-quickhl',
-    keys = {
-      { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
-    },
-    init = function()
       vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
     end,
   },
@@ -840,11 +833,6 @@ require('lazy').setup({
     keys = {
       { '<leader>r', '<cmd>QuickRun<cr>', mode = 'n', noremap = true, silent = true },
     },
-  },
-
-  {
-    'dstein64/vim-startuptime',
-    cmd = 'StartupTime',
   },
 })
 
