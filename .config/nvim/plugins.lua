@@ -683,4 +683,150 @@ require('lazy').setup({
       })
     end,
   },
+
+  {
+    'terryma/vim-expand-region',
+    keys = {
+      { '<space>', '<Plug>(expand_region_expand)', mode = 'v', noremap = true },
+      { '<bs>', '<Plug>(expand_region_shrink)', mode = 'v', noremap = true },
+    },
+  },
+
+  {
+    't9md/vim-quickhl',
+    keys = {
+      { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
+    },
+    config = function()
+      vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
+    end,
+  },
+
+  {
+    't9md/vim-quickhl',
+    keys = {
+      { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
+    },
+    init = function()
+      vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
+    end,
+  },
+
+  {
+    't9md/vim-textmanip',
+    keys = {
+      { '<C-h>', '<Plug>(textmanip-move-left)', mode = 'x', noremap = true },
+      { '<C-j>', '<Plug>(textmanip-move-down)', mode = 'x', noremap = true },
+      { '<C-k>', '<Plug>(textmanip-move-up)', mode = 'x', noremap = true },
+      { '<C-l>', '<Plug>(textmanip-move-right)', mode = 'x', noremap = true },
+    },
+  },
+
+  -- ------------------------------------
+  --  textobj
+  -- ------------------------------------
+  {
+    'kana/vim-textobj-entire',
+    dependencies = 'kana/vim-textobj-user',
+    keys = {
+      { 'ae', '<Plug>(textobj-entire-a)', mode = 'x', noremap = true },
+      { 'ie', '<Plug>(textobj-entire-i)', mode = 'x', noremap = true },
+    },
+  },
+
+  {
+    'kana/vim-textobj-indent',
+    dependencies = 'kana/vim-textobj-user',
+    keys = {
+      { 'ai', '<Plug>(textobj-indent-a)', mode = 'x', noremap = true },
+      { 'ii', '<Plug>(textobj-indent-i)', mode = 'x', noremap = true },
+      { 'aI', '<Plug>(textobj-indent-same-a)', mode = 'x', noremap = true },
+      { 'iI', '<Plug>(textobj-indent-same-i)', mode = 'x', noremap = true },
+    },
+  },
+
+  -- ------------------------------------
+  --  Utility
+  -- ------------------------------------
+  {
+    'rhysd/ghpr-blame.vim',
+    cmd = { 'GHPRBlame', 'GHPRBlameQuit' },
+    init = function()
+      vim.g.ghpr_github_auth_token = os.getenv('GITHUB_TOKEN')
+    end,
+  },
+
+  {
+    'glepnir/lspsaga.nvim',
+    dependencies = 'neovim/nvim-lspconfig',
+    event = 'BufRead',
+    keys = {
+      { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
+      { 'gd', '<cmd>Lspsaga peek_definition<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>o', '<cmd>LSoutlineToggle<cr>', mode = 'n', noremap = true, silent = true },
+      { 'K', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
+    },
+    config = function()
+      require('lspsaga').setup {
+        symbol_in_winbar = {
+          enable = false,
+        },
+      }
+    end,
+  },
+
+  {
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown',
+    build = 'sh -c "if command -v yarn >/dev/null 2>&1; then cd app && yarn install; fi"',
+  },
+
+  {
+    'lambdalisue/suda.vim',
+    cmd = { 'SudaRead', 'SudaWrite' },
+  },
+
+  {
+    'Pocco81/auto-save.nvim',
+    event = 'BufRead',
+    config = function()
+      require('auto-save').setup {
+        enabled = true,
+        execution_message = {
+          message = '',
+        },
+      }
+    end,
+  },
+
+  {
+    'tpope/vim-fugitive',
+    cmd = 'Git',
+  },
+
+  {
+    'thinca/vim-quickrun',
+    cmd = 'QuickRun',
+    keys = {
+      { '<leader>r', '<cmd>QuickRun<cr>', mode = 'n', noremap = true, silent = true },
+    },
+  },
 })
+
+vim.cmd([[syntax enable]])
+vim.cmd([[filetype plugin indent on]])
+
+vim.opt.secure = true
+
+vim.cmd([[
+  source ~/dotfiles/.vim/.vimrc.indent
+  source ~/dotfiles/.vim/.vimrc.apperance
+  source ~/dotfiles/.vim/.vimrc.completion
+  source ~/dotfiles/.vim/.vimrc.search
+  source ~/dotfiles/.vim/.vimrc.moving
+  source ~/dotfiles/.vim/.vimrc.colors
+  source ~/dotfiles/.vim/.vimrc.editing
+  source ~/dotfiles/.vim/.vimrc.encoding
+  source ~/dotfiles/.vim/.vimrc.langs
+]])
