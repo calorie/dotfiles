@@ -1,13 +1,5 @@
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.cindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 0
-
-vim.api.nvim_create_augroup('Indent', { clear = true })
 vim.api.nvim_create_autocmd('FileType', {
-  group = 'Indent',
+  group = 'MyAutoCmd',
   pattern = {
     'ruby', 'eruby', 'yaml', 'json', 'lua', 'go',
     'html', 'javascript', 'sh', 'zsh', 'vim', 'scala',
@@ -19,7 +11,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 vim.api.nvim_create_autocmd('FileType', {
-  group = 'Indent',
+  group = 'MyAutoCmd',
   pattern = {
     'c', 'cpp', 'java', 'perl', 'php', 'python', 'sql',
     'xml', 'css', 'diff', 'swift',
@@ -29,4 +21,15 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.softtabstop = 4
     vim.opt_local.tabstop = 4
   end,
+})
+
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = 'MyAutoCmd',
+  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
+})
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  group = 'MyAutoCmd',
+  pattern = '*.slim',
+  command = 'setfiletype slim',
 })

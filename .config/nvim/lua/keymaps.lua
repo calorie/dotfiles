@@ -1,5 +1,16 @@
-vim.opt.tagbsearch = false
-vim.opt.virtualedit:append('block')
+vim.keymap.set('n', ';', ':', { noremap = true })
+vim.keymap.set('i', '<C-c>', '<ESC>', { noremap = true })
+
+vim.keymap.set('c', '<C-p>', '<Up>', { noremap = true })
+vim.keymap.set('c', '<Up>', '<C-p>', { noremap = true })
+vim.keymap.set('c', '<C-n>', '<Down>', { noremap = true })
+vim.keymap.set('c', '<Down>', '<C-n>', { noremap = true })
+
+vim.keymap.set('n', '<ESC><ESC>', '<cmd>nohlsearch<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-c><C-c>', '<cmd>nohlsearch<cr>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<Leader>sb', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true })
+vim.keymap.set('v', '<Leader>sb', [["xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<cr>//g<Left><Left>]], { noremap = true })
 
 vim.keymap.set('n', 'j', 'gj', { noremap = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true })
@@ -31,8 +42,9 @@ vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true })
 vim.keymap.set('v', 'v', '$h', { noremap = true })
 vim.keymap.set('v', '1', '^', { noremap = true })
 
-vim.api.nvim_create_augroup('CursorLine', { clear = true })
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = 'CursorLine',
-  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
-})
+vim.keymap.set('i', ',', ',<Space>', { noremap = true })
+vim.keymap.set('i', '<C-u>', '<C-g>u<C-u>', { noremap = true })
+vim.keymap.set('i', '<C-b>', '<BS>', { noremap = true })
+
+vim.keymap.set('n', 'y9', 'y$', { noremap = true })
+vim.keymap.set('n', 'y0', 'y^', { noremap = true })

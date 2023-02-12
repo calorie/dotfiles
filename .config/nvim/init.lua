@@ -1,8 +1,9 @@
+vim.api.nvim_create_augroup('MyAutoCmd', { clear = true })
+
 if vim.fn.has('vim_starting') and vim.fn.has('reltime') then
   vim.g.startuptime = vim.fn.reltime()
-  vim.api.nvim_create_augroup('StartupTime', { clear = true })
   vim.api.nvim_create_autocmd('VimEnter', {
-    group = 'StartupTime',
+    group = 'MyAutoCmd',
     callback = function()
       vim.g.startuptime = vim.fn.reltime(vim.g.startuptime)
       vim.cmd('redraw')
@@ -11,12 +12,8 @@ if vim.fn.has('vim_starting') and vim.fn.has('reltime') then
   })
 end
 
-require('basic')
+require('options')
 require('plugins')
-require('indent')
-require('appearance')
-require('completion')
-require('search')
-require('moving')
-require('editing')
-require('langs')
+require('autocmds')
+require('keymaps')
+require('misc')
