@@ -36,22 +36,22 @@ require('lazy').setup({
       local highlight_med = '#403d52'
 
       local vi_mode_text = {
-        NORMAL        = 'N',
-        OP            = 'OP',
-        INSERT        = 'I',
-        VISUAL        = 'V',
-        LINES         = 'V-L',
-        BLOCK         = 'V-B',
-        REPLACE       = 'R',
+        NORMAL = 'N',
+        OP = 'OP',
+        INSERT = 'I',
+        VISUAL = 'V',
+        LINES = 'V-L',
+        BLOCK = 'V-B',
+        REPLACE = 'R',
         ['V-REPLACE'] = 'V-R',
-        ENTER         = 'ENTER',
-        MORE          = 'MORE',
-        SELECT        = 'S',
-        COMMAND       = '',
-        SHELL         = 'SHELL',
-        TERM          = 'TERM',
-        NONE          = 'NONE',
-        CONFIRM       = 'CONFIRM'
+        ENTER = 'ENTER',
+        MORE = 'MORE',
+        SELECT = 'S',
+        COMMAND = '',
+        SHELL = 'SHELL',
+        TERM = 'TERM',
+        NONE = 'NONE',
+        CONFIRM = 'CONFIRM',
       }
 
       local inactive_filetypes = {
@@ -65,42 +65,42 @@ require('lazy').setup({
 
       require('feline').setup({
         theme = {
-          fg            = subtle,
-          bg            = surface,
-          black         = base,
-          yellow        = gold,
-          cyan          = foam,
-          oceanblue     = blue_gray,
-          green         = pine,
-          orange        = rose,
-          violet        = iris,
-          magenta       = love,
-          white         = text,
-          skyblue       = blue_gray,
-          red           = love,
-          muted         = muted,
-          text          = text,
+          fg = subtle,
+          bg = surface,
+          black = base,
+          yellow = gold,
+          cyan = foam,
+          oceanblue = blue_gray,
+          green = pine,
+          orange = rose,
+          violet = iris,
+          magenta = love,
+          white = text,
+          skyblue = blue_gray,
+          red = love,
+          muted = muted,
+          text = text,
           highlight_med = highlight_med,
         },
         default_fg = subtle,
         default_bg = surface,
         vi_mode_colors = {
-          NORMAL        = 'fg',
-          OP            = 'fg',
-          INSERT        = 'fg',
-          CONFIRM       = 'fg',
-          VISUAL        = 'fg',
-          LINES         = 'fg',
-          BLOCK         = 'fg',
-          REPLACE       = 'fg',
+          NORMAL = 'fg',
+          OP = 'fg',
+          INSERT = 'fg',
+          CONFIRM = 'fg',
+          VISUAL = 'fg',
+          LINES = 'fg',
+          BLOCK = 'fg',
+          REPLACE = 'fg',
           ['V-REPLACE'] = 'fg',
-          ENTER         = 'fg',
-          MORE          = 'fg',
-          SELECT        = 'fg',
-          COMMAND       = 'fg',
-          SHELL         = 'fg',
-          TERM          = 'fg',
-          NONE          = 'fg'
+          ENTER = 'fg',
+          MORE = 'fg',
+          SELECT = 'fg',
+          COMMAND = 'fg',
+          SHELL = 'fg',
+          TERM = 'fg',
+          NONE = 'fg',
         },
         components = {
           active = {
@@ -117,14 +117,14 @@ require('lazy').setup({
                   str = ' ',
                   hl = {
                     fg = 'text',
-                    bg = 'highlight_med'
+                    bg = 'highlight_med',
                   }
                 },
                 right_sep = {
                   str = ' ',
                   hl = {
                     fg = 'text',
-                    bg = 'highlight_med'
+                    bg = 'highlight_med',
                   }
                 },
               },
@@ -218,7 +218,7 @@ require('lazy').setup({
                 },
               },
             },
-          }
+          },
         },
         force_inactive = {
           filetypes = inactive_filetypes,
@@ -452,7 +452,6 @@ require('lazy').setup({
     },
     config = function()
       local cmp = require 'cmp'
-
       cmp.setup({
         snippet = {
           expand = function(args)
