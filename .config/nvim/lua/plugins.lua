@@ -348,6 +348,7 @@ require('lazy').setup({
 
   {
     'beauwilliams/focus.nvim',
+    event = 'VimEnter',
     config = function()
       require('focus').setup({
         treewidth = 23,
@@ -503,7 +504,7 @@ require('lazy').setup({
 
   {
     'neovim/nvim-lspconfig',
-    event = 'BufRead',
+    event = 'BufReadPre',
     dependencies = 'hrsh7th/cmp-nvim-lsp',
     config = function()
       local lspconfig = require 'lspconfig'
