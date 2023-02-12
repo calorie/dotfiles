@@ -1,3 +1,8 @@
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = 'MyAutoCmd',
+  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   group = 'MyAutoCmd',
   pattern = {
@@ -21,11 +26,6 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.softtabstop = 4
     vim.opt_local.tabstop = 4
   end,
-})
-
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = 'MyAutoCmd',
-  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]],
 })
 
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
