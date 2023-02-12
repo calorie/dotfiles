@@ -80,6 +80,9 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 if vim.g.is_mac then
   vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+  if vim.fn.filereadable(vim.g.python3_host_prog) == 0 then
+    vim.g.python3_host_prog = '/usr/local/bin/python3'
+  end
   vim.g.ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 end
 vim.g.omni_sql_default_compl_type = 'syntax'
