@@ -22,14 +22,11 @@ samples
 
 .vim/bundle/
 
-.rake_tasks
-.make_targets
 .rbenv_init
 .ruby-version
 .rbenv-version
 .bundle
 vendor/bundle
-Gemfile.lock.tags
 .solargraph.yml
 
 .envrc
