@@ -18,13 +18,11 @@ Session.vim
 *.orig
 *.zwc
 .zshrc.local
-samples
 
 .vim/bundle/
 
 .rbenv_init
 .ruby-version
-.rbenv-version
 .bundle
 vendor/bundle
 .solargraph.yml
