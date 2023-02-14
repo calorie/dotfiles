@@ -67,9 +67,6 @@ do
   ln -sf $DOTFILES_PATH/$file $HOME/$file
 done
 
-# dein
-$INSTALLER_PATH/dein-installer
-
 defaults write -g KeyRepeat -int 1
 
 cd ${ORIGIN}

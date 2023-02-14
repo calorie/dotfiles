@@ -37,7 +37,7 @@ fi
 
 # nvim plugins
 if command -v nvim >/dev/null 2>&1; then
-  nvim +':silent call dein#update()' +qa
+  nvim +':Lazy update' +qa
 fi
 
 cd ${ORIGIN}
