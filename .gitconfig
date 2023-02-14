@@ -26,13 +26,11 @@
 [alias]
   s   = status
   sh  = show
-  # pull/push/fetch
   ftp = fetch --prune
   po  = push origin
   pu  = push -u origin
   pl  = pull
   plr = pull --rebase
-  # rebase
   rbc = rebase --continue
   rba = rebase --abort
   rbi = rebase -i
@@ -41,35 +39,26 @@
   rbi3 = rebase -i HEAD^^^
   rbi4 = rebase -i HEAD^^^^
   rbi5 = rebase -i HEAD^^^^^
-  # merge
   mn  = merge --no-ff
-  # comit
   ad  = add
   c   = commit
   co  = checkout
   cb  = checkout -b
   cm  = checkout master
-  # br
   br  = branch
   ba  = branch -a
-  # log
   ls  = log --stat
   lp  = log -p
   la  = log --pretty=\"format:%ad %h (%an): %s\" --date=short
-  # logtree
   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
-  # reset
   rhh  = reset --hard HEAD
-  # dif
   di = diff
   dc = diff --cached
   ds = diff --staged
-  # grep
   gr = grep
   gn = grep -n
   sm = submodule
   # smupdate = submodule foreach "git checkout master; git pull origin master"
-  # stash
   st = stash
   sl = stash list
   sp = stash pop
