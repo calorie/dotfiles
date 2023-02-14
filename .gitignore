@@ -21,7 +21,6 @@ Session.vim
 
 .vim/bundle/
 
-.rbenv_init
 .ruby-version
 .bundle
 vendor/bundle
