@@ -16,3 +16,5 @@ RedundantBegin:
   Enabled: false
 SpecialGlobalVars:
   Enabled: false
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
