@@ -415,8 +415,8 @@ require('lazy').setup({
     config = function()
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
-          'go', 'hcl', 'html', 'javascript', 'json', 'lua',
-          'markdown', 'ruby', 'rust', 'sql', 'vim', 'yaml',
+          'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'ruby',
+          'markdown', 'markdown_inline', 'rust', 'sql', 'vim', 'yaml',
         },
         highlight = {
           enable = true,
@@ -791,9 +791,9 @@ require('lazy').setup({
     keys = {
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
-      { 'gd', '<cmd>Lspsaga peek_definition<cr>', mode = 'n', noremap = true, silent = true },
+      { 'K', '<cmd>Lspsaga peek_definition<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>o', '<cmd>Lspsaga outline<cr>', mode = 'n', noremap = true, silent = true },
-      { 'K', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
+      { 'gd', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
     },
     config = function()
       require('lspsaga').setup {
