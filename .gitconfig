@@ -1,6 +1,7 @@
 [user]
   name = Yu Shigetani
   email = s2g4t1n2@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB4KBiwwnIca0w1FY9iDCa4CBlpHg0ba24NwbFsRlaFr
 [color]
   status = auto
   diff = auto
@@ -97,7 +98,12 @@
   process = git-lfs filter-process
   required = true
 [credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
+  helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+  useHttpPath = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+  gpgsign = true

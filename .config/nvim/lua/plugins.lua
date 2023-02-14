@@ -332,7 +332,7 @@ require('lazy').setup({
           special_files = {},
         },
         filters = {
-          custom = { '^\\.git', '.DS_Store' },
+          custom = { '^\\.git$', '.DS_Store' },
         },
         actions = {
           open_file = {

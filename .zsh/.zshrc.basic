@@ -15,6 +15,7 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 setopt auto_cd              # cd by dirctory name
 setopt auto_pushd           # display dir list
