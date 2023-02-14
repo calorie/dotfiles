@@ -1,7 +1,7 @@
 [user]
   name = Yu Shigetani
   email = s2g4t1n2@gmail.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB4KBiwwnIca0w1FY9iDCa4CBlpHg0ba24NwbFsRlaFr
+  signingkey = ~/.ssh/id_ed25519.pub
 [color]
   status = auto
   diff = auto
