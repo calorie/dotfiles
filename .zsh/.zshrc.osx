@@ -1,8 +1,8 @@
 alias pbc='pbcopy'
 
-export C_INCLUDE_PATH=/opt/homebrew/include:/usr/local/include:$C_INCLUDE_PATH
-
 if [[ "$(uname -m)" == 'arm64' ]]; then
+  export C_INCLUDE_PATH=/opt/homebrew/include:$C_INCLUDE_PATH
+
   export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib $LDFLAGS"
   export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include $CPPFLAGS"
@@ -21,6 +21,8 @@ if [[ "$(uname -m)" == 'arm64' ]]; then
 
   # export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 else
+  export C_INCLUDE_PATH=/usr/local/include:$C_INCLUDE_PATH
+
   export PATH="/usr/local/opt/libxml2/bin:$PATH"
   export LDFLAGS="-L/usr/local/opt/libxml2/lib $LDFLAGS"
   export CPPFLAGS="-I/usr/local/opt/libxml2/include $CPPFLAGS"
@@ -37,7 +39,5 @@ else
 
   # export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 fi
-
-export HOMEBREW_NO_AUTO_UPDATE=1
 
 export HOMEBREW_NO_AUTO_UPDATE=1

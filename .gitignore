@@ -19,12 +19,11 @@ Session.vim
 *.zwc
 .zshrc.local
 
-.vim/bundle/
+.envrc
 
 .ruby-version
 .bundle
 vendor/bundle
 .solargraph.yml
 
-.envrc
 .python-version
