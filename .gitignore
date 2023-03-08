@@ -27,3 +27,6 @@ vendor/bundle
 .solargraph.yml
 
 .python-version
+
+.project
+.settings

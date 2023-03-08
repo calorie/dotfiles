@@ -293,7 +293,7 @@ require('lazy').setup({
         },
         tab = {
           sync = {
-            open = true,
+            open = false,
           },
         },
         view = {
@@ -415,7 +415,7 @@ require('lazy').setup({
     config = function()
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
-          'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'ruby',
+          'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'ruby', 'java',
           'markdown', 'markdown_inline', 'rust', 'sql', 'vim', 'yaml',
         },
         highlight = {
@@ -606,6 +606,10 @@ require('lazy').setup({
             },
           },
         },
+      }
+      lspconfig.jdtls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
     end,
   },
