@@ -293,7 +293,7 @@ require('lazy').setup({
         },
         tab = {
           sync = {
-            open = false,
+            open = true,
           },
         },
         view = {

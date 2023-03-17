@@ -61,6 +61,7 @@ vim.opt.suffixes = {
   '.bak', '~', '.swp', '.o', '.info', '.aux', '.log', '.dvi', '.toc',
   '.bbl', '.blg', '.brf', '.cb', '.ind', '.idx', '.ilg', '.inx', '.out',
 }
+vim.opt.mouse = nil
 
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_gzip = 1
