@@ -232,6 +232,14 @@ require('lazy').setup({
   },
 
   {
+    'ethanholz/nvim-lastplace',
+    event = 'BufReadPre',
+    config = function()
+      require('nvim-lastplace').setup {}
+    end,
+  },
+
+  {
     'nvim-tree/nvim-tree.lua',
     -- dependencies = 'nvim-tree/nvim-web-devicons',
     cmd = { 'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFocus' },
