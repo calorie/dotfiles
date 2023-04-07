@@ -415,7 +415,7 @@ require('lazy').setup({
 
   {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufReadPost',
+    event = 'BufReadPre',
     build = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
