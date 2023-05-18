@@ -398,7 +398,11 @@ require('lazy').setup({
               ['<C-j>'] = 'move_selection_next',
               ['<C-k>'] = 'move_selection_previous',
             }
-          }
+          },
+          layout_config = {
+            prompt_position = "top",
+          },
+          sorting_strategy = "ascending",
         }
       }
     end,
