@@ -63,6 +63,8 @@ vim.opt.suffixes = {
 }
 vim.opt.mouse = nil
 
+vim.lsp.set_log_level('off')
+
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_gzip = 1
 -- vim.g.loaded_man = 1
