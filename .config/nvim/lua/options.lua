@@ -91,3 +91,4 @@ if vim.g.is_mac then
   vim.g.ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 end
 vim.g.omni_sql_default_compl_type = 'syntax'
+vim.g.omni_sql_no_default_maps = 1

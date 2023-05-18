@@ -288,24 +288,19 @@ require('lazy').setup({
         callback = open_nvim_tree,
       })
 
-      local modifiedBufs = function(bufs)
-        local t = 0
-        for k,v in pairs(bufs) do
-          if v.name:match('NvimTree_') == nil then
-            t = t + 1
-          end
-        end
-        return t
-      end
-
-      vim.api.nvim_create_autocmd('BufEnter', {
-        group = 'MyAutoCmd',
-        nested = true,
+      vim.api.nvim_create_autocmd('QuitPre', {
         callback = function()
-          if #vim.api.nvim_list_wins() == 1 and
-            vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil and
-            modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
-            vim.cmd 'quit'
+          local invalid_win = {}
+          local wins = vim.api.nvim_list_wins()
+          for _, w in ipairs(wins) do
+            local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+            if bufname:match('NvimTree_') ~= nil then
+              table.insert(invalid_win, w)
+            end
+          end
+          if #invalid_win == #wins - 1 then
+            -- Should quit, so we close all invalid windows.
+            for _, w in ipairs(invalid_win) do vim.api.nvim_win_close(w, true) end
           end
         end
       })
@@ -670,13 +665,13 @@ require('lazy').setup({
     },
   },
 
-  {
-    'brglng/vim-im-select',
-    event = 'InsertEnter',
-    init = function()
-      vim.g.im_select_default = 'com.google.inputmethod.Japanese.Roman'
-    end,
-  },
+  -- {
+  --   'brglng/vim-im-select',
+  --   event = 'InsertEnter',
+  --   init = function()
+  --     vim.g.im_select_default = 'com.google.inputmethod.Japanese.Roman'
+  --   end,
+  -- },
 
   {
     'tpope/vim-surround',
