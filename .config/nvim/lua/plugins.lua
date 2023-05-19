@@ -268,7 +268,7 @@ require('lazy').setup({
     event = 'VimEnter',
     keys = {
       { '<leader>nt', '<cmd>NvimTreeToggle<cr>', mode = 'n', noremap = true, silent = true },
-      { '<leader>nf', '<cmd>NvimTreeFocus<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>nf', '<cmd>NvimTreeFindFile<cr>', mode = 'n', noremap = true, silent = true },
     },
     init = function()
       vim.g.loaded_netrw = 1
