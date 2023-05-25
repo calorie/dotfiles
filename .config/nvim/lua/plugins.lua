@@ -669,6 +669,21 @@ require('lazy').setup({
     },
   },
 
+  {
+    'Wansmer/treesj',
+    cmd = { 'TSJToggle' },
+    keys = {
+      { '<space>m', '<cmd>TSJToggle<cr>', mode = 'n', noremap = true, silent = true },
+    },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesj').setup({
+        use_default_keymaps = false,
+        notify = false,
+      })
+    end,
+  },
+
   -- {
   --   'brglng/vim-im-select',
   --   event = 'InsertEnter',
