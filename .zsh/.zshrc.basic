@@ -21,7 +21,7 @@ setopt auto_cd              # cd by dirctory name
 setopt auto_pushd           # display dir list
 setopt pushd_ignore_dups    # push ignore duplicate dir on dir stack
 setopt correct              # spel check
-setopt correct_all          # spel check all
+unsetopt correct_all          # spel check all
 setopt no_clobber           # no overwrite redirect
 setopt list_packed          # display packed completion list
 setopt list_types           # display file type
