@@ -279,7 +279,7 @@ require('lazy').setup({
           return
         end
 
-        require('nvim-tree.api').tree.open()
+        require("nvim-tree.api").tree.focus()
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -288,21 +288,26 @@ require('lazy').setup({
         callback = open_nvim_tree,
       })
 
-      vim.api.nvim_create_autocmd('QuitPre', {
-        callback = function()
-          local invalid_win = {}
-          local wins = vim.api.nvim_list_wins()
-          for _, w in ipairs(wins) do
-            local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
-            if bufname:match('NvimTree_') ~= nil then
-              table.insert(invalid_win, w)
-            end
+      -- nvim-tree is also there in modified buffers so this function filter it out
+      local modifiedBufs = function(bufs)
+          local t = 0
+          for k,v in pairs(bufs) do
+              if v.name:match("NvimTree_") == nil then
+                  t = t + 1
+              end
           end
-          if #invalid_win == #wins - 1 then
-            -- Should quit, so we close all invalid windows.
-            for _, w in ipairs(invalid_win) do vim.api.nvim_win_close(w, true) end
+          return t
+      end
+
+      vim.api.nvim_create_autocmd("BufEnter", {
+          nested = true,
+          callback = function()
+              if #vim.api.nvim_list_wins() == 1 and
+              vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
+              modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+                  vim.cmd "quit"
+              end
           end
-        end
       })
     end,
     config = function()
