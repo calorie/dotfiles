@@ -8,7 +8,7 @@ font:
   normal:
     family: HackGen
     style: Regular
-  size: 15.0
+  size: 18.0
 
 window:
   startup_mode: Fullscreen
