@@ -274,12 +274,14 @@ require('lazy').setup({
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
 
+      local nt_api = require("nvim-tree.api")
+
       local function open_nvim_tree(data)
         if vim.fn.filereadable(data.file) == 1 then
           return
         end
 
-        require("nvim-tree.api").tree.focus()
+        nt_api.tree.focus()
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -288,26 +290,34 @@ require('lazy').setup({
         callback = open_nvim_tree,
       })
 
+      vim.api.nvim_create_autocmd('TabNewEntered', {
+        group = 'MyAutoCmd',
+        nested = true,
+        callback = function()
+          nt_api.tree.focus()
+        end,
+      })
+
       -- nvim-tree is also there in modified buffers so this function filter it out
       local modifiedBufs = function(bufs)
-          local t = 0
-          for k,v in pairs(bufs) do
-              if v.name:match("NvimTree_") == nil then
-                  t = t + 1
-              end
+        local t = 0
+        for k,v in pairs(bufs) do
+          if v.name:match("NvimTree_") == nil then
+            t = t + 1
           end
-          return t
+        end
+        return t
       end
 
       vim.api.nvim_create_autocmd("BufEnter", {
-          nested = true,
-          callback = function()
-              if #vim.api.nvim_list_wins() == 1 and
-              vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
-              modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
-                  vim.cmd "quit"
-              end
+        nested = true,
+        callback = function()
+          if #vim.api.nvim_list_wins() == 1 and
+          vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
+          modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+            vim.cmd "quit"
           end
+        end
       })
     end,
     config = function()
