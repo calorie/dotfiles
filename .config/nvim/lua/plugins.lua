@@ -551,6 +551,8 @@ require('lazy').setup({
     event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup {}
+
+      vim.api.nvim_set_keymap('i', '<C-b>', 'v:lua.MPairs.autopairs_bs()', { expr = true, noremap = true })
     end,
   },
 
