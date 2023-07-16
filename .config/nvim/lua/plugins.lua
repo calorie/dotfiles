@@ -392,7 +392,7 @@ require('lazy').setup({
       })
     end,
     config = function()
-      require('focus').setup {}
+      require("focus").setup({ ui = { signcolumn = false } })
     end,
   },
 
