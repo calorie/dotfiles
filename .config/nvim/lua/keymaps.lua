@@ -44,7 +44,7 @@ vim.keymap.set('v', '1', '^', { noremap = true })
 
 vim.keymap.set('i', ',', ',<Space>', { noremap = true })
 vim.keymap.set('i', '<C-u>', '<C-g>u<C-u>', { noremap = true })
-vim.keymap.set('i', '<C-b>', '<BS>', { noremap = true })
+-- vim.keymap.set('i', '<C-b>', '<BS>', { noremap = true })
 
 vim.keymap.set('n', 'y9', 'y$', { noremap = true })
 vim.keymap.set('n', 'y0', 'y^', { noremap = true })
