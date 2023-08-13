@@ -469,7 +469,7 @@ require('lazy').setup({
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
           'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'ruby', 'java',
-          'markdown', 'markdown_inline', 'rust', 'sql', 'vim', 'yaml',
+          'markdown', 'markdown_inline', 'rust', 'sql', 'vim', 'yaml', 'c',
         },
         highlight = {
           enable = true,
