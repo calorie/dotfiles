@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d $HOME/.tmux/tmux-fingers ]; then
+  rm -rf $HOME/.tmux/tmux-fingers
+fi
