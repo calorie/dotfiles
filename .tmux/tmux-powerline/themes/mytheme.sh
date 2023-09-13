@@ -61,8 +61,8 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		"pwd 234 251" \
 		"vcs_branch 103 251" \
 		"vcs_compare 60 251" \
-		"vcs_staged 64 251" \
-		"vcs_modified 161 251" \
+		"vcs_staged 31 251" \
+		"vcs_modified 168 251" \
 		"vcs_others 60 234" \
 	)
 fi
