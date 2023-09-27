@@ -373,7 +373,7 @@ require('lazy').setup({
   },
 
   {
-    'beauwilliams/focus.nvim',
+    'nvim-focus/focus.nvim',
     event = 'VimEnter',
     init = function()
       local ignore_filetypes = { 'NvimTree' }
