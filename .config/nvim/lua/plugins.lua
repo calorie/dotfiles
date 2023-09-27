@@ -425,7 +425,7 @@ require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = 'nvim-lua/plenary.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-frecency.nvim' },
     cmd = 'Telescope',
     keys = {
       { '<space>f', '<cmd>Telescope find_files<cr>', mode = 'n', noremap = true },
@@ -433,7 +433,8 @@ require('lazy').setup({
       { '<space>b', '<cmd>Telescope buffers<cr>', mode = 'n', noremap = true },
     },
     config = function()
-      require('telescope').setup {
+      local telescope = require('telescope')
+      telescope.setup {
         defaults = {
           mappings = {
             i = {
@@ -448,8 +449,14 @@ require('lazy').setup({
             prompt_position = "top",
           },
           sorting_strategy = "ascending",
-        }
+        },
+        extensions = {
+          frecency = {
+            use_sqlite = false,
+          }
+        },
       }
+      telescope.load_extension 'frecency'
     end,
   },
 
