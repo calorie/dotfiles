@@ -417,8 +417,10 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
     config = function()
-      vim.g.indent_blankline_char = '┊'
-      require('indent_blankline').setup {}
+      require('ibl').setup {
+        indent = { char = '┊' },
+        scope = { enabled = false },
+      }
     end,
   },
 
