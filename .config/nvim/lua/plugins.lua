@@ -579,6 +579,14 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     event = 'BufReadPre',
     dependencies = 'hrsh7th/cmp-nvim-lsp',
+    init = function()
+      vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        pattern = { '*.tf', '*.tfvars' },
+        callback = function()
+          vim.lsp.buf.format()
+        end,
+      })
+    end,
     config = function()
       local lspconfig = require 'lspconfig'
       local util = require 'lspconfig/util'
