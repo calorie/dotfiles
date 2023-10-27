@@ -368,6 +368,9 @@ require('lazy').setup({
             },
           },
         },
+        notify = {
+          threshold = vim.log.levels.ERROR,
+        },
       })
     end,
   },
