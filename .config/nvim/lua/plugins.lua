@@ -752,13 +752,13 @@ require('lazy').setup({
     end,
   },
 
-  -- {
-  --   'brglng/vim-im-select',
-  --   event = 'InsertEnter',
-  --   init = function()
-  --     vim.g.im_select_default = 'com.google.inputmethod.Japanese.Roman'
-  --   end,
-  -- },
+  {
+    'brglng/vim-im-select',
+    event = 'InsertLeave',
+    init = function()
+      vim.g.im_select_default = 'com.google.inputmethod.Japanese.Roman'
+    end,
+  },
 
   {
     'tpope/vim-surround',
