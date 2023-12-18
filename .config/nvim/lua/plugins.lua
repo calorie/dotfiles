@@ -265,7 +265,6 @@ require('lazy').setup({
     'nvim-tree/nvim-tree.lua',
     -- dependencies = 'nvim-tree/nvim-web-devicons',
     cmd = { 'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFocus' },
-    event = 'VimEnter',
     keys = {
       { '<leader>nt', '<cmd>NvimTreeToggle<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>nf', '<cmd>NvimTreeFindFile<cr>', mode = 'n', noremap = true, silent = true },
@@ -274,7 +273,7 @@ require('lazy').setup({
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
 
-      local nt_api = require("nvim-tree.api")
+      local nt_api = require('nvim-tree.api')
 
       local function open_nvim_tree(data)
         if vim.fn.filereadable(data.file) == 1 then
