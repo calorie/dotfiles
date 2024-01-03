@@ -39,7 +39,7 @@ DOTFILES=(
   .rubocop.yml
   .tmux-powerlinerc
   .tmux.conf
-  .config/alacritty/alacritty.yml
+  .config/alacritty/alacritty.toml
   .config/nvim/init.lua
   .config/nvim/lua
   .config/peco/config.json
