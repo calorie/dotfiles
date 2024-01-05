@@ -521,6 +521,13 @@ require('lazy').setup({
           require('luasnip/loaders/from_vscode').lazy_load({ paths = { vim.fn.stdpath('data') .. '/lazy/friendly-snippets' } })
         end,
       },
+      {
+        'zbirenbaum/copilot-cmp',
+        dependencies = 'zbirenbaum/copilot.lua',
+        config = function ()
+          require('copilot_cmp').setup()
+        end
+      },
     },
     config = function()
       local cmp = require 'cmp'
@@ -562,6 +569,18 @@ require('lazy').setup({
     },
     config = function()
       require('Comment').setup {}
+    end,
+  },
+
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
     end,
   },
 
