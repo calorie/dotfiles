@@ -273,14 +273,12 @@ require('lazy').setup({
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
 
-      local nt_api = require('nvim-tree.api')
-
       local function open_nvim_tree(data)
         if vim.fn.filereadable(data.file) == 1 then
           return
         end
 
-        nt_api.tree.focus()
+        vim.cmd 'NvimTreeFocus'
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -293,7 +291,7 @@ require('lazy').setup({
         group = 'MyAutoCmd',
         nested = true,
         callback = function()
-          nt_api.tree.focus()
+          vim.cmd 'NvimTreeFocus'
         end,
       })
 
