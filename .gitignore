@@ -17,6 +17,7 @@ Session.vim
 *.elc
 *.orig
 *.zwc
+*.pem
 .zshrc.local
 
 .envrc
