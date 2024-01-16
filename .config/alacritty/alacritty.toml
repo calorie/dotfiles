@@ -1,4 +1,4 @@
-import = ["/Users/yu/dotfiles/.config/alacritty/calorie.toml"]
+import = ["~/dotfiles/.config/alacritty/calorie.toml"]
 
 [env]
 TERM = "xterm-256color"
