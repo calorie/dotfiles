@@ -301,20 +301,20 @@ require('lazy').setup({
       local modifiedBufs = function(bufs)
         local t = 0
         for k,v in pairs(bufs) do
-          if v.name:match("NvimTree_") == nil then
+          if v.name:match('NvimTree_') == nil then
             t = t + 1
           end
         end
         return t
       end
 
-      vim.api.nvim_create_autocmd("BufEnter", {
+      vim.api.nvim_create_autocmd('BufEnter', {
         nested = true,
         callback = function()
           if #vim.api.nvim_list_wins() == 1 and
-          vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
+          vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil and
           modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
-            vim.cmd "quit"
+            vim.cmd 'quit'
           end
         end
       })
@@ -411,7 +411,7 @@ require('lazy').setup({
       })
     end,
     config = function()
-      require("focus").setup({ ui = { signcolumn = false } })
+      require('focus').setup({ ui = { signcolumn = false } })
     end,
   },
 
@@ -450,9 +450,9 @@ require('lazy').setup({
             }
           },
           layout_config = {
-            prompt_position = "top",
+            prompt_position = 'top',
           },
-          sorting_strategy = "ascending",
+          sorting_strategy = 'ascending',
         },
         extensions = {
           frecency = {
