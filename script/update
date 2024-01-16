@@ -29,6 +29,12 @@ if [ -d $HOME/.tmux/tmux-powerline ]; then
   git pull --rebase origin main
 fi
 
+# tmux-fingers
+if [ -d $HOME/.tmux/tmux-fingers ]; then
+  cd $HOME/.tmux/tmux-fingers
+  git pull --rebase origin master
+fi
+
 # enhancd
 if [ -d $HOME/enhancd ]; then
   cd $HOME/enhancd

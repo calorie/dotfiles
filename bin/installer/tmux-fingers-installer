@@ -5,4 +5,4 @@ if [ ! -d "$TMUX_PATH" ]; then
   mkdir $TMUX_PATH
 fi
 
-git clone --recursive https://github.com/Morantron/tmux-fingers $TMUX_PATH/tmux-fingers
+git clone --single-branch https://github.com/Morantron/tmux-fingers $TMUX_PATH/tmux-fingers
