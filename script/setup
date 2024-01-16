@@ -53,12 +53,13 @@ DOTFILES=(
   .ripgreprc
   .rspec
   .rubocop.yml
-  .tmux-powerlinerc
   .tmux.conf
   .config/alacritty/alacritty.toml
   .config/nvim/init.lua
   .config/nvim/lua
   .config/peco/config.json
+  .config/tmux-powerline/config.sh
+  .config/tmux-powerline/themes
   .vimrc
   .zshrc
   .wezterm.lua

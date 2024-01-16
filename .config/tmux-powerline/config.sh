@@ -8,12 +8,32 @@
 	export TMUX_POWERLINE_DEBUG_MODE_ENABLED="false"
 	# Use patched font symbols.
 	export TMUX_POWERLINE_PATCHED_FONT_IN_USE="true"
+
 	# The theme to use.
 	export TMUX_POWERLINE_THEME="mytheme"
 	# Overlay directory to look for themes. There you can put your own themes outside the repo. Fallback will still be the "themes" directory in the repo.
-	export TMUX_POWERLINE_DIR_USER_THEMES="~/dotfiles/.tmux/tmux-powerline/themes"
+	export TMUX_POWERLINE_DIR_USER_THEMES="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/themes"
 	# Overlay directory to look for segments. There you can put your own segments outside the repo. Fallback will still be the "segments" directory in the repo.
-	export TMUX_POWERLINE_DIR_USER_SEGMENTS=""
+	export TMUX_POWERLINE_DIR_USER_SEGMENTS="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/segments"
+
+	# The initial visibility of the status bar. Can be {"on, off"}.
+	export TMUX_POWERLINE_STATUS_VISIBILITY="on"
+	# The status bar refresh interval in seconds.
+	# Note that events that force-refresh the status bar (such as window renaming) will ignore this.
+	export TMUX_POWERLINE_STATUS_INTERVAL="1"
+	# The location of the window list. Can be {"absolute-centre, centre, left, right"}.
+	# Note that "absolute-centre" is only supported on `tmux -V` >= 3.2.
+	export TMUX_POWERLINE_STATUS_JUSTIFICATION="centre"
+
+	# The maximum length of the left status bar.
+	export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
+	# The maximum length of the right status bar.
+	export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
+
+	# Uncomment these if you want to enable tmux bindings for muting (hiding) one of the status bars.
+	# E.g. this example binding would mute the left status bar when pressing <prefix> followed by Ctrl-[
+	#export TMUX_POWERLINE_MUTE_LEFT_KEYBINDING="C-["
+	#export TMUX_POWERLINE_MUTE_RIGHT_KEYBINDING="C-]"
 # }
 
 # battery.sh {
@@ -50,6 +70,11 @@
 	export TMUX_POWERLINE_SEG_EARTHQUAKE_MIN_MAGNITUDE="3"
 # }
 
+# gcalcli.sh {
+	# gcalcli uses 24hr time format by default - if you want to see 12hr time format, set TMUX_POWERLINE_SEG_GCALCLI_MILITARY_TIME_DEFAULT to 0
+	export TMUX_POWERLINE_SEG_GCALCLI_24HR_TIME_FORMAT="1"
+# }
+
 # hostname.sh {
 	# Use short or long format for the hostname. Can be {"short, long"}.
 	export TMUX_POWERLINE_SEG_HOSTNAME_FORMAT="short"
@@ -58,7 +83,7 @@
 # macos_notification_count.sh {
 	# App ids to query in notification center, separated by space
 	# To get the app id that is associated with a specific app run:
-	# sqlite3 -list "/var/folders/lb/23td_l_91x1f917vs9dx3k8w0000gn/0//com.apple.notificationcenter/db/db" 'select * from app_info'
+	# sqlite3 -list "/var/folders/0k/s540ywpx0vd1nrbbkk7pps0w0000gn/0//com.apple.notificationcenter/db/db" 'select * from app_info'
 	# The first column contains the app ids
 	# "5" is the app id of Messages.app
 	# Only "banner" notifications are supported (see settings in the notification center)
@@ -100,7 +125,7 @@
 # }
 
 # now_playing.sh {
-	# Music player to use. Can be any of {audacious, banshee, cmus, itunes, lastfm, mocp, mpd, mpd_simple, pithos, playerctl, rdio, rhythmbox, spotify, spotify_wine, file}.
+	# Music player to use. Can be any of {audacious, banshee, cmus, apple_music, itunes, lastfm, plexamp, mocp, mpd, mpd_simple, pithos, playerctl, rdio, rhythmbox, spotify, spotify_wine, file}.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MUSIC_PLAYER="spotify"
 	# File to be read in case the song is being read from a file
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_FILE_NAME=""
@@ -122,12 +147,32 @@
 	# Song display format for rhythmbox. see "FORMATS" in rhythmbox-client(1).
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_RHYTHMBOX_FORMAT="%aa - %tt"
 	
+	# Last.fm
+	# Set up steps for Last.fm
+	# 1. Make sure jq(1) is installed on the system.
+	# 2. Create a new API application at https://www.last.fm/api/account/create (name it tmux-powerline) and copy the API key and insert it below in the setting TMUX_POWERLINE_SEG_NOW_PLAYING_LASTFM_API_KEY
+	# 3. Make sure the API can access your recently played song by going to you user privacy settings https://www.last.fm/settings/privacy and make sure "Hide recent listening information" is UNCHECKED.
 	# Username for Last.fm if that music player is used.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_LASTFM_USERNAME=""
+	# API Key for the API.
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_LASTFM_API_KEY=""
 	# How often in seconds to update the data from last.fm.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_LASTFM_UPDATE_PERIOD="30"
 	# Fancy char to display before now playing track
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_NOTE_CHAR="♫"
+	
+	# Plexamp 
+	# Set up steps for Plexamp
+	# 1. Make sure jq(1) is installed on the system.
+	# 2. Make sure you have an instance of Tautulli that is accessible by the computer running tmux-powerline.
+	# Username for Plexamp if that music player is used.
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_PLEXAMP_USERNAME=""
+	# Hostname for Tautulli server in the format "[password@]host"
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_PLEXAMP_TAUTULLI_HOST=""
+	# API Key for Tautulli.
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_PLEXAMP_TAUTULLI_API_KEY=""
+	# How often in seconds to update the data from Plexamp.
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_PLEXAMP_UPDATE_PERIOD="30"
 # }
 
 # pwd.sh {
@@ -138,11 +183,31 @@
 # time.sh {
 	# date(1) format for the time. Americans might want to have "%I:%M %p".
 	export TMUX_POWERLINE_SEG_TIME_FORMAT="%H:%M"
+	# Change this to display a different timezone than the system default.
+	# Use TZ Identifier like "America/Los_Angeles"
+	export TMUX_POWERLINE_SEG_TIME_TZ=""
+# }
+
+# tmux_mem_cpu_load.sh {
+	# Arguments passed to tmux-mem-cpu-load.
+	# See https://github.com/thewtex/tmux-mem-cpu-load for all available options.
+	export TMUX_POWERLINE_SEG_TMUX_MEM_CPU_LOAD_ARGS="-v"
+# }
+
+# tmux_session_info.sh {
+	# Session info format to feed into the command: tmux display-message -p
+	# For example, if FORMAT is '[ #S ]', the command is: tmux display-message -p '[ #S ]'
+	export TMUX_POWERLINE_SEG_TMUX_SESSION_INFO_FORMAT="#S:#I.#P"
 # }
 
 # utc_time.sh {
 	# date(1) format for the UTC time.
 	export TMUX_POWERLINE_SEG_UTC_TIME_FORMAT="%H:%M %Z"
+# }
+
+# vcs_branch.sh {
+	# Max length of the branch name.
+	export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN="24"
 # }
 
 # weather.sh {
