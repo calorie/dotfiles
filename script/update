@@ -21,7 +21,7 @@ fi
 
 gem update
 npm update -g
-pip install -r $HOME/dotfiles/requirements.txt --upgrade
+# pip install -r $HOME/dotfiles/requirements.txt --upgrade
 
 # tmux-powerline
 if [ -d $HOME/.tmux/tmux-powerline ]; then
