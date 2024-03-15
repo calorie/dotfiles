@@ -476,10 +476,7 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     event = 'BufReadPre',
-    build = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
+    build = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
@@ -510,6 +507,8 @@ require('lazy').setup({
       'hrsh7th/cmp-buffer',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
       {
         'L3MON4D3/LuaSnip',
         dependencies = 'rafamadriz/friendly-snippets',
@@ -546,10 +545,27 @@ require('lazy').setup({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
+          { name = "copilot", group_index = 2 },
+          { name = 'nvim_lsp', group_index = 2 },
+          { name = 'luasnip', group_index = 2 },
         }, {
           { name = 'buffer' },
+        })
+      })
+
+      cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
         })
       })
     end,
