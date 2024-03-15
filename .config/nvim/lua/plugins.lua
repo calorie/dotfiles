@@ -524,6 +524,7 @@ require('lazy').setup({
           require('copilot_cmp').setup()
         end
       },
+      'windwp/nvim-autopairs',
     },
     config = function()
       local cmp = require 'cmp'
@@ -568,6 +569,12 @@ require('lazy').setup({
           { name = 'cmdline' }
         })
       })
+
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
     end,
   },
 
@@ -603,7 +610,7 @@ require('lazy').setup({
     config = function()
       require('nvim-autopairs').setup {}
 
-      vim.api.nvim_set_keymap('i', '<C-b>', 'v:lua.MPairs.autopairs_bs()', { expr = true, noremap = true })
+      vim.api.nvim_set_keymap('i', '<C-b>', "v:lua.require'nvim-autopairs'.autopairs_bs()", { expr = true, noremap = true })
     end,
   },
 
