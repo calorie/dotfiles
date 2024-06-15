@@ -32,3 +32,6 @@ vendor/bundle
 .project
 .settings
 .classpath
+
+*.pub
+*.p8
