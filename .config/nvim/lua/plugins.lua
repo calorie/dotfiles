@@ -968,8 +968,18 @@ require('lazy').setup({
   },
 
   {
-    'tpope/vim-fugitive',
-    cmd = 'Git',
+    'lewis6991/gitsigns.nvim',
+    cmd = 'Gitsigns',
+    keys = {
+      { '<leader>br', '<cmd>Gitsigns toggle_current_line_blame<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>di', '<cmd>Gitsigns toggle_signs<cr>', mode = 'n', noremap = true, silent = true },
+    },
+    config = function()
+      require('gitsigns').setup {
+        signcolumn = false,
+        current_line_blame_formatter = '<abbrev_sha> <author>, <author_time:%Y-%m-%d> - <summary>',
+      }
+    end,
   },
 
   {
