@@ -806,7 +806,14 @@ require('lazy').setup({
 
   {
     'kylechui/nvim-surround',
-    event = 'VeryLazy',
+    keys = {
+      { 'ys', '<Plug>(nvim-surround-normal)', mode = 'n', noremap = true },
+      { 'yss', '<Plug>(nvim-surround-normal-cur)', mode = 'n', noremap = true },
+      { '<C-g>s', '<Plug>(nvim-surround-insert)', mode = 'i', noremap = true },
+      { 'S', '<Plug>(nvim-surround-visual)', mode = 'x', noremap = true },
+      { 'ds', '<Plug>(nvim-surround-delete)', mode = 'n', noremap = true },
+      { 'cs', '<Plug>(nvim-surround-change)', mode = 'n', noremap = true },
+    },
     config = function()
       require('nvim-surround').setup {}
     end
