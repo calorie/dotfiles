@@ -792,10 +792,14 @@ require('lazy').setup({
   },
 
   {
-    'brglng/vim-im-select',
+    'keaising/im-select.nvim',
     event = 'InsertLeave',
-    init = function()
-      vim.g.im_select_default = 'com.google.inputmethod.Japanese.Roman'
+    config = function()
+      require('im_select').setup({
+        default_im_select = 'com.google.inputmethod.Japanese.Roman',
+        set_previous_events = {},
+        async_switch_im = true,
+      })
     end,
   },
 
