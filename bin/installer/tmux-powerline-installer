@@ -5,5 +5,4 @@ if [ ! -d "$TMUX_PATH" ]; then
   mkdir $TMUX_PATH
 fi
 
-TMUX_POWERLINE_PATH=$TMUX_PATH/tmux-powerline
-git clone --single-branch https://github.com/erikw/tmux-powerline.git $TMUX_POWERLINE_PATH
+git clone --single-branch https://github.com/erikw/tmux-powerline.git $TMUX_PATH/tmux-powerline
