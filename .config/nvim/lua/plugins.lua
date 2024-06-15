@@ -475,6 +475,7 @@ require('lazy').setup({
 
   {
     'nvim-treesitter/nvim-treesitter',
+    dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
     event = 'BufReadPre',
     build = ':TSUpdate',
     config = function()
@@ -804,21 +805,11 @@ require('lazy').setup({
   },
 
   {
-    'tpope/vim-surround',
-    keys = {
-      { 'ds', '<Plug>Dsurround', mode = 'n', noremap = true },
-      { 'cs', '<Plug>Csurround', mode = 'n', noremap = true },
-      { 'S', '<Plug>VSurround', mode = 'x', noremap = true },
-      { 'gS', '<Plug>VgSurround', mode = 'x', noremap = true },
-      '<Plug>Yssurround', '<Plug>YSsurround',
-      '<Plug>Ysurround', '<Plug>YSurround',
-    },
-    init = function()
-      local char2nr = vim.fn.char2nr
-      vim.g['surround_' .. char2nr('e')] = "begin \r end"
-      vim.g['surround_' .. char2nr('d')] = "do \r end"
-      vim.g['surround_' .. char2nr('-')] = ":\r"
-    end,
+    'kylechui/nvim-surround',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {}
+    end
   },
 
   {
