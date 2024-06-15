@@ -11,5 +11,4 @@ export C_INCLUDE_PATH=$PREFIX/include:$C_INCLUDE_PATH
 export LDFLAGS="-L$PREFIX/opt/zlib/lib -L$PREFIX/opt/curl/lib -L$PREFIX/opt/libxml2/lib $LDFLAGS"
 export CPPFLAGS="-I$PREFIX/opt/zlib/include -I$PREFIX/opt/curl/include -I$PREFIX/opt/libxml2/include $CPPFLAGS"
 
-
 export HOMEBREW_NO_AUTO_UPDATE=1
