@@ -1,2 +1,0 @@
-vnoremap <Space> <Plug>(expand_region_expand)
-vnoremap <BS> <Plug>(expand_region_shrink)

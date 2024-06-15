@@ -1,3 +1,0 @@
-let g:quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
-
-nnoremap <Space>h <Plug>(quickhl-cword-toggle)

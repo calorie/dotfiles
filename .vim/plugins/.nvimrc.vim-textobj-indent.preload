@@ -1,4 +1,0 @@
-xmap ai <Plug>(textobj-indent-a)
-xmap ii <Plug>(textobj-indent-i)
-xmap aI <Plug>(textobj-indent-same-a)
-xmap iI <Plug>(textobj-indent-same-i)

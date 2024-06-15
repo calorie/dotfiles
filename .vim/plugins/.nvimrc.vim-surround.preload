@@ -1,8 +1,0 @@
-nmap ds <Plug>Dsurround
-nmap cs <Plug>Csurround
-xmap S  <Plug>VSurround
-xmap gS <Plug>VgSurround
-
-let g:surround_{char2nr('e')} = "begin \r end"
-let g:surround_{char2nr('d')} = "do \r end"
-let g:surround_{char2nr('-')} = ":\r"
