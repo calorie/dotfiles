@@ -682,6 +682,7 @@ require('lazy').setup({
         on_attach = on_attach,
       }
       lspconfig.terraformls.setup {
+        filetypes = { 'terraform', 'hcl' },
         capabilities = capabilities,
         on_attach = on_attach,
       }
