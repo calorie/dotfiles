@@ -19,7 +19,7 @@ INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 PKGS=(
   enhancd
   tmux-256color
-  tmux-fingers
+  tmux-thumbs
   tmux-powerline
 )
 for pkg in ${PKGS[@]}

@@ -29,10 +29,11 @@ if [ -d $HOME/.tmux/tmux-powerline ]; then
   git pull --rebase origin main
 fi
 
-# tmux-fingers
-if [ -d $HOME/.tmux/tmux-fingers ]; then
-  cd $HOME/.tmux/tmux-fingers
+# tmux-thumbs
+if [ -d $HOME/.tmux/tmux-thumbs ]; then
+  cd $HOME/.tmux/tmux-thumbs
   git pull --rebase origin master
+  cargo build --release
 fi
 
 # enhancd
