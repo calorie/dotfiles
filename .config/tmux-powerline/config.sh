@@ -16,8 +16,11 @@
 	# Overlay directory to look for segments. There you can put your own segments outside the repo. Fallback will still be the "segments" directory in the repo.
 	export TMUX_POWERLINE_DIR_USER_SEGMENTS="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/segments"
 
-	# The initial visibility of the status bar. Can be {"on, off"}.
+	# The initial visibility of the status bar. Can be {"on", "off", "2"}. 2 will create two status lines: one for the window list and one with status bar segments. 
 	export TMUX_POWERLINE_STATUS_VISIBILITY="on"
+	# In case of visibility = 2, where to display window status and where left/right status bars.
+	# 0: window status top, left/right status bottom; 1: window status bottom, left/right status top
+	export TMUX_POWERLINE_WINDOW_STATUS_LINE=0
 	# The status bar refresh interval in seconds.
 	# Note that events that force-refresh the status bar (such as window renaming) will ignore this.
 	export TMUX_POWERLINE_STATUS_INTERVAL="1"
@@ -66,6 +69,12 @@
 	export TMUX_POWERLINE_SEG_DATE_FORMAT="%F"
 # }
 
+# date_week.sh {
+	# Symbol for calendar week.
+	# export TMUX_POWERLINE_SEG_DATE_WEEK_SYMBOL="󰨳"
+	# export TMUX_POWERLINE_SEG_DATE_WEEK_SYMBOL_COLOUR="255"
+# }
+
 # disk_usage.sh {
 	# Filesystem to retrieve disk space information. Any from the filesystems available (run "df | awk '{print }'" to check them).
 	export TMUX_POWERLINE_SEG_DISK_USAGE_FILESYSTEM="/"
@@ -98,16 +107,48 @@
 	export TMUX_POWERLINE_SEG_HOSTNAME_FORMAT="short"
 # }
 
+# ifstat.sh {
+	# Symbol for Download.
+	# export TMUX_POWERLINE_SEG_IFSTAT_DOWN_SYMBOL="⇊"
+	# Symbol for Upload.
+	# export TMUX_POWERLINE_SEG_IFSTAT_UP_SYMBOL="⇈"
+	# Symbol for Ethernet.
+	# export TMUX_POWERLINE_SEG_IFSTAT_ETHERNET_SYMBOL="󰈀"
+	# Symbol for WLAN.
+	# export TMUX_POWERLINE_SEG_IFSTAT_WLAN_SYMBOL="󱚻"
+	# Symbol for WWAN.
+	# export TMUX_POWERLINE_SEG_IFSTAT_WWAN_SYMBOL=""
+	# Separator for Interfaces.
+	# export TMUX_POWERLINE_SEG_IFSTAT_INTERFACE_SEPARATOR=" | "
+	# Space separated list of interface names to be excluded. substring match, regexp can be used.
+	# Examples:
+	# export TMUX_POWERLINE_SEG_IFSTAT_INTERFACE_EXCLUDES="tun" # will exclude 'tun0', 'utun0', 'itun', 'tun08127387'
+	# export TMUX_POWERLINE_SEG_IFSTAT_INTERFACE_EXCLUDES="tun0 tuntun" # will exclude 'tun0', 'utun0', 'tuntun'
+	# export TMUX_POWERLINE_SEG_IFSTAT_INTERFACE_EXCLUDES="^tun0$ ^tun1$" # excludes exactly 'tun0' and 'tun1'
+	# Default:
+	# export TMUX_POWERLINE_SEG_IFSTAT_INTERFACE_EXCLUDES="^u?tun[0-9]+$"
+# }
+
+# kubernetes_context.sh {
+	# Kubernetes config context display mode {"name_namespace", "name", "namespace"}.
+	# export TMUX_POWERLINE_SEG_KUBERNETES_CONTEXT_DISPLAY_MODE="name_namespace"
+	# Kubernetes config context symbol.
+	# export TMUX_POWERLINE_SEG_KUBERNETES_CONTEXT_SYMBOL="󱃾"
+	# Kubernetes config context symbol colour.
+	# export TMUX_POWERLINE_SEG_KUBERNETES_CONTEXT_SYMBOL_COLOUR="255"
+	# Separator for display mode "name_namespace"
+	# TMUX_POWERLINE_SEG_KUBERNETES_CONTEXT_SEPARATOR="󰿟"
+# }
+
+# lan_ip.sh {
+	# Symbol for LAN IP.
+	# export TMUX_POWERLINE_SEG_LAN_IP_SYMBOL="ⓛ "
+	# Symbol colour for LAN IP
+	# export TMUX_POWERLINE_SEG_LAN_IP_SYMBOL_COLOUR="255"
+# }
+
 # macos_notification_count.sh {
-	# App ids to query in notification center, separated by space
-	# To get the app id that is associated with a specific app run:
-	# sqlite3 -list "/var/folders/0k/s540ywpx0vd1nrbbkk7pps0w0000gn/0//com.apple.notificationcenter/db/db" 'select * from app_info'
-	# The first column contains the app ids
-	# "5" is the app id of Messages.app
-	# Only "banner" notifications are supported (see settings in the notification center)
-	export TMUX_POWERLINE_SEG_MACOS_NOTIFICATION_COUNT_APPIDS="5"
-	# Notification symbol
-	export TMUX_POWERLINE_SEG_MACOS_NOTIFICATION_COUNT_CHAR="💬"
+
 # }
 
 # mailcount.sh {
@@ -161,6 +202,9 @@
 	# Copy mode text & color overrides. Defaults to "copy" & the segment foreground color set in the theme used.
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_COPY_MODE_TEXT="copy"
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_COPY_MODE_TEXT_COLOR=""
+	# Suspend mode text & color overrides. Defaults to "SUSPEND" & the segment foreground color set in the theme used.
+	export TMUX_POWERLINE_SEG_MODE_INDICATOR_SUSPEND_MODE_TEXT="SUSPEND"
+	export TMUX_POWERLINE_SEG_MODE_INDICATOR_SUSPEND_MODE_TEXT_COLOR=""
 	# Separator text override. Defaults to " • ".
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_SEPARATOR_TEXT=" • "
 # }
@@ -174,8 +218,18 @@
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MAX_LEN="40"
 	# How to handle too long strings. Can be {trim, roll}.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_TRIM_METHOD="trim"
-	# Charcters per second to roll if rolling trim method is used.
+	# Characters per second to roll if rolling trim method is used.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_ROLL_SPEED="2"
+	# Mode of roll text {"space", "repeat"}. space: fill up with empty space; repeat: repeat text from beginning
+	# export TMUX_POWERLINE_SEG_NOW_PLAYING_ROLL_MODE="repeat"
+	# Separator for "repeat" roll mode
+	# export TMUX_POWERLINE_SEG_NOW_PLAYING_ROLL_SEPARATOR="   "
+	# If set to 'true', 'yes', 'on' or '1', played tracks will be logged to a file.
+	# export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_ENABLE="false"
+	# If enabled, log played tracks to the following file:
+	# export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_FILEPATH="/Users/yu/.now_playing.log"
+	# Maximum number of logged song entries. Set to "unlimited" for unlimited entries.
+	# export TMUX_POWERLINE_SEG_NOW_PLAYING_TRACK_LOG_MAX_ENTRIES="100"
 	
 	# Hostname for MPD server in the format "[password@]host"
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MPD_HOST="localhost"
@@ -226,13 +280,13 @@
 	export TMUX_POWERLINE_SEG_TIME_FORMAT="%H:%M"
 	# Change this to display a different timezone than the system default.
 	# Use TZ Identifier like "America/Los_Angeles"
-	export TMUX_POWERLINE_SEG_TIME_TZ=""
+	# export TMUX_POWERLINE_SEG_TIME_TZ=""
 # }
 
 # tmux_mem_cpu_load.sh {
 	# Arguments passed to tmux-mem-cpu-load.
 	# See https://github.com/thewtex/tmux-mem-cpu-load for all available options.
-	export TMUX_POWERLINE_SEG_TMUX_MEM_CPU_LOAD_ARGS="-v"
+	# export TMUX_POWERLINE_SEG_TMUX_MEM_CPU_LOAD_ARGS="-v"
 # }
 
 # tmux_session_info.sh {
@@ -248,7 +302,80 @@
 
 # vcs_branch.sh {
 	# Max length of the branch name.
-	export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN="24"
+	export TMUX_POWERLINE_SEG_VCS_BRANCH_MAX_LEN=""
+	# Symbol when branch length exceeds max length
+	# export TMUX_POWERLINE_SEG_VCS_BRANCH_TRUNCATE_SYMBOL="…"
+	# Default branch symbol
+	export TMUX_POWERLINE_SEG_VCS_BRANCH_DEFAULT_SYMBOL=""
+	# Branch symbol for git repositories
+	# export TMUX_POWERLINE_SEG_VCS_BRANCH_GIT_SYMBOL="${TMUX_POWERLINE_SEG_VCS_BRANCH_DEFAULT_SYMBOL}"
+	# Branch symbol for hg/mercurial repositories
+	# export TMUX_POWERLINE_SEG_VCS_BRANCH_HG_SYMBOL="${TMUX_POWERLINE_SEG_VCS_BRANCH_DEFAULT_SYMBOL}"
+	# Branch symbol for SVN repositories
+	# export TMUX_POWERLINE_SEG_VCS_BRANCH_SVN_SYMBOL="${TMUX_POWERLINE_SEG_VCS_BRANCH_DEFAULT_SYMBOL}"
+	# Branch symbol colour for git repositories
+	export TMUX_POWERLINE_SEG_VCS_BRANCH_GIT_SYMBOL_COLOUR="5"
+	# Branch symbol colour for hg/mercurial repositories
+	export TMUX_POWERLINE_SEG_VCS_BRANCH_HG_SYMBOL_COLOUR="45"
+	# Branch symbol colour for SVN repositories
+	export TMUX_POWERLINE_SEG_VCS_BRANCH_SVN_SYMBOL_COLOUR="220"
+# }
+
+# vcs_compare.sh {
+	# Symbol if local branch is behind.
+	# export TMUX_POWERLINE_SEG_VCS_COMPARE_AHEAD_SYMBOL="↑ "
+	# Symbol colour if local branch is ahead. Defaults to "current segment foreground colour"
+	# export TMUX_POWERLINE_SEG_VCS_COMPARE_AHEAD_SYMBOL_COLOUR=""
+	# Symbol if local branch is ahead.
+	# export TMUX_POWERLINE_SEG_VCS_COMPARE_BEHIND_SYMBOL="↓ "
+	# Symbol colour if local branch is behind. Defaults to "current segment foreground colour"
+	# export TMUX_POWERLINE_SEG_VCS_COMPARE_BEHIND_SYMBOL_COLOUR=""
+# }
+
+# vcs_modified.sh {
+	# Symbol for count of modified vcs files.
+	# export TMUX_POWERLINE_SEG_VCS_MODIFIED_SYMBOL="± "
+# }
+
+# vcs_others.sh {
+	# Symbol for count of untracked vcs files.
+	# export TMUX_POWERLINE_SEG_VCS_OTHERS_SYMBOL="⋯"
+# }
+
+# vcs_rootpath.sh {
+	# Display mode for vcs_rootpath.
+	# Example: (name: folder name only; path: full path, w/o expansion; user_path: full path, w/ tilde expansion)
+	# export TMUX_POWERLINE_SEG_VCS_ROOTPATH_MODE="name"
+# }
+
+# vcs_staged.sh {
+	# Symbol for count of staged vcs files.
+	# export TMUX_POWERLINE_SEG_VCS_STAGED_SYMBOL="⊕ "
+# }
+
+# vpn.sh {
+	# Mode for VPN segment {"both", "ip", "name"}. both: Show NIC/IP; ip: Show only IP; name: Show only NIC name
+	# export TMUX_POWERLINE_SEG_VPN_DISPLAY_MODE="both"
+	# Space separated list of tunnel interface names. First match is being used. substring match, regexp can be used.
+	# Examples:
+	# export TMUX_POWERLINE_SEG_VPN_NICS="tun" # will match 'tun0', 'utun0', 'itun', 'tun08127387'
+	# export TMUX_POWERLINE_SEG_VPN_NICS="tun0 tuntun" # will match 'tun0', 'utun0', 'tuntun'
+	# export TMUX_POWERLINE_SEG_VPN_NICS="^tun0$ ^tun1$" # exactly 'tun0' and 'tun1'
+	# Default:
+	# export TMUX_POWERLINE_SEG_VPN_NICS='^u?tun[0-9]+$'
+	# Symbol to use for vpn tunnel.
+	# export TMUX_POWERLINE_SEG_VPN_SYMBOL="󱠾 "
+	# Colour for vpn tunnel symbol
+	# export TMUX_POWERLINE_SEG_VPN_SYMBOL_COLOUR="255"
+	# Symbol for separator
+	# export TMUX_POWERLINE_SEG_VPN_DISPLAY_SEPARATOR="󰿟"
+# }
+
+# wan_ip.sh {
+	# Symbol for WAN IP
+	# export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL="ⓦ "
+	# Symbol colour for WAN IP
+	# export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL_COLOUR="255"
 # }
 
 # weather.sh {
