@@ -1,8 +1,0 @@
-#!/bin/bash
-
-TMUX_PATH=$HOME/.tmux
-if [ ! -d "$TMUX_PATH" ]; then
-  mkdir $TMUX_PATH
-fi
-
-git clone --single-branch https://github.com/Morantron/tmux-fingers $TMUX_PATH/tmux-fingers
