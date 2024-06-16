@@ -374,7 +374,6 @@ require('lazy').setup({
   {
     'nvim-focus/focus.nvim',
     event = 'VimEnter',
-    commit = '1b46b9b898a4f743a35bc89fbb8b4738d719e421',
     init = function()
       local ignore_filetypes = { 'NvimTree' }
       local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
@@ -385,11 +384,8 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd('WinEnter', {
         group = augroup,
         callback = function(_)
-          if vim.tbl_contains(ignore_buftypes, vim.bo.buftype)
-          then
-            vim.w.focus_disable = true
-          else
-            vim.w.focus_disable = false
+          if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
+            vim.b.focus_disable = true
           end
         end,
         desc = 'Disable focus autoresize for BufType',
@@ -399,9 +395,7 @@ require('lazy').setup({
         group = augroup,
         callback = function(_)
           if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
-            vim.w.focus_disable = true
-          else
-            vim.w.focus_disable = false
+            vim.b.focus_disable = true
           end
         end,
         desc = 'Disable focus autoresize for FileType',
