@@ -764,10 +764,11 @@ require('lazy').setup({
   },
 
   {
-    'godlygeek/tabular',
-    cmd = { 'Tabularize', 'AddTabularPipeline' },
+    'junegunn/vim-easy-align',
+    cmd = { 'EasyAlign' },
     keys = {
-      { 'tb', ':Tabularize /', mode = 'v', noremap = true },
+      { 'ga', '<Plug>(EasyAlign)', mode = 'n', noremap = true },
+      { 'ga', '<Plug>(EasyAlign)', mode = 'v', noremap = true },
     },
   },
 
