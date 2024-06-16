@@ -34,4 +34,5 @@ mods = "Command"
 hide_when_typing = true
 
 [window]
-startup_mode = "Fullscreen"
+startup_mode = "SimpleFullscreen"
+decorations = "none"
