@@ -59,8 +59,8 @@ zle -N peco-select-history
 bindkey '^R' peco-select-history
 
 # enhancd
-export ENHANCD_FILTER=peco
 if [ -d $HOME/enhancd ]; then
+  export ENHANCD_FILTER=peco
   source $HOME/enhancd/init.sh
 fi
 
