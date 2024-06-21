@@ -335,6 +335,7 @@ require('lazy').setup({
         },
         view = {
           width = 23,
+          signcolumn = "no",
         },
         renderer = {
           icons = {
