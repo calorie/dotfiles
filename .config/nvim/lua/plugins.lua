@@ -38,7 +38,7 @@ require('lazy').setup({
   --  Buffer
   -- ------------------------------------
   {
-    'feline-nvim/feline.nvim',
+    'freddiehaddad/feline.nvim',
     event = 'VeryLazy',
     config = function()
       local vi_mode = require('feline.providers.vi_mode')
@@ -254,10 +254,10 @@ require('lazy').setup({
   },
 
   {
-    'ethanholz/nvim-lastplace',
+    'vladdoster/remember.nvim',
     event = 'BufReadPre',
     config = function()
-      require('nvim-lastplace').setup {}
+      require('remember').setup {}
     end,
   },
 
@@ -581,7 +581,7 @@ require('lazy').setup({
     'numToStr/Comment.nvim',
     keys = {
       { 'gcc', '<Plug>(comment_toggle_linewise_current)', mode = 'n', noremap = true, silent = true },
-      { 'gc', '<Plug>(comment_toggle_linewise_visual)', mode = 'v', noremap = true, silent = true },
+      { 'gc', '<Plug>(comment_toggle_linewise_visual)', mode = 'x', noremap = true, silent = true },
     },
     config = function()
       require('Comment').setup {}
