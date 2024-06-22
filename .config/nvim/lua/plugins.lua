@@ -290,7 +290,7 @@ require('lazy').setup({
         group = 'MyAutoCmd',
         nested = true,
         callback = function()
-          vim.cmd 'NvimTreeFocus'
+          require 'nvim-tree.api'.tree.open()
         end,
       })
 
