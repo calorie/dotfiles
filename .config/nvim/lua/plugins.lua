@@ -768,8 +768,8 @@ require('lazy').setup({
     'junegunn/vim-easy-align',
     cmd = { 'EasyAlign' },
     keys = {
-      { 'ga', '<Plug>(EasyAlign)', mode = 'n', noremap = true },
-      { 'ga', '<Plug>(EasyAlign)', mode = 'v', noremap = true },
+      { 'tb', '<Plug>(EasyAlign)', mode = 'n', noremap = true },
+      { 'tb', '<Plug>(EasyAlign)', mode = 'v', noremap = true },
     },
   },
 
