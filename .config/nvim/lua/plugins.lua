@@ -277,7 +277,7 @@ require('lazy').setup({
           return
         end
 
-        require 'nvim-tree.api'.tree.open()
+        vim.cmd 'NvimTreeFocus'
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -290,7 +290,7 @@ require('lazy').setup({
         group = 'MyAutoCmd',
         nested = true,
         callback = function()
-          require 'nvim-tree.api'.tree.open()
+          vim.cmd 'NvimTreeFocus'
         end,
       })
 
@@ -470,7 +470,7 @@ require('lazy').setup({
 
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
+    -- dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
     event = 'BufReadPre',
     build = ':TSUpdate',
     config = function()
@@ -926,7 +926,7 @@ require('lazy').setup({
   {
     'glepnir/lspsaga.nvim',
     dependencies = 'neovim/nvim-lspconfig',
-    event = 'BufRead',
+    -- event = 'BufRead',
     keys = {
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
@@ -959,7 +959,7 @@ require('lazy').setup({
 
   {
     'Pocco81/auto-save.nvim',
-    event = 'BufRead',
+    event = { 'InsertEnter', 'TextChanged' },
     config = function()
       require('auto-save').setup {
         enabled = true,
