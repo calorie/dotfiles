@@ -277,7 +277,7 @@ require('lazy').setup({
           return
         end
 
-        vim.cmd 'NvimTreeFocus'
+        require 'nvim-tree.api'.tree.open()
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -335,7 +335,7 @@ require('lazy').setup({
         },
         view = {
           width = 23,
-          signcolumn = "no",
+          signcolumn = 'no',
         },
         renderer = {
           icons = {
