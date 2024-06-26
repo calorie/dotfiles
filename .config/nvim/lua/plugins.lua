@@ -926,7 +926,6 @@ require('lazy').setup({
   {
     'glepnir/lspsaga.nvim',
     dependencies = 'neovim/nvim-lspconfig',
-    -- event = 'BufRead',
     keys = {
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
