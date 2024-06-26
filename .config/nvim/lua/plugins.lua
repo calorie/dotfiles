@@ -974,7 +974,7 @@ require('lazy').setup({
     'lewis6991/gitsigns.nvim',
     cmd = 'Gitsigns',
     keys = {
-      { '<leader>br', '<cmd>Gitsigns toggle_current_line_blame<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>bl', '<cmd>Gitsigns toggle_current_line_blame<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>di', '<cmd>Gitsigns toggle_signs<cr>', mode = 'n', noremap = true, silent = true },
     },
     config = function()
