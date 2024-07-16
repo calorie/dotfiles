@@ -78,10 +78,8 @@ require('lazy').setup({
 
       local inactive_filetypes = {
         '^fern$',
-        '^fugitiveblame$',
         '^qf$',
         '^git$',
-        '^fugitive$',
         '^help$',
       }
 
