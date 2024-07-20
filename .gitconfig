@@ -17,8 +17,8 @@
   quotepath = false
   preloadindex = true
   fscache = true
-[mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE / MERGED"
 [merge]
   tool = nvim
 [mergetool]
