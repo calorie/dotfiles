@@ -342,6 +342,11 @@ require('lazy').setup({
         },
         renderer = {
           icons = {
+            web_devicons = {
+              file = {
+                enable = false,
+              },
+            },
             show = {
               file = false,
               folder = false,
