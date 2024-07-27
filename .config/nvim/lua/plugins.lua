@@ -471,7 +471,9 @@ require('lazy').setup({
   -- ------------------------------------
   {
     'calorie/calorie.nvim',
+    lazy = false,
     dependencies = 'rktjmp/lush.nvim',
+    priority = 1000,
     config = function()
       vim.opt.termguicolors = true
       vim.cmd([[colorscheme calorie]])
