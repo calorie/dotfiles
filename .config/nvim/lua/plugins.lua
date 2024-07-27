@@ -338,7 +338,7 @@ require('lazy').setup({
         },
         view = {
           width = 23,
-          signcolumn = 'no',
+          -- signcolumn = 'no',
         },
         renderer = {
           icons = {
@@ -353,9 +353,10 @@ require('lazy').setup({
               folder_arrow = false,
               git = false,
               modified = false,
+              diagnostics = false,
             },
             glyphs = {
-              default = '',
+              bookmark = "+",
               symlink = '',
             },
           },
@@ -363,6 +364,7 @@ require('lazy').setup({
           root_folder_label = false,
         },
         filters = {
+          git_ignored = false,
           custom = { '^\\.git$', '.DS_Store' },
         },
         actions = {
