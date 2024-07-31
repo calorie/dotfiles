@@ -356,7 +356,7 @@ require('lazy').setup({
               diagnostics = false,
             },
             glyphs = {
-              bookmark = "+",
+              bookmark = '+',
               symlink = '',
             },
           },
