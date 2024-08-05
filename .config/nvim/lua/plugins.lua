@@ -418,14 +418,21 @@ require('lazy').setup({
   },
 
   {
-    'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead',
+    'shellRaining/hlchunk.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
-      require('ibl').setup {
-        indent = { char = '┊' },
-        scope = { enabled = false },
+      require('hlchunk').setup {
+        indent = {
+          enable = true,
+          chars = {
+            '┊',
+          },
+          style = {
+            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID('Whitespace')), 'fg', 'gui'),
+          },
+        }
       }
-    end,
+    end
   },
 
   {
