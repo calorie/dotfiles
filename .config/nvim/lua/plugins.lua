@@ -413,7 +413,7 @@ require('lazy').setup({
       })
     end,
     config = function()
-      require('focus').setup({ ui = { signcolumn = false } })
+      require('focus').setup({ commands = true, ui = { signcolumn = false } })
     end,
   },
 
