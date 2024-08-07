@@ -50,7 +50,7 @@ brew "ruby-build"
 brew "rbenv"
 brew "rbenv-default-gems"
 brew "ripgrep"
-brew "rust", link: false
+brew "rust"
 brew "rust-analyzer"
 brew "rustup"
 brew "stern"
