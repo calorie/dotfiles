@@ -1,3 +1,4 @@
+[general]
 import = ["~/dotfiles/.config/alacritty/calorie.toml"]
 
 [env]
