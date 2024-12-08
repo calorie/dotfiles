@@ -36,4 +36,4 @@ hide_when_typing = true
 
 [window]
 startup_mode = "SimpleFullscreen"
-decorations = "none"
+decorations = "None"
