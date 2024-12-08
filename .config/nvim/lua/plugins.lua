@@ -936,6 +936,21 @@ require('lazy').setup({
   --  Utility
   -- ------------------------------------
   {
+    'yetone/avante.nvim',
+    cmd = { 'AvanteAsk' },
+    opts = {
+      provider = 'copilot',
+    },
+    build = 'make',
+    dependencies = {
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'hrsh7th/nvim-cmp',
+      'zbirenbaum/copilot.lua',
+    },
+  },
+  {
     'rhysd/ghpr-blame.vim',
     cmd = { 'GHPRBlame', 'GHPRBlameQuit' },
     init = function()
