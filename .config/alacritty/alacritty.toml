@@ -1,5 +1,5 @@
 [general]
-import = ["~/dotfiles/.config/alacritty/calorie.toml"]
+import = ["~/dotfiles/.config/alacritty/themes/calorie.toml"]
 
 [env]
 TERM = "alacritty"
