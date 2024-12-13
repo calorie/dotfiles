@@ -14,7 +14,7 @@ local palette = {
 
 return {
   font = wezterm.font('HackGen'),
-  font_size = 15.0,
+  font_size = 18.0,
   adjust_window_size_when_changing_font_size = false,
   enable_tab_bar = false,
   enable_scroll_bar = false,
