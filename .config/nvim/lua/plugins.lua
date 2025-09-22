@@ -42,6 +42,12 @@ require('lazy').setup({
   -- ------------------------------------
   --  Buffer
   -- ------------------------------------
+  -- {
+  --   'rebelot/heirline.nvim',
+  --   config = function()
+  --       require('heirline').setup({})
+  --   end
+  -- },
   {
     'freddiehaddad/feline.nvim',
     event = 'VeryLazy',
@@ -642,10 +648,6 @@ require('lazy').setup({
       })
     end,
     config = function()
-      local lspconfig = require 'lspconfig'
-      local util = require 'lspconfig/util'
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
       local on_attach = function(client, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -654,30 +656,30 @@ require('lazy').setup({
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       end
 
-      lspconfig.gopls.setup {
-        cmd = { 'gopls', 'serve' },
-        filetypes = { 'go', 'gomod' },
-        root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      vim.lsp.config('gopls', {
         settings = {
           gopls = {
             analyses = {
               unusedparams = true,
             },
             staticcheck = true,
+            gofumpt = true,
           },
         },
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      lspconfig.jsonls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      lspconfig.rust_analyzer.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      lspconfig.sqlls.setup {
+      })
+      vim.lsp.enable('gopls')
+
+      vim.lsp.enable('jsonls')
+
+      vim.lsp.enable('rust_analyzer')
+
+      vim.lsp.config('sqlls', {
         settings = {
           sqls = {
             connections = {
@@ -688,27 +690,24 @@ require('lazy').setup({
             },
           },
         },
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      lspconfig.solargraph.setup {
+      })
+      vim.lsp.enable('sqlls')
+
+      vim.lsp.config('solargraph', {
         init_options = { diagnostics = true },
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      lspconfig.terraformls.setup {
+      })
+      vim.lsp.enable('solargraph')
+
+      vim.lsp.config('terraformls', {
         filetypes = { 'terraform', 'terraform-vars', 'hcl' },
         offset_encoding = 'utf-8',
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      -- lspconfig.tsserver.setup {
-      --   capabilities = capabilities,
-      --   on_attach = on_attach,
-      -- }
-      lspconfig.yamlls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
+      })
+      vim.lsp.enable('terraformls')
+
+      vim.lsp.config('tsserver', {})
+      vim.lsp.enable('tsserver')
+
+      vim.lsp.config('yamlls', {
         settings = {
           yaml = {
             customTags = {
@@ -744,11 +743,10 @@ require('lazy').setup({
             },
           },
         },
-      }
-      lspconfig.jdtls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      }
+      })
+      vim.lsp.enable('yamlls')
+
+      vim.lsp.enable('jdtls')
     end,
   },
 
