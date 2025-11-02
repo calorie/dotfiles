@@ -533,6 +533,7 @@ require('lazy').setup({
       {
         'L3MON4D3/LuaSnip',
         dependencies = 'rafamadriz/friendly-snippets',
+        version = 'v2.*',
         build = 'make install_jsregexp',
         config = function()
           require('luasnip/loaders/from_vscode').lazy_load({ paths = { vim.fn.stdpath('data') .. '/lazy/friendly-snippets' } })
@@ -699,8 +700,9 @@ require('lazy').setup({
       vim.lsp.enable('solargraph')
 
       vim.lsp.config('terraformls', {
-        filetypes = { 'terraform', 'terraform-vars', 'hcl' },
-        offset_encoding = 'utf-8',
+        init_options = {
+          ignoreSingleFileWarning = true
+        }
       })
       vim.lsp.enable('terraformls')
 
