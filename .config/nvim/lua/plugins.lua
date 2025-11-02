@@ -49,7 +49,7 @@ require('lazy').setup({
   --   end
   -- },
   {
-    'freddiehaddad/feline.nvim',
+    'famiu/feline.nvim',
     event = 'VeryLazy',
     config = function()
       local vi_mode = require('feline.providers.vi_mode')
