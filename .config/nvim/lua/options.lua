@@ -89,3 +89,10 @@ if vim.g.is_mac then
 end
 vim.g.omni_sql_default_compl_type = 'syntax'
 vim.g.omni_sql_no_default_maps = 1
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = false,
+  update_in_insert = false,
+  severity_sort = true,
+})

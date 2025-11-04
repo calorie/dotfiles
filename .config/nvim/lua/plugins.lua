@@ -532,12 +532,14 @@ require('lazy').setup({
       'hrsh7th/cmp-cmdline',
       {
         'L3MON4D3/LuaSnip',
-        dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = {
+          'rafamadriz/friendly-snippets',
+          config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+          end,
+        },
         version = 'v2.*',
         build = 'make install_jsregexp',
-        config = function()
-          require('luasnip/loaders/from_vscode').lazy_load({ paths = { vim.fn.stdpath('data') .. '/lazy/friendly-snippets' } })
-        end,
       },
       {
         'zbirenbaum/copilot-cmp',
@@ -846,14 +848,12 @@ require('lazy').setup({
       { '<C-n>', '<Plug>(YankyCycleBackward)', mode = 'n', noremap = true },
       { 'y', '<Plug>(YankyYank)', mode = {'n', 'x'}, noremap = true },
     },
-    config = function()
-      require('yanky').setup({
-        highlight = {
-          on_put = false,
-          on_yank = false,
-        },
-      })
-    end,
+    opts = {
+      highlight = {
+        on_put = false,
+        on_yank = false,
+      },
+    },
   },
 
   -- ------------------------------------
