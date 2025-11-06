@@ -96,3 +96,9 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
 })
+
+vim.filetype.add({
+  extension = {
+    tf = 'terraform',
+  },
+})
