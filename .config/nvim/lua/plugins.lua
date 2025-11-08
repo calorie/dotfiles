@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', 'https://github.com/folke/lazy.nvim.git', lazypath })
@@ -286,7 +288,7 @@ require('lazy').setup({
           return
         end
 
-        vim.cmd 'NvimTreeFocus'
+        vim.cmd 'NvimTreeOpen'
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -299,7 +301,7 @@ require('lazy').setup({
         group = 'MyAutoCmd',
         nested = true,
         callback = function()
-          vim.cmd 'NvimTreeFocus'
+          vim.cmd 'NvimTreeOpen'
         end,
       })
 
