@@ -362,6 +362,7 @@ require('lazy').setup({
               git = false,
               modified = false,
               diagnostics = false,
+              bookmarks = false,
             },
             glyphs = {
               bookmark = '+',
