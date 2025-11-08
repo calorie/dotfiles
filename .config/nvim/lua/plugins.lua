@@ -44,225 +44,409 @@ require('lazy').setup({
   -- ------------------------------------
   --  Buffer
   -- ------------------------------------
-  -- {
-  --   'rebelot/heirline.nvim',
-  --   config = function()
-  --       require('heirline').setup({})
-  --   end
-  -- },
   {
-    'famiu/feline.nvim',
+    'rebelot/heirline.nvim',
     event = 'VeryLazy',
     config = function()
-      local vi_mode = require('feline.providers.vi_mode')
+      local conditions = require('heirline.conditions')
+      local utils = require('heirline.utils')
 
-      local base = '#191724'
-      local surface = '#25232e'
-      local muted = '#6e6a86'
-      local subtle = '#908caa'
-      local text = '#c9c8db'
-      local love = '#d66B7f'
-      local gold = '#f3cc95'
-      local rose = '#ebbcba'
-      local pine = '#31748f'
-      local foam = '#9ccfd8'
-      local iris = '#c4a7e7'
-      local blue_gray = '#8ac6f2'
-      local highlight_med = '#403d52'
-
-      local vi_mode_text = {
-        NORMAL = 'N',
-        OP = 'OP',
-        INSERT = 'I',
-        VISUAL = 'V',
-        LINES = 'V-L',
-        BLOCK = 'V-B',
-        REPLACE = 'R',
-        ['V-REPLACE'] = 'V-R',
-        ENTER = 'ENTER',
-        MORE = 'MORE',
-        SELECT = 'S',
-        COMMAND = '',
-        SHELL = 'SHELL',
-        TERM = 'TERM',
-        NONE = 'NONE',
-        CONFIRM = 'CONFIRM',
+      local colors = {
+        base = '#191724',
+        surface = '#25232e',
+        muted = '#6e6a86',
+        subtle = '#908caa',
+        text = '#c9c8db',
+        love = '#d66B7f',
+        gold = '#f3cc95',
+        rose = '#ebbcba',
+        pine = '#31748f',
+        foam = '#9ccfd8',
+        iris = '#c4a7e7',
+        blue_gray = '#8ac6f2',
+        highlight_med = '#403d52',
       }
 
-      local inactive_filetypes = {
-        '^fern$',
-        '^qf$',
-        '^git$',
-        '^help$',
+      local highlights = {
+        statusline = { fg = colors.subtle, bg = colors.surface },
+        inactive_statusline = { fg = colors.muted, bg = colors.surface },
+
+        vi_mode = { fg = colors.text, bg = colors.highlight_med },
+
+        filename = { fg = colors.subtle, bg = colors.surface },
+
+        inactive_filename = { fg = colors.muted, bg = colors.surface },
+
+        read_only = { fg = colors.subtle },
+
+        file_info = { fg = colors.subtle, bg = colors.surface },
+
+        SpecialFiletype = { fg = colors.muted, bg = colors.surface },
       }
 
-      require('feline').setup({
-        theme = {
-          fg = subtle,
-          bg = surface,
-          black = base,
-          yellow = gold,
-          cyan = foam,
-          oceanblue = blue_gray,
-          green = pine,
-          orange = rose,
-          violet = iris,
-          magenta = love,
-          white = text,
-          skyblue = blue_gray,
-          red = love,
-          muted = muted,
-          text = text,
-          highlight_med = highlight_med,
-        },
-        default_fg = subtle,
-        default_bg = surface,
-        vi_mode_colors = {
-          NORMAL = 'fg',
-          OP = 'fg',
-          INSERT = 'fg',
-          CONFIRM = 'fg',
-          VISUAL = 'fg',
-          LINES = 'fg',
-          BLOCK = 'fg',
-          REPLACE = 'fg',
-          ['V-REPLACE'] = 'fg',
-          ENTER = 'fg',
-          MORE = 'fg',
-          SELECT = 'fg',
-          COMMAND = 'fg',
-          SHELL = 'fg',
-          TERM = 'fg',
-          NONE = 'fg',
-        },
-        components = {
-          active = {
-            {
-              {
-                provider = function()
-                  return vi_mode_text[vi_mode.get_vim_mode()]
-                end,
-                hl = {
-                  fg = 'text',
-                  bg = 'highlight_med',
-                },
-                left_sep = {
-                  str = ' ',
-                  hl = {
-                    fg = 'text',
-                    bg = 'highlight_med',
-                  }
-                },
-                right_sep = {
-                  str = ' ',
-                  hl = {
-                    fg = 'text',
-                    bg = 'highlight_med',
-                  }
-                },
-              },
-              {
-                provider = {
-                  name = 'file_info',
-                  opts = {
-                    type = 'relative',
-                    file_modified_icon = '',
-                    file_readonly_icon = '🔒 ',
-                  },
-                },
-                hl = {
-                  fg = 'fg',
-                  bg = 'bg',
-                },
-                left_sep = ' ',
-                icon = '',
-              },
-            },
-            {
-              {
-                provider = 'file_encoding',
-                hl = {
-                  fg = 'fg',
-                  bg = 'bg',
-                },
-                right_sep = ' ',
-              },
-              {
-                provider = 'position',
-                hl = {
-                  fg = 'fg',
-                  bg = 'bg',
-                },
-                right_sep = ' ',
-              },
-              {
-                provider = 'line_percentage',
-                hl = {
-                  fg = 'fg',
-                  bg = 'bg',
-                },
-                right_sep = ' ',
-              },
-            },
-          },
-          inactive = {
-            {
-              {
-                provider = {
-                  name = 'file_info',
-                  opts = {
-                    type = 'relative',
-                    file_modified_icon = '',
-                    file_readonly_icon = '',
-                  },
-                },
-                hl = {
-                  fg = 'muted',
-                  bg = 'bg',
-                },
-                left_sep = ' ',
-                icon = '',
-              },
-            },
-            {},
+      local vi_mode = {
+        init = function(self)
+          self.mode = vim.fn.mode(1)
+        end,
+
+        static = {
+          mode_names = {
+            ['n'] = 'N',
+            ['i'] = 'I',
+            ['v'] = 'V',
+            ['V'] = 'V-L',
+            ['\22'] = 'V-B', -- CTRL-V
+            ['R'] = 'R',
+            ['c'] = '',
+            ['t'] = 'TERM',
           },
         },
-        conditional_components = {
-          {
-            condition = function()
-              local ft = vim.api.nvim_buf_get_option(0, 'filetype')
-              for _, v in ipairs(inactive_filetypes) do
-                  if ft:match(v) then
-                      return true
-                  end
-              end
-              return false
-            end,
-            active = {},
-            inactive = {
-              {
-                {
-                  provider = 'file_type',
-                  hl = {
-                    fg = 'muted',
-                    bg = 'bg',
-                  },
-                  left_sep = ' ',
-                },
-              },
-            },
-          },
+
+        provider = function(self)
+          return ' ' .. self.mode_names[self.mode] .. ' '
+        end,
+
+        hl = highlights.vi_mode,
+      }
+
+      local filename_provider = function()
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':.')
+        if filename == '' then return '[No Name]' end
+
+        return filename
+      end
+
+      local filename = {
+        hl = highlights.filename,
+
+        { provider = ' ' },
+
+        {
+          condition = function() return vim.bo.readonly end,
+          provider = '🔒 ',
+          hl = highlights.read_only,
         },
-        force_inactive = {
-          filetypes = inactive_filetypes,
-          buftypes = {
-            '^terminal$',
-          },
-          bufnames = {},
+
+        {
+          provider = filename_provider,
         },
-      })
+
+        {
+          condition = function() return vim.bo.modified end,
+          provider = '',
+        },
+      }
+
+      local inactive_filename = {
+        hl = highlights.inactive_filename,
+
+        { provider = ' ' },
+
+        {
+          provider = filename_provider,
+        },
+      }
+
+      local align = { provider = '%=' }
+
+      local file_info = {
+        hl = highlights.file_info,
+
+        {
+          provider = function()
+            local enc = (vim.bo.fenc ~= '' and vim.bo.fenc) or vim.o.enc
+            return enc:upper() .. ' '
+          end,
+        },
+
+        {
+          provider = '%l:%c ',
+        },
+
+        {
+          provider = '%P ',
+        },
+      }
+
+      local is_terminal = function()
+        return conditions.buffer_matches({ buftype = { 'terminal' } })
+      end
+
+      local terminal_statuslines = {
+        condition = is_terminal,
+
+        provider = function() return ' TERMINAL' end,
+      }
+
+      local is_special_filetype = function()
+        return conditions.buffer_matches({ filetype = { 'NvimTree', 'qf', 'git', 'help' } })
+      end
+
+      local file_type = {
+        { provider = ' ' },
+
+        {
+          provider = function()
+            local ft = vim.bo.filetype
+            return ft == '' and 'NONE' or string.upper(ft)
+          end,
+        },
+      }
+
+      local special_statuslines = {
+        condition = is_special_filetype,
+
+        file_type,
+      }
+
+      local inactive_statuslines = {
+        hl = highlights.inactive_statusline,
+
+        condition = conditions.is_not_active,
+
+        inactive_filename,
+      }
+
+      local default_statuslines = {
+        vi_mode, filename,
+        align,
+        file_info,
+      }
+
+      local statuslines = {
+        hl = function()
+          if conditions.is_active() then
+              return highlights.statusline
+          else
+              return highlights.inactive_statusline
+          end
+        end,
+
+        fallthrough = false,
+
+        terminal_statuslines,
+        special_statuslines,
+
+        inactive_statuslines,
+        default_statuslines,
+      }
+
+      require('heirline').setup({ statusline = statuslines })
     end,
   },
+  -- {
+  --   'famiu/feline.nvim',
+  --   event = 'VeryLazy',
+  --   config = function()
+  --     local vi_mode = require('feline.providers.vi_mode')
+  --
+  --     local base = '#191724'
+  --     local surface = '#25232e'
+  --     local muted = '#6e6a86'
+  --     local subtle = '#908caa'
+  --     local text = '#c9c8db'
+  --     local love = '#d66B7f'
+  --     local gold = '#f3cc95'
+  --     local rose = '#ebbcba'
+  --     local pine = '#31748f'
+  --     local foam = '#9ccfd8'
+  --     local iris = '#c4a7e7'
+  --     local blue_gray = '#8ac6f2'
+  --     local highlight_med = '#403d52'
+  --
+  --     local vi_mode_text = {
+  --       NORMAL = 'N',
+  --       OP = 'OP',
+  --       INSERT = 'I',
+  --       VISUAL = 'V',
+  --       LINES = 'V-L',
+  --       BLOCK = 'V-B',
+  --       REPLACE = 'R',
+  --       ['V-REPLACE'] = 'V-R',
+  --       ENTER = 'ENTER',
+  --       MORE = 'MORE',
+  --       SELECT = 'S',
+  --       COMMAND = '',
+  --       SHELL = 'SHELL',
+  --       TERM = 'TERM',
+  --       NONE = 'NONE',
+  --       CONFIRM = 'CONFIRM',
+  --     }
+  --
+  --     local inactive_filetypes = {
+  --       '^fern$',
+  --       '^qf$',
+  --       '^git$',
+  --       '^help$',
+  --     }
+  --
+  --     require('feline').setup({
+  --       theme = {
+  --         fg = subtle,
+  --         bg = surface,
+  --         black = base,
+  --         yellow = gold,
+  --         cyan = foam,
+  --         oceanblue = blue_gray,
+  --         green = pine,
+  --         orange = rose,
+  --         violet = iris,
+  --         magenta = love,
+  --         white = text,
+  --         skyblue = blue_gray,
+  --         red = love,
+  --         muted = muted,
+  --         text = text,
+  --         highlight_med = highlight_med,
+  --       },
+  --       default_fg = subtle,
+  --       default_bg = surface,
+  --       vi_mode_colors = {
+  --         NORMAL = 'fg',
+  --         OP = 'fg',
+  --         INSERT = 'fg',
+  --         CONFIRM = 'fg',
+  --         VISUAL = 'fg',
+  --         LINES = 'fg',
+  --         BLOCK = 'fg',
+  --         REPLACE = 'fg',
+  --         ['V-REPLACE'] = 'fg',
+  --         ENTER = 'fg',
+  --         MORE = 'fg',
+  --         SELECT = 'fg',
+  --         COMMAND = 'fg',
+  --         SHELL = 'fg',
+  --         TERM = 'fg',
+  --         NONE = 'fg',
+  --       },
+  --       components = {
+  --         active = {
+  --           {
+  --             {
+  --               provider = function()
+  --                 return vi_mode_text[vi_mode.get_vim_mode()]
+  --               end,
+  --               hl = {
+  --                 fg = 'text',
+  --                 bg = 'highlight_med',
+  --               },
+  --               left_sep = {
+  --                 str = ' ',
+  --                 hl = {
+  --                   fg = 'text',
+  --                   bg = 'highlight_med',
+  --                 }
+  --               },
+  --               right_sep = {
+  --                 str = ' ',
+  --                 hl = {
+  --                   fg = 'text',
+  --                   bg = 'highlight_med',
+  --                 }
+  --               },
+  --             },
+  --             {
+  --               provider = {
+  --                 name = 'file_info',
+  --                 opts = {
+  --                   type = 'relative',
+  --                   file_modified_icon = '',
+  --                   file_readonly_icon = '🔒 ',
+  --                 },
+  --               },
+  --               hl = {
+  --                 fg = 'fg',
+  --                 bg = 'bg',
+  --               },
+  --               left_sep = ' ',
+  --               icon = '',
+  --             },
+  --           },
+  --           {
+  --             {
+  --               provider = 'file_encoding',
+  --               hl = {
+  --                 fg = 'fg',
+  --                 bg = 'bg',
+  --               },
+  --               right_sep = ' ',
+  --             },
+  --             {
+  --               provider = 'position',
+  --               hl = {
+  --                 fg = 'fg',
+  --                 bg = 'bg',
+  --               },
+  --               right_sep = ' ',
+  --             },
+  --             {
+  --               provider = 'line_percentage',
+  --               hl = {
+  --                 fg = 'fg',
+  --                 bg = 'bg',
+  --               },
+  --               right_sep = ' ',
+  --             },
+  --           },
+  --         },
+  --         inactive = {
+  --           {
+  --             {
+  --               provider = {
+  --                 name = 'file_info',
+  --                 opts = {
+  --                   type = 'relative',
+  --                   file_modified_icon = '',
+  --                   file_readonly_icon = '',
+  --                 },
+  --               },
+  --               hl = {
+  --                 fg = 'muted',
+  --                 bg = 'bg',
+  --               },
+  --               left_sep = ' ',
+  --               icon = '',
+  --             },
+  --           },
+  --           {},
+  --         },
+  --       },
+  --       conditional_components = {
+  --         {
+  --           condition = function()
+  --             local ft = vim.api.nvim_buf_get_option(0, 'filetype')
+  --             for _, v in ipairs(inactive_filetypes) do
+  --                 if ft:match(v) then
+  --                     return true
+  --                 end
+  --             end
+  --             return false
+  --           end,
+  --           active = {},
+  --           inactive = {
+  --             {
+  --               {
+  --                 provider = 'file_type',
+  --                 hl = {
+  --                   fg = 'muted',
+  --                   bg = 'bg',
+  --                 },
+  --                 left_sep = ' ',
+  --               },
+  --             },
+  --           },
+  --         },
+  --       },
+  --       force_inactive = {
+  --         filetypes = inactive_filetypes,
+  --         buftypes = {
+  --           '^terminal$',
+  --         },
+  --         bufnames = {},
+  --       },
+  --     })
+  --   end,
+  -- },
 
   {
     'vladdoster/remember.nvim',
