@@ -336,6 +336,10 @@ require('lazy').setup({
             },
           },
         },
+        hijack_directories = {
+          enable = false,
+          auto_open = false,
+        },
         notify = {
           threshold = vim.log.levels.ERROR,
         },
@@ -345,7 +349,7 @@ require('lazy').setup({
 
   {
     'nvim-focus/focus.nvim',
-    event = 'VimEnter',
+    event = 'BufReadPost',
     init = function()
       local ignore_filetypes = { 'NvimTree' }
       local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
