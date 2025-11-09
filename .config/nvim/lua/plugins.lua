@@ -38,9 +38,6 @@ local function on_attach(bufnr)
 end
 
 require('lazy').setup({
-  rocks = {
-    enabled = false,
-  },
   -- ------------------------------------
   --  Buffer
   -- ------------------------------------
