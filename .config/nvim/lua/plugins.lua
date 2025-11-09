@@ -298,7 +298,6 @@ require('lazy').setup({
         },
         view = {
           width = 23,
-          -- signcolumn = 'no',
         },
         renderer = {
           icons = {
@@ -314,7 +313,6 @@ require('lazy').setup({
               git = false,
               modified = false,
               diagnostics = false,
-              bookmarks = false,
             },
             glyphs = {
               bookmark = '+',
