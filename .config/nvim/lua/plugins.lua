@@ -49,36 +49,22 @@ require('lazy').setup({
       local utils = require('heirline.utils')
 
       local colors = {
-        base = '#191724',
-        surface = '#25232e',
-        muted = '#6e6a86',
-        subtle = '#908caa',
-        text = '#c9c8db',
-        love = '#d66B7f',
-        gold = '#f3cc95',
-        rose = '#ebbcba',
-        pine = '#31748f',
-        foam = '#9ccfd8',
-        iris = '#c4a7e7',
-        blue_gray = '#8ac6f2',
-        highlight_med = '#403d52',
+        subtle = utils.get_highlight('StatusLine').fg,
+        surface = utils.get_highlight('StatusLine').bg,
+        muted = utils.get_highlight('StatusLineNC').fg,
+        base = utils.get_highlight('StatusLineNC').bg,
+        text = utils.get_highlight('Normal').fg,
+        highlight_med = utils.get_highlight('Visual').bg,
       }
 
       local highlights = {
         statusline = { fg = colors.subtle, bg = colors.surface },
-        inactive_statusline = { fg = colors.muted, bg = colors.surface },
-
+        inactive_statusline = { fg = colors.muted, bg = colors.base },
         vi_mode = { fg = colors.text, bg = colors.highlight_med },
-
         filename = { fg = colors.subtle, bg = colors.surface },
-
         inactive_filename = { fg = colors.muted, bg = colors.surface },
-
         read_only = { fg = colors.subtle },
-
-        file_info = { fg = colors.subtle, bg = colors.surface },
-
-        SpecialFiletype = { fg = colors.muted, bg = colors.surface },
+        fileinfo = { fg = colors.subtle, bg = colors.surface },
       }
 
       local vi_mode = {
@@ -92,7 +78,7 @@ require('lazy').setup({
             ['i'] = 'I',
             ['v'] = 'V',
             ['V'] = 'V-L',
-            ['\22'] = 'V-B', -- CTRL-V
+            ['\22'] = 'V-B',
             ['R'] = 'R',
             ['c'] = '',
             ['t'] = 'TERM',
@@ -124,9 +110,7 @@ require('lazy').setup({
           hl = highlights.read_only,
         },
 
-        {
-          provider = filename_provider,
-        },
+        { provider = filename_provider },
 
         {
           condition = function() return vim.bo.modified end,
@@ -139,15 +123,13 @@ require('lazy').setup({
 
         { provider = ' ' },
 
-        {
-          provider = filename_provider,
-        },
+        { provider = filename_provider },
       }
 
       local align = { provider = '%=' }
 
-      local file_info = {
-        hl = highlights.file_info,
+      local fileinfo = {
+        hl = highlights.fileinfo,
 
         {
           provider = function()
@@ -156,13 +138,9 @@ require('lazy').setup({
           end,
         },
 
-        {
-          provider = '%l:%c ',
-        },
+        { provider = '%l:%c ' },
 
-        {
-          provider = '%P ',
-        },
+        { provider = '%P ' },
       }
 
       local is_terminal = function()
@@ -179,7 +157,7 @@ require('lazy').setup({
         return conditions.buffer_matches({ filetype = { 'NvimTree', 'qf', 'git', 'help' } })
       end
 
-      local file_type = {
+      local filetype = {
         { provider = ' ' },
 
         {
@@ -193,7 +171,7 @@ require('lazy').setup({
       local special_statuslines = {
         condition = is_special_filetype,
 
-        file_type,
+        filetype,
       }
 
       local inactive_statuslines = {
@@ -207,7 +185,7 @@ require('lazy').setup({
       local default_statuslines = {
         vi_mode, filename,
         align,
-        file_info,
+        fileinfo,
       }
 
       local statuslines = {
@@ -367,13 +345,16 @@ require('lazy').setup({
       local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
 
       local augroup =
-          vim.api.nvim_create_augroup('FocusDisable', { clear = true })
+        vim.api.nvim_create_augroup('FocusDisable', { clear = true })
 
       vim.api.nvim_create_autocmd('WinEnter', {
         group = augroup,
         callback = function(_)
-          if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
-            vim.b.focus_disable = true
+          if vim.tbl_contains(ignore_buftypes, vim.bo.buftype)
+          then
+            vim.w.focus_disable = true
+          else
+            vim.w.focus_disable = false
           end
         end,
         desc = 'Disable focus autoresize for BufType',
@@ -384,13 +365,15 @@ require('lazy').setup({
         callback = function(_)
           if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
             vim.b.focus_disable = true
+          else
+            vim.b.focus_disable = false
           end
         end,
         desc = 'Disable focus autoresize for FileType',
       })
     end,
     config = function()
-      require('focus').setup({ commands = true, ui = { signcolumn = false } })
+      require('focus').setup({ commands = false, ui = { signcolumn = false } })
     end,
   },
 

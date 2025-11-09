@@ -3,7 +3,7 @@
   "LuaSnip": { "branch": "master", "commit": "5a1e39223db9a0498024a77b8441169d260c8c25" },
   "auto-save.nvim": { "branch": "main", "commit": "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
   "avante.nvim": { "branch": "main", "commit": "44b594863c1abf72690ae82651fb70c0b9adeeaa" },
-  "calorie.nvim": { "branch": "main", "commit": "c4205ca8fe2b254ad066f2b0382594f88fa6cedd" },
+  "calorie.nvim": { "branch": "main", "commit": "53651dc41d34079c1c557a4f2feeec3fed6305b5" },
   "clever-f.vim": { "branch": "master", "commit": "6a3ac5e3688598af9411ab741737f98c47370c22" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
   "cmp-cmdline": { "branch": "main", "commit": "d126061b624e0af6c3a556428712dd4d4194ec6d" },
