@@ -222,62 +222,132 @@ require('lazy').setup({
   },
 
   {
-    'nvim-tree/nvim-tree.lua',
-    cmd = { 'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFocus' },
+    'nvim-mini/mini.files',
+    version = '*',
     keys = {
-      { '<leader>nt', '<cmd>NvimTreeToggle<cr>', mode = 'n', noremap = true, silent = true },
-      { '<leader>nf', '<cmd>NvimTreeFindFile<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>f', function() require('mini.files').open() end, mode = 'n', noremap = true, silent = true },
     },
     init = function()
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-
-      local function open_nvim_tree(data)
-        if vim.fn.filereadable(data.file) == 1 then
-          return
-        end
-
-        require('nvim-tree.api').tree.open({
-          path = nil,
-          current_window = false,
-          find_file = false,
-          update_root = false,
-        })
-      end
-
+      local ignore_filetypes = {
+        gitcommit = true,
+        gitrebase = true,
+      }
       vim.api.nvim_create_autocmd('VimEnter', {
         group = 'MyAutoCmd',
         nested = true,
-        callback = open_nvim_tree,
-      })
-
-      vim.api.nvim_create_autocmd('TabNewEntered', {
-        group = 'MyAutoCmd',
-        nested = true,
-        callback = open_nvim_tree,
-      })
-
-      -- nvim-tree is also there in modified buffers so this function filter it out
-      local modifiedBufs = function(bufs)
-        local t = 0
-        for k,v in pairs(bufs) do
-          if v.name:match('NvimTree_') == nil then
-            t = t + 1
+        callback = function()
+          if ignore_filetypes[vim.bo.filetype] then
+            return
           end
+
+          require('mini.files').open()
+        end,
+      })
+
+      local map_split = function(buf_id, lhs, direction)
+        local rhs = function()
+          -- Make new window and set it as target
+          local cur_target = MiniFiles.get_explorer_state().target_window
+          local new_target = vim.api.nvim_win_call(cur_target, function()
+            vim.cmd(direction .. ' split')
+            return vim.api.nvim_get_current_win()
+          end)
+
+          MiniFiles.set_target_window(new_target)
+          MiniFiles.go_in { close_on_file = true }
         end
-        return t
+
+        -- Adding `desc` will result into `show_help` entries
+        local desc = 'Split ' .. direction
+        vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
       end
 
-      vim.api.nvim_create_autocmd('BufEnter', {
-        nested = true,
-        callback = function()
-          if #vim.api.nvim_list_wins() == 1 and
-          vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil and
-          modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
-            vim.cmd 'quit'
-          end
-        end
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesBufferCreate',
+        callback = function(args)
+          local buf_id = args.data.buf_id
+          -- Tweak keys to your liking
+          map_split(buf_id, 'l', 'belowright horizontal')
+          map_split(buf_id, 's', 'belowright vertical')
+        end,
       })
+    end,
+    opts = {
+      content = {
+        prefix = function() end
+      },
+      mappings = {
+        go_in = 'L',
+        go_in_plus = 'o',
+        go_out      = 'H',
+        go_out_plus = 'p',
+      },
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 30,
+      },
+    },
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    enable = false,
+    cmd = { 'NvimTreeOpen', 'NvimTreeToggle', 'NvimTreeFocus' },
+    keys = {
+      -- { '<leader>nt', '<cmd>NvimTreeToggle<cr>', mode = 'n', noremap = true, silent = true },
+      { '<leader>nf', '<cmd>NvimTreeFindFile<cr>', mode = 'n', noremap = true, silent = true },
+    },
+    init = function()
+      -- vim.g.loaded_netrw = 1
+      -- vim.g.loaded_netrwPlugin = 1
+      --
+      -- local function open_nvim_tree(data)
+      --   if vim.fn.filereadable(data.file) == 1 then
+      --     return
+      --   end
+      --
+      --   require('nvim-tree.api').tree.open({
+      --     path = nil,
+      --     current_window = false,
+      --     find_file = false,
+      --     update_root = false,
+      --   })
+      -- end
+      --
+      -- vim.api.nvim_create_autocmd('VimEnter', {
+      --   group = 'MyAutoCmd',
+      --   nested = true,
+      --   callback = open_nvim_tree,
+      -- })
+      --
+      -- vim.api.nvim_create_autocmd('TabNewEntered', {
+      --   group = 'MyAutoCmd',
+      --   nested = true,
+      --   callback = open_nvim_tree,
+      -- })
+      --
+      -- -- nvim-tree is also there in modified buffers so this function filter it out
+      -- local modifiedBufs = function(bufs)
+      --   local t = 0
+      --   for k,v in pairs(bufs) do
+      --     if v.name:match('NvimTree_') == nil then
+      --       t = t + 1
+      --     end
+      --   end
+      --   return t
+      -- end
+      --
+      -- vim.api.nvim_create_autocmd('BufEnter', {
+      --   nested = true,
+      --   callback = function()
+      --     if #vim.api.nvim_list_wins() == 1 and
+      --     vim.api.nvim_buf_get_name(0):match('NvimTree_') ~= nil and
+      --     modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+      --       vim.cmd 'quit'
+      --     end
+      --   end
+      -- })
     end,
     config = function()
       require('nvim-tree').setup({
