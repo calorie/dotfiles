@@ -642,8 +642,6 @@ require('lazy').setup({
 
       vim.lsp.enable('jsonls')
 
-      vim.lsp.enable('rust_analyzer')
-
       vim.lsp.config('sqlls', {
         settings = {
           sqls = {
@@ -711,8 +709,6 @@ require('lazy').setup({
         },
       })
       vim.lsp.enable('yamlls')
-
-      vim.lsp.enable('jdtls')
     end,
   },
 
