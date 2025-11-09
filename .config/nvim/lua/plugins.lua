@@ -86,7 +86,10 @@ require('lazy').setup({
         },
 
         provider = function(self)
-          return ' ' .. self.mode_names[self.mode] .. ' '
+          local vi_mode = self.mode_names[self.mode]
+          if not vi_mode then return '' end
+
+          return ' ' .. vi_mode .. ' '
         end,
 
         hl = highlights.vi_mode,
@@ -234,7 +237,12 @@ require('lazy').setup({
           return
         end
 
-        vim.cmd 'NvimTreeOpen'
+        require('nvim-tree.api').tree.open({
+          path = nil,
+          current_window = false,
+          find_file = false,
+          update_root = false,
+        })
       end
 
       vim.api.nvim_create_autocmd('VimEnter', {
@@ -246,9 +254,7 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd('TabNewEntered', {
         group = 'MyAutoCmd',
         nested = true,
-        callback = function()
-          vim.cmd 'NvimTreeOpen'
-        end,
+        callback = open_nvim_tree,
       })
 
       -- nvim-tree is also there in modified buffers so this function filter it out
