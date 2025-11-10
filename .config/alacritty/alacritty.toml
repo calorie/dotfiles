@@ -37,3 +37,6 @@ hide_when_typing = true
 [window]
 startup_mode = "SimpleFullscreen"
 decorations = "None"
+
+[cursor]
+thickness = 0.25

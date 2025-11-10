@@ -59,6 +59,8 @@ vim.opt.suffixes = {
   '.bbl', '.blg', '.brf', '.cb', '.ind', '.idx', '.ilg', '.inx', '.out',
 }
 vim.opt.mouse = nil
+vim.opt.guicursor = "n-v-c-sm-ci:block,i-ve:ver25-Cursor,r-cr-o:hor20"
+vim.opt.termguicolors = true
 
 vim.lsp.set_log_level('off')
 

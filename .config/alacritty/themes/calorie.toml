@@ -9,7 +9,7 @@ white = "0xc9c8db"
 yellow = "0xf3cc95"
 
 [colors.cursor]
-cursor = "0x524f67"
+cursor = "0x31748f"
 text = "0xc9c8db"
 
 [colors.hints.end]

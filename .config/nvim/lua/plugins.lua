@@ -398,7 +398,6 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.opt.termguicolors = true
       vim.cmd([[colorscheme calorie]])
     end,
   },
@@ -932,6 +931,9 @@ require('lazy').setup({
       { '<leader>r', '<cmd>QuickRun<cr>', mode = 'n', noremap = true, silent = true },
     },
   },
+
+  -- { 'rktjmp/shipwright.nvim' },
+  -- { 'rktjmp/lush.nvim' },
 })
 
 vim.cmd([[
