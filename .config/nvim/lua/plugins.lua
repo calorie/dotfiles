@@ -225,13 +225,14 @@ require('lazy').setup({
     'nvim-mini/mini.files',
     version = '*',
     keys = {
-      { '<leader>f', function() require('mini.files').open() end, mode = 'n', noremap = true, silent = true },
+      { '<leader>f', function() MiniFiles.open() end, mode = 'n', noremap = true, silent = true },
+      { '<leader>nf', function()
+        local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        MiniFiles.reveal_cwd()
+      end, mode = 'n', noremap = true, silent = true },
     },
     init = function()
-      local ignore_filetypes = {
-        gitcommit = true,
-        gitrebase = true,
-      }
+      local ignore_filetypes = { gitcommit = true, gitrebase = true }
       vim.api.nvim_create_autocmd('VimEnter', {
         group = 'MyAutoCmd',
         nested = true,
@@ -267,14 +268,17 @@ require('lazy').setup({
         callback = function(args)
           local buf_id = args.data.buf_id
           -- Tweak keys to your liking
-          map_split(buf_id, 'l', 'belowright horizontal')
-          map_split(buf_id, 's', 'belowright vertical')
+          map_split(buf_id, 's', 'belowright horizontal')
+          map_split(buf_id, 'l', 'belowright vertical')
         end,
       })
     end,
     opts = {
       content = {
-        prefix = function() end
+        prefix = function() end,
+        filter = function(fs_entry)
+          return not (fs_entry.name == '.git' and fs_entry.fs_type == 'directory')
+        end,
       },
       mappings = {
         go_in = 'L',
