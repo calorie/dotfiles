@@ -49,7 +49,6 @@ DOTFILES=(
   .nodenv/default-packages
   .pryrc
   .rbenv/default-gems
-  .rdebugrc
   .ripgreprc
   .rspec
   .rubocop.yml

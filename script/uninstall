@@ -33,13 +33,13 @@ DOTFILES=(
   .nodenv/default-packages
   .pryrc
   .rbenv/default-gems
-  .rdebugrc
   .ripgreprc
   .rspec
   .rubocop.yml
   .tmux.conf
   .config/alacritty/alacritty.toml
   .config/nvim/init.lua
+  .config/nvim/lazy-lock.json
   .config/nvim/lua
   .config/peco/config.json
   .config/tmux-powerline/config.sh
