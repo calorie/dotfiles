@@ -865,8 +865,12 @@ require('lazy').setup({
 
   {
     'iamcco/markdown-preview.nvim',
-    ft = 'markdown',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    -- ft = 'markdown',
     build = 'sh -c "if command -v yarn >/dev/null 2>&1; then cd app && yarn install; fi"',
+    init = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+    end,
   },
 
   {
