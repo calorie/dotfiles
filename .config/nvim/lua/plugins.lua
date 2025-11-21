@@ -236,8 +236,12 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd('VimEnter', {
         group = 'MyAutoCmd',
         nested = true,
-        callback = function()
+        callback = function(data)
           if ignore_filetypes[vim.bo.filetype] then
+            return
+          end
+
+          if vim.fn.filereadable(data.file) == 1 then
             return
           end
 
