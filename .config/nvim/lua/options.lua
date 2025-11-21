@@ -1,3 +1,4 @@
+vim.loader.enable()
 vim.opt.scrolloff = 5
 vim.opt.textwidth = 0
 vim.opt.backup = false

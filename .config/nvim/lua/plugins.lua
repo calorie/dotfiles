@@ -1,5 +1,3 @@
-vim.loader.enable()
-
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', 'https://github.com/folke/lazy.nvim.git', lazypath })
@@ -14,28 +12,6 @@ if not vim.uv.fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-
-local function on_attach(bufnr)
-  local api = require('nvim-tree.api')
-
-  local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
-
-  api.config.mappings.default_on_attach(bufnr)
-
-  vim.keymap.set('n', 'i', api.node.open.horizontal, opts('Open: Horizontal Split'))
-  vim.keymap.set('n', 's', api.node.open.vertical, opts('Open: Vertical Split'))
-  vim.keymap.set('n', 'T', api.node.open.tab, opts('Open: New Tab'))
-  vim.keymap.set('n', 'r', api.tree.reload, opts('Refresh'))
-  vim.keymap.set('n', 'R', api.fs.rename, opts('Rename'))
-  vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
-  vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
-  vim.keymap.set('n', 'p', api.node.navigate.sibling.first, opts('First Sibling'))
-  vim.keymap.set('n', '<C-v>', api.fs.paste, opts('Paste'))
-  vim.keymap.set('n', 'y', api.fs.copy.relative_path, opts('Copy Relative Path'))
-  vim.keymap.set('n', 'Y', api.fs.copy.filename, opts('Copy Name'))
-end
 
 require('lazy').setup({
   -- ------------------------------------
