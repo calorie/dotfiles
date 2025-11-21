@@ -216,9 +216,7 @@ require('lazy').setup({
   {
     'vladdoster/remember.nvim',
     event = 'BufReadPre',
-    config = function()
-      require('remember').setup {}
-    end,
+    opts = {},
   },
 
   {
@@ -333,27 +331,23 @@ require('lazy').setup({
         desc = 'Disable focus autoresize for FileType',
       })
     end,
-    config = function()
-      require('focus').setup({ commands = false, ui = { signcolumn = false } })
-    end,
+    opts = { commands = false, ui = { signcolumn = false } },
   },
 
   {
     'shellRaining/hlchunk.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-      require('hlchunk').setup {
-        indent = {
-          enable = true,
-          chars = {
-            '┊',
-          },
-          style = {
-            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID('Whitespace')), 'fg', 'gui'),
-          },
-        }
+    opts = {
+      indent = {
+        enable = true,
+        chars = {
+          '┊',
+        },
+        style = {
+          vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID('Whitespace')), 'fg', 'gui'),
+        },
       }
-    end
+    },
   },
 
   {
@@ -524,9 +518,7 @@ require('lazy').setup({
       { 'gcc', '<Plug>(comment_toggle_linewise_current)', mode = 'n', noremap = true, silent = true },
       { 'gc', '<Plug>(comment_toggle_linewise_visual)', mode = 'x', noremap = true, silent = true },
     },
-    config = function()
-      require('Comment').setup {}
-    end,
+    opts = {},
   },
 
   {
@@ -534,12 +526,10 @@ require('lazy').setup({
     dependencies = 'copilotlsp-nvim/copilot-lsp',
     cmd = 'Copilot',
     event = 'InsertEnter',
-    config = function()
-      require('copilot').setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
   },
 
   {
@@ -712,24 +702,20 @@ require('lazy').setup({
       { '<space>m', '<cmd>TSJToggle<cr>', mode = 'n', noremap = true, silent = true },
     },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function()
-      require('treesj').setup({
-        use_default_keymaps = false,
-        notify = false,
-      })
-    end,
+    opts = {
+      use_default_keymaps = false,
+      notify = false,
+    },
   },
 
   {
     'keaising/im-select.nvim',
     event = 'InsertLeave',
-    config = function()
-      require('im_select').setup({
-        default_im_select = 'com.google.inputmethod.Japanese.Roman',
-        set_previous_events = {},
-        async_switch_im = true,
-      })
-    end,
+    opts = {
+      default_im_select = 'com.google.inputmethod.Japanese.Roman',
+      set_previous_events = {},
+      async_switch_im = true,
+    },
   },
 
   {
@@ -742,9 +728,7 @@ require('lazy').setup({
       { 'ds', '<Plug>(nvim-surround-delete)', mode = 'n', noremap = true },
       { 'cs', '<Plug>(nvim-surround-change)', mode = 'n', noremap = true },
     },
-    config = function()
-      require('nvim-surround').setup {}
-    end
+    opts = {},
   },
 
   {
@@ -786,9 +770,7 @@ require('lazy').setup({
       { '<leader>h', '<cmd>HopWord<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>l', '<cmd>HopWordMW<cr>', mode = 'n', noremap = true, silent = true },
     },
-    config = function()
-      require('hop').setup {}
-    end,
+    opts = {},
   },
 
   {
@@ -878,16 +860,14 @@ require('lazy').setup({
       { '<leader>o', '<cmd>Lspsaga outline<cr>', mode = 'n', noremap = true, silent = true },
       { 'gd', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
     },
-    config = function()
-      require('lspsaga').setup {
-        symbol_in_winbar = {
-          enable = false,
-        },
-        lightbulb = {
-          enable = false,
-        },
-      }
-    end,
+    opts = {
+      symbol_in_winbar = {
+        enable = false,
+      },
+      lightbulb = {
+        enable = false,
+      },
+    },
   },
 
   {
@@ -904,14 +884,12 @@ require('lazy').setup({
   {
     'Pocco81/auto-save.nvim',
     event = { 'InsertLeave' },
-    config = function()
-      require('auto-save').setup {
-        enabled = true,
-        execution_message = {
-          message = '',
-        },
-      }
-    end,
+    opts = {
+      enabled = true,
+      execution_message = {
+        message = '',
+      },
+    },
   },
 
   {
@@ -921,12 +899,10 @@ require('lazy').setup({
       { '<leader>bl', '<cmd>Gitsigns toggle_current_line_blame<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>di', '<cmd>Gitsigns toggle_signs<cr>', mode = 'n', noremap = true, silent = true },
     },
-    config = function()
-      require('gitsigns').setup {
-        signcolumn = false,
-        current_line_blame_formatter = '<abbrev_sha> <author>, <author_time:%Y-%m-%d> - <summary>',
-      }
-    end,
+    opts = {
+      signcolumn = false,
+      current_line_blame_formatter = '<abbrev_sha> <author>, <author_time:%Y-%m-%d> - <summary>',
+    },
   },
 
   {
