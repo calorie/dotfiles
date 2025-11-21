@@ -883,7 +883,7 @@ require('lazy').setup({
 
   {
     'Pocco81/auto-save.nvim',
-    event = { 'InsertLeave' },
+    event = { 'InsertLeave', 'TextChanged' },
     opts = {
       enabled = true,
       execution_message = {
