@@ -1,6 +1,8 @@
 dotfiles
 ========
 
+Super-lightweight NeoVim configuration
+
 ## Setup
 
 ```sh
