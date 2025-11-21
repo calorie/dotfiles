@@ -380,7 +380,7 @@ require('lazy').setup({
         },
         extensions = {
           frecency = {
-            use_sqlite = false,
+            disable_devicons = true,
           }
         },
       }
@@ -408,8 +408,9 @@ require('lazy').setup({
     config = function()
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
-          'go', 'hcl', 'html', 'javascript', 'json', 'lua', 'ruby', 'java',
-          'markdown', 'markdown_inline', 'rust', 'sql', 'vim', 'yaml', 'c',
+          'bash', 'diff', 'go', 'hcl', 'html', 'javascript',
+          'json', 'lua', 'markdown', 'markdown_inline',
+          'regex', 'ruby', 'sql', 'typescript', 'xml', 'yaml',
         },
         highlight = {
           enable = true,
@@ -773,23 +774,23 @@ require('lazy').setup({
     opts = {},
   },
 
-  {
-    'terryma/vim-expand-region',
-    keys = {
-      { '<space>', '<Plug>(expand_region_expand)', mode = 'v', noremap = true },
-      { '<bs>', '<Plug>(expand_region_shrink)', mode = 'v', noremap = true },
-    },
-  },
-
-  {
-    't9md/vim-quickhl',
-    keys = {
-      { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
-    },
-    config = function()
-      vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
-    end,
-  },
+  -- {
+  --   'terryma/vim-expand-region',
+  --   keys = {
+  --     { '<space>', '<Plug>(expand_region_expand)', mode = 'v', noremap = true },
+  --     { '<bs>', '<Plug>(expand_region_shrink)', mode = 'v', noremap = true },
+  --   },
+  -- },
+  --
+  -- {
+  --   't9md/vim-quickhl',
+  --   keys = {
+  --     { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
+  --   },
+  --   config = function()
+  --     vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
+  --   end,
+  -- },
 
   {
     't9md/vim-textmanip',
@@ -842,6 +843,7 @@ require('lazy').setup({
       'zbirenbaum/copilot.lua',
     },
   },
+
   {
     'rhysd/ghpr-blame.vim',
     cmd = { 'GHPRBlame', 'GHPRBlameQuit' },
