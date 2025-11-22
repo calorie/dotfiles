@@ -96,7 +96,7 @@ end
 vim.g.omni_sql_default_compl_type = 'syntax'
 vim.g.omni_sql_no_default_maps = 1
 
-vim.lsp.log.set_level(vim.log.levels.ERROR)
+vim.lsp.log.set_level(vim.log.levels.OFF)
 
 vim.diagnostic.config({
   virtual_text = true,
