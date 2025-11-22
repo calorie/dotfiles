@@ -32,7 +32,7 @@ vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 vim.opt.cursorline = true
 vim.opt.list = true
-vim.opt.redrawtime = 10000
+-- vim.opt.redrawtime = 10000
 vim.opt.laststatus = 2
 vim.opt.ruler = true
 vim.opt.listchars = { tab = '>.', trail = '_', extends = '>', precedes = '<' }
