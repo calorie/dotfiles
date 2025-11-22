@@ -417,21 +417,19 @@ require('lazy').setup({
       'hrsh7th/cmp-cmdline',
       {
         'L3MON4D3/LuaSnip',
+        version = 'v2.*',
+        build = 'make install_jsregexp',
         dependencies = {
           'rafamadriz/friendly-snippets',
           config = function()
             require('luasnip.loaders.from_vscode').lazy_load()
           end,
         },
-        version = 'v2.*',
-        build = 'make install_jsregexp',
       },
       {
         'zbirenbaum/copilot-cmp',
         dependencies = 'zbirenbaum/copilot.lua',
-        config = function ()
-          require('copilot_cmp').setup()
-        end
+        opts = {},
       },
       'windwp/nvim-autopairs',
     },
@@ -850,7 +848,7 @@ require('lazy').setup({
 
   {
     'glepnir/lspsaga.nvim',
-    dependencies = 'neovim/nvim-lspconfig',
+    dependencies = { 'neovim/nvim-lspconfig', 'nvim-treesitter/nvim-treesitter' },
     keys = {
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
