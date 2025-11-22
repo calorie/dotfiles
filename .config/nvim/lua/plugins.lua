@@ -410,6 +410,9 @@ require('lazy').setup({
         indent = {
           enable = true,
         },
+        folds = {
+          enable = true,
+        },
       }
 
       vim.wo.foldmethod = 'expr'
@@ -521,6 +524,14 @@ require('lazy').setup({
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
+      nes = {
+        enabled = true,
+        keymap = {
+          accept_and_goto = '<leader>p',
+          accept = false,
+          dismiss = '<Esc>',
+        },
+      },
     },
   },
 
@@ -542,23 +553,20 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         pattern = { '*.tf', '*.tfvars' },
         callback = function()
-          vim.lsp.buf.format()
+          vim.lsp.buf.format({ async = true })
         end,
       })
     end,
     config = function()
-      local on_attach = function(client, bufnr)
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
-        -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-      end
-
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       vim.lsp.config('*', {
-        capabilities = capabilities,
-        on_attach = on_attach,
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        on_attach = function(client, bufnr)
+          local bufopts = { noremap = true, silent = true, buffer = bufnr }
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+          vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
+          -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+        end,
       })
 
       vim.lsp.config('gopls', {
@@ -572,9 +580,6 @@ require('lazy').setup({
           },
         },
       })
-      vim.lsp.enable('gopls')
-
-      vim.lsp.enable('jsonls')
 
       vim.lsp.config('sqlls', {
         settings = {
@@ -588,22 +593,18 @@ require('lazy').setup({
           },
         },
       })
-      vim.lsp.enable('sqlls')
 
       vim.lsp.config('solargraph', {
         init_options = { diagnostics = true },
       })
-      vim.lsp.enable('solargraph')
 
       vim.lsp.config('terraformls', {
         init_options = {
           ignoreSingleFileWarning = true
         }
       })
-      vim.lsp.enable('terraformls')
 
       vim.lsp.config('tsserver', {})
-      vim.lsp.enable('tsserver')
 
       vim.lsp.config('yamlls', {
         settings = {
@@ -642,7 +643,16 @@ require('lazy').setup({
           },
         },
       })
-      vim.lsp.enable('yamlls')
+
+      vim.lsp.enable({
+        'gopls',
+        'jsonls',
+        'sqlls',
+        'solargraph',
+        'terraformls',
+        'tsserver',
+        'yamlls',
+      })
     end,
   },
 
