@@ -257,10 +257,10 @@ require('lazy').setup({
       end
 
       vim.api.nvim_create_autocmd('User', {
+        group = 'MyAutoCmd',
         pattern = 'MiniFilesBufferCreate',
         callback = function(args)
           local buf_id = args.data.buf_id
-          -- Tweak keys to your liking
           map_split(buf_id, 's', 'belowright horizontal')
           map_split(buf_id, 'l', 'belowright vertical')
         end,
