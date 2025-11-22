@@ -282,7 +282,7 @@ require('lazy').setup({
       windows = {
         preview = true,
         width_focus = 30,
-        width_preview = 30,
+        width_preview = 100,
       },
     },
   },
@@ -535,6 +535,7 @@ require('lazy').setup({
     dependencies = 'hrsh7th/cmp-nvim-lsp',
     init = function()
       vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        group = 'MyAutoCmd',
         pattern = { '*.tf', '*.tfvars' },
         callback = function()
           vim.lsp.buf.format({ async = true })
