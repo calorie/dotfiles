@@ -588,7 +588,9 @@ require('lazy').setup({
         }
       })
 
-      vim.lsp.config('tsserver', {})
+      vim.lsp.config('tsserver', {
+        cmd = { 'typescript-language-server', '--stdio' },
+      })
 
       vim.lsp.config('yamlls', {
         settings = {

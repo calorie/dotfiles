@@ -85,6 +85,7 @@ vim.g.is_mac = (vim.fn.has('mac') or vim.fn.has('macunix') or vim.fn.has('gui_ma
 vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 if vim.g.is_mac then
   vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
   if vim.fn.filereadable(vim.g.python3_host_prog) == 0 then
@@ -95,7 +96,7 @@ end
 vim.g.omni_sql_default_compl_type = 'syntax'
 vim.g.omni_sql_no_default_maps = 1
 
-vim.lsp.log.set_level(vim.log.levels.OFF)
+vim.lsp.log.set_level(vim.log.levels.ERROR)
 
 vim.diagnostic.config({
   virtual_text = true,
