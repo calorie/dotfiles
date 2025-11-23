@@ -327,7 +327,6 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-frecency.nvim' },
-    cmd = 'Telescope',
     keys = {
       { '<space>f', '<cmd>Telescope find_files<cr>', mode = 'n', noremap = true },
       { '<space>g', '<cmd>Telescope live_grep<cr>', mode = 'n', noremap = true },
@@ -652,9 +651,8 @@ require('lazy').setup({
 
   {
     'AndrewRadev/switch.vim',
-    cmd = 'Switch',
     keys = {
-      { '+', '<cmd>Switch<cr>', mode = 'n', noremap = true, silent = true },
+      { '+', function() vim.fn['switch#Switch']() end, mode = 'n', noremap = true, silent = true },
       { '-', function() vim.fn['switch#Switch']({ definitions = vim.g.variable_style_switch_definitions }) end, mode = 'n', noremap = true, silent = true },
     },
     init = function()
@@ -684,7 +682,6 @@ require('lazy').setup({
 
   {
     'junegunn/vim-easy-align',
-    cmd = { 'EasyAlign' },
     keys = {
       { 'tb', '<Plug>(EasyAlign)', mode = 'n', noremap = true },
       { 'tb', '<Plug>(EasyAlign)', mode = 'v', noremap = true },
@@ -693,7 +690,6 @@ require('lazy').setup({
 
   {
     'Wansmer/treesj',
-    cmd = { 'TSJToggle' },
     keys = {
       { '<space>m', '<cmd>TSJToggle<cr>', mode = 'n', noremap = true, silent = true },
     },
@@ -759,7 +755,6 @@ require('lazy').setup({
 
   {
     'phaazon/hop.nvim',
-    cmd = { 'HopVerticalAC', 'HopVerticalBC' },
     keys = {
       { '<leader>j', '<cmd>HopVerticalAC<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>k', '<cmd>HopVerticalBC<cr>', mode = 'n', noremap = true, silent = true },
