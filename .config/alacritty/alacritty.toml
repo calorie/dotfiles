@@ -6,6 +6,7 @@ TERM = "alacritty"
 
 [font]
 size = 18.0
+builtin_box_drawing = true
 
 [font.normal]
 family = "HackGen"
@@ -37,6 +38,8 @@ hide_when_typing = true
 [window]
 startup_mode = "SimpleFullscreen"
 decorations = "None"
+option_as_alt = "Both"
+opacity = 1.0
 
 [cursor]
 thickness = 0.25
