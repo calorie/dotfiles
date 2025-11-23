@@ -2,7 +2,7 @@ typeset -U path PATH
 export PATH=/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
-  tmux -2 new-session -A -s main
+  exec tmux -2 new-session -A -s main
 fi
 
 export PATH=$PATH:/sbin
@@ -11,11 +11,11 @@ export LESSCHARSET=utf-8
 export EDITOR=nvim
 export MANPATH=$MANPATH:/opt/local/man:/usr/local/share/man
 export HISTFILE=~/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=50000
+export SAVEHIST=50000
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 setopt auto_cd              # cd by dirctory name
 setopt auto_pushd           # display dir list
@@ -43,30 +43,10 @@ setopt hist_no_store        # remove history command
 setopt hist_verify          # call history & edit
 setopt NO_hup               # no hup signal
 setopt path_dirs            # search subdir
-setopt autopushd            # auto pushd
 setopt complete_aliases     # expand aliases before completing
 setopt rec_exact            # fuzzy completion
 unsetopt list_beep          # no beep
-# setopt chase_links          # read symlink
-# setopt auto_resume          # resume suspend command
-# setopt equals               # expand =command
-# setopt extended_glob        # # , ~, ^
-# setopt extended_history     # add date history
-# setopt NO_flow_control      # disable flow control
-# setopt hash_cmds            # add path to hash
-# setopt hist_ignore_space    # dont add command starts space to history
-# setopt ignore_eof           # disable Ctrl+D
-# setopt interactive_comments # comment
-# setopt mail_warning         # mail warning
-# setopt mark_dirs            # add /
-# setopt numeric_glob_sort    # sort by numeric
-# setopt print_exit_value     # display exit code
-# setopt pushd_to_home        # pushd to home
-# setopt rm_star_silent       # disable confirm
-# setopt rm_star_wait         # enable confirm
-# setopt short_loops          # use control structure
-# setopt single_line_zle      # single line mode
-# setopt xtrace               # trace command line
+setopt hist_ignore_space
 
 bindkey -e
 autoload zed
@@ -93,6 +73,3 @@ autoload -Uz select-word-style
 select-word-style default
 zstyle ':zle:*' word-chars ' _-./;@'
 zstyle ':zle:*' word-style unspecified
-
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
