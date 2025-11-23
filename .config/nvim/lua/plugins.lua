@@ -521,6 +521,15 @@ require('lazy').setup({
     event = 'BufReadPre',
     dependencies = 'hrsh7th/cmp-nvim-lsp',
     init = function()
+      vim.lsp.log.set_level(vim.log.levels.OFF)
+
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = false,
+        update_in_insert = false,
+        severity_sort = true,
+      })
+
       vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         group = 'MyAutoCmd',
         pattern = { '*.tf', '*.tfvars' },

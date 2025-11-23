@@ -100,15 +100,6 @@ vim.g.ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 vim.g.omni_sql_default_compl_type = 'syntax'
 vim.g.omni_sql_no_default_maps = 1
 
-vim.lsp.log.set_level(vim.log.levels.OFF)
-
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = false,
-  update_in_insert = false,
-  severity_sort = true,
-})
-
 vim.filetype.add({
   extension = {
     tf = 'terraform',
