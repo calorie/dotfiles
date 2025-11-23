@@ -489,11 +489,20 @@ require('lazy').setup({
 
   {
     'zbirenbaum/copilot.lua',
+    -- dependencies = 'copilotlsp-nvim/copilot-lsp',
     cmd = 'Copilot',
     event = 'InsertEnter',
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
+      -- nes = {
+      --   enabled = true,
+      --   keymap = {
+      --     accept_and_goto = '<leader>p',
+      --     accept = false,
+      --     dismiss = '<Esc>',
+      --   },
+      -- },
     },
   },
 
@@ -821,10 +830,6 @@ require('lazy').setup({
   -- ------------------------------------
   {
     'yetone/avante.nvim',
-    cmd = { 'AvanteAsk' },
-    opts = {
-      provider = 'copilot',
-    },
     build = 'make',
     dependencies = {
       'stevearc/dressing.nvim',
@@ -832,6 +837,37 @@ require('lazy').setup({
       'MunifTanjim/nui.nvim',
       'hrsh7th/nvim-cmp',
       'zbirenbaum/copilot.lua',
+    },
+    keys = {
+      { '<leader>aa', '<cmd>AvanteAsk<CR>', desc = 'Ask Avante' },
+      { '<leader>ac', '<cmd>AvanteChat<CR>', desc = 'Chat with Avante' },
+      { '<leader>ae', '<cmd>AvanteEdit<CR>', desc = 'Edit Avante' },
+      { '<leader>af', '<cmd>AvanteFocus<CR>', desc = 'Focus Avante' },
+      { '<leader>ah', '<cmd>AvanteHistory<CR>', desc = 'Avante History' },
+      { '<leader>am', '<cmd>AvanteModels<CR>', desc = 'Select Avante Model' },
+      { '<leader>an', '<cmd>AvanteChatNew<CR>', desc = 'New Avante Chat' },
+      { '<leader>ap', '<cmd>AvanteSwitchProvider<CR>', desc = 'Switch Avante Provider' },
+      { '<leader>ar', '<cmd>AvanteRefresh<CR>', desc = 'Refresh Avante' },
+      { '<leader>as', '<cmd>AvanteStop<CR>', desc = 'Stop Avante' },
+      { '<leader>at', '<cmd>AvanteToggle<CR>', desc = 'Toggle Avante' },
+    },
+    opts = {
+      provider = 'gemini',
+
+      gemini = {
+        model = 'gemini-2.5-pro',
+        temperature = 0,
+        max_tokens = 4096,
+      },
+
+      selection = {
+        hint_display = 'none',
+      },
+
+      behaviour = {
+        auto_suggestions = false,
+        auto_set_keymaps = false,
+      },
     },
   },
 
