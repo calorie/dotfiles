@@ -1,9 +1,6 @@
 alias pbc='pbcopy'
 
 PREFIX=/opt/homebrew
-if [[ "$(uname -m)" != 'arm64' ]]; then
-  PREFIX=/usr/local
-fi
 
 export PATH="$PREFIX/opt/python/libexec/bin:$PREFIX/opt/libxml2/bin:$PREFIX/opt/openjdk/bin:$PATH"
 # export PATH="$PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
