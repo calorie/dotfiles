@@ -223,7 +223,6 @@ require('lazy').setup({
     init = function()
       vim.api.nvim_create_autocmd('VimEnter', {
         group = 'MyAutoCmd',
-        nested = true,
         callback = function(data)
           if vim.fn.filereadable(data.file) == 1 then
             return
@@ -320,38 +319,42 @@ require('lazy').setup({
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-frecency.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-frecency.nvim',
+        config = function()
+          require('telescope').load_extension 'frecency'
+        end,
+      },
+    },
     keys = {
       { '<space>f', '<cmd>Telescope find_files<cr>', mode = 'n', noremap = true },
       { '<space>g', '<cmd>Telescope live_grep<cr>', mode = 'n', noremap = true },
       { '<space>b', '<cmd>Telescope buffers<cr>', mode = 'n', noremap = true },
     },
-    config = function()
-      local telescope = require('telescope')
-      telescope.setup {
-        defaults = {
-          mappings = {
-            i = {
-              ['<C-o>'] = 'file_edit',
-              ['<C-s>'] = 'file_split',
-              ['<C-l>'] = 'file_vsplit',
-              ['<C-j>'] = 'move_selection_next',
-              ['<C-k>'] = 'move_selection_previous',
-            }
-          },
-          layout_config = {
-            prompt_position = 'top',
-          },
-          sorting_strategy = 'ascending',
-        },
-        extensions = {
-          frecency = {
-            disable_devicons = true,
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ['<C-o>'] = 'file_edit',
+            ['<C-s>'] = 'file_split',
+            ['<C-l>'] = 'file_vsplit',
+            ['<C-j>'] = 'move_selection_next',
+            ['<C-k>'] = 'move_selection_previous',
           }
         },
-      }
-      telescope.load_extension 'frecency'
-    end,
+        layout_config = {
+          prompt_position = 'top',
+        },
+        sorting_strategy = 'ascending',
+      },
+      extensions = {
+        frecency = {
+          disable_devicons = true,
+        }
+      },
+    },
   },
 
   -- ------------------------------------
@@ -519,14 +522,16 @@ require('lazy').setup({
           vim.lsp.buf.format({ async = true })
         end,
       })
-    end,
-    config = function()
-      vim.lsp.config('*', {
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        on_attach = function(client, bufnr)
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-          local bufopts = { noremap = true, silent = true, buffer = bufnr }
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = 'MyAutoCmd',
+        callback = function(ev)
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          if client.server_capabilities.inlayHintProvider then
+             vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+          end
+
+          local bufopts = { noremap = true, silent = true, buffer = ev.buf }
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
           vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
@@ -534,6 +539,11 @@ require('lazy').setup({
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
           end, bufopts)
         end,
+      })
+    end,
+    config = function()
+      vim.lsp.config('*', {
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
       })
 
       vim.lsp.config('gopls', {
@@ -580,7 +590,7 @@ require('lazy').setup({
         }
       })
 
-      vim.lsp.config('tsserver', {
+      vim.lsp.config('ts_ls', {
         cmd = { 'typescript-language-server', '--stdio' },
         filetypes = {
           'javascript',
@@ -859,7 +869,6 @@ require('lazy').setup({
   {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    -- ft = 'markdown',
     build = 'sh -c "if command -v yarn >/dev/null 2>&1; then cd app && yarn install; fi"',
     init = function()
       vim.g.mkdp_filetypes = { 'markdown' }
@@ -905,10 +914,5 @@ require('lazy').setup({
   -- { 'rktjmp/shipwright.nvim' },
   -- { 'rktjmp/lush.nvim' },
 })
-
-vim.cmd([[
-  syntax enable
-  filetype plugin indent on
-]])
 
 vim.opt.secure = true
