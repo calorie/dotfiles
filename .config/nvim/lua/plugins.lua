@@ -363,6 +363,7 @@ require('lazy').setup({
         'andymass/vim-matchup',
         init = function()
           vim.g.matchup_matchparen_deferred = 1
+          vim.g.matchup_matchparen_offscreen = { method = 'popup' }
         end,
       },
     },
@@ -374,13 +375,13 @@ require('lazy').setup({
         },
         highlight = {
           enable = true,
-          disable = { 'ruby' },
+          additional_vim_regex_highlighting = false,
         },
         indent = {
           enable = true,
         },
         folds = {
-          enable = true,
+          enable = false,
         },
         matchup = {
           enable = true,
