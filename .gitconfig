@@ -17,10 +17,12 @@
   quotepath = false
   preloadindex = true
   fscache = true
+  pager = delta
 [mergetool "nvimdiff"]
   layout = "LOCAL,BASE,REMOTE / MERGED"
 [merge]
   tool = nvim
+  conflictStyle = zdiff3
 [mergetool]
   prompt = false
 [alias]
@@ -91,3 +93,12 @@
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
   gpgsign = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  dark = true
+  syntax-theme = zenburn
+  hunk-header-style = omit
+  line-numbers = true
+  diff-so-fancy = true
