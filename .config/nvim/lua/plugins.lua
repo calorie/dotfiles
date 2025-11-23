@@ -14,21 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        '2html_plugin',
-        'gzip',
-        'netrwPlugin',
-        'remote_plugins',
-        'spellfile_plugin',
-        'tarPlugin',
-        'tohtml',
-        'tutor',
-        'zipPlugin',
-      },
-    },
-  },
   -- ------------------------------------
   --  Buffer
   -- ------------------------------------
@@ -373,6 +358,9 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     event = 'BufReadPre',
     build = ':TSUpdate',
+    dependencies = {
+      'andymass/vim-matchup',
+    },
     config = function()
       require'nvim-treesitter.configs'.setup {
         ensure_installed = {
@@ -387,6 +375,9 @@ require('lazy').setup({
           enable = true,
         },
         folds = {
+          enable = true,
+        },
+        matchup = {
           enable = true,
         },
       }
