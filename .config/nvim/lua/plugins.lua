@@ -240,7 +240,6 @@ require('lazy').setup({
 
       local map_split = function(buf_id, lhs, direction)
         local rhs = function()
-          -- Make new window and set it as target
           local cur_target = MiniFiles.get_explorer_state().target_window
           local new_target = vim.api.nvim_win_call(cur_target, function()
             vim.cmd(direction .. ' split')
@@ -251,7 +250,6 @@ require('lazy').setup({
           MiniFiles.go_in { close_on_file = true }
         end
 
-        -- Adding `desc` will result into `show_help` entries
         local desc = 'Split ' .. direction
         vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
       end
@@ -377,7 +375,6 @@ require('lazy').setup({
 
   {
     'nvim-treesitter/nvim-treesitter',
-    -- dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
     event = 'BufReadPre',
     build = ':TSUpdate',
     config = function()
@@ -499,20 +496,11 @@ require('lazy').setup({
 
   {
     'zbirenbaum/copilot.lua',
-    -- dependencies = 'copilotlsp-nvim/copilot-lsp',
     cmd = 'Copilot',
     event = 'InsertEnter',
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
-      -- nes = {
-      --   enabled = true,
-      --   keymap = {
-      --     accept_and_goto = '<leader>p',
-      --     accept = false,
-      --     dismiss = '<Esc>',
-      --   },
-      -- },
     },
   },
 
@@ -548,7 +536,6 @@ require('lazy').setup({
           local bufopts = { noremap = true, silent = true, buffer = bufnr }
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
           vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
-          -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
           vim.keymap.set('n', '<leader>i', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
