@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d $HOME/zsh-defer ]; then
+  rm -rf $HOME/zsh-defer
+fi

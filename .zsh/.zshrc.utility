@@ -1,3 +1,7 @@
+if [ -d $HOME/zsh-defer ]; then
+  source $HOME/zsh-defer/zsh-defer.plugin.zsh
+fi
+
 # powerline
 function powerline_precmd() {
   eval "$(powerline-go -error $? -shell zsh -eval -modules user,cwd,root)"
@@ -18,7 +22,7 @@ fi
 
 # direnv
 if command -v direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
+  zsh-defer -c 'eval "$(direnv hook zsh)"'
 fi
 
 # Go
@@ -30,13 +34,13 @@ fi
 if [ -d $HOME/.rbenv ]; then
   export RBENV_ROOT=$HOME/.rbenv
   export PATH="$RBENV_ROOT/shims:$PATH"
-  eval "$(rbenv init - --no-rehash zsh)"
+  zsh-defer -c 'eval "$(rbenv init - --no-rehash zsh)"'
 fi
 
 # nodenv
 if [ -d $HOME/.nodenv ]; then
   export PATH="$HOME/.nodenv/shims:$PATH"
-  eval "$(nodenv init -)"
+  zsh-defer -c 'eval "$(nodenv init -)"'
 fi
 
 # ripgrep

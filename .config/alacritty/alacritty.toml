@@ -40,3 +40,6 @@ decorations = "None"
 
 [cursor]
 thickness = 0.25
+
+[scrolling]
+history = 0

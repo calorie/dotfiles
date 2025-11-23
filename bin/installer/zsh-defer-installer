@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ZSH_DEFER_PATH=$HOME/zsh-defer
+if [ -d $ZSH_DEFER_PATH ]; then
+  exit
+fi
+
+git clone --single-branch https://github.com/romkatv/zsh-defer $ZSH_DEFER_PATH

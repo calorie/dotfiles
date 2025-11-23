@@ -21,6 +21,7 @@ PKGS=(
   tmux-256color
   tmux-thumbs
   tmux-powerline
+  zsh-defer
 )
 for pkg in ${PKGS[@]}
 do
