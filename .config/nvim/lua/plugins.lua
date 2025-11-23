@@ -221,15 +221,10 @@ require('lazy').setup({
       end, mode = 'n', noremap = true, silent = true },
     },
     init = function()
-      local ignore_filetypes = { gitcommit = true, gitrebase = true }
       vim.api.nvim_create_autocmd('VimEnter', {
         group = 'MyAutoCmd',
         nested = true,
         callback = function(data)
-          if ignore_filetypes[vim.bo.filetype] then
-            return
-          end
-
           if vim.fn.filereadable(data.file) == 1 then
             return
           end
@@ -250,8 +245,7 @@ require('lazy').setup({
           MiniFiles.go_in { close_on_file = true }
         end
 
-        local desc = 'Split ' .. direction
-        vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
+        vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = 'Split ' .. direction })
       end
 
       vim.api.nvim_create_autocmd('User', {
@@ -272,8 +266,8 @@ require('lazy').setup({
         end,
       },
       mappings = {
-        go_in = 'L',
-        go_in_plus = 'o',
+        go_in       = 'L',
+        go_in_plus  = 'o',
         go_out      = 'H',
         go_out_plus = 'p',
       },
