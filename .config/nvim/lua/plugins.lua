@@ -359,7 +359,12 @@ require('lazy').setup({
     event = 'BufReadPre',
     build = ':TSUpdate',
     dependencies = {
-      'andymass/vim-matchup',
+      {
+        'andymass/vim-matchup',
+        init = function()
+          vim.g.matchup_matchparen_deferred = 1
+        end,
+      },
     },
     config = function()
       require'nvim-treesitter.configs'.setup {
