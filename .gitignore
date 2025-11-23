@@ -18,6 +18,7 @@ Session.vim
 *.orig
 *.zwc
 *.pem
+*.crt
 .zshrc.local
 
 .envrc
@@ -35,3 +36,5 @@ vendor/bundle
 
 *.pub
 *.p8
+
+cdk.out
