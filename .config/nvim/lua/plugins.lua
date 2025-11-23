@@ -910,5 +910,3 @@ require('lazy').setup({
   -- { 'rktjmp/shipwright.nvim' },
   -- { 'rktjmp/lush.nvim' },
 })
-
-vim.opt.secure = true

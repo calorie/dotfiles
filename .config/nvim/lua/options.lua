@@ -62,6 +62,7 @@ vim.opt.suffixes = {
 vim.opt.mouse = nil
 vim.opt.guicursor = "n-v-c-sm-ci:block,i-ve:ver25-Cursor,r-cr-o:hor20"
 vim.opt.termguicolors = true
+vim.opt.secure = true
 
 vim.g.editorconfig = false
 vim.g.loaded_2html_plugin = 1
