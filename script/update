@@ -21,6 +21,7 @@ fi
 
 gem update
 npm update -g
+pipx upgrade-all
 # pip install -r $HOME/dotfiles/requirements.txt --upgrade
 
 # tmux-powerline
