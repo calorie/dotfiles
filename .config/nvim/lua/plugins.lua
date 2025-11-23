@@ -596,7 +596,7 @@ require('lazy').setup({
           'typescriptreact',
           'typescript.jsx',
         },
-        root_markers = { 'package.json' },
+        root_markers = { 'package.json', '.git', vim.uv.cwd() },
       })
 
       vim.lsp.config('yamlls', {
