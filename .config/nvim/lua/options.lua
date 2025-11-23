@@ -63,8 +63,10 @@ vim.opt.mouse = nil
 vim.opt.guicursor = "n-v-c-sm-ci:block,i-ve:ver25-Cursor,r-cr-o:hor20"
 vim.opt.termguicolors = true
 
+vim.g.editorconfig = false
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_gzip = 1
+vim.g.loaded_man = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
 vim.g.loaded_netrw = 1
