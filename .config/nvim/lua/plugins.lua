@@ -246,6 +246,22 @@ require('lazy').setup({
           map_split(buf_id, 'l', 'belowright vertical')
         end,
       })
+
+      vim.api.nvim_create_autocmd('User', {
+        group = 'MyAutoCmd',
+        pattern = 'MiniFilesWindowOpen',
+        callback = function(args)
+          local win_id = args.data.win_id
+
+          vim.api.nvim_set_option_value('foldmethod', 'manual', { win = win_id })
+          vim.api.nvim_set_option_value('foldenable', false, { win = win_id })
+
+          vim.api.nvim_set_option_value('statuscolumn', '', { win = win_id })
+          vim.api.nvim_set_option_value('signcolumn', 'no', { win = win_id })
+
+          vim.api.nvim_set_option_value('winbar', '', { win = win_id })
+        end,
+      })
     end,
     opts = {
       content = {
@@ -264,6 +280,9 @@ require('lazy').setup({
         preview = true,
         width_focus = 30,
         width_preview = 100,
+      },
+      options = {
+        use_as_default_explorer = false,
       },
     },
   },
