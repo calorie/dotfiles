@@ -51,7 +51,7 @@ vim.opt.termguicolors = true
 vim.opt.secure = true
 vim.opt.updatetime = 250
 
-local disabled_built_ins = {
+vim.g.disabled_built_ins = {
   '2html_plugin',
   'getscript',
   'getscriptPlugin',
@@ -79,7 +79,7 @@ local disabled_built_ins = {
   'compiler',
   'bugreport',
 }
-for _, plugin in pairs(disabled_built_ins) do
+for _, plugin in pairs(vim.g.disabled_built_ins) do
   vim.g['loaded_' .. plugin] = 1
 end
 vim.g.editorconfig = false

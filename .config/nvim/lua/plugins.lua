@@ -14,6 +14,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  performance = {
+    rtp = {
+      disabled_plugins = vim.g.disabled_built_ins,
+    },
+  },
   -- ------------------------------------
   --  Buffer
   -- ------------------------------------
@@ -521,15 +526,6 @@ require('lazy').setup({
     event = 'BufReadPre',
     dependencies = 'hrsh7th/cmp-nvim-lsp',
     init = function()
-      vim.lsp.log.set_level(vim.log.levels.OFF)
-
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = false,
-        update_in_insert = false,
-        severity_sort = true,
-      })
-
       vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         group = 'MyAutoCmd',
         pattern = { '*.tf', '*.tfvars' },
@@ -547,16 +543,25 @@ require('lazy').setup({
           end
 
           local bufopts = { noremap = true, silent = true, buffer = ev.buf }
-          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
           vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
-          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
           vim.keymap.set('n', '<leader>i', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
           end, bufopts)
+          -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+          -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
         end,
       })
     end,
     config = function()
+      vim.lsp.log.set_level(vim.log.levels.OFF)
+
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = false,
+        update_in_insert = false,
+        severity_sort = true,
+      })
+
       vim.lsp.config('*', {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
       })
@@ -747,8 +752,6 @@ require('lazy').setup({
     keys = {
       { 'p', '<Plug>(YankyPutAfter)', mode = {'n', 'x'}, noremap = true },
       { 'P', '<Plug>(YankyPutBefore)', mode = {'n', 'x'}, noremap = true },
-      { 'gp', '<Plug>(YankyGPutAfter)', mode = {'n', 'x'}, noremap = true },
-      { 'gP', '<Plug>(YankyGPutBefore)', mode = {'n', 'x'}, noremap = true },
       { '<C-p>', '<Plug>(YankyCycleForward)', mode = 'n', noremap = true },
       { '<C-n>', '<Plug>(YankyCycleBackward)', mode = 'n', noremap = true },
       { 'y', '<Plug>(YankyYank)', mode = {'n', 'x'}, noremap = true },
@@ -850,13 +853,7 @@ require('lazy').setup({
     keys = {
       { '<leader>aa', '<cmd>AvanteAsk<CR>', desc = 'Ask Avante' },
       { '<leader>ac', '<cmd>AvanteChat<CR>', desc = 'Chat with Avante' },
-      { '<leader>ae', '<cmd>AvanteEdit<CR>', desc = 'Edit Avante' },
       { '<leader>af', '<cmd>AvanteFocus<CR>', desc = 'Focus Avante' },
-      { '<leader>ah', '<cmd>AvanteHistory<CR>', desc = 'Avante History' },
-      { '<leader>am', '<cmd>AvanteModels<CR>', desc = 'Select Avante Model' },
-      { '<leader>an', '<cmd>AvanteChatNew<CR>', desc = 'New Avante Chat' },
-      { '<leader>ap', '<cmd>AvanteSwitchProvider<CR>', desc = 'Switch Avante Provider' },
-      { '<leader>ar', '<cmd>AvanteRefresh<CR>', desc = 'Refresh Avante' },
       { '<leader>as', '<cmd>AvanteStop<CR>', desc = 'Stop Avante' },
       { '<leader>at', '<cmd>AvanteToggle<CR>', desc = 'Toggle Avante' },
     },
@@ -895,8 +892,8 @@ require('lazy').setup({
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
       { 'K', '<cmd>Lspsaga peek_definition<cr>', mode = 'n', noremap = true, silent = true },
-      { '<leader>o', '<cmd>Lspsaga outline<cr>', mode = 'n', noremap = true, silent = true },
-      { 'gd', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
+      -- { '<leader>o', '<cmd>Lspsaga outline<cr>', mode = 'n', noremap = true, silent = true },
+      -- { 'gd', '<cmd>Lspsaga hover_doc<cr>', mode = 'n', noremap = true, silent = true },
     },
     opts = {
       symbol_in_winbar = {
