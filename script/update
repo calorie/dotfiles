@@ -40,7 +40,7 @@ fi
 # enhancd
 if [ -d $HOME/enhancd ]; then
   cd $HOME/enhancd
-  git pull --rebase origin master
+  git pull --rebase origin main
 fi
 
 # zsh-defer

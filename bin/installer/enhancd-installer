@@ -5,4 +5,4 @@ if [ -d $ENHANCD_PATH ]; then
   exit
 fi
 
-git clone --single-branch https://github.com/b4b4r07/enhancd $ENHANCD_PATH
+git clone --single-branch https://github.com/babarot/enhancd $ENHANCD_PATH
