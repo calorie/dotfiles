@@ -519,6 +519,9 @@ require('lazy').setup({
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
+      server = {
+        type = 'binary',
+      },
       -- nes = {
       --   enabled = true,
       --   keymap = {
