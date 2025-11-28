@@ -783,6 +783,11 @@ require('lazy').setup({
         on_put = false,
         on_yank = false,
       },
+      picker = {
+        telescope = {
+          use_default_mappings = false,
+        },
+      },
     },
   },
 
