@@ -83,6 +83,7 @@ for _, plugin in pairs(vim.g.disabled_built_ins) do
   vim.g['loaded_' .. plugin] = 1
 end
 vim.g.editorconfig = false
+vim.g.osc52 = false
 vim.g.skip_loading_mswin = 1
 
 vim.g.mapleader = ','
