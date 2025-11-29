@@ -772,7 +772,8 @@ require('lazy').setup({
   {
     'gbprod/yanky.nvim',
     keys = {
-      { 'p', '<Plug>(YankyPutAfter)', mode = {'n', 'x'}, noremap = true },
+      { 'p', '<Plug>(YankyPutAfter)', mode = 'n', noremap = true },
+      { 'p', '<Plug>(YankyPutBefore)', mode = 'x', noremap = true },
       { 'P', '<Plug>(YankyPutBefore)', mode = {'n', 'x'}, noremap = true },
       { '<C-p>', '<Plug>(YankyCycleForward)', mode = 'n', noremap = true },
       { '<C-n>', '<Plug>(YankyCycleBackward)', mode = 'n', noremap = true },
