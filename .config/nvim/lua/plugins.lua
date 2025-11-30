@@ -522,6 +522,13 @@ require('lazy').setup({
       server = {
         type = 'binary',
       },
+      server_opts_overrides = {
+        settings = {
+          telemetry = {
+            telemetryLevel = 'off',
+          },
+        },
+      },
       -- nes = {
       --   enabled = true,
       --   keymap = {
@@ -689,7 +696,7 @@ require('lazy').setup({
         'sqlls',
         'solargraph',
         'terraformls',
-        'tsserver',
+        'ts_ls',
         'yamlls',
       })
     end,
