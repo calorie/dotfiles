@@ -13,6 +13,8 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local LazyFile = { 'BufReadPost', 'BufWritePost', 'BufNewFile' }
+
 require('lazy').setup({
   performance = {
     rtp = {
@@ -196,7 +198,7 @@ require('lazy').setup({
 
   {
     'vladdoster/remember.nvim',
-    event = 'BufReadPre',
+    event = LazyFile,
     opts = {},
   },
 
@@ -311,7 +313,7 @@ require('lazy').setup({
 
   {
     'shellRaining/hlchunk.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = LazyFile,
     opts = {
       indent = {
         enable = true,
@@ -380,7 +382,7 @@ require('lazy').setup({
 
   {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufReadPre',
+    event = LazyFile,
     build = ':TSUpdate',
     dependencies = {
       {
