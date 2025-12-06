@@ -438,7 +438,27 @@ require('lazy').setup({
         dependencies = {
           'rafamadriz/friendly-snippets',
           config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
+            require('luasnip.loaders.from_vscode').lazy_load {
+              include = {
+                'docker-compose',
+                'docker_file',
+                'gitcommit',
+                'global',
+                'go',
+                'html',
+                'javascript',
+                'kubernetes',
+                'lua',
+                'make',
+                'markdown',
+                'plantuml',
+                'ruby',
+                'shell',
+                'sql',
+                'terraform',
+                'typescript',
+              }
+            }
           end,
         },
       },
@@ -448,6 +468,10 @@ require('lazy').setup({
         opts = {},
       },
       'windwp/nvim-autopairs',
+    },
+    keys = {
+      { '<tab>', function() require('luasnip').jump(1) end, mode = 's' },
+      { '<s-tab>', function() require('luasnip').jump(-1) end, mode = { 'i', 's' } },
     },
     config = function()
       local cmp = require 'cmp'
