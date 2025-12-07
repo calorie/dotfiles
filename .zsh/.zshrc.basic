@@ -1,5 +1,5 @@
 typeset -U path PATH
-export PATH=/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$HOME/.local/bin:$PATH
 
 if [ -z "$TMUX" ] && command -v tmux >/dev/null 2>&1; then
   exec tmux -2 new-session -A -s main
