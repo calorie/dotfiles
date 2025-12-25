@@ -60,10 +60,11 @@
   gr = grep
   gn = grep -n
   sm = submodule
-  # smupdate = submodule foreach "git checkout master; git pull origin master"
   st = stash
   sl = stash list
   sp = stash pop
+  sw = switch
+  fs = "!f() { git fetch --prune && git switch -c \"$1\" \"origin/$2\"; }; f"
 [github]
   user = calorie
 [rebase]
