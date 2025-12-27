@@ -244,8 +244,8 @@ require('lazy').setup({
         pattern = 'MiniFilesBufferCreate',
         callback = function(args)
           local buf_id = args.data.buf_id
-          map_split(buf_id, 's', 'belowright horizontal')
-          map_split(buf_id, 'l', 'belowright vertical')
+          map_split(buf_id, 's', 'horizontal')
+          map_split(buf_id, 'l', 'vertical')
         end,
       })
 
@@ -391,6 +391,7 @@ require('lazy').setup({
           vim.g.matchup_matchparen_deferred = 1
           vim.g.matchup_matchparen_offscreen = { method = 'popup' }
           vim.g.matchup_matchparen_stopline = 400
+          vim.g.matchup_treesitter_disabled = { 'markdown' }
         end,
       },
     },
