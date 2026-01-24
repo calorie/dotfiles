@@ -6,6 +6,6 @@ export PATH="$PREFIX/opt/python/libexec/bin:$PREFIX/opt/libxml2/bin:$PREFIX/opt/
 # export PATH="$PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 export C_INCLUDE_PATH=$PREFIX/include:$C_INCLUDE_PATH
 export LDFLAGS="-L$PREFIX/opt/zlib/lib -L$PREFIX/opt/curl/lib -L$PREFIX/opt/libxml2/lib $LDFLAGS"
-export CPPFLAGS="-I$PREFIX/opt/zlib/include -I$PREFIX/opt/curl/include -I$PREFIX/opt/libxml2/include $CPPFLAGS"
+export CPPFLAGS="-I$PREFIX/opt/zlib/include -I$PREFIX/opt/curl/include -I$PREFIX/opt/libxml2/include -I$PREFIX/opt/openjdk/include $CPPFLAGS"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
