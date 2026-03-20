@@ -66,6 +66,5 @@ cask "git-credential-manager"
 cask "google-chrome"
 cask "keyboardcleantool"
 cask "the-unarchiver"
-cask "unlox"
 mas "Kindle", id: 302584613
 mas "Xcode", id: 497799835
