@@ -1030,10 +1030,7 @@ require('lazy').setup({
 
   {
     'pocco81/auto-save.nvim',
-    event = { 'InsertLeave', 'TextChanged' },
-    init = function()
-      require('lazy.core.loader').disable_rtp_plugin('auto-save')
-    end,
+    event = { 'TextChanged', 'TextChangedI' },
     opts = {
       enabled = true,
       execution_message = {
@@ -1053,11 +1050,6 @@ require('lazy').setup({
         return false
       end,
     },
-    config = function(_, opts)
-      local auto_save = require('auto-save')
-      auto_save.setup(opts)
-      auto_save.on()
-    end,
   },
 
   {

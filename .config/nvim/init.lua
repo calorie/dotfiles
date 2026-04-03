@@ -4,6 +4,7 @@ if vim.fn.has('vim_starting') and vim.fn.has('reltime') then
   vim.g.startuptime = vim.fn.reltime()
   vim.api.nvim_create_autocmd('VimEnter', {
     group = 'MyAutoCmd',
+    once = true,
     callback = function()
       vim.g.startuptime = vim.fn.reltime(vim.g.startuptime)
       vim.cmd('redraw')
