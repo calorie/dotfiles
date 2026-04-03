@@ -31,24 +31,62 @@ require('lazy').setup({
       local conditions = require('heirline.conditions')
       local utils = require('heirline.utils')
 
-      local colors = {
-        subtle = utils.get_highlight('StatusLine').fg,
-        surface = utils.get_highlight('StatusLine').bg,
-        muted = utils.get_highlight('StatusLineNC').fg,
-        base = utils.get_highlight('StatusLineNC').bg,
-        text = utils.get_highlight('Normal').fg,
-        highlight_med = utils.get_highlight('Visual').bg,
-      }
+      local function build_highlights()
+        local statusline = utils.get_highlight('StatusLine')
+        local inactive_statusline = utils.get_highlight('StatusLineNC')
+        local normal = utils.get_highlight('Normal')
+        local visual = utils.get_highlight('Visual')
 
-      local highlights = {
-        statusline = { fg = colors.subtle, bg = colors.surface },
-        inactive_statusline = { fg = colors.muted, bg = colors.base },
-        vi_mode = { fg = colors.text, bg = colors.highlight_med },
-        filename = { fg = colors.subtle, bg = colors.surface },
-        inactive_filename = { fg = colors.muted, bg = colors.surface },
-        read_only = { fg = colors.subtle },
-        fileinfo = { fg = colors.subtle, bg = colors.surface },
-      }
+        return {
+          statusline = { fg = statusline.fg, bg = statusline.bg },
+          inactive_statusline = { fg = inactive_statusline.fg, bg = inactive_statusline.bg },
+          vi_mode = { fg = normal.fg, bg = visual.bg },
+          filename = { fg = statusline.fg, bg = statusline.bg },
+          inactive_filename = { fg = inactive_statusline.fg, bg = statusline.bg },
+          read_only = { fg = statusline.fg },
+          fileinfo = { fg = statusline.fg, bg = statusline.bg },
+        }
+      end
+
+      local highlights = build_highlights()
+
+      local function filename_provider()
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':.')
+        return filename == '' and '[No Name]' or filename
+      end
+
+      local function filetype_provider()
+        local ft = vim.bo.filetype
+        return ft == '' and 'NONE' or string.upper(ft)
+      end
+
+      local function fileinfo_encoding_provider()
+        local enc = vim.bo.fenc
+        if enc == '' then
+          enc = vim.o.enc
+        end
+        return string.upper(enc) .. ' '
+      end
+
+      local function is_terminal()
+        return conditions.buffer_matches({ buftype = { 'terminal' } })
+      end
+
+      local function is_special_filetype()
+        return conditions.buffer_matches({ filetype = { 'qf', 'git', 'help' } })
+      end
+
+      local function statusline_hl()
+        if conditions.is_active() then
+          return highlights.statusline
+        end
+        return highlights.inactive_statusline
+      end
+
+      local padding = { provider = ' ' }
+      local align = { provider = '%=' }
+      local line_info = { provider = '%l:%c ' }
+      local scroll_info = { provider = '%P ' }
 
       local vi_mode = {
         init = function(self)
@@ -78,17 +116,10 @@ require('lazy').setup({
         hl = highlights.vi_mode,
       }
 
-      local filename_provider = function()
-        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':.')
-        if filename == '' then return '[No Name]' end
-
-        return filename
-      end
-
       local filename = {
         hl = highlights.filename,
 
-        { provider = ' ' },
+        padding,
 
         {
           condition = function() return vim.bo.readonly end,
@@ -107,31 +138,22 @@ require('lazy').setup({
       local inactive_filename = {
         hl = highlights.inactive_filename,
 
-        { provider = ' ' },
+        padding,
 
         { provider = filename_provider },
       }
-
-      local align = { provider = '%=' }
 
       local fileinfo = {
         hl = highlights.fileinfo,
 
         {
-          provider = function()
-            local enc = (vim.bo.fenc ~= '' and vim.bo.fenc) or vim.o.enc
-            return enc:upper() .. ' '
-          end,
+          provider = fileinfo_encoding_provider,
         },
 
-        { provider = '%l:%c ' },
+        line_info,
 
-        { provider = '%P ' },
+        scroll_info,
       }
-
-      local is_terminal = function()
-        return conditions.buffer_matches({ buftype = { 'terminal' } })
-      end
 
       local terminal_statuslines = {
         condition = is_terminal,
@@ -139,18 +161,11 @@ require('lazy').setup({
         provider = function() return ' TERMINAL' end,
       }
 
-      local is_special_filetype = function()
-        return conditions.buffer_matches({ filetype = { 'qf', 'git', 'help' } })
-      end
-
       local filetype = {
-        { provider = ' ' },
+        padding,
 
         {
-          provider = function()
-            local ft = vim.bo.filetype
-            return ft == '' and 'NONE' or string.upper(ft)
-          end,
+          provider = filetype_provider,
         },
       }
 
@@ -175,13 +190,7 @@ require('lazy').setup({
       }
 
       local statuslines = {
-        hl = function()
-          if conditions.is_active() then
-              return highlights.statusline
-          else
-              return highlights.inactive_statusline
-          end
-        end,
+        hl = statusline_hl,
 
         fallthrough = false,
 
