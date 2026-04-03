@@ -213,14 +213,21 @@ require('lazy').setup({
       end, mode = 'n', noremap = true, silent = true },
     },
     init = function()
-      vim.api.nvim_create_autocmd('VimEnter', {
+      vim.api.nvim_create_autocmd('UIEnter', {
         group = 'MyAutoCmd',
+        once = true,
         callback = function(data)
           if vim.fn.filereadable(data.file) == 1 then
             return
           end
 
-          require('mini.files').open()
+          vim.schedule(function()
+            if vim.v.exiting ~= vim.NIL then
+              return
+            end
+
+            require('mini.files').open()
+          end)
         end,
       })
 
@@ -986,6 +993,9 @@ require('lazy').setup({
   {
     'pocco81/auto-save.nvim',
     event = { 'InsertLeave', 'TextChanged' },
+    init = function()
+      require('lazy.core.loader').disable_rtp_plugin('auto-save')
+    end,
     opts = {
       enabled = true,
       execution_message = {
@@ -1005,6 +1015,11 @@ require('lazy').setup({
         return false
       end,
     },
+    config = function(_, opts)
+      local auto_save = require('auto-save')
+      auto_save.setup(opts)
+      auto_save.on()
+    end,
   },
 
   {
