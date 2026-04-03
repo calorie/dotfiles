@@ -214,14 +214,33 @@ require('lazy').setup({
   {
     'nvim-mini/mini.files',
     version = '*',
-    keys = {
-      { '<leader>f', function() MiniFiles.open() end, mode = 'n', noremap = true, silent = true },
-      { '<leader>nf', function()
-        local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-        MiniFiles.reveal_cwd()
-      end, mode = 'n', noremap = true, silent = true },
-    },
     init = function()
+      local function open_with_deferred_preview(path, use_latest)
+        local mini_files = require('mini.files')
+
+        mini_files.open(path, use_latest, {
+          windows = {
+            preview = false,
+          },
+        })
+
+        vim.schedule(function()
+          if vim.v.exiting ~= vim.NIL then
+            return
+          end
+
+          if mini_files.get_explorer_state() == nil then
+            return
+          end
+
+          mini_files.refresh({
+            windows = {
+              preview = true,
+            },
+          })
+        end)
+      end
+
       vim.api.nvim_create_autocmd('UIEnter', {
         group = 'MyAutoCmd',
         once = true,
@@ -235,10 +254,20 @@ require('lazy').setup({
               return
             end
 
-            require('mini.files').open()
+            open_with_deferred_preview()
           end)
         end,
       })
+
+      vim.keymap.set('n', '<leader>f', function()
+        open_with_deferred_preview()
+      end, { noremap = true, silent = true })
+
+      vim.keymap.set('n', '<leader>nf', function()
+        local mini_files = require('mini.files')
+        local _ = mini_files.close() or open_with_deferred_preview(vim.api.nvim_buf_get_name(0), false)
+        mini_files.reveal_cwd()
+      end, { noremap = true, silent = true })
 
       local map_split = function(buf_id, lhs, direction)
         local rhs = function()
