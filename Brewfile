@@ -68,3 +68,13 @@ cask "keyboardcleantool"
 cask "the-unarchiver"
 mas "Kindle", id: 302584613
 mas "Xcode", id: 497799835
+npm "@google/gemini-cli"
+npm "@openai/codex"
+npm "corepack"
+npm "neovim"
+npm "sql-language-server"
+npm "typescript-language-server"
+npm "typescript"
+npm "vscode-langservers-extracted"
+npm "yaml-language-server"
+npm "yarn"
