@@ -648,7 +648,7 @@ require('lazy').setup({
           local bufopts = { noremap = true, silent = true, buffer = ev.buf }
           vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, bufopts)
           vim.keymap.set('n', '<leader>i', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
           end, bufopts)
           -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
           -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)

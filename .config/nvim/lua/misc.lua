@@ -2,7 +2,7 @@ vim.api.nvim_set_hl(0, 'EndOfBuffer', { link = 'Ignore' })
 
 vim.cmd([[command! Path echo expand('%:p')]])
 
-vim.api.nvim_set_hl(0, 'ZenkakuSpace', { ctermbg = lightblue, guibg = darkgray, underline = true })
+vim.api.nvim_set_hl(0, 'ZenkakuSpace', { ctermbg = 'lightblue', bg = 'darkgray', underline = true })
 vim.cmd[[match ZenkakuSpace /　/]]
 
 function StripTrailingWhitespace()

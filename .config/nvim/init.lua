@@ -1,6 +1,6 @@
 vim.api.nvim_create_augroup('MyAutoCmd', { clear = true })
 
-if vim.fn.has('vim_starting') and vim.fn.has('reltime') then
+if vim.fn.has('vim_starting') == 1 and vim.fn.has('reltime') == 1 then
   vim.g.startuptime = vim.fn.reltime()
   vim.api.nvim_create_autocmd('VimEnter', {
     group = 'MyAutoCmd',

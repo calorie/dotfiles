@@ -62,7 +62,6 @@ DOTFILES=(
   .config/tmux-powerline/themes
   .vimrc
   .zshrc
-  .zshrc.local
   .wezterm.lua
 )
 for file in ${DOTFILES[@]}
