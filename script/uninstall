@@ -50,7 +50,7 @@ DOTFILES=(
   .zshrc.local
   .wezterm.lua
 )
-for file in ${DOT_FILES[@]}
+for file in ${DOTFILES[@]}
 do
   if [ -f $HOME/$file ]; then
     rm -rf $HOME/$file

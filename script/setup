@@ -45,7 +45,6 @@ DOTFILES=(
   .gemrc
   .gitconfig
   .gitignore
-  .inputrc
   .irbrc
   .nodenv/default-packages
   .pryrc
