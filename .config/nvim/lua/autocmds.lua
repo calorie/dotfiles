@@ -34,3 +34,15 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.tabstop = 4
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'MyAutoCmd',
+  pattern = {
+    'lua', 'markdown',
+  },
+  callback = function(ev)
+    vim.treesitter.start(ev.buf)
+    vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  end,
+})

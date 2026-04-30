@@ -426,44 +426,13 @@ require('lazy').setup({
   },
 
   {
-    'nvim-treesitter/nvim-treesitter',
+    'andymass/vim-matchup',
     event = LazyFile,
-    build = ':TSUpdate',
-    dependencies = {
-      {
-        'andymass/vim-matchup',
-        init = function()
-          vim.g.matchup_matchparen_deferred = 1
-          vim.g.matchup_matchparen_offscreen = { method = 'popup' }
-          vim.g.matchup_matchparen_stopline = 400
-          vim.g.matchup_treesitter_disabled = { 'markdown' }
-        end,
-      },
-    },
-    config = function()
-      require'nvim-treesitter.configs'.setup {
-        ensure_installed = {
-          'bash', 'go', 'hcl', 'json', 'lua', 'markdown', 'markdown_inline',
-          'ruby', 'sql', 'typescript', 'yaml',
-        },
-        highlight = {
-          enable = true,
-          -- disable = { 'markdown' },
-          additional_vim_regex_highlighting = false,
-        },
-        indent = {
-          enable = true,
-        },
-        folds = {
-          enable = false,
-        },
-        matchup = {
-          enable = true,
-        },
-      }
-
-      vim.wo.foldmethod = 'expr'
-      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    init = function()
+      vim.g.matchup_matchparen_deferred = 1
+      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+      vim.g.matchup_matchparen_stopline = 400
+      vim.g.matchup_treesitter_disabled = { 'markdown' }
     end,
   },
 
@@ -820,7 +789,6 @@ require('lazy').setup({
     keys = {
       { '<space>m', '<cmd>TSJToggle<cr>', mode = 'n', noremap = true, silent = true },
     },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {
       use_default_keymaps = false,
       notify = false,
@@ -997,7 +965,7 @@ require('lazy').setup({
 
   {
     'glepnir/lspsaga.nvim',
-    dependencies = { 'neovim/nvim-lspconfig', 'nvim-treesitter/nvim-treesitter' },
+    dependencies = { 'neovim/nvim-lspconfig' },
     keys = {
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<cr>', mode = 'v', noremap = true, silent = true },
