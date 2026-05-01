@@ -32,6 +32,11 @@ action = "DecreaseFontSize"
 key = "Minus"
 mods = "Command"
 
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
+
 [mouse]
 hide_when_typing = true
 
