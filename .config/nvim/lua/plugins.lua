@@ -934,7 +934,7 @@ require('lazy').setup({
     'yetone/avante.nvim',
     build = 'make',
     dependencies = {
-      'stevearc/dressing.nvim',
+      'folke/snacks.nvim',
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
       'hrsh7th/nvim-cmp',
