@@ -854,7 +854,7 @@ require('lazy').setup({
   },
 
   {
-    'phaazon/hop.nvim',
+    'smoka7/hop.nvim',
     keys = {
       { '<leader>j', '<cmd>HopVerticalAC<cr>', mode = 'n', noremap = true, silent = true },
       { '<leader>k', '<cmd>HopVerticalBC<cr>', mode = 'n', noremap = true, silent = true },
