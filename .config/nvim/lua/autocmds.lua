@@ -38,10 +38,10 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   group = 'MyAutoCmd',
   pattern = {
-    'lua', 'markdown',
+    'bash', 'go', 'hcl', 'json', 'lua', 'markdown',
+    'ruby', 'sh', 'sql', 'terraform', 'typescript', 'yaml',
   },
-  callback = function(ev)
-    vim.treesitter.start(ev.buf)
+  callback = function()
     vim.wo.foldmethod = 'expr'
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
   end,

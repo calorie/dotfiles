@@ -426,6 +426,18 @@ require('lazy').setup({
   },
 
   {
+    'romus204/tree-sitter-manager.nvim',
+    opts = {
+      ensure_installed = {
+        'bash', 'go', 'hcl', 'json', 'lua', 'markdown', 'markdown_inline',
+        'ruby', 'sql', 'terraform', 'typescript', 'yaml',
+      },
+      auto_install = false,
+      highlight = true,
+    },
+  },
+
+  {
     'andymass/vim-matchup',
     event = LazyFile,
     init = function()
