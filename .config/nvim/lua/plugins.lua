@@ -427,6 +427,8 @@ require('lazy').setup({
 
   {
     'romus204/tree-sitter-manager.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = 'TSManager',
     opts = {
       ensure_installed = {
         'bash', 'go', 'hcl', 'json', 'lua', 'markdown', 'markdown_inline',
