@@ -491,11 +491,6 @@ require('lazy').setup({
           end,
         },
       },
-      {
-        'zbirenbaum/copilot-cmp',
-        dependencies = 'zbirenbaum/copilot.lua',
-        opts = {},
-      },
       'windwp/nvim-autopairs',
     },
     keys = {
@@ -522,7 +517,6 @@ require('lazy').setup({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = "copilot", group_index = 2 },
           { name = 'nvim_lsp', group_index = 2 },
           { name = 'luasnip', group_index = 2 },
         }, {
@@ -982,7 +976,7 @@ require('lazy').setup({
   },
 
   {
-    'glepnir/lspsaga.nvim',
+    'nvimdev/lspsaga.nvim',
     dependencies = { 'neovim/nvim-lspconfig' },
     keys = {
       { '<leader>ca', '<cmd>Lspsaga code_action<cr>', mode = 'n', noremap = true, silent = true },
@@ -1011,7 +1005,7 @@ require('lazy').setup({
   },
 
   {
-    'lambdalisue/suda.vim',
+    'lambdalisue/vim-suda',
     cmd = { 'SudaRead', 'SudaWrite' },
   },
 
