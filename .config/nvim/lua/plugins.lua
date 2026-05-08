@@ -789,10 +789,16 @@ require('lazy').setup({
   },
 
   {
-    'junegunn/vim-easy-align',
+    'nvim-mini/mini.align',
+    version = '*',
     keys = {
-      { 'tb', '<Plug>(EasyAlign)', mode = 'n', noremap = true },
-      { 'tb', '<Plug>(EasyAlign)', mode = 'v', noremap = true },
+      { 'tb', mode = { 'n', 'v' } },
+    },
+    opts = {
+      mappings = {
+        start = 'tb',
+        start_with_preview = '',
+      },
     },
   },
 
