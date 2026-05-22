@@ -879,14 +879,6 @@ require('lazy').setup({
   },
 
   -- {
-  --   'terryma/vim-expand-region',
-  --   keys = {
-  --     { '<space>', '<Plug>(expand_region_expand)', mode = 'v', noremap = true },
-  --     { '<bs>', '<Plug>(expand_region_shrink)', mode = 'v', noremap = true },
-  --   },
-  -- },
-  --
-  -- {
   --   't9md/vim-quickhl',
   --   keys = {
   --     { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
@@ -910,22 +902,34 @@ require('lazy').setup({
   --  textobj
   -- ------------------------------------
   {
-    'kana/vim-textobj-entire',
-    dependencies = 'kana/vim-textobj-user',
+    'nvim-mini/mini.ai',
+    version = '*',
     keys = {
-      { 'ae', '<Plug>(textobj-entire-a)', mode = 'x', noremap = true },
-      { 'ie', '<Plug>(textobj-entire-i)', mode = 'x', noremap = true },
+      { 'ae', function() require('mini.ai').select_textobject('a', 'e') end, mode = 'x' },
+      { 'ae', function() require('mini.ai').select_textobject('a', 'e', { operator_pending = true }) end, mode = 'o' },
     },
-  },
+    opts = {
+      custom_textobjects = {
+        e = function()
+          local from = { line = 1, col = 1 }
+          local to = {
+            line = vim.fn.line('$'),
+            col = math.max(vim.fn.getline('$'):len(), 1),
+          }
 
-  {
-    'kana/vim-textobj-indent',
-    dependencies = 'kana/vim-textobj-user',
-    keys = {
-      { 'ai', '<Plug>(textobj-indent-a)', mode = 'x', noremap = true },
-      { 'ii', '<Plug>(textobj-indent-i)', mode = 'x', noremap = true },
-      { 'aI', '<Plug>(textobj-indent-same-a)', mode = 'x', noremap = true },
-      { 'iI', '<Plug>(textobj-indent-same-i)', mode = 'x', noremap = true },
+          return { from = from, to = to, vis_mode = 'V' }
+        end,
+      },
+      mappings = {
+        around = '',
+        inside = '',
+        around_next = '',
+        inside_next = '',
+        around_last = '',
+        inside_last = '',
+        goto_left = '',
+        goto_right = '',
+      },
     },
   },
 
