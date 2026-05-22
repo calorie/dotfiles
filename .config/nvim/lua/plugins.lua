@@ -879,13 +879,22 @@ require('lazy').setup({
   },
 
   -- {
-  --   't9md/vim-quickhl',
+  --   'nvim-mini/mini.cursorword',
+  --   version = '*',
   --   keys = {
-  --     { '<space>h', '<Plug>(quickhl-cword-toggle)', mode = 'n', noremap = true },
+  --     {
+  --       '<space>h',
+  --       function()
+  --         vim.g.minicursorword_disable = not vim.g.minicursorword_disable
+  --         vim.api.nvim_exec_autocmds('CursorMoved', { group = 'MiniCursorword' })
+  --       end,
+  --       mode = 'n', noremap = true, silent = true,
+  --     },
   --   },
-  --   config = function()
-  --     vim.g.quickhl_cword_hl_command = 'link QuickhlCword SpellCap'
+  --   init = function()
+  --     vim.g.minicursorword_disable = true
   --   end,
+  --   opts = {},
   -- },
 
   {
