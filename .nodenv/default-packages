@@ -1,5 +1,6 @@
 @google/gemini-cli
 neovim
+@openai/codex
 sql-language-server
 typescript
 typescript-language-server
