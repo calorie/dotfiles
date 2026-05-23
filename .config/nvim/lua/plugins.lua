@@ -879,24 +879,24 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- {
-  --   'nvim-mini/mini.cursorword',
-  --   version = '*',
-  --   keys = {
-  --     {
-  --       '<space>h',
-  --       function()
-  --         vim.g.minicursorword_disable = not vim.g.minicursorword_disable
-  --         vim.api.nvim_exec_autocmds('CursorMoved', { group = 'MiniCursorword' })
-  --       end,
-  --       mode = 'n', noremap = true, silent = true,
-  --     },
-  --   },
-  --   init = function()
-  --     vim.g.minicursorword_disable = true
-  --   end,
-  --   opts = {},
-  -- },
+  {
+    'nvim-mini/mini.cursorword',
+    version = '*',
+    keys = {
+      {
+        '<space>h',
+        function()
+          vim.g.minicursorword_disable = not vim.g.minicursorword_disable
+          vim.api.nvim_exec_autocmds('CursorMoved', { group = 'MiniCursorword' })
+        end,
+        mode = 'n', noremap = true, silent = true,
+      },
+    },
+    init = function()
+      vim.g.minicursorword_disable = true
+    end,
+    opts = {},
+  },
 
   {
     't9md/vim-textmanip',
