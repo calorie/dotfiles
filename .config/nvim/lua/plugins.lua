@@ -945,49 +945,47 @@ require('lazy').setup({
   -- ------------------------------------
   --  Utility
   -- ------------------------------------
+  -- {
+  --   'yetone/avante.nvim',
+  --   build = 'make',
+  --   dependencies = {
+  --     'folke/snacks.nvim',
+  --     'nvim-lua/plenary.nvim',
+  --     'MunifTanjim/nui.nvim',
+  --     'hrsh7th/nvim-cmp',
+  --     'zbirenbaum/copilot.lua',
+  --   },
+  --   keys = {
+  --     { '<leader>aa', '<cmd>AvanteAsk<CR>', desc = 'Ask Avante' },
+  --     { '<leader>ac', '<cmd>AvanteChat<CR>', desc = 'Chat with Avante' },
+  --     { '<leader>af', '<cmd>AvanteFocus<CR>', desc = 'Focus Avante' },
+  --     { '<leader>as', '<cmd>AvanteStop<CR>', desc = 'Stop Avante' },
+  --     { '<leader>at', '<cmd>AvanteToggle<CR>', desc = 'Toggle Avante' },
+  --   },
+  --   opts = {
+  --     provider = 'gemini',
+  --
+  --     gemini = {
+  --       model = 'gemini-2.5-pro',
+  --       temperature = 0,
+  --       max_tokens = 4096,
+  --     },
+  --
+  --     selection = {
+  --       hint_display = 'none',
+  --     },
+  --
+  --     behaviour = {
+  --       auto_suggestions = false,
+  --       auto_set_keymaps = false,
+  --     },
+  --   },
+  -- },
+
   {
-    'yetone/avante.nvim',
-    build = 'make',
-    dependencies = {
-      'folke/snacks.nvim',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      'hrsh7th/nvim-cmp',
-      'zbirenbaum/copilot.lua',
-    },
-    keys = {
-      { '<leader>aa', '<cmd>AvanteAsk<CR>', desc = 'Ask Avante' },
-      { '<leader>ac', '<cmd>AvanteChat<CR>', desc = 'Chat with Avante' },
-      { '<leader>af', '<cmd>AvanteFocus<CR>', desc = 'Focus Avante' },
-      { '<leader>as', '<cmd>AvanteStop<CR>', desc = 'Stop Avante' },
-      { '<leader>at', '<cmd>AvanteToggle<CR>', desc = 'Toggle Avante' },
-    },
-    opts = {
-      provider = 'gemini',
-
-      gemini = {
-        model = 'gemini-2.5-pro',
-        temperature = 0,
-        max_tokens = 4096,
-      },
-
-      selection = {
-        hint_display = 'none',
-      },
-
-      behaviour = {
-        auto_suggestions = false,
-        auto_set_keymaps = false,
-      },
-    },
-  },
-
-  {
-    'rhysd/ghpr-blame.vim',
-    cmd = { 'GHPRBlame', 'GHPRBlameQuit' },
-    init = function()
-      vim.g.ghpr_github_auth_token = os.getenv('GITHUB_TOKEN')
-    end,
+    'h3pei/trace-pr.nvim',
+    cmd = { 'TracePR' },
+    opts = {},
   },
 
   {
