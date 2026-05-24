@@ -14,7 +14,7 @@ if vim.fn.has('vim_starting') == 1 and vim.fn.has('reltime') == 1 then
 end
 
 require('options')
-require('plugins')
+require('plugin')
 require('autocmds')
 require('keymaps')
 require('misc')
