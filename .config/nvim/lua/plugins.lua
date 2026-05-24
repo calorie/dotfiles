@@ -213,6 +213,7 @@ require('lazy').setup({
 
   {
     'nvim-mini/mini.files',
+    event = 'VeryLazy',
     version = '*',
     init = function()
       local function open_with_deferred_preview(path, use_latest)
@@ -422,7 +423,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme calorie]])
+      vim.cmd.colorscheme('calorie')
     end,
   },
 
