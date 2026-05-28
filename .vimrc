@@ -1,7 +1,7 @@
 let s:rcs = [
       \ 'basic',
       \ 'indent',
-      \ 'apperance',
+      \ 'appearance',
       \ 'completion',
       \ 'search',
       \ 'moving',

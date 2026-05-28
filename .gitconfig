@@ -25,6 +25,7 @@
   conflictStyle = zdiff3
 [mergetool]
   prompt = false
+  keepBackup = false
 [alias]
   s   = status
   sh  = show
@@ -71,8 +72,6 @@
   autosquash = true
 [rerere]
   enabled = true
-[mergetool]
-  keepBackup = false
 [pull]
   rebase = false
 [heroku]

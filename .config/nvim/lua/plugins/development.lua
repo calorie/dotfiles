@@ -120,30 +120,32 @@ return {
         version = 'v2.*',
         build = 'make install_jsregexp',
         dependencies = {
-          'rafamadriz/friendly-snippets',
-          config = function()
-            require('luasnip.loaders.from_vscode').lazy_load {
-              include = {
-                'docker-compose',
-                'docker_file',
-                'gitcommit',
-                'global',
-                'go',
-                'html',
-                'javascript',
-                'kubernetes',
-                'lua',
-                'make',
-                'markdown',
-                'plantuml',
-                'ruby',
-                'shell',
-                'sql',
-                'terraform',
-                'typescript',
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load {
+                include = {
+                  'docker-compose',
+                  'docker_file',
+                  'gitcommit',
+                  'global',
+                  'go',
+                  'html',
+                  'javascript',
+                  'kubernetes',
+                  'lua',
+                  'make',
+                  'markdown',
+                  'plantuml',
+                  'ruby',
+                  'shell',
+                  'sql',
+                  'terraform',
+                  'typescript',
+                }
               }
-            }
-          end,
+            end,
+          },
         },
       },
       'windwp/nvim-autopairs',

@@ -3,9 +3,9 @@
 while :
 do
   read -p 'install dotfiles? y/n ' yn
-  if [ $yn = 'n' -o $yn = 'N' ]; then
+  if [ "$yn" = 'n' -o "$yn" = 'N' ]; then
     exit
-  elif [ $yn = 'y' -o $yn = 'Y' ]; then
+  elif [ "$yn" = 'y' -o "$yn" = 'Y' ]; then
     break
   else
     continue

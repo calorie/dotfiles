@@ -1,0 +1,17 @@
+set showmatch
+set matchtime=1
+set number
+set display=uhex
+set previewheight=15
+set cmdheight=1
+set lazyredraw
+set ttyfast
+set cursorline
+set list
+set redrawtime=10000
+set laststatus=2
+set ruler
+set listchars=tab:>.,trail:_,extends:>,precedes:<
+
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+match ZenkakuSpace /　/
