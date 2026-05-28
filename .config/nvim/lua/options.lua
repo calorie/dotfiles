@@ -30,7 +30,7 @@ vim.opt.listchars = { tab = '>.', trail = '_', extends = '>', precedes = '<' }
 vim.opt.wildchar = ("\t"):byte()
 vim.opt.wildmode = 'list:full'
 vim.opt.history = 1000
-vim.opt.complete:append('k')
+-- vim.opt.complete:append('k')
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.wrapscan = true
 vim.opt.ignorecase = true

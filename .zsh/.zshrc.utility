@@ -4,20 +4,11 @@ fi
 
 # powerline
 function powerline_precmd() {
-  eval "$(powerline-go -error $? -shell zsh -eval -modules user,cwd,root)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = 'powerline_precmd' ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
+  eval "$(powerline-go -error $? -shell zsh -eval -modules cwd)"
 }
 
 if [ "$TERM" != 'linux' ] && command -v powerline-go >/dev/null 2>&1; then
-  install_powerline_precmd
+  (( ${precmd_functions[(I)powerline_precmd]} )) || precmd_functions+=(powerline_precmd)
 fi
 
 # direnv
@@ -40,7 +31,7 @@ fi
 # nodenv
 if [ -d $HOME/.nodenv ]; then
   export PATH="$HOME/.nodenv/shims:$PATH"
-  zsh-defer -c 'eval "$(nodenv init -)"'
+  zsh-defer -c 'eval "$(nodenv init - --no-rehash zsh)"'
 fi
 
 # ripgrep
@@ -65,7 +56,7 @@ bindkey '^R' peco-select-history
 # enhancd
 if [ -d $HOME/enhancd ]; then
   export ENHANCD_FILTER=peco
-  source $HOME/enhancd/init.sh
+  zsh-defer source $HOME/enhancd/init.sh
 fi
 
 # misc
