@@ -90,9 +90,9 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
-if vim.fn.executable('python3') == 1 then
-  vim.g.python3_host_prog = vim.fn.exepath('python3')
-end
+-- if vim.fn.executable('python3') == 1 then
+--   vim.g.python3_host_prog = vim.fn.exepath('python3')
+-- end
 vim.g.ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 
 vim.g.omni_sql_default_compl_type = 'syntax'

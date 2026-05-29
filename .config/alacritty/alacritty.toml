@@ -9,7 +9,7 @@ size = 18.0
 builtin_box_drawing = true
 
 [font.normal]
-family = "HackGen Console"
+family = "HackGen"
 style = "Regular"
 
 [[keyboard.bindings]]
