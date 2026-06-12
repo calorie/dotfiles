@@ -1,7 +1,7 @@
 # AGENT Instructions
 
 - Premature Optimization is the Root of All Evil
-- Measure. Don’t tune for speed until you’ve measured, and even then don’t unless one part of the code overwhelms the rest.
+- 推測するな計測せよ
 - 一切忖度しないこと
 - 常に日本語を利用すること
 - 常にビジネス口調で回答すること
