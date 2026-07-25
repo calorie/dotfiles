@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 while :
 do
   read -p 'update? y/n ' yn
@@ -25,27 +27,27 @@ pipx upgrade-all
 # pip install -r $HOME/dotfiles/requirements.txt --upgrade
 
 # tmux-powerline
-if [ -d $HOME/.tmux/tmux-powerline ]; then
-  cd $HOME/.tmux/tmux-powerline
+if [ -d "$HOME/.tmux/tmux-powerline" ]; then
+  cd "$HOME/.tmux/tmux-powerline"
   git pull --rebase origin main
 fi
 
 # tmux-thumbs
-if [ -d $HOME/.tmux/tmux-thumbs ]; then
-  cd $HOME/.tmux/tmux-thumbs
+if [ -d "$HOME/.tmux/tmux-thumbs" ]; then
+  cd "$HOME/.tmux/tmux-thumbs"
   git pull --rebase origin master
   cargo build --release
 fi
 
 # enhancd
-if [ -d $HOME/enhancd ]; then
-  cd $HOME/enhancd
+if [ -d "$HOME/enhancd" ]; then
+  cd "$HOME/enhancd"
   git pull --rebase origin main
 fi
 
 # zsh-defer
-if [ -d $HOME/zsh-defer ]; then
-  cd $HOME/zsh-defer
+if [ -d "$HOME/zsh-defer" ]; then
+  cd "$HOME/zsh-defer"
   git pull --rebase origin master
 fi
 
@@ -54,5 +56,5 @@ if command -v nvim >/dev/null 2>&1; then
   nvim +':Lazy update' +qa
 fi
 
-cd ${ORIGIN}
-exec $SHELL
+cd "$ORIGIN"
+exec "$SHELL"

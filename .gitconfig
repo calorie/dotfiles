@@ -21,7 +21,7 @@
 [mergetool "nvimdiff"]
   layout = "LOCAL,BASE,REMOTE / MERGED"
 [merge]
-  tool = nvim
+  tool = nvimdiff
   conflictStyle = zdiff3
 [mergetool]
   prompt = false

@@ -1,5 +1,7 @@
 #!/bin/bash
 
-if [ -d $HOME/.tmux/tmux-thumbs ]; then
-  rm -rf $HOME/.tmux/tmux-thumbs
+set -euo pipefail
+
+if [ -d "$HOME/.tmux/tmux-thumbs" ]; then
+  rm -rf "$HOME/.tmux/tmux-thumbs"
 fi

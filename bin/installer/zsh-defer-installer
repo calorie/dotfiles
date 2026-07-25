@@ -1,8 +1,10 @@
 #!/bin/bash
 
+set -euo pipefail
+
 ZSH_DEFER_PATH=$HOME/zsh-defer
-if [ -d $ZSH_DEFER_PATH ]; then
+if [ -d "$ZSH_DEFER_PATH" ]; then
   exit
 fi
 
-git clone --single-branch https://github.com/romkatv/zsh-defer $ZSH_DEFER_PATH
+git clone --single-branch https://github.com/romkatv/zsh-defer "$ZSH_DEFER_PATH"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 while :
 do
   read -p 'install dotfiles? y/n ' yn
@@ -16,6 +18,13 @@ ORIGIN=$(pwd)
 DOTFILES_PATH=$HOME/dotfiles
 INSTALLER_PATH=$DOTFILES_PATH/bin/installer
 
+if ! command -v brew >/dev/null 2>&1; then
+  printf '%s\n' 'Homebrew is required.' >&2
+  exit 1
+fi
+
+brew bundle --file="$DOTFILES_PATH/Brewfile"
+
 PKGS=(
   enhancd
   tmux-256color
@@ -23,9 +32,9 @@ PKGS=(
   tmux-powerline
   zsh-defer
 )
-for pkg in ${PKGS[@]}
+for pkg in "${PKGS[@]}"
 do
-  $INSTALLER_PATH/$pkg-installer
+  "$INSTALLER_PATH/$pkg-installer"
 done
 
 DIRS=(
@@ -37,9 +46,9 @@ DIRS=(
   .nodenv
   .rbenv
 )
-for dir in ${DIRS[@]}
+for dir in "${DIRS[@]}"
 do
-  mkdir -p $HOME/$dir
+  mkdir -p "$HOME/$dir"
 done
 
 DOTFILES=(
@@ -65,12 +74,12 @@ DOTFILES=(
   .zshrc
   .wezterm.lua
 )
-for file in ${DOTFILES[@]}
+for file in "${DOTFILES[@]}"
 do
-  ln -sf $DOTFILES_PATH/$file $HOME/$file
+  ln -sfn "$DOTFILES_PATH/$file" "$HOME/$file"
 done
 
 defaults write -g KeyRepeat -int 1
 
-cd ${ORIGIN}
-exec $SHELL
+cd "$ORIGIN"
+exec "$SHELL"

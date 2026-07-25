@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 while :
 do
   read -p 'uninstall dotfiles? y/n ' yn
@@ -20,9 +22,9 @@ PKGS=(
   tmux-powerline
   zsh-defer
 )
-for pkg in ${PKGS[@]}
+for pkg in "${PKGS[@]}"
 do
-  $UNINSTALLER_PATH/$pkg-uninstaller
+  "$UNINSTALLER_PATH/$pkg-uninstaller"
 done
 
 DOTFILES=(
@@ -48,11 +50,11 @@ DOTFILES=(
   .zshrc
   .wezterm.lua
 )
-for file in ${DOTFILES[@]}
+for file in "${DOTFILES[@]}"
 do
-  if [ -L $HOME/$file ]; then
-    rm -r $HOME/$file
+  if [ -L "$HOME/$file" ]; then
+    rm -r "$HOME/$file"
   fi
 done
 
-exec $SHELL
+exec "$SHELL"

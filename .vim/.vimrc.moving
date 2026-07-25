@@ -15,7 +15,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-nnoremap <silent> tc :<C-u>tabnew \| :Fern . -drawer -toggle<CR>
 nnoremap <silent> tx :<C-u>tabclose<CR>
 nnoremap <silent> to :<C-u>tabonly<CR>
 nnoremap <silent> <Space><Space> :<C-u>tabnext<CR>

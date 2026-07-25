@@ -1,5 +1,7 @@
 #!/bin/bash
 
-if [ -d $HOME/zsh-defer ]; then
-  rm -rf $HOME/zsh-defer
+set -euo pipefail
+
+if [ -d "$HOME/zsh-defer" ]; then
+  rm -rf "$HOME/zsh-defer"
 fi

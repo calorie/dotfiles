@@ -11,7 +11,6 @@ alias pk='pkill -f'
 
 alias du='du -h'
 alias df='df -h'
-alias duh='du -h ./ --max-depth=1'
 
 alias su='su -l'
 

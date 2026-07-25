@@ -1,5 +1,7 @@
 #!/bin/bash
 
-if [ -d $HOME/.tmux/tmux-powerline ]; then
-  rm -rf $HOME/.tmux/tmux-powerline
+set -euo pipefail
+
+if [ -d "$HOME/.tmux/tmux-powerline" ]; then
+  rm -rf "$HOME/.tmux/tmux-powerline"
 fi

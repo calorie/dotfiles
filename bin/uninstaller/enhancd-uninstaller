@@ -1,5 +1,7 @@
 #!/bin/bash
 
-if [ -d $HOME/enhancd ]; then
-  rm -rf $HOME/enhancd
+set -euo pipefail
+
+if [ -d "$HOME/enhancd" ]; then
+  rm -rf "$HOME/enhancd"
 fi

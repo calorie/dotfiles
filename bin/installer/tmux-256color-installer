@@ -1,9 +1,13 @@
 #!/bin/bash
 
+set -euo pipefail
+
+TERMINFO_FILE=$HOME/tmux-256color.info
+trap 'rm -f -- "$TERMINFO_FILE"' EXIT
+
 if [[ "$(uname -m)" == 'arm64' ]]; then
-  /opt/homebrew/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info
+  /opt/homebrew/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
 else
-  /usr/local/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info
+  /usr/local/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
 fi
-tic -xe tmux-256color ~/tmux-256color.info
-rm ~/tmux-256color.info
+tic -xe tmux-256color "$TERMINFO_FILE"

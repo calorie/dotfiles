@@ -1,12 +1,14 @@
 #!/bin/bash
 
+set -euo pipefail
+
 TMUX_PATH=$HOME/.tmux
 if [ -d "$TMUX_PATH/tmux-powerline" ]; then
   exit
 fi
 
 if [ ! -d "$TMUX_PATH" ]; then
-  mkdir $TMUX_PATH
+  mkdir "$TMUX_PATH"
 fi
 
-git clone --single-branch https://github.com/erikw/tmux-powerline.git $TMUX_PATH/tmux-powerline
+git clone --single-branch https://github.com/erikw/tmux-powerline.git "$TMUX_PATH/tmux-powerline"

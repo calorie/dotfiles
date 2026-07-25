@@ -1,14 +1,16 @@
 #!/bin/bash
 
+set -euo pipefail
+
 TMUX_PATH=$HOME/.tmux
 if [ -d "$TMUX_PATH/tmux-thumbs" ]; then
   exit
 fi
 
 if [ ! -d "$TMUX_PATH" ]; then
-  mkdir $TMUX_PATH
+  mkdir "$TMUX_PATH"
 fi
 
-git clone --single-branch https://github.com/fcsonline/tmux-thumbs $TMUX_PATH/tmux-thumbs
-cd $TMUX_PATH/tmux-thumbs
+git clone --single-branch https://github.com/fcsonline/tmux-thumbs "$TMUX_PATH/tmux-thumbs"
+cd "$TMUX_PATH/tmux-thumbs"
 cargo build --release

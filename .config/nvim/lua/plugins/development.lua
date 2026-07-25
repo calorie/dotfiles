@@ -207,7 +207,7 @@ return {
 
   {
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = 'hrsh7th/cmp-nvim-lsp',
     init = function()
       vim.api.nvim_create_autocmd({ 'BufWritePre' }, {

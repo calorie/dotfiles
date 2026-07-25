@@ -5,6 +5,8 @@ Super-lightweight NeoVim configuration
 
 ## Setup
 
+Homebrew must be installed before running the setup script.
+
 ```sh
 git clone --single-branch git@github.com:calorie/dotfiles.git ~/dotfiles
 cd ~/dotfiles

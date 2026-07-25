@@ -1,8 +1,10 @@
 #!/bin/bash
 
+set -euo pipefail
+
 ENHANCD_PATH=$HOME/enhancd
-if [ -d $ENHANCD_PATH ]; then
+if [ -d "$ENHANCD_PATH" ]; then
   exit
 fi
 
-git clone --single-branch https://github.com/babarot/enhancd $ENHANCD_PATH
+git clone --single-branch https://github.com/babarot/enhancd "$ENHANCD_PATH"
