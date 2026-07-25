@@ -33,6 +33,7 @@ DIRS=(
   .config/alacritty
   .config/nvim
   .config/peco
+  .config/tmux-powerline
   .nodenv
   .rbenv
 )
