@@ -107,11 +107,7 @@ if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 		#"vpn 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
 		# "wan_ip 24 255"
 		"pwd 235 251"
-		"vcs_branch 103 251"
-		"vcs_compare 60 251"
-		"vcs_staged 31 251"
-		"vcs_modified 168 251"
-		"vcs_others 60 234"
+		"vcs_status 103 251"
 	)
 fi
 
@@ -125,7 +121,6 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		# "now_playing 234 37"
 		#"cpu 240 136"
 		# "load 237 167"
-		"tmux_mem_cpu_load 234 31"
 		"battery 168 251"
 		#"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255"
 		"weather 31 251"

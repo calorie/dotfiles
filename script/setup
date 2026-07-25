@@ -69,6 +69,7 @@ DOTFILES=(
   .config/nvim/lua
   .config/peco/config.json
   .config/tmux-powerline/config.sh
+  .config/tmux-powerline/segments
   .config/tmux-powerline/themes
   .vimrc
   .zshrc
