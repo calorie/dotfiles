@@ -40,6 +40,7 @@ DOTFILES=(
   .rubocop.yml
   .tmux.conf
   .config/alacritty/alacritty.toml
+  .config/herdr/config.toml
   .config/nvim/init.lua
   .config/nvim/lazy-lock.json
   .config/nvim/lua
