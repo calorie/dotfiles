@@ -107,7 +107,7 @@ if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 		#"vpn 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
 		# "wan_ip 24 255"
 		"pwd 235 251"
-		"vcs_status 103 251"
+		"vcs_status 103 251 default_separator no_sep_bg_color no_sep_fg_color both_disable separator_disable"
 	)
 fi
 
