@@ -39,6 +39,8 @@ brew "go"
 brew "gopls"
 # GNU grep, egrep and fgrep
 brew "grep"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
 # Improved top (interactive process viewer)
 brew "htop"
 # Lightweight and flexible command-line JSON processor
