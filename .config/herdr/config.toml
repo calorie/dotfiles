@@ -1,6 +1,11 @@
+onboarding = false
 [ui.toast]
 delivery = "system"
 delay_seconds = 1
 
 [ui.sound]
 enabled = false
+
+[ui]
+hide_tab_bar_when_single_tab = true
+sidebar_start_collapsed = true
