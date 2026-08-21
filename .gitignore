@@ -38,3 +38,6 @@ vendor/bundle
 *.p8
 
 cdk.out
+
+**/.claude/settings.local.json
+**/.claude/.cc-writes/
