@@ -22,7 +22,7 @@ alias gr='grep --color=auto -ERUIn --exclude-dir=.git --exclude-dir=.svn --exclu
 
 alias p='ping -c 4'
 
-alias cp='nocorrect cp -irp'
+# alias cp='nocorrect cp -irp'
 
 alias g='git'
 alias gi='git'
