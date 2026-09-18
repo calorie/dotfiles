@@ -7,8 +7,6 @@ brew "automake"
 brew "ncurses"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
-# Like cat but displays content with syntax highlighting
-brew "ccat"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -19,8 +17,6 @@ brew "curl"
 brew "direnv"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Lightweight scripting language for querying databases
-brew "flux"
 # GNU awk utility
 brew "gawk"
 # GitHub command-line tool
@@ -71,8 +67,6 @@ brew "nodenv"
 brew "openjdk"
 # Simplistic interactive filtering tool
 brew "peco"
-# Execute binaries from Python packages in isolated environments
-brew "pipx"
 # Beautiful and useful low-latency prompt for your shell
 brew "powerline-go"
 # Show ps output as a tree
@@ -101,16 +95,10 @@ brew "tmux"
 brew "tmux-mem-cpu-load"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Parser generator tool
-brew "tree-sitter-cli"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
-# Pager/text based browser
-brew "w3m"
 # Internet file retriever
 brew "wget"
-# JavaScript package manager
-brew "yarn"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # General-purpose lossless data-compression library
@@ -151,4 +139,3 @@ npm "typescript-language-server"
 npm "typescript"
 npm "vscode-langservers-extracted"
 npm "yaml-language-server"
-npm "yarn"
