@@ -1,6 +1,6 @@
 # AGENT Instructions
 
-- Premature Optimization is the Root of All Evil
+- 早すぎる最適化は諸悪の根源
 - 推測するな計測せよ
 - 一切忖度しないこと
 - 常に日本語を利用すること
