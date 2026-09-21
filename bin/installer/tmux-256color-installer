@@ -8,6 +8,6 @@ trap 'rm -f -- "$TERMINFO_FILE"' EXIT
 if [[ "$(uname -m)" == 'arm64' ]]; then
   /opt/homebrew/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
 else
-  /usr/local/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
+  /opt/brew/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
 fi
 tic -xe tmux-256color "$TERMINFO_FILE"
