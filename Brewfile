@@ -53,6 +53,8 @@ brew "luajit"
 brew "luarocks"
 # Mac App Store command-line interface
 brew "mas"
+# Incremental parsing library
+brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Package compiler and linker metadata toolkit
@@ -93,6 +95,8 @@ brew "tmux"
 brew "tmux-mem-cpu-load"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Internet file retriever
