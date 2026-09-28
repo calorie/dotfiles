@@ -1,4 +1,3 @@
-@google/gemini-cli
 neovim
 @openai/codex
 sql-language-server

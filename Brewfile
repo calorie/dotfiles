@@ -71,6 +71,8 @@ brew "peco"
 brew "powerline-go"
 # Show ps output as a tree
 brew "pstree"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Ruby version manager
@@ -99,6 +101,8 @@ brew "tree"
 brew "tree-sitter-cli"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Ogg Vorbis CODEC tools
+brew "vorbis-tools"
 # Internet file retriever
 brew "wget"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
@@ -132,7 +136,6 @@ cask "keyboardcleantool"
 cask "the-unarchiver"
 mas "Kindle", id: 302584613
 mas "Xcode", id: 497799835
-npm "@google/gemini-cli"
 npm "@openai/codex"
 npm "corepack"
 npm "neovim"
