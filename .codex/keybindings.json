@@ -1,0 +1,90 @@
+[
+  {
+    "command": "archiveThread",
+    "key": null
+  },
+  {
+    "command": "artifact.sendAnnotations",
+    "key": null
+  },
+  {
+    "command": "closeWindow",
+    "key": null
+  },
+  {
+    "command": "composer.addFiles",
+    "key": null
+  },
+  {
+    "command": "composer.openModelPicker",
+    "key": null
+  },
+  {
+    "command": "composer.startDictation",
+    "key": null
+  },
+  {
+    "command": "composer.startVoiceMode",
+    "key": null
+  },
+  {
+    "command": "deleteChat",
+    "key": null
+  },
+  {
+    "command": "markThreadUnread",
+    "key": null
+  },
+  {
+    "command": "navigateBack",
+    "key": null
+  },
+  {
+    "command": "navigateForward",
+    "key": null
+  },
+  {
+    "command": "newTask",
+    "key": null
+  },
+  {
+    "command": "newWindow",
+    "key": null
+  },
+  {
+    "command": "openAvatarOverlay",
+    "key": null
+  },
+  {
+    "command": "openCommandMenu",
+    "key": null
+  },
+  {
+    "command": "renameThread",
+    "key": null
+  },
+  {
+    "command": "searchChats",
+    "key": null
+  },
+  {
+    "command": "settings",
+    "key": null
+  },
+  {
+    "command": "showKeyboardShortcuts",
+    "key": null
+  },
+  {
+    "command": "temporaryChat",
+    "key": null
+  },
+  {
+    "command": "toggleSidebar",
+    "key": null
+  },
+  {
+    "command": "toggleThreadPin",
+    "key": null
+  }
+]

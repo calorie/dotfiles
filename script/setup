@@ -39,6 +39,7 @@ done
 
 DIRS=(
   .cache
+  .codex
   .config/alacritty
   .config/herdr
   .config/nvim
@@ -64,6 +65,7 @@ DOTFILES=(
   .rspec
   .rubocop.yml
   .tmux.conf
+  .codex/keybindings.json
   .config/alacritty/alacritty.toml
   .config/herdr/config.toml
   .config/nvim/init.lua
