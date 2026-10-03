@@ -13,10 +13,6 @@ cd ~/dotfiles
 ./script/setup
 ```
 
-```sh
-nvim +':Copilot auth' +qa
-```
-
 ## Uninstall
 
 ```sh

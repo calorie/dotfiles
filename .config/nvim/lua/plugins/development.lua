@@ -36,34 +36,34 @@ return {
   --   },
   -- },
 
-  {
-    'zbirenbaum/copilot.lua',
-    -- dependencies = 'copilotlsp-nvim/copilot-lsp',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-      server = {
-        type = 'binary',
-      },
-      server_opts_overrides = {
-        settings = {
-          telemetry = {
-            telemetryLevel = 'off',
-          },
-        },
-      },
-      -- nes = {
-      --   enabled = true,
-      --   keymap = {
-      --     accept_and_goto = '<leader>p',
-      --     accept = false,
-      --     dismiss = '<Esc>',
-      --   },
-      -- },
-    },
-  },
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  --   -- dependencies = 'copilotlsp-nvim/copilot-lsp',
+  --   cmd = 'Copilot',
+  --   event = 'InsertEnter',
+  --   opts = {
+  --     suggestion = { enabled = false },
+  --     panel = { enabled = false },
+  --     server = {
+  --       type = 'binary',
+  --     },
+  --     server_opts_overrides = {
+  --       settings = {
+  --         telemetry = {
+  --           telemetryLevel = 'off',
+  --         },
+  --       },
+  --     },
+  --     -- nes = {
+  --     --   enabled = true,
+  --     --   keymap = {
+  --     --     accept_and_goto = '<leader>p',
+  --     --     accept = false,
+  --     --     dismiss = '<Esc>',
+  --     --   },
+  --     -- },
+  --   },
+  -- },
 
   {
     'lewis6991/gitsigns.nvim',
