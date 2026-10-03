@@ -67,8 +67,6 @@ brew "nodenv"
 brew "openjdk"
 # Simplistic interactive filtering tool
 brew "peco"
-# Beautiful and useful low-latency prompt for your shell
-brew "powerline-go"
 # Show ps output as a tree
 brew "pstree"
 # Interpreted, interactive, object-oriented programming language
