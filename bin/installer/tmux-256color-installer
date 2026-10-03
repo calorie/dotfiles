@@ -5,9 +5,11 @@ set -euo pipefail
 TERMINFO_FILE=$HOME/tmux-256color.info
 trap 'rm -f -- "$TERMINFO_FILE"' EXIT
 
-if [[ "$(uname -m)" == 'arm64' ]]; then
-  /opt/homebrew/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
-else
-  /opt/brew/opt/ncurses/bin/infocmp tmux-256color > "$TERMINFO_FILE"
+if ! command -v brew >/dev/null 2>&1; then
+  printf '%s\n' 'Homebrew is required.' >&2
+  exit 1
 fi
-tic -xe tmux-256color "$TERMINFO_FILE"
+
+NCURSES_PREFIX=$(brew --prefix ncurses)
+"$NCURSES_PREFIX/bin/infocmp" tmux-256color > "$TERMINFO_FILE"
+"$NCURSES_PREFIX/bin/tic" -o "$HOME/.terminfo" -xe tmux-256color "$TERMINFO_FILE"

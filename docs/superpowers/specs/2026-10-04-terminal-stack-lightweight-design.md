@@ -126,7 +126,7 @@ Homebrew prefix は uname による固定値選択を廃止し、zsh が保持�
 
 tmux-powerline と現在のセグメントを維持する。独自の代替ステータス実装は追加しない。
 
-TMUX_POWERLINE_STATUS_INTERVAL を 1 秒から 5 秒へ変更し、tmux-mem-cpu-load にも 5 秒の interval を明示する。表示している時刻は分単位、天気は 600 秒キャッシュであるため、5 秒更新でも情報は維持される。CPU とメモリは 5 秒間隔で更新する。
+TMUX_POWERLINE_STATUS_INTERVAL を 1 秒から 4 秒へ変更し、tmux-mem-cpu-load の CPU 採取時間は既定の 1 秒を維持する。tmux-mem-cpu-load の `-i` は再描画周期ではなく CPU 採取時間を変更するため、指定しない。表示している時刻は分単位、天気は 600 秒キャッシュであるため、4 秒更新でも情報は維持される。隔離計測では外部 process 起動頻度が 0.500058 Hz から 0.250017 Hz へ 50.00% 低下し、最大起動間隔は 4.037 秒だった。
 
 tmux-256color のセットアップでは、アーキテクチャ別の固定 prefix ではなく、セットアップ時に brew --prefix ncurses を 1 回だけ実行する。対話シェル起動時には brew subprocess を追加しない。
 
@@ -243,7 +243,7 @@ mise と zoxide は、3 つのコア PR 完了後に別の設計と PR で扱う
 ## 13. リスク
 
 - prompt の装飾は簡素になる。機能維持と約 7.6 ms／prompt の削減を優先する。
-- tmux の CPU／メモリ表示は 1 秒更新から 5 秒更新になる。表示情報は維持する。
+- tmux の CPU／メモリ表示は約 2 秒周期から 4 秒周期になる。表示情報と 1 秒間の CPU 採取は維持する。
 - Ghostty の性能は導入前には確定できない。A/B 計測を採用条件とする。
 - Intel Mac の性能は実機なしでは測定できない。公式 Universal Binary と構文確認を互換性の根拠とし、未計測を明記する。
 - 複数 PR が Brewfile に触れる場合は、先行 PR merge 後の main から後続ブランチを作成し、不要な stack を作らない。
