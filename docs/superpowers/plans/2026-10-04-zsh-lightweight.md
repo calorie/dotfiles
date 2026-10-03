@@ -121,7 +121,7 @@
 
 - [ ] **Step 1: 変更前の prompt コストを再計測する**
 
-      /usr/bin/time -p /bin/zsh -fc 'repeat 100 { powerline-go -shell zsh -modules cwd -modules-right exit -error $pipestatus[-1] -jobs 0 >/dev/null }'
+      /usr/bin/time -p /bin/zsh -fc 'repeat 100 { powerline-go -error 0 -shell zsh -eval -modules cwd >/dev/null }'
 
   Expected baseline: 100 回の実行時間を記録する。
 
@@ -194,9 +194,10 @@
       git diff main...HEAD --check
       /bin/zsh -n .zsh/.zshrc.osx
       /bin/zsh -n .zsh/.zshrc.utility
-      brew bundle check --file Brewfile
+      brew bundle list --file Brewfile >/dev/null
+      ! brew bundle list --file Brewfile --brews | rg '^powerline-go$'
 
-  Expected: 差分エラーと構文エラーがなく、Brewfile が整合する。
+  Expected: 差分エラーと構文エラーがなく、Brewfile を解析でき、powerline-go が含まれない。
 
 - [ ] **Step 2: 計測結果を PR 本文にまとめる**
 
