@@ -12,4 +12,4 @@ fi
 
 NCURSES_PREFIX=$(brew --prefix ncurses)
 "$NCURSES_PREFIX/bin/infocmp" tmux-256color > "$TERMINFO_FILE"
-"$NCURSES_PREFIX/bin/tic" -xe tmux-256color "$TERMINFO_FILE"
+"$NCURSES_PREFIX/bin/tic" -o "$HOME/.terminfo" -xe tmux-256color "$TERMINFO_FILE"

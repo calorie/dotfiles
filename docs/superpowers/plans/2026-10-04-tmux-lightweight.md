@@ -4,7 +4,7 @@
 
 **Goal:** tmux の表示機能を維持しながら、status 更新に伴う CPU 使用率と外部 process 起動頻度を下げ、Homebrew prefix の固定値を除去する。
 
-**Architecture:** 既存の tmux-powerline と tmux-mem-cpu-load を維持し、両者の更新周期を 5 秒に揃える。terminfo installer は実行時に Homebrew から ncurses prefix を一度だけ取得する。
+**Architecture:** 既存の tmux-powerline と tmux-mem-cpu-load を維持し、status の再描画周期を 4 秒にする。tmux-mem-cpu-load の CPU 採取時間は既定の 1 秒を維持する。terminfo installer は実行時に Homebrew から ncurses prefix を一度だけ取得する。
 
 **Tech Stack:** tmux 3.7、tmux-powerline、tmux-mem-cpu-load、bash、Homebrew、macOS 13 以降
 
@@ -24,7 +24,7 @@
 
 ## Review Focus
 
-- tmux-powerline と tmux-mem-cpu-load の更新周期が同じ 5 秒か。
+- tmux-powerline の更新周期が 4 秒で、tmux-mem-cpu-load に `-i` を指定していないか。
 - Git と system 情報が欠落していないか。
 - Git repository 外でも status が壊れないか。
 - ncurses prefix を Intel / Apple Silicon の双方で解決できるか。
@@ -103,7 +103,7 @@
       git add bin/installer/tmux-256color-installer
       git commit -m 'tmux-256color の Homebrew prefix を動的に解決する'
 
-### Task 2: status 更新周期を 5 秒に揃える
+### Task 2: status 更新周期を 4 秒にする
 
 **Files:**
 
@@ -128,8 +128,8 @@
 
   次の 2 箇所だけを変更する。
 
-  - `.config/tmux-powerline/config.sh` の `TMUX_POWERLINE_STATUS_INTERVAL="5"`
-  - `.tmux.conf` の `status-right` にある tmux-mem-cpu-load に `-i 5` を追加する。
+  - `.config/tmux-powerline/config.sh` の `TMUX_POWERLINE_STATUS_INTERVAL="4"`
+  - `.tmux.conf` の `status-right` にある tmux-mem-cpu-load は `-v` のみとし、CPU 採取時間を延ばす `-i` を指定しない。
 
   status の内容、配置、色、key binding は変更しない。
 
@@ -140,7 +140,7 @@
       tmux -L dotfiles-tmux-candidate show-options -g status-left
       tmux -L dotfiles-tmux-candidate show-options -g status-right
 
-  Expected: server が起動し、両 status command が 5 秒周期になる。書き込みを伴う tmux server 起動は事前承認後に実行する。
+  Expected: server が起動し、status が 4 秒周期、tmux-mem-cpu-load の CPU 採取時間が既定の 1 秒になる。書き込みを伴う tmux server 起動は事前承認後に実行する。
 
 - [ ] **Step 5: status の機能契約を確認する**
 
@@ -187,7 +187,7 @@
       bash -n .config/tmux-powerline/config.sh
       rg -n 'STATUS_INTERVAL|tmux-mem-cpu-load' .config/tmux-powerline/config.sh .tmux.conf
 
-  Expected: 差分エラーと構文エラーがなく、両 interval が 5 秒。
+  Expected: 差分エラーと構文エラーがなく、status interval が 4 秒、tmux-mem-cpu-load に `-i` 指定がない。
 
 - [ ] **Step 2: 計測結果を PR 本文にまとめる**
 
