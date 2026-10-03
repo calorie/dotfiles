@@ -111,7 +111,9 @@
       git add .zsh/.zshrc.osx
       git commit -m 'zsh で Homebrew prefix を動的に解決する'
 
-### Task 2: powerline-go を zsh 標準 prompt に置き換える
+### Task 2: powerline-go を zsh 標準 prompt に置き換える（不採用）
+
+この案は directory ごとの segment 表示を維持できなかったため、merge 後に取り消した。以下は不採用案と検証経緯の記録として残す。
 
 **Files:**
 
@@ -195,13 +197,13 @@
       /bin/zsh -n .zsh/.zshrc.osx
       /bin/zsh -n .zsh/.zshrc.utility
       brew bundle list --file Brewfile >/dev/null
-      ! brew bundle list --file Brewfile --brews | rg '^powerline-go$'
+      brew bundle list --file Brewfile --brews | rg '^powerline-go$'
 
-  Expected: 差分エラーと構文エラーがなく、Brewfile を解析でき、powerline-go が含まれない。
+  Expected: 差分エラーと構文エラーがなく、Brewfile を解析でき、powerline-go が含まれる。
 
 - [ ] **Step 2: 計測結果を PR 本文にまとめる**
 
-  startup、prompt 100 回、削除 dependency 容量、Intel / Apple Silicon の検査結果を表にする。未計測値は記載しない。
+  startup、prompt 100 回、維持する dependency 容量、Intel / Apple Silicon の検査結果を表にする。未計測値は記載しない。
 
 - [ ] **Step 3: GitHub 認証状態を確認する**
 

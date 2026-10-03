@@ -2,7 +2,18 @@ if [ -d $HOME/zsh-defer ]; then
   source $HOME/zsh-defer/zsh-defer.plugin.zsh
 fi
 
-PROMPT='%F{15}%K{31} %~ %k%F{31}%f '
+# powerline
+function powerline_precmd() {
+  eval "$(powerline-go -error $? -shell zsh -eval -modules cwd)"
+}
+
+if [ "$TERM" != 'linux' ]; then
+  if ! command -v powerline-go >/dev/null 2>&1; then
+    print -u2 'powerline-go is required.'
+    return 1
+  fi
+  (( ${precmd_functions[(I)powerline_precmd]} )) || precmd_functions+=(powerline_precmd)
+fi
 
 # direnv
 if command -v direnv >/dev/null 2>&1; then

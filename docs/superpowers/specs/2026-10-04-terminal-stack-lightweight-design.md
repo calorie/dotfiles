@@ -110,7 +110,7 @@ tmux の実効 status-interval は 1 秒である。設定上、status-left、st
 
 ### 7.1 zsh
 
-powerline-go の precmd hook を削除し、zsh 標準の prompt 展開で現在ディレクトリを表示する。外観の Powerline 区切りは、約 7.6 ms／prompt と 3.1 MB の依存削減に値するため簡素化を許容する。
+powerline-go の precmd hook と表示を維持する。zsh 標準の prompt 展開では directory ごとの segment 表示を維持できず、約 7.6 ms／prompt と 3.1 MB の削減は表示契約を変更する根拠として不十分である。
 
 Homebrew prefix は uname による固定値選択を廃止し、zsh が保持する brew の実体パスから subprocess なしで導出する。brew が見つからない場合は、英語のエラー Homebrew is required. を表示して失敗させる。
 
@@ -161,7 +161,7 @@ Ghostty は macOS 13 以降の Apple Silicon／Intel Universal Binary を評価�
 | Alacritty と tmux から WezTerm | 不採用 | multiplexer が発展途上で、永続セッションの移行負担が大きい |
 | tmux から Zellij | 不採用 | 操作体系とプラグインが変わり、完全な機能維持にならない |
 | zsh から fish／Nushell | 不採用 | 現在の zsh は十分軽く、全面移植の保守負担が大きい |
-| powerline-go から zsh 標準 prompt | 採用 | subprocess と依存を同時に削減できる |
+| powerline-go から zsh 標準 prompt | 不採用 | directory ごとの segment 表示を維持できない |
 | rbenv と nodenv から mise | 後続評価 | Ruby／Node.js を統合できるが、プロジェクト互換性の調査が必要 |
 | enhancd と peco から zoxide と fzf | 後続評価 | 保守性向上の可能性があるが、操作差と依存容量の実測が必要 |
 
@@ -184,7 +184,7 @@ mise と zoxide は、3 つのコア PR 完了後に別の設計と PR で扱う
 - zprof による初期化処理の比較
 - prompt 表示を 100 回以上実行し、平均時間を比較
 - alias、option、補完、履歴検索、direnv、Ruby、Node.js、enhancd、peco、mkcd、.zshrc.local を確認
-- prompt 表示時の powerline-go subprocess がなくなったことを確認
+- home、repository root、深い directory で従来の powerline-go 表示と一致することを確認
 
 ### 10.2 tmux
 
@@ -206,8 +206,7 @@ mise と zoxide は、3 つのコア PR 完了後に別の設計と PR で扱う
 
 ### zsh
 
-- powerline-go 依存 3.1 MB を削除できる。
-- prompt 表示の約 7.6 ms の外部処理を削除できる。
+- powerline-go の directory ごとの segment 表示を維持する。
 - シェル起動時間を有意に悪化させない。
 - 機能契約を満たす。
 
@@ -232,7 +231,7 @@ mise と zoxide は、3 つのコア PR 完了後に別の設計と PR で扱う
 | ブランチ | 内容 | コミットメッセージ案 |
 | --- | --- | --- |
 | docs/terminal-stack-lightweight | 本設計と基準値 | 端末スタック軽量化の設計を追加する |
-| perf/zsh-lightweight | zsh 標準 prompt、Homebrew prefix、powerline-go 削除 | zsh の起動処理を軽量化する |
+| perf/zsh-lightweight | Homebrew prefix の動的解決 | zsh の起動処理を軽量化する |
 | perf/tmux-lightweight | 更新間隔、tmux-mem-cpu-load、tmux-256color installer | tmux のステータス更新を軽量化する |
 | perf/ghostty-evaluation | 採用基準を満たした場合の Ghostty 置換 | Alacritty を Ghostty に置き換える |
 
@@ -242,7 +241,7 @@ mise と zoxide は、3 つのコア PR 完了後に別の設計と PR で扱う
 
 ## 13. リスク
 
-- prompt の装飾は簡素になる。機能維持と約 7.6 ms／prompt の削減を優先する。
+- powerline-go の約 7.6 ms／prompt と 3.1 MB は、従来表示を維持するため残る。
 - tmux の CPU／メモリ表示は約 2 秒周期から 4 秒周期になる。表示情報と 1 秒間の CPU 採取は維持する。
 - Ghostty の性能は導入前には確定できない。A/B 計測を採用条件とする。
 - Intel Mac の性能は実機なしでは測定できない。公式 Universal Binary と構文確認を互換性の根拠とし、未計測を明記する。
