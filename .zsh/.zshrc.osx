@@ -1,10 +1,10 @@
 alias pbc='pbcopy'
 
-if [[ "$(uname -m)" == 'arm64' ]]; then
-  PREFIX=/opt/homebrew
-else
-  PREFIX=/opt/brew
+if (( ! $+commands[brew] )); then
+  print -u2 'Homebrew is required.'
+  return 1
 fi
+PREFIX=${commands[brew]:h:h}
 
 export PATH="$PREFIX/opt/python/libexec/bin:$PREFIX/opt/libxml2/bin:$PREFIX/opt/openjdk/bin:$PATH"
 # export PATH="$PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
