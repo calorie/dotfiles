@@ -147,7 +147,7 @@ Ghostty は macOS 13 以降の Apple Silicon／Intel Universal Binary を評価�
 採用時の変更候補：
 
 - Brewfile
-- .config/ghostty/config
+- .config/ghostty/config.ghostty
 - .config/alacritty
 - .tmux.conf
 - script/setup
