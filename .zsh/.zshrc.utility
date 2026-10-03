@@ -7,11 +7,7 @@ function powerline_precmd() {
   eval "$(powerline-go -error $? -shell zsh -eval -modules cwd)"
 }
 
-if [ "$TERM" != 'linux' ]; then
-  if ! command -v powerline-go >/dev/null 2>&1; then
-    print -u2 'powerline-go is required.'
-    return 1
-  fi
+if command -v powerline-go >/dev/null 2>&1; then
   (( ${precmd_functions[(I)powerline_precmd]} )) || precmd_functions+=(powerline_precmd)
 fi
 
