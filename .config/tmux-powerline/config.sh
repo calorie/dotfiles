@@ -379,23 +379,20 @@
 # }
 
 # weather.sh {
-	# The data provider to use. Currently only "yahoo" is supported.
+	# 天気情報の取得元。現在は yrno のみ対応する。
 	export TMUX_POWERLINE_SEG_WEATHER_DATA_PROVIDER="yrno"
-	# What unit to use. Can be any of {c,f,k}.
+	# 温度の単位。c、f、k を指定する。
 	export TMUX_POWERLINE_SEG_WEATHER_UNIT="c"
-	# How often to update the weather in seconds.
+	# 天気情報の更新間隔（秒）。
 	export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="600"
-	# Name of GNU grep binary if in PATH, or path to it.
-	export TMUX_POWERLINE_SEG_WEATHER_GREP="grep"
-	if [[ $(uname) = 'Darwin' ]]; then
-		export TMUX_POWERLINE_SEG_WEATHER_GREP="ggrep"
-	fi
-	# Location of the JSON parser, jq
-	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
-	# Your location
-	# Latitude and Longtitude for use with yr.no
-	TMUX_POWERLINE_SEG_WEATHER_LAT="35.6895"
-	TMUX_POWERLINE_SEG_WEATHER_LON="139.69171"
+	# 位置情報の更新間隔（秒）。緯度・経度を auto にした場合のみ使用する。
+	export TMUX_POWERLINE_SEG_WEATHER_LOCATION_UPDATE_PERIOD="86400"
+	# yr.no に渡す緯度・経度。両方を auto にすると IP アドレスから取得する。
+	export TMUX_POWERLINE_SEG_WEATHER_LAT="35.6895"
+	export TMUX_POWERLINE_SEG_WEATHER_LON="139.69171"
+	# 天気アイコン。emoji、emoji_fixed、nerdfonts、auto を指定する。
+	# 変更後は天気キャッシュの更新時に反映される。
+	export TMUX_POWERLINE_SEG_WEATHER_ICON_STYLE="emoji"
 # }
 
 # xkb_layout.sh {
