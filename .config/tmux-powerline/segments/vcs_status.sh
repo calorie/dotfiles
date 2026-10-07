@@ -47,6 +47,9 @@ run_segment() {
 	local staged=0
 	local modified=0
 	local untracked=0
+	local final_background
+	__vcs_status_normalize_colour final_background "$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR"
+	local output="#[fg=colour235,bg=${final_background}]${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR}#[default]"
 
 	tmux_path=$(tp_get_tmux_cwd) || return 1
 	cd "$tmux_path" || return 1
@@ -55,7 +58,7 @@ run_segment() {
 		--porcelain=v2 \
 		--branch \
 		--untracked-files=all \
-		2>/dev/null) || return 0
+		2>/dev/null) || { printf '%s\n' "$output"; return 0; }
 
 	while IFS= read -r line; do
 		case "$line" in
@@ -91,7 +94,7 @@ run_segment() {
 		esac
 	done <<<"$status"
 
-	[ -n "$branch" ] || return 0
+	[ -n "$branch" ] || { printf '%s\n' "$output"; return 0; }
 
 	if [ "$branch" = "(detached)" ]; then
 		branch=":${oid:0:7}"
@@ -153,7 +156,8 @@ run_segment() {
 		block_contents+=("${TMUX_POWERLINE_SEG_VCS_STATUS_UNTRACKED_SYMBOL} ${untracked}")
 	fi
 
-	local output=""
+	# 現在ディレクトリから Git 表示へ背景色を切り替える。
+	output="#[fg=colour235,bg=${TMUX_POWERLINE_CUR_SEGMENT_BG}]${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR}#[default]"
 	local block_index
 	for block_index in "${!block_contents[@]}"; do
 		if ((block_index > 0)); then
@@ -166,8 +170,6 @@ run_segment() {
 		output+=" ${block_contents[block_index]} "
 	done
 
-	local final_background
-	__vcs_status_normalize_colour final_background "$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR"
 	output+="#[fg=${block_backgrounds[${#block_backgrounds[@]} - 1]},bg=${final_background}]"
 	output+="${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR}"
 
