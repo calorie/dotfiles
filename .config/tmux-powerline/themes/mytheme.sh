@@ -2,7 +2,7 @@
 # Default Theme
 # If changes made here does not take effect, then try to re-create the tmux session to force reload.
 
-if patched_font_in_use; then
+if tp_patched_font_in_use; then
 	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
@@ -17,40 +17,22 @@ fi
 # See Color formatting section below for details on what colors can be used here.
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'234'}
 TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-'251'}
-# shellcheck disable=SC2034
-TMUX_POWERLINE_SEG_AIR_COLOR=$(air_color)
 
 TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}
 TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}
 
-# See `man tmux` for additional formatting options for the status line.
-# The `format regular` and `format inverse` functions are provided as conveniences
-
-# shellcheck disable=SC2128
-if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
-	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
-		"#[$(format inverse)]"
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
-		" #W "
-		"#[$(format regular)]"
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
-	)
-fi
-
-# shellcheck disable=SC2128
-if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_STYLE" ]; then
-	TMUX_POWERLINE_WINDOW_STATUS_STYLE=(
-		"$(format regular)"
-	)
-fi
-
-# shellcheck disable=SC2128
-if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
-	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
-		"#[$(format regular)]"
-		" #W "
-	)
-fi
+# 色変換と描画を組み込み処理で行い、子プロセスを生成しない。
+__print_colored_content() {
+	local content=$1 background=$2 foreground=$3 colour
+	for colour in background foreground; do
+		case "${!colour}" in
+		[0-9] | [0-9][0-9] | [0-9][0-9][0-9])
+			printf -v "$colour" 'colour%s' "${!colour}"
+			;;
+		esac
+	done
+	printf '#[fg=%s,bg=%s]%s#[default]' "$foreground" "$background" "$content"
+}
 
 # Format: segment_name [background_color|default_bg_color] [foreground_color|default_fg_color] [non_default_separator|default_separator] [separator_background_color|no_sep_bg_color]
 #                      [separator_foreground_color|no_sep_fg_color] [spacing_disable|no_spacing_disable] [separator_disable|no_separator_disable]
@@ -126,9 +108,6 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		"weather 31 251"
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}"
 		#"xkb_layout 125 117"
-		"date_day 235 251"
-		"date 235 251 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
-		"time 235 251 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 	)
 fi
