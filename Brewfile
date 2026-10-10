@@ -72,7 +72,7 @@ brew "powerline-go"
 # Show ps output as a tree
 brew "pstree"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
+brew "python@3.15"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Ruby version manager
