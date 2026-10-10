@@ -117,8 +117,6 @@ brew "hashicorp/tap/terraform", trusted: true
 brew "laishulu/homebrew/macism", trusted: true
 # Install a set of npm packages every time you install a new version of Node
 brew "nodenv/nodenv/nodenv-default-packages", trusted: true
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
 # Application uninstaller
