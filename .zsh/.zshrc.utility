@@ -4,7 +4,7 @@ fi
 
 # powerline
 function powerline_precmd() {
-  eval "$(powerline-go -error $? -shell zsh -eval -modules cwd)"
+  eval "$(powerline-go -error $? -shell zsh -eval -modules cwd,exit)"
 }
 
 if command -v powerline-go >/dev/null 2>&1; then
