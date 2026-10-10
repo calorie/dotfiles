@@ -13,10 +13,14 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# File comparison utilities
+brew "diffutils"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
 # GNU awk utility
 brew "gawk"
 # GitHub command-line tool
@@ -27,10 +31,14 @@ brew "git"
 brew "git-delta"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Language server for the Go language
 brew "gopls"
+# Apply a diff file to an original
+brew "gpatch"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Agent multiplexer that lives in your terminal
@@ -51,6 +59,8 @@ brew "lua"
 brew "luajit"
 # Package manager for the Lua programming language
 brew "luarocks"
+# Utility for directing compilation
+brew "make"
 # Mac App Store command-line interface
 brew "mas"
 # Incremental parsing library
@@ -85,6 +95,8 @@ brew "ripgrep"
 brew "rust"
 # Rust toolchain installer
 brew "rustup"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
 # User interface to the TELNET protocol

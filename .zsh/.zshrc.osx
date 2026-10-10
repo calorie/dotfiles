@@ -6,8 +6,7 @@ if (( ! $+commands[brew] )); then
 fi
 PREFIX=${commands[brew]:h:h}
 
-export PATH="$PREFIX/opt/python/libexec/bin:$PREFIX/opt/libxml2/bin:$PREFIX/opt/openjdk/bin:$PATH"
-# export PATH="$PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$PREFIX/opt/coreutils/libexec/gnubin:$PREFIX/opt/findutils/libexec/gnubin:$PREFIX/opt/gawk/libexec/gnubin:$PREFIX/opt/grep/libexec/gnubin:$PREFIX/opt/gnu-sed/libexec/gnubin:$PREFIX/opt/gnu-tar/libexec/gnubin:$PREFIX/opt/make/libexec/gnubin:$PREFIX/opt/gpatch/libexec/gnubin:$PREFIX/opt/diffutils/bin:$PREFIX/opt/ripgrep/bin:$PREFIX/opt/curl/bin:$PREFIX/opt/python/libexec/bin:$PREFIX/opt/libxml2/bin:$PREFIX/opt/openjdk/bin:$PATH"
 export C_INCLUDE_PATH=$PREFIX/include:$C_INCLUDE_PATH
 export LDFLAGS="-L$PREFIX/opt/zlib/lib -L$PREFIX/opt/curl/lib -L$PREFIX/opt/libxml2/lib $LDFLAGS"
 export CPPFLAGS="-I$PREFIX/opt/zlib/include -I$PREFIX/opt/curl/include -I$PREFIX/opt/libxml2/include -I$PREFIX/opt/openjdk/include $CPPFLAGS"
